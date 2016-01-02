@@ -38,7 +38,7 @@ bool CollisionDebugLayer::init()
 
 void CollisionDebugLayer::draw()
 {
-	static bool bDraw = false;
+	static bool bDraw = true;
 	if(GetKeyState('C') & 0x8000)
 	{
 		bDraw = !bDraw;

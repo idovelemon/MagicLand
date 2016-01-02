@@ -28,8 +28,8 @@ float AABB::getHeight() const
 
 void AABB::update(VECTOR2 center)
 {
-	unsigned int width = m_vMax.x - m_vMin.x ;
-	unsigned int height = m_vMax.y - m_vMin.y ;
+	float width = m_vMax.x - m_vMin.x ;
+	float height = m_vMax.y - m_vMin.y ;
 	m_vMax = MAKE_VECTOR2(center.x + width/2,
 		center.y + height/2);
 	m_vMin = MAKE_VECTOR2(center.x - width/2,
