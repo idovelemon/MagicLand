@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EF67B76A-524A-4A32-BE2B-2A6E10D0CAEF}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir>$(Configuration).win32\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\draw_nodes;D:\Cocos2d-x\cocos2d-2.1rc0-x-2.1.2\cocos2dx\platform\third_party\win32\OGLES;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\platform\third_party\win32;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\kazmath\include;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\platform\win32;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\platform;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\include;D:\Cocos2d-x\cocos2d-x srcconfig\include\external;D:\Cocos2d-x\cocos2d-x srcconfig\include\extensions;D:\Cocos2d-x\cocos2d-x srcconfig\include\CocosDenshion;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx;D:\Cocos2d-x\cocos2d-x srcconfig\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Cocos2d-x\cocos2d-x srcconfig\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
+    <IntDir>$(Configuration).win32\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\Classes;$(SolutionDir)cocos2dx;$(SolutionDir)cocos2dx\include;$(SolutionDir)cocos2dx\kazmath\include;$(SolutionDir)cocos2dx\platform\win32;$(SolutionDir)cocos2dx\platform\third_party\win32;$(SolutionDir)cocos2dx\platform\third_party\win32\OGLES;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS_DEBUG;COCOS2D_DEBUG=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libcocos2d.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>MagicLand.h</HeaderFileName>
+      <InterfaceIdentifierFileName>MagicLand_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>MagicLand_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)/MagicLand.tlb</TypeLibraryName>
+      <DllDataFileName>
+      </DllDataFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\Classes;$(SolutionDir)cocos2dx;$(SolutionDir)cocos2dx\include;$(SolutionDir)cocos2dx\kazmath\include;$(SolutionDir)cocos2dx\platform\win32;$(SolutionDir)cocos2dx\platform\third_party\win32;$(SolutionDir)cocos2dx\platform\third_party\win32\OGLES;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGSNDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libcocos2d.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <HeaderFileName>MagicLand.h</HeaderFileName>
+      <InterfaceIdentifierFileName>MagicLand_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>MagicLand_p.c</ProxyFileName>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)/MagicLand.tlb</TypeLibraryName>
+      <DllDataFileName>
+      </DllDataFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\Resources\CloseNormal.png" />
+    <None Include="..\Resources\CloseSelected.png" />
+    <None Include="..\Resources\HelloWorld.png" />
+    <None Include="res\MagicLand.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MagicLand.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\Camera\MLCamera.h" />
+    <ClInclude Include="..\Classes\CollisionDebugLayer.h" />
+    <ClInclude Include="..\Classes\Collision\MLCollisionMgr.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLComBoundBox.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLComDisplay.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLComMovement.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLComponent.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLComState.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLComTransform.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLEntity.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLEntityCreator.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLEntityMgr.h" />
+    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\marco.h" />
+    <ClInclude Include="..\Classes\Reference\MLReference.h" />
+    <ClInclude Include="..\Classes\Round\MLRoom.h" />
+    <ClInclude Include="..\Classes\Round\MLRoomCreator.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLComCon.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLCon.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLEndState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLStartState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLStateMachine.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLStateMachineMgr.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLStateMethod.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLXJFallState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLXJJumpState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLXJNormalState.h" />
+    <ClInclude Include="..\Classes\Support\XJMath\XJMath.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\Camera\MLCamera.cpp" />
+    <ClCompile Include="..\Classes\CollisionDebugLayer.cpp" />
+    <ClCompile Include="..\Classes\Collision\MLCollisionMgr.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLComBoundBox.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLComDisplay.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLComMovement.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLComponent.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLComState.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLComTransform.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLEntity.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLEntityCreator.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLEntityMgr.cpp" />
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\Reference\MLReference.cpp" />
+    <ClCompile Include="..\Classes\Round\MLRoom.cpp" />
+    <ClCompile Include="..\Classes\Round\MLRoomCreator.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLComCon.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLEndState.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLStartState.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLStateMachine.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLStateMachineMgr.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLStateMethod.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLXJFallState.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLXJJumpState.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLXJNormalState.cpp" />
+    <ClCompile Include="..\Classes\Support\XJMath\XJMath_aabb.cpp" />
+    <ClCompile Include="..\Classes\Support\XJMath\XJMath_obb.cpp" />
+    <ClCompile Include="..\Classes\Support\XJMath\XJMath_vector.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
