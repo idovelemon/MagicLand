@@ -32,4 +32,5 @@ protected:
     cocos2d::CCLayer* m_Layer;       // The layer that be controled by the camera
     bool              m_IsDead;      // If the camera is dead
 };
+
 #endif

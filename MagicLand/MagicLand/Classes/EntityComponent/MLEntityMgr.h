@@ -33,6 +33,8 @@ public:
 	virtual MLEntity* AddTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room);
 	virtual void Update(float delta);
 
+	virtual MLEntity* GetPlayer();
+
 protected:
 	void RunLogic();
 	void DestroyAllDeadEntities();
@@ -41,6 +43,7 @@ protected:
 	typedef std::map<unsigned int, MLEntity*> MLEntityTable;
 	typedef std::map<unsigned int, MLEntity*>::iterator MLEntityTableIt;
 	MLEntityTable			m_EntityTable;
+	MLEntity*				m_Player;
 };
 
 #endif

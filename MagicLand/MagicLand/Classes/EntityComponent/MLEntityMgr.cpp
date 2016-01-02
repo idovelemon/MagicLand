@@ -7,6 +7,7 @@ using namespace MagicLand;
 MLEntityMgr* MLEntityMgr::s_Instance = NULL;
 
 MLEntityMgr::MLEntityMgr()
+	:m_Player(NULL)
 {
 	m_EntityTable.clear();
 }
@@ -43,6 +44,14 @@ MLEntity* MLEntityMgr::AddEntity(MLEntitySubType type, int xCoord, int yCoord, M
 
 	m_EntityTable.insert(std::pair<unsigned int, MLEntity*>(entity->GetID(), entity));
 
+	// Cache Player's entity
+	if(ML_ETYMAINTYPE_PLAYER == entity->GetMainType())
+	{
+		ML_SAFE_DROP(m_Player);
+		m_Player = entity;
+		ML_SAFE_GRAB(m_Player);
+	}
+
 	return entity;
 }
 
@@ -63,6 +72,11 @@ void MLEntityMgr::Update(float delta)
 
 	// Destroy all the dead entities
 	DestroyAllDeadEntities();
+}
+
+MLEntity* MLEntityMgr::GetPlayer()
+{
+	return m_Player;
 }
 
 void MLEntityMgr::RunLogic()
