@@ -57,6 +57,7 @@ MagicLand/MagicLand.sdf
 MagicLand/MagicLand.sln
 *.res
 MagicLand/MagicLand/proj.win32/Debug.win32/MagicLand.win32_manifest.rc
-*.rc
 MagicLand/MagicLand/proj.win32/MagicLand.win32.vcxproj.user
 *.filters
+MagicLand/MagicLand/Resources/test.rmd.bak
+*.opensdf
