@@ -51,6 +51,9 @@
     <Filter Include="source\StateMachine\State\Hero_Xiaojian">
       <UniqueIdentifier>{153d0c30-ff4f-4d0a-8a32-65675499957f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\Camera\PlayerCamera">
+      <UniqueIdentifier>{d45284ab-eea9-4f8c-8b6f-202301322d66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -168,6 +171,9 @@
     <ClInclude Include="..\Classes\StateMachine\MLStateMethod.h">
       <Filter>source\StateMachine\State</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Camera\PlayerCamera\MLPlayerCamera.h">
+      <Filter>source\Camera\PlayerCamera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -259,6 +265,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLStateMethod.cpp">
       <Filter>source\StateMachine\State</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Camera\PlayerCamera\MLPlayerCamera.cpp">
+      <Filter>source\Camera\PlayerCamera</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

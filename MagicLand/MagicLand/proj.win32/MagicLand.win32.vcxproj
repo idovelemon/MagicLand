@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\Camera\MLCamera.h" />
+    <ClInclude Include="..\Classes\Camera\PlayerCamera\MLPlayerCamera.h" />
     <ClInclude Include="..\Classes\CollisionDebugLayer.h" />
     <ClInclude Include="..\Classes\Collision\MLCollisionMgr.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComBoundBox.h" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Camera\MLCamera.cpp" />
+    <ClCompile Include="..\Classes\Camera\PlayerCamera\MLPlayerCamera.cpp" />
     <ClCompile Include="..\Classes\CollisionDebugLayer.cpp" />
     <ClCompile Include="..\Classes\Collision\MLCollisionMgr.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComBoundBox.cpp" />

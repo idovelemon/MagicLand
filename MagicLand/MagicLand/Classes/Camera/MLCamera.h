@@ -17,6 +17,7 @@ namespace MagicLand{class MLCamera;};
 class MagicLand::MLCamera:public MLReference
 {
 public:
+	MLCamera();
     MLCamera(CCLayer* layer);
     virtual ~MLCamera();
 

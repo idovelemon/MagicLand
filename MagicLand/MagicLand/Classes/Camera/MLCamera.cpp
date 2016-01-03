@@ -2,6 +2,10 @@
 #include "../marco.h"
 using namespace MagicLand;
 
+MLCamera::MLCamera()
+{
+}
+
 MLCamera::MLCamera(CCLayer* layer)
     :m_Layer(layer)
     ,m_IsDead(false)
