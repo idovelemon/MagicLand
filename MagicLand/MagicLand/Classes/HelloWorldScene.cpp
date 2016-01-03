@@ -115,10 +115,6 @@ void HelloWorld::update(float delta)
 	}
 	else
 	{
-		// Update the entity system
-		MLEntityMgr::SharedInstance()->Update(delta);
-
-		// Update the collision system
-		MLCollisionMgr::SharedInstance()->Update(delta);
+		m_Room->Update(delta);
 	}
 }

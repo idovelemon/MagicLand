@@ -1,5 +1,8 @@
 #include "MLRoom.h"
 #include "../marco.h"
+#include "../EntityComponent/MLEntityMgr.h"
+#include "../Collision/MLCollisionMgr.h"
+
 using namespace MagicLand;
 
 MLRoom::MLRoom()
@@ -174,8 +177,14 @@ bool MLRoom::Init()
 void MLRoom::Update(float delta)
 {
 	// Update the camera
-	ML_SAFE_ASSERT(m_Camera != NULL, "Camera mustn't be null");
-	m_Camera->Update(delta);
+	//ML_SAFE_ASSERT(m_Camera != NULL, "Camera mustn't be null");
+	//m_Camera->Update(delta);
+
+	// Update the entity system
+	MLEntityMgr::SharedInstance()->Update(delta);
+
+	// Update the collision system
+	MLCollisionMgr::SharedInstance()->Update(delta);
 }
 
 void MLRoom::Destroy()
@@ -198,4 +207,7 @@ void MLRoom::Destroy()
 
 	ML_SAFE_DROP(m_Camera);
 	m_Terrians.clear();
+
+	MLEntityMgr::SharedInstance()->Destroy();
+	MLCollisionMgr::SharedInstance()->Destroy();
 }
