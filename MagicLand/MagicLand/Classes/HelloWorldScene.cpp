@@ -116,5 +116,7 @@ void HelloWorld::update(float delta)
 	else
 	{
 		m_Room->Update(delta);
+
+		m_DebugLayer->setPosition(m_Room->GetGameLayer()->getPosition());
 	}
 }
