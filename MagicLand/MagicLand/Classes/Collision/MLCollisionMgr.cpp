@@ -1,6 +1,7 @@
 #include "MLCollisionMgr.h"
 #include "../marco.h"
 #include "../EntityComponent/MLComBoundBox.h"
+#include "../EntityComponent/MLComState.h"
 using namespace MagicLand;
 
 MLCollisionMgr* MLCollisionMgr::s_Instance = NULL;
@@ -59,8 +60,11 @@ void MLCollisionMgr::AddColEntry(MLEntity* pEntity)
 
 void MLCollisionMgr::Update(float delta)
 {
-	// Check collision Player with Env
-	CheckColPlayerWithEnv();
+	// Collision Detect
+	CollisionDetect();
+
+	// Collision Response
+	CollisionResponse();
 }
 
 std::vector<std::list<MLEntity*>>& MLCollisionMgr::GetColTable()
@@ -68,7 +72,53 @@ std::vector<std::list<MLEntity*>>& MLCollisionMgr::GetColTable()
 	return m_ColMgrTable;
 }
 
-void MLCollisionMgr::CheckColPlayerWithEnv()
+void MLCollisionMgr::CollisionDetect()
+{
+	// Clear the collided information of last frame
+	ClearCollisionInfo();
+
+	// Detect the collision between player and environment
+	DetectColPlayerWithEnv();
+}
+
+void MLCollisionMgr::CollisionResponse()
+{
+	for(int i = 0; i < m_ColMgrTable.size(); i++)
+	{
+		for(MLColMgrListIt it = m_ColMgrTable[i].begin(); it != m_ColMgrTable[i].end(); ++it)
+		{
+			MLEntity* pEntity = *it;
+			ML_SAFE_ASSERT(pEntity != NULL, "There is an error");
+
+			MLComState* pState = (MLComState*)pEntity->GetComponent(ML_COMTYPE_STATE);
+			
+			// If this entity has state component
+			// That means the entity has the state machine to handle the collision response
+			if(pState != NULL)
+			{
+				pState->GetState()->OnCollision(pEntity);
+			}
+		}
+	}
+}
+
+void MLCollisionMgr::ClearCollisionInfo()
+{
+	for(int i = 0; i < m_ColMgrTable.size(); i++)
+	{
+		for(MLColMgrListIt it = m_ColMgrTable[i].begin(); it != m_ColMgrTable[i].end(); ++it)
+		{
+			MLEntity* pEntity = *it;
+			ML_SAFE_ASSERT(pEntity != NULL, "There is an error");
+
+			MLComBoundBox* pBox = (MLComBoundBox*)pEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
+			ML_SAFE_ASSERT(pBox != NULL, "There is an error");
+			pBox->Reset();
+		}
+	}
+}
+
+void MLCollisionMgr::DetectColPlayerWithEnv()
 {
 	for(MLColMgrListIt itPlayer = m_ColMgrTable[ML_ETYMAINTYPE_PLAYER].begin(); itPlayer != m_ColMgrTable[ML_ETYMAINTYPE_PLAYER].end(); ++itPlayer)
 	{

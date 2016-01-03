@@ -47,18 +47,18 @@ void MLStateMethod::CollisionResponse(MLEntity* pEntity)
 
 				if(ratio < colRatio) // Collided at x-axis
 				{
-					if(diff.x < 0) // Hero is at the left of the wall
+					if(diff.x < 0) // Entity is at the left of the wall
 					{
 						pos.x = colPos.x - pColBoundBox->GetBoundBox().getWidth() / 2 - pBoundBox->GetBoundBox().getWidth()/2 - 0.1f;
 					}
-					else // Hero is at the right of the wall
+					else // Entity is at the right of the wall
 					{
 						pos.x = colPos.x + pColBoundBox->GetBoundBox().getWidth() / 2 + pBoundBox->GetBoundBox().getWidth()/2 + 0.1f;
 					}
 				}
 				else // Collided at y-axis
 				{
-					if(diff.y < 0) // Hero is at the bottom of the wall
+					if(diff.y < 0) // Entity is at the bottom of the wall
 					{
 						pos.y = colPos.y - pColBoundBox->GetBoundBox().getHeight()/2 - pBoundBox->GetBoundBox().getHeight()/2;
 						
@@ -67,7 +67,7 @@ void MLStateMethod::CollisionResponse(MLEntity* pEntity)
 						vel.y = 0.0f;
 						pMovement->SetVel(vel.x, vel.y);
 					}
-					else // Hero is at the top of the wall
+					else // Entity is at the top of the wall
 					{
 						pos.y = colPos.y + pColBoundBox->GetBoundBox().getHeight()/2 + pBoundBox->GetBoundBox().getHeight()/2;
 					}
@@ -90,7 +90,6 @@ void MLStateMethod::UpdateBoundBox(MLEntity* pEntity)
 	ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 
 	pBoundBox->UpdateBoundBox(pTransform->GetPos());
-	pBoundBox->Reset();
 }
 
 void MLStateMethod::RenderSprite(MLEntity* pEntity)
@@ -105,4 +104,15 @@ void MLStateMethod::RenderSprite(MLEntity* pEntity)
 
 	VECTOR2 pos = pTransform->GetPos();
 	pDisplay->GetSprite()->setPosition(ccp(pos.x, pos.y));
+}
+
+void MLStateMethod::OnCollision(MLEntity* pEntity)
+{
+	ML_SAFE_ASSERT(pEntity != NULL, "Can not pass the null pointer");
+
+	MLStateMethod::CollisionResponse(pEntity);
+
+	MLStateMethod::UpdateBoundBox(pEntity);
+
+	MLStateMethod::RenderSprite(pEntity);
 }

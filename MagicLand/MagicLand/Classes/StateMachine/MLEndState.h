@@ -28,6 +28,7 @@ public:
 	virtual void Enter(MagicLand::MLEntity* pEntity);
 	virtual void Run(MagicLand::MLEntity* pEntity);
 	virtual void Exit(MagicLand::MLEntity* pEntity);
+	virtual void OnCollision(MagicLand::MLEntity* pEntity);
 
 protected:
 	static MLEndState* s_Instance;

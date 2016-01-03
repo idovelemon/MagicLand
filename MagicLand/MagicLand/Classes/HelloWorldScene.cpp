@@ -104,6 +104,7 @@ void HelloWorld::update(float delta)
 		pHeroXJSM->AddStateEntry(normalState, &MLComCon::NeedJump, jumpState);
 		pHeroXJSM->AddStateEntry(jumpState, &MLComCon::TouchGround, normalState);
 		pHeroXJSM->AddStateEntry(normalState, &MLComCon::NeedFall, fallState);
+		pHeroXJSM->AddStateEntry(jumpState, &MLComCon::NeedFall, fallState);
 
 		MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_XJ, pHeroXJSM);
 
@@ -114,10 +115,10 @@ void HelloWorld::update(float delta)
 	}
 	else
 	{
-		// Update the collision system
-		MLCollisionMgr::SharedInstance()->Update(delta);
-
 		// Update the entity system
 		MLEntityMgr::SharedInstance()->Update(delta);
+
+		// Update the collision system
+		MLCollisionMgr::SharedInstance()->Update(delta);
 	}
 }

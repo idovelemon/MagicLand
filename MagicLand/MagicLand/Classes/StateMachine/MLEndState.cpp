@@ -34,3 +34,7 @@ void MLEndState::Run(MLEntity* pEntity)
 void MLEndState::Exit(MLEntity* pEntity)
 {
 }
+
+void MLEndState::OnCollision(MLEntity* pEntity)
+{
+}

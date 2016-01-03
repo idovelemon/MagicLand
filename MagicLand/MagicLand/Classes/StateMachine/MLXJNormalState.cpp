@@ -23,8 +23,6 @@ void MLXJNormalState::Run(MLEntity* pEntity)
 {
 	ML_SAFE_ASSERT(pEntity != NULL, "Can not pass the null pointer");
 
-	MLStateMethod::CollisionResponse(pEntity);
-
 	HandleInput(pEntity);
 
 	Move(pEntity);
@@ -36,6 +34,11 @@ void MLXJNormalState::Run(MLEntity* pEntity)
 
 void MLXJNormalState::Exit(MLEntity* pEntity)
 {
+}
+
+void MLXJNormalState::OnCollision(MLEntity* pEntity)
+{
+	MLStateMethod::OnCollision(pEntity);
 }
 
 void MLXJNormalState::HandleInput(MLEntity* pEntity)

@@ -28,6 +28,7 @@ public:
 	virtual void Enter(MLEntity* pEntity);
 	virtual void Run(MLEntity* pEntity);
 	virtual void Exit(MLEntity* pEntity);
+	virtual void OnCollision(MLEntity* pEntity);
 
 protected:
 	static MLStartState* s_Instance;

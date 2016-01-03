@@ -30,7 +30,10 @@ public:
 	std::vector<std::list<MLEntity*>>& GetColTable();
 
 protected:
-	void CheckColPlayerWithEnv();
+	void CollisionDetect();
+	void CollisionResponse();
+	void ClearCollisionInfo();
+	void DetectColPlayerWithEnv();
 
 protected:
 	typedef std::list<MLEntity*> MLColMgrList;

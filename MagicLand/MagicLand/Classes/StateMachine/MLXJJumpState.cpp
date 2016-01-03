@@ -32,8 +32,6 @@ void MLXJJumpState::Run(MLEntity* pEntity)
 {
 	ML_SAFE_ASSERT(pEntity != NULL, "Can not deal with null pointer");
 
-	MLStateMethod::CollisionResponse(pEntity);
-
 	Jump(pEntity);
 
 	MLStateMethod::UpdateBoundBox(pEntity);
@@ -43,6 +41,11 @@ void MLXJJumpState::Run(MLEntity* pEntity)
 
 void MLXJJumpState::Exit(MLEntity* pEntity)
 {
+}
+
+void MLXJJumpState::OnCollision(MLEntity* pEntity)
+{
+	MLStateMethod::OnCollision(pEntity);
 }
 
 void MLXJJumpState::Jump(MagicLand::MLEntity* pEntity)

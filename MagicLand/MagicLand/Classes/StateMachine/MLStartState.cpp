@@ -34,3 +34,7 @@ void MLStartState::Run(MLEntity* pEntity)
 void MLStartState::Exit(MLEntity* pEntity)
 {
 }
+
+void MLStartState::OnCollision(MLEntity* pEntity)
+{
+}

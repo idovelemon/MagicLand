@@ -26,8 +26,6 @@ void MLXJFallState::Run(MLEntity* pEntity)
 {
 	ML_SAFE_ASSERT(pEntity != NULL, "Can not deal with the null pointer");
 
-	MLStateMethod::CollisionResponse(pEntity);
-
 	Fall(pEntity);
 
 	MLStateMethod::UpdateBoundBox(pEntity);
@@ -37,6 +35,11 @@ void MLXJFallState::Run(MLEntity* pEntity)
 
 void MLXJFallState::Exit(MLEntity* pEntity)
 {
+}
+
+void MLXJFallState::OnCollision(MLEntity* pEntity)
+{
+	MLStateMethod::OnCollision(pEntity);
 }
 
 void MLXJFallState::Fall(MLEntity* pEntity)
