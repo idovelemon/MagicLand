@@ -31,13 +31,7 @@ bool MLPlayerCamera::Init()
 
 void MLPlayerCamera::Update(float delta)
 {
-	MLComTransform* pTransform = (MLComTransform*)MLEntityMgr::SharedInstance()->GetPlayer()->GetComponent(ML_COMTYPE_TRANSFORM);
-	ML_SAFE_ASSERT(pTransform != NULL, "please make sure the pTransform is not null");
-
-	CCPoint position;
-	position.x = -pTransform->GetPos().x + 200;
-	position.y = 0;
-	m_Layer->setPosition(position);
+	calculateCamrea();
 }
 
 void MLPlayerCamera::Kill()
@@ -48,4 +42,38 @@ void MLPlayerCamera::Kill()
 bool MLPlayerCamera::IsDead() const
 {
 	return m_IsDead;
+}
+
+void MLPlayerCamera::calculateCamrea()
+{
+	MLComTransform* playerTransform = (MLComTransform*)MLEntityMgr::SharedInstance()->GetPlayer()->GetComponent(ML_COMTYPE_TRANSFORM);
+	ML_SAFE_ASSERT(playerTransform != NULL, "please make sure the playerTransform is not null");
+
+	int cameraPosX = m_Layer->getPositionX();
+	int cameraPosY = m_Layer->getPositionY();
+	int playerPosX = playerTransform->GetPos().x;
+	int playerPosY = playerTransform->GetPos().y;
+
+	if (playerPosX > 800 - 800 * 0.3 - cameraPosX)
+	{
+		cameraPosX = -(playerPosX - (800 - 800 * 0.3));
+	}
+	else if (playerPosX < 800 * 0.3 - cameraPosX)
+	{
+		cameraPosX -= playerPosX - (800 * 0.3 - cameraPosX);
+	}
+
+	if (playerPosX < 800 * 0.3)
+	{
+		cameraPosX = 0;
+	}
+	else if (playerPosX > 1600 - 800 * 0.3)
+	{
+		cameraPosX = -800;
+	}
+
+	CCPoint position;
+	position.x = cameraPosX;
+	position.y = cameraPosY;
+	m_Layer->setPosition(position);
 }

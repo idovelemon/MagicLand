@@ -27,6 +27,9 @@ public:
 	virtual void Update(float delta);
 	virtual void Kill();
 
+private:
+	void calculateCamrea();
+
 public:
 	virtual bool IsDead() const;
 };
