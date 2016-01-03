@@ -1,6 +1,7 @@
 #include"MLRoomCreator.h"
 #include"../EntityComponent/MLEntityMgr.h"
 #include"../marco.h"
+#include"../Camera/PlayerCamera/MLPlayerCamera.h"
 #include<fstream>
 using namespace std;
 using namespace MagicLand;
@@ -36,6 +37,9 @@ MLRoom* MLRoomCreator::CreateRoom()
 
 	// Create the room's entity
 	CreateEntities(room);
+
+	// Create the camera
+	CreateCamera(room);
 
 	return room;
 }
@@ -139,4 +143,16 @@ void MLRoomCreator::CreateEntities(MLRoom* room)
 
 		MLEntity* pEntity = MLEntityMgr::SharedInstance()->AddTerrianEntity(min, max, room);
 	}
+}
+
+void MLRoomCreator::CreateCamera(MLRoom* room)
+{
+	ML_SAFE_ASSERT(room != NULL, "please make sure the room is not null");
+	ML_SAFE_ASSERT(room->GetGameLayer() != NULL, "please make sure the gamer layer is not null");
+
+	MLCamera* playerCamera = new MLPlayerCamera(room->GetGameLayer());
+	ML_SAFE_ASSERT(playerCamera != NULL, "please make sure the playerCamera is not null");
+
+	room->SetCamera(playerCamera);
+	playerCamera = NULL;
 }

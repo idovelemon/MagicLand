@@ -46,6 +46,12 @@ protected:
 	//------------------------------------------------------------------------
 	void CreateEntities(MLRoom* room);
 
+	//------------------------------------------------------------------------
+	// Desc: Create all the room's camera
+	// Param:[out] room The room hold all the layer
+	//------------------------------------------------------------------------
+	void CreateCamera(MLRoom* room);
+
 protected:
 	char* m_RoomDataFileName;   // The room's file's name
 };
