@@ -154,5 +154,5 @@ void MLRoomCreator::CreateCamera(MLRoom* room)
 	ML_SAFE_ASSERT(playerCamera != NULL, "please make sure the playerCamera is not null");
 
 	room->SetCamera(playerCamera);
-	playerCamera = NULL;
+	ML_SAFE_DROP(playerCamera);
 }

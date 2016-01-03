@@ -109,7 +109,7 @@ MLEntity* MLEntityCreator::CreateXJ(int xCoord, int yCoord, MLRoom* room)
 	ML_SAFE_DROP(transform);
 
 	// Create the boundbox component
-	MLComBoundBox* boundBox = new MLComBoundBox(entity, 64, 64, xCoord, yCoord);
+	MLComBoundBox* boundBox = new MLComBoundBox(entity, 32, 32, xCoord, yCoord);
 	entity->AddComponent(boundBox);
 	ML_SAFE_DROP(boundBox);
 
