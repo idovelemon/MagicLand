@@ -177,8 +177,8 @@ bool MLRoom::Init()
 void MLRoom::Update(float delta)
 {
 	// Update the camera
-	//ML_SAFE_ASSERT(m_Camera != NULL, "Camera mustn't be null");
-	//m_Camera->Update(delta);
+	ML_SAFE_ASSERT(m_Camera != NULL, "Camera mustn't be null");
+	m_Camera->Update(delta);
 
 	// Update the entity system
 	MLEntityMgr::SharedInstance()->Update(delta);
