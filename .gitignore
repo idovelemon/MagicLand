@@ -49,7 +49,6 @@ MagicLand/MagicLand/proj.win32/Debug.win32/MagicLand.win32.vcxprojResolveAssembl
 *.log
 MagicLand/MagicLand/proj.win32/Debug.win32/MagicLand.win32.lastbuildstate
 *.manifest
-*.exe
 MagicLand/Debug.win32/MagicLand.win32.ilk
 *.ipch
 MagicLand/MagicLand.sdf
@@ -59,3 +58,6 @@ MagicLand/MagicLand/proj.win32/Debug.win32/MagicLand.win32_manifest.rc
 MagicLand/MagicLand/proj.win32/MagicLand.win32.vcxproj.user
 MagicLand/MagicLand/Resources/test.rmd.bak
 *.opensdf
+MagicLand/Debug.win32/TerrianAutoGen.win32.exe
+MagicLand/Debug.win32/MagicLand.win32.exe
+MagicLand/MagicLand/Resources/test - 副本.rmd
