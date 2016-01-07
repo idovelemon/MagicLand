@@ -29,8 +29,7 @@ public:
 	static void Destroy();
 
 public:
-	virtual MLEntity* AddEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room);
-	virtual MLEntity* AddTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room);
+	virtual void AddEntity(MLEntity* entity);
 	virtual void Update(float delta);
 
 	virtual MLEntity* GetPlayer();

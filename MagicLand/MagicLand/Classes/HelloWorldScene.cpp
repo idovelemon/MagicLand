@@ -8,6 +8,7 @@
 #include "StateMachine\MLXJNormalState.h"
 #include "StateMachine\MLXJJumpState.h"
 #include "StateMachine\MLXJFallState.h"
+#include "StateMachine\MLFireBallFlyState.h"
 #include "marco.h"
 
 using namespace cocos2d;
@@ -107,6 +108,18 @@ void HelloWorld::update(float delta)
 		pHeroXJSM->AddStateEntry(jumpState, &MLComCon::NeedFall, fallState);
 
 		MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_XJ, pHeroXJSM);
+
+		// Create statemachine for FireBall
+		MLStateMachine* fireBallSM = new MLStateMachine();
+		ML_SAFE_ASSERT(fireBallSM != NULL, "Allocate the memory failed");
+
+		// Create the state
+		MLFireBallFlyState* fireBallFlyState = new MLFireBallFlyState();
+		ML_SAFE_ASSERT(fireBallSM != NULL, "Allocate the memory failed");
+
+		fireBallSM->AddStateEntry(MLStartState::SharedInstance(), &MLComCon::StartOK, fireBallFlyState);
+
+		MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_FIREBALL, fireBallSM);
 
 		// Create Collision manager here...
 		MLCollisionMgr::SharedInstance();

@@ -24,6 +24,7 @@ namespace MagicLand
 		ML_COMTYPE_BOUNDBOX,	// This enum indicate the bounding box of the entity
 		ML_COMTYPE_STATE,		// This enum indicate the state of the entity
 		ML_COMTYPE_MOVEMENT,	// This enum indicate the movement of the entity
+		ML_COMTYPE_DIR,			// This enum indicate the direction of the entity
 
 		ML_COMTYPE_TOTAL,		// This enum indicate how many component's type in MagicLand
 	};

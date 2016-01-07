@@ -25,6 +25,7 @@ namespace MagicLand
 		ML_ETYMAINTYPE_NONE = -1,	
 		ML_ETYMAINTYPE_ENV,		// This indicate the environment main type. This kind of entity can not be destroy by player.
 		ML_ETYMAINTYPE_PLAYER,	// This indicate the player main type.All entity in this kind will belong to player
+		ML_ETYMAINTYPE_PLAYER_MAGIC, // This indicate the magic of the player
 
 		ML_ETYMAINTYPE_TOTAL,	// This indicate how many entity main type in magicland
 	};
@@ -36,8 +37,17 @@ namespace MagicLand
 		ML_ETYSUBTYPE_WALL,		// This indicate the wall in the game
 		ML_ETYSUBTYPE_XJ,		// This indicate the hero xj in the game
 		ML_ETYSUBTYPE_TERRIAN,	// This indicate the terrian boundbox in the game
+		ML_ETYSUBTYPE_FIREBALL, // This indicate the fire ball in the game
 
 		ML_ETYSUBTYPE_TOTAL,	// This indicate how many entity type in magicland
+	};
+
+	enum MLDir
+	{
+		ML_DIR_UP, 
+		ML_DIR_LEFT,
+		ML_DIR_DOWN,
+		ML_DIR_RIGHT
 	};
 };
 

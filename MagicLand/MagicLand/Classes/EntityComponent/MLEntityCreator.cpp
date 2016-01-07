@@ -6,6 +6,7 @@
 #include "MLComBoundBox.h"
 #include "MLComState.h"
 #include "MLComMovement.h"
+#include "MLComDir.h"
 #include "../StateMachine/MLStartState.h"
 using namespace MagicLand;
 
@@ -126,6 +127,63 @@ MLEntity* MLEntityCreator::CreateXJ(int xCoord, int yCoord, MLRoom* room)
 	movement->SetMaxFallSpeed(10.0f);
 	entity->AddComponent(movement);
 	ML_SAFE_DROP(movement);
+
+	// Create the dir component
+	MLComDir* dir = new MLComDir(entity, ML_DIR_RIGHT);
+	ML_SAFE_ASSERT(dir != NULL, "Create Dir component failed");
+	entity->AddComponent(dir);
+	ML_SAFE_DROP(dir);
+
+	return entity;
+}
+
+MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLRoom* room)
+{
+	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_PLAYER_MAGIC, ML_ETYSUBTYPE_FIREBALL, room);
+	ML_SAFE_ASSERT(entity != NULL, "Failed to allocate memory for entity");
+
+	// Create display component
+	MLComDisplay* display = new MLComDisplay(entity, "FireBall.png", room->GetGameLayer());
+	ML_SAFE_ASSERT(display != NULL, "Create Display component failed");
+	display->GetSprite()->setAnchorPoint(ccp(0.5f, 0.5f));
+	display->GetSprite()->setPosition(ccp(posx, posy));
+	entity->AddComponent(display);
+	ML_SAFE_DROP(display);
+
+	// Create transform component
+	MLComTransform* transform = new MLComTransform(entity, posx, posy, 1.0f, 1.0f, 0.0f);
+	ML_SAFE_ASSERT(transform != NULL, "Create Transform component failed");
+	entity->AddComponent(transform);
+	ML_SAFE_DROP(transform);
+
+	// Create boundbox component
+	MLComBoundBox* boundBox = new MLComBoundBox(entity, 16.0f, 16.0f, posx, posy);
+	ML_SAFE_ASSERT(boundBox != NULL, "Create BoundBox component failed");
+	entity->AddComponent(boundBox);
+	ML_SAFE_DROP(boundBox);
+
+	// Create movement component
+	MLComMovement* movement = new MLComMovement(entity);
+	movement->SetGravity(0.0f);
+	movement->SetMaxFallSpeed(0.0f);
+	if(dir == ML_DIR_LEFT)
+	{
+		movement->SetVel(-10.0f, 0.0f);
+	}
+	else if(dir == ML_DIR_RIGHT)
+	{
+		movement->SetVel(10.0f, 0.0f);
+	}
+	ML_SAFE_ASSERT(movement != NULL, "Create Movement component failed");
+	entity->AddComponent(movement);
+	ML_SAFE_DROP(movement);
+
+	// Create the state component
+	MLComState* state = new MLComState(entity);
+	ML_SAFE_ASSERT(state != NULL, "Create State component failed");
+	state->SetState(MLStartState::SharedInstance());
+	entity->AddComponent(state);
+	ML_SAFE_DROP(state);
 
 	return entity;
 }

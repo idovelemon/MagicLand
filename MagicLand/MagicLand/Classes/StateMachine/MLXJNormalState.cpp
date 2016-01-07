@@ -63,6 +63,11 @@ void MLXJNormalState::HandleInput(MLEntity* pEntity)
 	}
 
 	pMovement->SetVel(vel.x, vel.y);
+
+	if(GetKeyState('J') & 0x8000)
+	{
+		MLStateMethod::Fire(pEntity);
+	}
 }
 
 void MLXJNormalState::Move(MLEntity* pEntity)

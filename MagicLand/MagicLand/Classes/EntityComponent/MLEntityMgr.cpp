@@ -37,11 +37,9 @@ void MLEntityMgr::Destroy()
 	ML_SAFE_DELETE(s_Instance);
 }
 
-MLEntity* MLEntityMgr::AddEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room)
+void MLEntityMgr::AddEntity(MLEntity* entity)
 {
-	MLEntity* entity = MLEntityCreator::CreateEntity(type, xCoord, yCoord, room);
-	ML_SAFE_ASSERT(entity != NULL, "Failed to create entity");
-
+	ML_SAFE_ASSERT(entity != NULL, "Can not add empty entity");
 	m_EntityTable.insert(std::pair<unsigned int, MLEntity*>(entity->GetID(), entity));
 
 	// Cache Player's entity
@@ -51,18 +49,6 @@ MLEntity* MLEntityMgr::AddEntity(MLEntitySubType type, int xCoord, int yCoord, M
 		m_Player = entity;
 		ML_SAFE_GRAB(m_Player);
 	}
-
-	return entity;
-}
-
-MLEntity* MLEntityMgr::AddTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room)
-{
-	MLEntity* entity = MLEntityCreator::CreateTerrianEntity(min, max, room);
-	ML_SAFE_ASSERT(entity != NULL, "Failed to create terrian entity");
-
-	m_EntityTable.insert(std::pair<unsigned int, MLEntity*>(entity->GetID(), entity));
-
-	return entity;
 }
 
 void MLEntityMgr::Update(float delta)

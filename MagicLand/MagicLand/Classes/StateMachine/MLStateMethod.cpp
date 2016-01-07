@@ -1,9 +1,12 @@
 #include "MLStateMethod.h"
 #include "../marco.h"
+#include "../EntityComponent/MLEntityCreator.h"
 #include "../EntityComponent/MLComTransform.h"
 #include "../EntityComponent/MLComBoundBox.h"
 #include "../EntityComponent/MLComMovement.h"
 #include "../EntityComponent/MLComDisplay.h"
+#include "../EntityComponent/MLComDir.h"
+#include "../EntityComponent/MLEntityMgr.h"
 
 using namespace MagicLand;
 
@@ -115,4 +118,19 @@ void MLStateMethod::OnCollision(MLEntity* pEntity)
 	MLStateMethod::UpdateBoundBox(pEntity);
 
 	MLStateMethod::RenderSprite(pEntity);
+}
+
+void MLStateMethod::Fire(MLEntity* pEntity)
+{
+	ML_SAFE_ASSERT(pEntity != NULL, "Can not pass the null pointer");
+
+	MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+	ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
+
+	MLComDir* pDir = (MLComDir*)pEntity->GetComponent(ML_COMTYPE_DIR);
+	ML_SAFE_ASSERT(pDir != NULL, "There is no dir component");
+
+	VECTOR2 pos = pTransform->GetPos();
+	MLEntity* magic = MLEntityCreator::CreateFireBall(pos.x, pos.y, pDir->GetDir(), pEntity->GetRoom());
+	MLEntityMgr::SharedInstance()->AddEntity(magic);
 }

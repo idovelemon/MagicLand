@@ -1,4 +1,5 @@
 #include"MLRoomCreator.h"
+#include"../EntityComponent/MLEntityCreator.h"
 #include"../EntityComponent/MLEntityMgr.h"
 #include"../marco.h"
 #include"../Camera/PlayerCamera/MLPlayerCamera.h"
@@ -130,7 +131,9 @@ void MLRoomCreator::CreateEntities(MLRoom* room)
 			MLEntitySubType type = (MLEntitySubType)map[y * mapWidth + x];
 			if(type != ML_ETYSUBTYPE_EMPTY)
 			{
-				MLEntity* pEntity = MLEntityMgr::SharedInstance()->AddEntity((MLEntitySubType)map[y * mapWidth + x], x, y, room);
+				MLEntity* entity = MLEntityCreator::CreateEntity(type, x, y, room);
+				ML_SAFE_ASSERT(entity != NULL, "Failed to create entity");
+				MLEntityMgr::SharedInstance()->AddEntity(entity);
 			}
 		}
 	}
@@ -141,7 +144,10 @@ void MLRoomCreator::CreateEntities(MLRoom* room)
 		VECTOR2 min, max;
 		room->GetTerrianAt(i, min, max);
 
-		MLEntity* pEntity = MLEntityMgr::SharedInstance()->AddTerrianEntity(min, max, room);
+		MLEntity* entity = MLEntityCreator::CreateTerrianEntity(min, max, room);
+		ML_SAFE_ASSERT(entity != NULL, "Failed to create terrian entity");
+
+		MLEntityMgr::SharedInstance()->AddEntity(entity);
 	}
 }
 

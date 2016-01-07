@@ -36,9 +36,8 @@ protected:
 public:
 	static MLEntity* CreateEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room);
-
-protected:
 	static MLEntity* CreateWall(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateXJ(int xCoord, int yCoord, MLRoom* room);
+	static MLEntity* CreateFireBall(float posx, float posy, MagicLand::MLDir dir, MLRoom* room);
 };
 #endif

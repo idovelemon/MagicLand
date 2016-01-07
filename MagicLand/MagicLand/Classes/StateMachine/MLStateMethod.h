@@ -20,6 +20,7 @@ public:
 	static void UpdateBoundBox(MagicLand::MLEntity* pEntity);
 	static void RenderSprite(MagicLand::MLEntity* pEntity);
 	static void OnCollision(MagicLand::MLEntity* pEntity);
+	static void Fire(MagicLand::MLEntity* pEntity);
 };
 
 #endif
