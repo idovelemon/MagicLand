@@ -13,6 +13,7 @@
 #include "../EntityComponent/MLEntity.h"
 #include "MLState.h"
 #include "MLCon.h"
+#include "../marco.h"
 #include <vector>
 
 namespace MagicLand { class MLStateMachine;};
@@ -48,6 +49,20 @@ protected:
 		MagicLand::MLState*	headState;
 		MagicLand::MLPCon	pConFunc;
 		MagicLand::MLState*	tailState;
+
+		MLStateEntry()
+			:headState(NULL)
+			,pConFunc(0)
+			,tailState(NULL)
+		{
+		}
+
+		~MLStateEntry()
+		{
+			ML_SAFE_DROP(headState);
+			pConFunc = 0;
+			ML_SAFE_DROP(tailState);
+		}
 	};
 
 	typedef std::vector<MLStateEntry*>	MLStateEntryArray;

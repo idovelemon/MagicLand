@@ -16,10 +16,12 @@ MLEntityMgr::~MLEntityMgr()
 {
 	for(MLEntityTableIt it = m_EntityTable.begin(); it != m_EntityTable.end(); ++it)
 	{
-		ML_SAFE_DROP(it->second);
+		ML_SAFE_RELESE_ENTITY(it->second);
 	}
 
 	m_EntityTable.clear();
+
+	ML_SAFE_DROP(m_Player);
 }
 
 MLEntityMgr* MLEntityMgr::SharedInstance()

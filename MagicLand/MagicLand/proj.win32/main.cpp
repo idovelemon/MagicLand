@@ -2,6 +2,10 @@
 #include "AppDelegate.h"
 #include "CCEGLView.h"
 
+#if 0
+#include "vld\vld.h"
+#endif
+
 USING_NS_CC;
 
 // uncomment below line, open debug console
@@ -27,7 +31,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     CCEGLView* eglView = CCEGLView::sharedOpenGLView();
     eglView->setFrameSize(800, 600);
 
-    int ret = CCApplication::sharedApplication()->run();
+    int ret = app.run();
 
 #ifdef USE_WIN32_CONSOLE
     FreeConsole();

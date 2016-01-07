@@ -16,7 +16,8 @@ MLStartState* MLStartState::SharedInstance()
 {
 	if(s_Instance == NULL)
 	{
-		s_Instance = new MLStartState;
+		static MLStartState startState;
+		s_Instance = &startState;
 		ML_SAFE_ASSERT(s_Instance != NULL, "Allocate the memory error");
 	}
 

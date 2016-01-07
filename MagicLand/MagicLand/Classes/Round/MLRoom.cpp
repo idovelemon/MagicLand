@@ -205,6 +205,7 @@ void MLRoom::Destroy()
 		m_Scene = NULL;
 	}
 
+	ML_SAFE_DELETE_ARRAY(m_RoomMap);
 	ML_SAFE_DROP(m_Camera);
 	m_Terrians.clear();
 

@@ -22,7 +22,7 @@ public:
     virtual void Drop();
 
 protected:
-    unsigned int m_RefCounted;  // The referenced count
+    int m_RefCounted;  // The referenced count
 };
 
 #endif

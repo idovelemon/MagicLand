@@ -2,6 +2,7 @@
 #define __APP_DELEGATE_H__
 
 #include "cocos2d.h"
+#include "Round/MLRoom.h"
 
 /**
 @brief    The cocos2d Application.
@@ -32,6 +33,14 @@ public:
     @param  the pointer of the application
     */
     virtual void applicationWillEnterForeground();
+
+	// override the run method
+	virtual int run();
+
+	// game method
+	virtual void gameInit();
+	virtual void gameMainLoop(float delta);
+	virtual void gameFinish();
 };
 
 #endif  // __APP_DELEGATE_H__

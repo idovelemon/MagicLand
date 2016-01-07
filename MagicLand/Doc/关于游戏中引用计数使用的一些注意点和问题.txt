@@ -1,0 +1,15 @@
+游戏代码中的MLReference表示的是引用计数类，任何继承该类的对象，都将能够进行引用计数。
+
+在创建一个对象的时候，该对象的默认引用计数就为1了，如果没有其他的地方来引用它，那么当我们调用ML_SAFE_DROP的时候，这个对象就会被销毁。
+
+当我们需要在一个地方保留这个对象的指针的时候，我们需要ML_SAFE_GRAB这个对象，然后析构的时候ML_SAFE_DROP这个对象
+
+也就是说，对于一个对象，对它调用ML_SAFE_DROP的次数要 = ML_SAFE_GRAB次数 + 1的时候，这个对象才会被销毁。
+
+另外：
+在游戏中的MLEntity，该MLEntity中存在多个MLComponent，而MLComponent中又有对MLEntity的引用。也就是说，如果我们想通过析构MLEntity，然后来析构掉MLComponent，这是实现不了的。
+由于MLComponent的析构在MLEntity中进行，那么也只有当MLEntity的析构被调用的时候才会析构MLComponent。而由于MLComponent中有对MLEntity的引用，也就是说单单对MLEntity调用ML_SAFE_DROP，
+仅仅只能够将引用计数降1，而没有调用到MLEntity的析构。所以为此，我专门设计了一个ML_SAFE_RELEASE_ENTITY的宏。
+这个宏分两个步骤：
+(1)调用RemoveAllComponents先析构MLEntity中的所有MLComponent
+(2)当析构完毕了所有MLComponent之后，其他地方对MLEntity的引用就降低了，然后在对该MLEntity调用ML_SAFE_DROP就可以销毁该MLEntity了

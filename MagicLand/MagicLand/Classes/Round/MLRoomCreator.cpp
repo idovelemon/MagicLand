@@ -81,6 +81,7 @@ void MLRoomCreator::ReadRoomFileData(MLRoom* room)
 		}
 	}
 	room->CopyRoomMap(map);
+	ML_SAFE_DELETE_ARRAY(map);
 
 	// Read the terrian
 	int numTerrians = 0;

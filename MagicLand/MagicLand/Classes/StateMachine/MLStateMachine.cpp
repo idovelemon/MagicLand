@@ -71,5 +71,8 @@ void MLStateMachine::AddStateEntry(MLState* pHeadState, MLPCon pCon, MLState* pT
 	pEntry->pConFunc = pCon;
 	pEntry->tailState = pTailState;
 
+	ML_SAFE_GRAB(pHeadState);
+	ML_SAFE_GRAB(pTailState);
+
 	m_StateTable.push_back(pEntry);
 }

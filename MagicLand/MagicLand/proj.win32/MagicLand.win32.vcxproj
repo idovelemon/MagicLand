@@ -45,6 +45,8 @@
     <OutDir>$(SolutionDir)$(Configuration).win32\</OutDir>
     <IntDir>$(Configuration).win32\</IntDir>
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\draw_nodes;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\platform\third_party\win32\OGLES;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\platform\third_party\win32;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\kazmath\include;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\platform\win32;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\platform;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx\include;D:\Cocos2d-x\cocos2d-x srcconfig\include\external;D:\Cocos2d-x\cocos2d-x srcconfig\include\extensions;D:\Cocos2d-x\cocos2d-x srcconfig\include\CocosDenshion;D:\Cocos2d-x\cocos2d-x srcconfig\include\cocos2dx;D:\Cocos2d-x\cocos2d-x srcconfig\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Cocos2d-x\cocos2d-x srcconfig\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -94,16 +96,17 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ExceptionHandling>
       </ExceptionHandling>
-      <DebugInformationFormat>
-      </DebugInformationFormat>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGSNDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libcocos2d.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -148,11 +151,13 @@
     <ClInclude Include="..\Classes\EntityComponent\MLEntity.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLEntityCreator.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLEntityMgr.h" />
+    <ClInclude Include="..\Classes\Framerate\MLFrameRateMgr.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\marco.h" />
     <ClInclude Include="..\Classes\Reference\MLReference.h" />
     <ClInclude Include="..\Classes\Round\MLRoom.h" />
     <ClInclude Include="..\Classes\Round\MLRoomCreator.h" />
+    <ClInclude Include="..\Classes\Round\MLRound.h" />
     <ClInclude Include="..\Classes\StateMachine\MLComCon.h" />
     <ClInclude Include="..\Classes\StateMachine\MLCon.h" />
     <ClInclude Include="..\Classes\StateMachine\MLEndState.h" />
@@ -185,10 +190,12 @@
     <ClCompile Include="..\Classes\EntityComponent\MLEntity.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLEntityCreator.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLEntityMgr.cpp" />
+    <ClCompile Include="..\Classes\Framerate\MLFrameRateMgr.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\Reference\MLReference.cpp" />
     <ClCompile Include="..\Classes\Round\MLRoom.cpp" />
     <ClCompile Include="..\Classes\Round\MLRoomCreator.cpp" />
+    <ClCompile Include="..\Classes\Round\MLRound.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLComCon.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLEndState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLFireBallFlyState.cpp" />

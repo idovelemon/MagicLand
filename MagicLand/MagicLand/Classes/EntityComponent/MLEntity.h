@@ -66,6 +66,12 @@ public:
 	virtual void AddComponent(MLComponent* com);
 
 	//---------------------------------------------------------------------
+	// Desc: This method must be called when you want to destroy the entity.
+	// You must destroy all the component of the entity, then you can destroy the entity
+	//---------------------------------------------------------------------
+	virtual void RemoveAllComponents();
+
+	//---------------------------------------------------------------------
 	// Desc:This method will get the specific component of the entity.If the
 	// specific component do not exsit, the method will return NULL
 	// Param:[in] type The type of the component that need to be return

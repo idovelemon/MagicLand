@@ -39,7 +39,17 @@ void MLEntity::AddComponent(MLComponent* com)
 	}
 	
 	m_ComponentTable.insert(std::pair<MLComType, MLComponent*>(type, com));
-	com->Grab();
+	ML_SAFE_GRAB(com);
+}
+
+void MLEntity::RemoveAllComponents()
+{
+	for(MLComponentTableIt it = m_ComponentTable.begin(); it != m_ComponentTable.end(); ++it)
+	{
+		ML_SAFE_DROP(it->second);
+	}
+
+	m_ComponentTable.clear();
 }
 
 MLComponent* MLEntity::GetComponent(MLComType type)

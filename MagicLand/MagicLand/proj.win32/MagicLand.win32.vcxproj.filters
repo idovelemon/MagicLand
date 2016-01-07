@@ -57,6 +57,9 @@
     <Filter Include="source\StateMachine\State\FireBall">
       <UniqueIdentifier>{30d6567c-ff77-45b8-a4fc-0242a6dc2b1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\Framerate">
+      <UniqueIdentifier>{815c04b0-7cbf-451c-8da3-853355520bf7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -183,6 +186,12 @@
     <ClInclude Include="..\Classes\StateMachine\MLFireBallFlyState.h">
       <Filter>source\StateMachine\State\FireBall</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Framerate\MLFrameRateMgr.h">
+      <Filter>source\Framerate</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Round\MLRound.h">
+      <Filter>source\Round</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -283,6 +292,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLFireBallFlyState.cpp">
       <Filter>source\StateMachine\State\FireBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Framerate\MLFrameRateMgr.cpp">
+      <Filter>source\Framerate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Round\MLRound.cpp">
+      <Filter>source\Round</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

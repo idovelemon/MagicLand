@@ -50,7 +50,7 @@ void MLStateMachineMgr::AddMgrEntry(MLEntitySubType type, MLStateMachine* pState
 	}
 
 	m_StateMachineMgrTable.insert(MLSMMgrPair(type, pStateMachine));
-	pStateMachine->Grab(); // Add the reference count
+	ML_SAFE_GRAB(pStateMachine); // Add the reference count
 }
 
 void MLStateMachineMgr::RunStateMachine(MLEntity* pEntity)
