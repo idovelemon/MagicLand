@@ -19,7 +19,7 @@ MLScriptMgr* MLScriptMgr::SharedInstance()
 		s_Instance = new MLScriptMgr;
 	}
 
-	ML_SAFE_ASSERT(s_Instance, "Error: MLScriptMgr instance is null.");
+	ML_SAFE_ASSERT(s_Instance != NULL, "Error: MLScriptMgr instance is null.");
 
 	return s_Instance;
 }
@@ -28,7 +28,7 @@ void MLScriptMgr::LoadScript(const char* scriptFile)
 {
 	ifstream file(scriptFile);
 
-	ML_SAFE_ASSERT(file, "Error: MLScriptMgr file is null");
+	ML_SAFE_ASSERT(!file.fail(), "Error: MLScriptMgr file is null");
 
 	MLKeyValuePair keyValue;
 	char* split = " =";
@@ -66,5 +66,3 @@ float MLScriptMgr::GetValue(const char* segment)
 
 	return (*it).value;
 }
-
-

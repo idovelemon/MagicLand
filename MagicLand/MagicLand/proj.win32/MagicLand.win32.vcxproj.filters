@@ -69,6 +69,9 @@
     <Filter Include="source\EntityComponent\Component\CommonCom">
       <UniqueIdentifier>{4b5cfc26-e404-46c5-a9e6-dfa617aa4ba8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\Support\Script">
+      <UniqueIdentifier>{f82250f8-27a0-4063-ab24-f39a79a48c52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -222,6 +225,9 @@
     <ClInclude Include="..\Classes\StateMachine\MLOrgeWaitState.h">
       <Filter>source\StateMachine\State\Orge</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Support\Script\MLScriptMgr.h">
+      <Filter>source\Support\Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -343,6 +349,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLOrgeWaitState.cpp">
       <Filter>source\StateMachine\State\Orge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Support\Script\MLScriptMgr.cpp">
+      <Filter>source\Support\Script</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

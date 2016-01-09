@@ -3,6 +3,7 @@
 #include "MLAllComs.h"
 #include "../StateMachine/MLStartState.h"
 #include "MLComOrgeWalkRange.h"
+#include "../Support/Script/MLScriptMgr.h"
 using namespace MagicLand;
 
 MLETYCreatorEntry MLEntityCreator::s_CreatorTable[] = 
@@ -106,7 +107,9 @@ MLEntity* MLEntityCreator::CreateXJ(int xCoord, int yCoord, MLRoom* room)
 	ML_SAFE_DROP(transform);
 
 	// Create the boundbox component
-	MLComBoundBox* boundBox = new MLComBoundBox(entity, 32, 32, xCoord, yCoord);
+	float boundWidth = MLScriptMgr::SharedInstance()->GetValue("HeroXJBoundBoxWidth");
+	float boundHeight = MLScriptMgr::SharedInstance()->GetValue("HeroXJBoundBoxHeight");
+	MLComBoundBox* boundBox = new MLComBoundBox(entity, boundWidth, boundHeight, xCoord, yCoord);
 	entity->AddComponent(boundBox);
 	ML_SAFE_DROP(boundBox);
 
@@ -119,10 +122,12 @@ MLEntity* MLEntityCreator::CreateXJ(int xCoord, int yCoord, MLRoom* room)
 	ML_SAFE_DROP(startState);
 
 	// Create the movement component
+	float gravity = MLScriptMgr::SharedInstance()->GetValue("HeroXJGravity");
+	float maxFallSpeed = MLScriptMgr::SharedInstance()->GetValue("HeroXJMaxFallSpeed");
 	MLComMovement* movement = new MLComMovement(entity);
 	movement->SetVel(0.0f, 0.0f);
-	movement->SetGravity(1.0f);
-	movement->SetMaxFallSpeed(10.0f);
+	movement->SetGravity(gravity);
+	movement->SetMaxFallSpeed(maxFallSpeed);
 	entity->AddComponent(movement);
 	ML_SAFE_DROP(movement);
 

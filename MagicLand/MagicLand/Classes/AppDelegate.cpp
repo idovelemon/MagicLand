@@ -19,6 +19,7 @@
 #include "Framerate\MLFrameRateMgr.h"
 #include "Round/MLRound.h"
 #include "marco.h"
+#include "Support\Script\MLScriptMgr.h"
 
 USING_NS_CC;
 using namespace MagicLand;
@@ -85,12 +86,15 @@ int AppDelegate::run()
 		return 0;
 	}
 
+	// Initialize the game
+	gameInit();
+
 	CCEGLView* pMainWnd = CCEGLView::sharedOpenGLView();
 	pMainWnd->centerWindow();
 	ShowWindow(pMainWnd->getHWnd(), SW_SHOW);
 
-	// Initialize the game
-	gameInit();
+	CCEGLView* eglView = CCEGLView::sharedOpenGLView();
+	eglView->setFrameSize(MLScriptMgr::SharedInstance()->GetValue("GameScreenWidth"), MLScriptMgr::SharedInstance()->GetValue("GameScreenHeight"));
 
 	while (1)
 	{
@@ -135,6 +139,9 @@ int AppDelegate::run()
 
 void AppDelegate::gameInit()
 {
+	// Create the Script manager
+	MLScriptMgr::SharedInstance()->LoadScript("Config.script");
+
 	// Create Collision manager here...
 	MLCollisionMgr::SharedInstance();
 
@@ -172,6 +179,9 @@ void AppDelegate::gameFinish()
 
 	// Destroy the Collision manager here...
 	MLCollisionMgr::SharedInstance()->Destroy();
+
+	// Destroy the Script manager here...
+
 
 	// Destroy the cocos2d
 	CCDirector::sharedDirector()->end();

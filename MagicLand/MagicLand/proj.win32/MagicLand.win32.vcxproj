@@ -177,6 +177,7 @@
     <ClInclude Include="..\Classes\StateMachine\MLXJFallState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLXJJumpState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLXJNormalState.h" />
+    <ClInclude Include="..\Classes\Support\Script\MLScriptMgr.h" />
     <ClInclude Include="..\Classes\Support\XJMath\XJMath.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />
@@ -218,6 +219,7 @@
     <ClCompile Include="..\Classes\StateMachine\MLXJFallState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLXJJumpState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLXJNormalState.cpp" />
+    <ClCompile Include="..\Classes\Support\Script\MLScriptMgr.cpp" />
     <ClCompile Include="..\Classes\Support\XJMath\XJMath_aabb.cpp" />
     <ClCompile Include="..\Classes\Support\XJMath\XJMath_obb.cpp" />
     <ClCompile Include="..\Classes\Support\XJMath\XJMath_vector.cpp" />

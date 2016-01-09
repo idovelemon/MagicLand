@@ -3,6 +3,7 @@
 #include "../Framerate/MLFrameRateMgr.h"
 #include "MLStateMethod.h"
 #include "../marco.h"
+#include "../Support/Script/MLScriptMgr.h"
 using namespace MagicLand;
 
 MLXJNormalState::MLXJNormalState()
@@ -54,14 +55,16 @@ void MLXJNormalState::HandleInput(MLEntity* entity)
 
 	VECTOR2 vel = MAKE_VECTOR2(0.0f, 0.0f);
 
+	float moveSpeed = 0.0f;
+	ML_SCRIPT_GETVALUE(moveSpeed, "HeroXJMoveSpeed");
 	if(GetKeyState('A') & 0x8000)
 	{
-		vel.x -= 3.0f;
+		vel.x -= moveSpeed;
 		dir->SetDir(ML_DIR_LEFT);
 	}
 	else if(GetKeyState('D') & 0x8000)
 	{
-		vel.x += 3.0f;
+		vel.x += moveSpeed;
 		dir->SetDir(ML_DIR_RIGHT);
 	}
 
@@ -69,6 +72,8 @@ void MLXJNormalState::HandleInput(MLEntity* entity)
 
 	static bool bPress = false;
 	static float curFrame = 0.0f;
+	float fireDelta = 0.0f;
+	ML_SCRIPT_GETVALUE(fireDelta, "HeroXJFireDelta");
 	if((GetKeyState('J') & 0x8000) && bPress == false)
 	{
 		MLStateMethod::Fire(entity);
@@ -78,7 +83,7 @@ void MLXJNormalState::HandleInput(MLEntity* entity)
 	if(bPress == true)
 	{
 		curFrame += MLFrameRateMgr::SharedInstance()->GetFrameDelta();
-		if(curFrame > 0.3f)
+		if(curFrame > fireDelta)
 		{
 			curFrame = 0.0f;
 			bPress = false;
