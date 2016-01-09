@@ -48,6 +48,8 @@ void CollisionDebugLayer::draw()
 	{
 		DrawPlayerBoundBox();
 
+		DrawPlayerMagicBoundBox();
+
 		DrawEnvBoundBox();
 	}
 }
@@ -58,6 +60,38 @@ void CollisionDebugLayer::DrawPlayerBoundBox()
 	std::vector<std::list<MLEntity*>> colTable = MLCollisionMgr::SharedInstance()->GetColTable();
 
 	std::list<MLEntity*> entityList = colTable[ML_ETYMAINTYPE_PLAYER];
+	for(std::list<MLEntity*>::iterator it = entityList.begin(); it != entityList.end(); ++it)
+	{
+		MLEntity* pEntity = *it;
+		ML_SAFE_ASSERT(pEntity != NULL, "There is an error");
+
+		MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+		ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
+
+		MLComBoundBox* pBoundBox = (MLComBoundBox*)pEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
+		ML_SAFE_ASSERT(pBoundBox != NULL, "There is no boundbox component");
+
+		VECTOR2 pos = pTransform->GetPos();
+		float width = pBoundBox->GetBoundBox().getWidth();
+		float height = pBoundBox->GetBoundBox().getHeight();
+
+		ccDrawLine(ccp(pos.x - width/2.0f, pos.y - height/2.0f),
+			ccp(pos.x + width/2.0f, pos.y - height/2.0f));
+		ccDrawLine(ccp(pos.x + width/2.0f, pos.y - height/2.0f),
+			ccp(pos.x + width/2.0f, pos.y + height/2.0f));
+		ccDrawLine(ccp(pos.x + width/2.0f, pos.y + height/2.0f),
+			ccp(pos.x - width/2.0f, pos.y + height/2.0f));
+		ccDrawLine(ccp(pos.x - width/2.0f, pos.y + height/2.0f),
+			ccp(pos.x - width/2.0f, pos.y - height/2.0f));
+	}
+}
+
+void CollisionDebugLayer::DrawPlayerMagicBoundBox()
+{
+	ccDrawColor4B(255,255,0,255);
+	std::vector<std::list<MLEntity*>> colTable = MLCollisionMgr::SharedInstance()->GetColTable();
+
+	std::list<MLEntity*> entityList = colTable[ML_ETYMAINTYPE_PLAYER_MAGIC];
 	for(std::list<MLEntity*>::iterator it = entityList.begin(); it != entityList.end(); ++it)
 	{
 		MLEntity* pEntity = *it;

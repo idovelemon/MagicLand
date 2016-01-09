@@ -29,6 +29,7 @@ public:
 
 protected:
 	void DrawPlayerBoundBox();
+	void DrawPlayerMagicBoundBox();
 	void DrawEnvBoundBox();
 };
 
