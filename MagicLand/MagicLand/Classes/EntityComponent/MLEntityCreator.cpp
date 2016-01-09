@@ -1,12 +1,6 @@
 #include "MLEntityCreator.h"
 #include "../marco.h"
-
-#include "MLComDisplay.h"
-#include "MLComTransform.h"
-#include "MLComBoundBox.h"
-#include "MLComState.h"
-#include "MLComMovement.h"
-#include "MLComDir.h"
+#include "MLAllComs.h"
 #include "../StateMachine/MLStartState.h"
 using namespace MagicLand;
 
@@ -184,6 +178,12 @@ MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLR
 	state->SetState(MLStartState::SharedInstance());
 	entity->AddComponent(state);
 	ML_SAFE_DROP(state);
+
+	// Create the timer component
+	MLComTimer* timer = new MLComTimer(entity);
+	ML_SAFE_ASSERT(timer != NULL, "Create Timer component failed");
+	entity->AddComponent(timer);
+	ML_SAFE_DROP(timer);
 
 	return entity;
 }

@@ -26,6 +26,7 @@ public:
 
 protected:
 	void Fly(MLEntity* entity);
+	void UpdateFlyTimer(MLEntity* entity);
 };
 
 #endif

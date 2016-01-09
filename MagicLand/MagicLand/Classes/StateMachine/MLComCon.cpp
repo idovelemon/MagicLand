@@ -1,16 +1,15 @@
 #include "MLComCon.h"
 #include "../marco.h"
-#include "../EntityComponent/MLComTransform.h"
-#include "../EntityComponent/MLComBoundBox.h"
-#include "../EntityComponent/MLComMovement.h"
+#include "../EntityComponent/MLAllComs.h"
+#include "../EntityComponent/MLTimerFlag.h"
 using namespace MagicLand;
 
-bool MLComCon::StartOK(MLEntity* pEntity)
+bool MLComCon::StartOK(MLEntity* entity)
 {
 	return true;
 }
 
-bool MLComCon::NeedJump(MLEntity* pEntity)
+bool MLComCon::NeedJump(MLEntity* entity)
 {
 	if(GetKeyState('W') & 0x8000)
 	{
@@ -20,15 +19,15 @@ bool MLComCon::NeedJump(MLEntity* pEntity)
 	return false;
 }
 
-bool MLComCon::TouchGround(MLEntity* pEntity)
+bool MLComCon::TouchGround(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Can not deal with the null pointer");
+	ML_SAFE_ASSERT(entity != NULL, "Can not deal with the null pointer");
 
-	MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+	MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 	ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 	VECTOR2 pos = pTransform->GetPos();
 
-	MLComBoundBox* pBoundBox = (MLComBoundBox*)pEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
+	MLComBoundBox* pBoundBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
 	ML_SAFE_ASSERT(pBoundBox != NULL, "There is no boundbox component");
 
 	bool bRet = false;
@@ -69,21 +68,39 @@ bool MLComCon::TouchGround(MLEntity* pEntity)
 	return bRet;
 }
 
-bool MLComCon::NeedFall(MLEntity* pEntity)
+bool MLComCon::NeedFall(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Can not deal with null pointer");
+	ML_SAFE_ASSERT(entity != NULL, "Can not deal with null pointer");
 
-	MLComMovement* pMovement = (MLComMovement*)pEntity->GetComponent(ML_COMTYPE_MOVEMENT);
+	MLComMovement* pMovement = (MLComMovement*)entity->GetComponent(ML_COMTYPE_MOVEMENT);
 	ML_SAFE_ASSERT(pMovement != NULL, "There is no movement component");
 
 	bool bRet = false;
 
 	if(pMovement->GetVel().y <= 0.0f)
 	{
-		if(!TouchGround(pEntity))
+		if(!TouchGround(entity))
 		{
 			bRet = true;
 		}
+	}
+
+	return bRet;
+}
+
+bool MLComCon::FlyTimeUp(MLEntity* entity)
+{
+	ML_SAFE_ASSERT(entity != NULL, "Can not deal with empty entity");
+
+	bool bRet = false;
+
+	MLComTimer* timer = (MLComTimer*)entity->GetComponent(ML_COMTYPE_TIMER);
+	ML_SAFE_ASSERT(timer != NULL, "There is no timer component");
+
+	float time = timer->GetTimer(ML_TIMER_FLAG_FIREBALL_FLY);
+	if(time > 2.0f)
+	{
+		bRet = true;
 	}
 
 	return bRet;

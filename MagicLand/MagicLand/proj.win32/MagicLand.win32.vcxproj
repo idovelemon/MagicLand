@@ -141,16 +141,19 @@
     <ClInclude Include="..\Classes\Camera\PlayerCamera\MLPlayerCamera.h" />
     <ClInclude Include="..\Classes\CollisionDebugLayer.h" />
     <ClInclude Include="..\Classes\Collision\MLCollisionMgr.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLAllComs.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComBoundBox.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComDir.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComDisplay.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComMovement.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComponent.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComState.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLComTimer.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComTransform.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLEntity.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLEntityCreator.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLEntityMgr.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLTimerFlag.h" />
     <ClInclude Include="..\Classes\Framerate\MLFrameRateMgr.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\marco.h" />
@@ -161,6 +164,7 @@
     <ClInclude Include="..\Classes\StateMachine\MLComCon.h" />
     <ClInclude Include="..\Classes\StateMachine\MLCon.h" />
     <ClInclude Include="..\Classes\StateMachine\MLEndState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLFireBallDestroyState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLFireBallFlyState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLStartState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLState.h" />
@@ -186,6 +190,7 @@
     <ClCompile Include="..\Classes\EntityComponent\MLComMovement.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComponent.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComState.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLComTimer.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComTransform.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLEntity.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLEntityCreator.cpp" />
@@ -198,6 +203,7 @@
     <ClCompile Include="..\Classes\Round\MLRound.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLComCon.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLEndState.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLFireBallDestroyState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLFireBallFlyState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLStartState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLStateMachine.cpp" />

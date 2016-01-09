@@ -25,7 +25,8 @@ public:
 	static void Destroy();
 
 public:
-	void AddColEntry(MagicLand::MLEntity* pEntity);
+	void AddColEntry(MagicLand::MLEntity* entity);
+	void RemoveColEntry(MagicLand::MLEntity* entity);
 	void Update(float delta);
 	std::vector<std::list<MLEntity*>>& GetColTable();
 

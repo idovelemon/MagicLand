@@ -16,7 +16,7 @@ MLEntityMgr::~MLEntityMgr()
 {
 	for(MLEntityTableIt it = m_EntityTable.begin(); it != m_EntityTable.end(); ++it)
 	{
-		ML_SAFE_RELESE_ENTITY(it->second);
+		ML_SAFE_RELEASE_ENTITY(it->second);
 	}
 
 	m_EntityTable.clear();
@@ -87,7 +87,7 @@ void MLEntityMgr::DestroyAllDeadEntities()
 		
 		if(pEntity->IsEntityDead())
 		{
-			ML_SAFE_DROP(pEntity);
+			ML_SAFE_RELEASE_ENTITY(pEntity);
 			it = m_EntityTable.erase(it);
 		}
 		else

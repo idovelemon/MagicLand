@@ -36,7 +36,7 @@
         _pointer_ = NULL;\
     }
 
-#define ML_SAFE_RELESE_ENTITY(_entity_) \
+#define ML_SAFE_RELEASE_ENTITY(_entity_) \
 	if(_entity_ != NULL) \
 	{\
 		_entity_->RemoveAllComponents();\

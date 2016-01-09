@@ -20,9 +20,9 @@ MLCollisionMgr::~MLCollisionMgr()
 
 		for(MLColMgrListIt itList = colList.begin(); itList != colList.end(); ++itList)
 		{
-			MLEntity* pEntity = *itList;
-			ML_SAFE_ASSERT(pEntity != NULL, "There is an error in collision manager");
-			ML_SAFE_DROP(pEntity);
+			MLEntity* entity = *itList;
+			ML_SAFE_ASSERT(entity != NULL, "There is an error in collision manager");
+			ML_SAFE_DROP(entity);
 		}
 
 		colList.clear();
@@ -47,15 +47,40 @@ void MLCollisionMgr::Destroy()
 	ML_SAFE_DELETE(s_Instance);
 }
 
-void MLCollisionMgr::AddColEntry(MLEntity* pEntity)
+void MLCollisionMgr::AddColEntry(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Please pass a valid entity pointer");
-	MLEntityMainType mainType = pEntity->GetMainType();
+	ML_SAFE_ASSERT(entity != NULL, "Please pass a valid entity pointer");
+	MLEntityMainType mainType = entity->GetMainType();
 
 	ML_SAFE_ASSERT(mainType <= m_ColMgrTable.size(), "Please make sure the table can hold this type of entity");
-	m_ColMgrTable[mainType].push_back(pEntity);
+	m_ColMgrTable[mainType].push_back(entity);
 
-	pEntity->Grab(); // Add the reference count
+	ML_SAFE_GRAB(entity); // Add the reference count
+}
+
+void MLCollisionMgr::RemoveColEntry(MLEntity* entity)
+{
+	ML_SAFE_ASSERT(entity != NULL, "Please pass a valid entity pointer");
+	MLEntityMainType mainType = entity->GetMainType();
+
+	ML_SAFE_ASSERT(mainType <= m_ColMgrTable.size(), "Please make sure the table has the collision entry of this type entity");
+
+	bool bFound = false;
+	for(MLColMgrList::iterator it = m_ColMgrTable[mainType].begin(); it != m_ColMgrTable[mainType].end(); ++it)
+	{
+		MLEntity* colEntry = *it;
+		ML_SAFE_ASSERT(colEntry != NULL, "There is an error");
+
+		if(colEntry->GetID() == entity->GetID())
+		{
+			ML_SAFE_DROP(entity);
+			m_ColMgrTable[mainType].erase(it);
+			bFound = true;
+			break;
+		}
+	}
+
+	ML_SAFE_ASSERT(bFound == true, "Can not find the collision entry of this entity");
 }
 
 void MLCollisionMgr::Update(float delta)
@@ -87,16 +112,16 @@ void MLCollisionMgr::CollisionResponse()
 	{
 		for(MLColMgrListIt it = m_ColMgrTable[i].begin(); it != m_ColMgrTable[i].end(); ++it)
 		{
-			MLEntity* pEntity = *it;
-			ML_SAFE_ASSERT(pEntity != NULL, "There is an error");
+			MLEntity* entity = *it;
+			ML_SAFE_ASSERT(entity != NULL, "There is an error");
 
-			MLComState* pState = (MLComState*)pEntity->GetComponent(ML_COMTYPE_STATE);
+			MLComState* pState = (MLComState*)entity->GetComponent(ML_COMTYPE_STATE);
 			
 			// If this entity has state component
 			// That means the entity has the state machine to handle the collision response
 			if(pState != NULL)
 			{
-				pState->GetState()->OnCollision(pEntity);
+				pState->GetState()->OnCollision(entity);
 			}
 		}
 	}
@@ -108,10 +133,10 @@ void MLCollisionMgr::ClearCollisionInfo()
 	{
 		for(MLColMgrListIt it = m_ColMgrTable[i].begin(); it != m_ColMgrTable[i].end(); ++it)
 		{
-			MLEntity* pEntity = *it;
-			ML_SAFE_ASSERT(pEntity != NULL, "There is an error");
+			MLEntity* entity = *it;
+			ML_SAFE_ASSERT(entity != NULL, "There is an error");
 
-			MLComBoundBox* pBox = (MLComBoundBox*)pEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
+			MLComBoundBox* pBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
 			ML_SAFE_ASSERT(pBox != NULL, "There is an error");
 			pBox->Reset();
 		}

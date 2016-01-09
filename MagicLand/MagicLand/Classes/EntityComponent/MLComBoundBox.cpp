@@ -3,19 +3,22 @@
 #include "../marco.h"
 using namespace MagicLand;
 
-MLComBoundBox::MLComBoundBox(MLEntity* pEntity, float width, float height, float px, float py)
-	:MLComponent(ML_COMTYPE_BOUNDBOX, pEntity)
+MLComBoundBox::MLComBoundBox(MLEntity* entity, float width, float height, float px, float py)
+	:MLComponent(ML_COMTYPE_BOUNDBOX, entity)
 	,m_Aabb(AABB(MAKE_VECTOR2(px + width * 0.5f, py + height * 0.5f), MAKE_VECTOR2(px - width * 0.5f, py - height * 0.5f)))
 	,m_IsCollided(false)
 {
 	m_ColEntities.clear();
 
 	// Register the entity in collision mgr
-	MLCollisionMgr::SharedInstance()->AddColEntry(pEntity);
+	MLCollisionMgr::SharedInstance()->AddColEntry(entity);
 }
 
 MLComBoundBox::~MLComBoundBox()
 {
+	// Un-register the entity in collision mgr
+	MLCollisionMgr::SharedInstance()->RemoveColEntry(m_Entity);
+
 	for(int i = 0; i < m_ColEntities.size(); i++)
 	{
 		ML_SAFE_DROP(m_ColEntities[i]);

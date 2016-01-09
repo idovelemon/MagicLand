@@ -192,6 +192,18 @@
     <ClInclude Include="..\Classes\Round\MLRound.h">
       <Filter>source\Round</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComTimer.h">
+      <Filter>source\EntityComponent\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLAllComs.h">
+      <Filter>source\EntityComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLTimerFlag.h">
+      <Filter>source\EntityComponent\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine\MLFireBallDestroyState.h">
+      <Filter>source\StateMachine\State\FireBall</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -298,6 +310,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Round\MLRound.cpp">
       <Filter>source\Round</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComTimer.cpp">
+      <Filter>source\EntityComponent\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine\MLFireBallDestroyState.cpp">
+      <Filter>source\StateMachine\State\FireBall</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

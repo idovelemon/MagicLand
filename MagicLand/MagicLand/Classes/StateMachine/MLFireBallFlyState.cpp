@@ -1,8 +1,9 @@
 #include "MLFireBallFlyState.h"
 #include "../marco.h"
 #include "MLStateMethod.h"
-#include "../EntityComponent/MLComTransform.h"
-#include "../EntityComponent/MLComMovement.h"
+#include "../EntityComponent/MLAllComs.h"
+#include "../EntityComponent/MLTimerFlag.h"
+#include "../Framerate/MLFrameRateMgr.h"
 using namespace MagicLand;
 
 MLFireBallFlyState::MLFireBallFlyState()
@@ -15,6 +16,12 @@ MLFireBallFlyState::~MLFireBallFlyState()
 
 void MLFireBallFlyState::Enter(MLEntity* entity)
 {
+	ML_SAFE_ASSERT(entity != NULL, "Can not deal with null pointer");
+
+	MLComTimer* timer = (MLComTimer*)entity->GetComponent(ML_COMTYPE_TIMER);
+	ML_SAFE_ASSERT(timer != NULL, "There is no timer component");
+
+	timer->AddTimer(ML_TIMER_FLAG_FIREBALL_FLY);
 }
 
 void MLFireBallFlyState::Run(MLEntity* entity)
@@ -22,6 +29,8 @@ void MLFireBallFlyState::Run(MLEntity* entity)
 	ML_SAFE_ASSERT(entity != NULL, "Can not deal with null pointer");
 
 	Fly(entity);
+
+	UpdateFlyTimer(entity);
 
 	MLStateMethod::UpdateBoundBox(entity);
 
@@ -50,4 +59,16 @@ void MLFireBallFlyState::Fly(MLEntity* entity)
 	VECTOR2 vel = movement->GetVel();
 	Vec2Add(pos, pos, vel);
 	transform->SetPos(pos.x, pos.y);
+}
+
+void MLFireBallFlyState::UpdateFlyTimer(MLEntity* entity)
+{
+	ML_SAFE_ASSERT(entity != NULL, "Can not deal with empty entity");
+
+	MLComTimer* timer = (MLComTimer*)entity->GetComponent(ML_COMTYPE_TIMER);
+	ML_SAFE_ASSERT(timer != NULL, "There is no timer component");
+
+	float time = timer->GetTimer(ML_TIMER_FLAG_FIREBALL_FLY);
+	time += MLFrameRateMgr::SharedInstance()->GetFrameDelta();
+	timer->UpdateTimer(ML_TIMER_FLAG_FIREBALL_FLY, time);
 }
