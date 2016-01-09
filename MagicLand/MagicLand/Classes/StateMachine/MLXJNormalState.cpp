@@ -78,7 +78,7 @@ void MLXJNormalState::HandleInput(MLEntity* entity)
 	if(bPress == true)
 	{
 		curFrame += MLFrameRateMgr::SharedInstance()->GetFrameDelta();
-		if(curFrame > 0.5f)
+		if(curFrame > 0.3f)
 		{
 			curFrame = 0.0f;
 			bPress = false;

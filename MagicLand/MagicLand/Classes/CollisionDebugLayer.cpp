@@ -3,6 +3,7 @@
 #include "marco.h"
 #include "EntityComponent\MLComTransform.h"
 #include "EntityComponent\MLComBoundBox.h"
+#include "Framerate\MLFrameRateMgr.h"
 
 using namespace MagicLand;
 
@@ -17,31 +18,44 @@ CollisionDebugLayer::~CollisionDebugLayer()
 // on "init" you need to initialize your instance
 bool CollisionDebugLayer::init()
 {
-    bool bRet = false;
-    do 
-    {
-        //////////////////////////////////////////////////////////////////////////
-        // super init first
-        //////////////////////////////////////////////////////////////////////////
+	bool bRet = false;
+	do 
+	{
+		//////////////////////////////////////////////////////////////////////////
+		// super init first
+		//////////////////////////////////////////////////////////////////////////
 
-        CC_BREAK_IF(! CCLayer::init());
+		CC_BREAK_IF(! CCLayer::init());
 
-        //////////////////////////////////////////////////////////////////////////
-        // add your codes below...
-        //////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////
+		// add your codes below...
+		//////////////////////////////////////////////////////////////////////////
 
-        bRet = true;
-    } while (0);
+		bRet = true;
+	} while (0);
 
-    return bRet;
+	return bRet;
 }
 
 void CollisionDebugLayer::draw()
 {
-	static bool bDraw = true;
-	if(GetAsyncKeyState('C') & 0x8000)
+	static bool bDraw = false;
+	static bool bPress = false;
+	static float curFrame = 0.0f;
+	if((GetAsyncKeyState('C') & 0x8000) && (bPress == false))
 	{
 		bDraw = !bDraw;
+		bPress = true;
+	}
+
+	if(bPress == true)
+	{
+		curFrame += MLFrameRateMgr::SharedInstance()->GetFrameDelta();
+		if(curFrame > 0.2f)
+		{
+			curFrame = 0.0f;
+			bPress = false;
+		}
 	}
 
 	if(bDraw)
