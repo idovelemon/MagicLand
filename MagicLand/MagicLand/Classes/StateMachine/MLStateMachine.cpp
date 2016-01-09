@@ -17,11 +17,11 @@ MLStateMachine::~MLStateMachine()
 	}
 }
 
-void MLStateMachine::Run(MLEntity* pEntity)
+void MLStateMachine::Run(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Can not deal with the null pointer");
+	ML_SAFE_ASSERT(entity != NULL, "Can not deal with the null pointer");
 
-	MLComState*	pStateCom = (MLComState*)pEntity->GetComponent(ML_COMTYPE_STATE);
+	MLComState*	pStateCom = (MLComState*)entity->GetComponent(ML_COMTYPE_STATE);
 
 	if(pStateCom != NULL) // If the state component exist
 	{
@@ -36,13 +36,13 @@ void MLStateMachine::Run(MLEntity* pEntity)
 
 			if(pEntry->headState == pState)
 			{
-				if(pEntry->pConFunc(pEntity))
+				if(pEntry->pConFunc(entity))
 				{
 					// Change the state of the entity
-					pState->Exit(pEntity);
+					pState->Exit(entity);
 
 					ML_SAFE_ASSERT(pEntry->tailState != NULL, "");
-					pEntry->tailState->Enter(pEntity);
+					pEntry->tailState->Enter(entity);
 
 					pStateCom->SetState(pEntry->tailState);
 
@@ -54,7 +54,7 @@ void MLStateMachine::Run(MLEntity* pEntity)
 		// Run the state
 		pState = pStateCom->GetState();
 		ML_SAFE_ASSERT(pState != NULL, "");
-		pState->Run(pEntity);
+		pState->Run(entity);
 	}
 }
 

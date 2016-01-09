@@ -16,7 +16,7 @@ namespace MagicLand { class MLComDir; };
 class MagicLand::MLComDir:public MLComponent
 {
 public:
-	MLComDir(MagicLand::MLEntity* pEntity, MagicLand::MLDir dir);
+	MLComDir(MagicLand::MLEntity* entity, MagicLand::MLDir dir);
 	virtual ~MLComDir();
 
 public:

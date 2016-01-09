@@ -16,11 +16,11 @@ namespace MagicLand { class MLStateMethod; };
 class MagicLand::MLStateMethod
 {
 public:
-	static void CollisionResponse(MagicLand::MLEntity* pEntity);
-	static void UpdateBoundBox(MagicLand::MLEntity* pEntity);
-	static void RenderSprite(MagicLand::MLEntity* pEntity);
-	static void OnCollision(MagicLand::MLEntity* pEntity);
-	static void Fire(MagicLand::MLEntity* pEntity);
+	static void CollisionResponse(MagicLand::MLEntity* entity);
+	static void UpdateBoundBox(MagicLand::MLEntity* entity);
+	static void RenderSprite(MagicLand::MLEntity* entity);
+	static void OnCollision(MagicLand::MLEntity* entity);
+	static void Fire(MagicLand::MLEntity* entity);
 };
 
 #endif

@@ -1,8 +1,8 @@
 #include "MLComTransform.h"
 using namespace MagicLand;
 
-MLComTransform::MLComTransform(MLEntity* pEntity, float x, float y, float sx, float sy, float r)
-	:MLComponent(ML_COMTYPE_TRANSFORM, pEntity)
+MLComTransform::MLComTransform(MLEntity* entity, float x, float y, float sx, float sy, float r)
+	:MLComponent(ML_COMTYPE_TRANSFORM, entity)
 	,m_Pos(MAKE_VECTOR2(x,y))
 	,m_Scale(MAKE_VECTOR2(sx,sy))
 	,m_Rot(r)

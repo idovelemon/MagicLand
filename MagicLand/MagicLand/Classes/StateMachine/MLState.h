@@ -23,10 +23,10 @@ public:
 	virtual ~MLState(){}
 
 public:
-	virtual void Enter(MagicLand::MLEntity* pEntity) = 0;
-	virtual void Run(MagicLand::MLEntity* pEntity) = 0;
-	virtual void Exit(MagicLand::MLEntity* pEntity) = 0;
-	virtual void OnCollision(MagicLand::MLEntity* pEntity) = 0;
+	virtual void Enter(MagicLand::MLEntity* entity) = 0;
+	virtual void Run(MagicLand::MLEntity* entity) = 0;
+	virtual void Exit(MagicLand::MLEntity* entity) = 0;
+	virtual void OnCollision(MagicLand::MLEntity* entity) = 0;
 };
 
 #endif

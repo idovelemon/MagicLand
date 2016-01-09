@@ -3,8 +3,8 @@
 using namespace MagicLand;
 using namespace cocos2d;
 
-MLComDisplay::MLComDisplay(MLEntity* pEntity, char* fileName, cocos2d::CCLayer* parentLayer)
-	:MLComponent(ML_COMTYPE_DISPLAY, pEntity)
+MLComDisplay::MLComDisplay(MLEntity* entity, char* fileName, cocos2d::CCLayer* parentLayer)
+	:MLComponent(ML_COMTYPE_DISPLAY, entity)
 	,m_Layer(parentLayer)
 	,m_Sprite(NULL)
 {

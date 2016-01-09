@@ -19,14 +19,14 @@ public:
 	virtual ~MLXJNormalState();
 
 public:
-	virtual void Enter(MagicLand::MLEntity* pEntity);
-	virtual void Run(MagicLand::MLEntity* pEntity);
-	virtual void Exit(MagicLand::MLEntity* pEntity);
-	virtual void OnCollision(MagicLand::MLEntity* pEntity);
+	virtual void Enter(MagicLand::MLEntity* entity);
+	virtual void Run(MagicLand::MLEntity* entity);
+	virtual void Exit(MagicLand::MLEntity* entity);
+	virtual void OnCollision(MagicLand::MLEntity* entity);
 
 protected:
-	void HandleInput(MagicLand::MLEntity* pEntity);
-	void Move(MagicLand::MLEntity* pEntity);
+	void HandleInput(MagicLand::MLEntity* entity);
+	void Move(MagicLand::MLEntity* entity);
 };
 
 #endif

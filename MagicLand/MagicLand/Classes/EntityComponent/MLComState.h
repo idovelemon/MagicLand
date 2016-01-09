@@ -17,15 +17,18 @@ namespace MagicLand { class MLComState; };
 class MagicLand::MLComState:public MLComponent
 {
 public:
-	MLComState(MagicLand::MLEntity* pEntity);
+	MLComState(MagicLand::MLEntity* entity);
 	virtual ~MLComState();
 
 public:
 	virtual void SetState(MagicLand::MLState* pState);
 	virtual MagicLand::MLState* GetState() const;
+	virtual void EnterEnd();
+	virtual bool IsNeedEnd();
 
 protected:
 	MagicLand::MLState*	m_State;	// The state of the entity
+	bool m_NeedEnd;
 };
 
 #endif

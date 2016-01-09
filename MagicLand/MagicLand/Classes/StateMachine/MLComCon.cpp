@@ -9,6 +9,16 @@ bool MLComCon::StartOK(MLEntity* entity)
 	return true;
 }
 
+bool MLComCon::NeedEnd(MLEntity* entity)
+{
+	ML_SAFE_ASSERT(entity != NULL, "Please make sure the entity is not empty");
+	
+	MLComState* state = (MLComState*)entity->GetComponent(ML_COMTYPE_STATE);
+	ML_SAFE_ASSERT(state != NULL, "Please make sure the State component exist");
+
+	return state->IsNeedEnd();
+}
+
 bool MLComCon::NeedJump(MLEntity* entity)
 {
 	if(GetKeyState('W') & 0x8000)
@@ -101,6 +111,31 @@ bool MLComCon::FireBallFlyTimeUp(MLEntity* entity)
 	if(time > 2.0f)
 	{
 		bRet = true;
+	}
+
+	return bRet;
+}
+
+bool MLComCon::FireBallCollidedWithEnemy(MLEntity* entity)
+{
+	ML_SAFE_ASSERT(entity != NULL, "Please make sure the entity is not empty");
+
+	bool bRet = false;
+
+	MLComBoundBox* boundBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
+	ML_SAFE_ASSERT(boundBox != NULL, "Please make sure the BoundBox component exsit");
+
+	if(boundBox->IsCollided())
+	{
+		MLColVector& colVec = boundBox->GetColEntities();
+		for(int i = 0; i < colVec.size(); i++)
+		{
+			if(colVec[i]->GetMainType() == ML_ETYMAINTYPE_ENEMY)
+			{
+				bRet = true;
+				break;
+			}
+		}
 	}
 
 	return bRet;

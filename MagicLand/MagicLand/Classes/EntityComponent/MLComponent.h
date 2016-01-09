@@ -37,7 +37,7 @@ namespace MagicLand
 class MagicLand::MLComponent:public MLReference
 {
 public:
-	MLComponent(MLComType type, MagicLand::MLEntity* pEntity);
+	MLComponent(MLComType type, MagicLand::MLEntity* entity);
     virtual ~MLComponent();
 
 public:

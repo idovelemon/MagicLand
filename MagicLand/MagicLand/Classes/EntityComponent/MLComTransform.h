@@ -17,7 +17,7 @@ namespace MagicLand { class MLComTransform;};
 class MagicLand::MLComTransform:public MagicLand::MLComponent
 {
 public:
-	MLComTransform(MagicLand::MLEntity* pEntity, float x, float y, float sx, float sy, float r);
+	MLComTransform(MagicLand::MLEntity* entity, float x, float y, float sx, float sy, float r);
 	virtual ~MLComTransform();
 
 public:

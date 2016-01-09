@@ -22,7 +22,7 @@ namespace MagicLand
 class MagicLand::MLComBoundBox:public MLComponent
 {
 public:
-	MLComBoundBox(MagicLand::MLEntity* pEntity, float width, float height, float posx, float posy);
+	MLComBoundBox(MagicLand::MLEntity* entity, float width, float height, float posx, float posy);
 	virtual ~MLComBoundBox();
 
 public:

@@ -38,10 +38,10 @@ public:
 
 	//--------------------------------------------------------------------------
 	// Desc: This method will run the state machine for the specific entity
-	// Param:[in] pEntity The entity that need to run the state machine.
+	// Param:[in] entity The entity that need to run the state machine.
 	// Warn: You must make sure the state machine with the type of this entity already exist
 	//--------------------------------------------------------------------------
-	virtual void RunStateMachine(MagicLand::MLEntity* pEntity);
+	virtual void RunStateMachine(MagicLand::MLEntity* entity);
 
 protected:
 	typedef std::map<MagicLand::MLEntitySubType, MagicLand::MLStateMachine*> MLSMMgrTable;

@@ -1,8 +1,8 @@
 #include "MLComMovement.h"
 using namespace MagicLand;
 
-MLComMovement::MLComMovement(MLEntity* pEntity)
-	:MLComponent(ML_COMTYPE_MOVEMENT, pEntity)
+MLComMovement::MLComMovement(MLEntity* entity)
+	:MLComponent(ML_COMTYPE_MOVEMENT, entity)
 	,m_Vel(MAKE_VECTOR2(0.0f, 0.0f))
 	,m_Gravity(0.0f)
 	,m_MaxFallSpeed(0.0f)

@@ -16,7 +16,7 @@ namespace MagicLand { class MLComMovement; };
 class MagicLand::MLComMovement:public MLComponent
 {
 public:
-	MLComMovement(MagicLand::MLEntity* pEntity);
+	MLComMovement(MagicLand::MLEntity* entity);
 	virtual ~MLComMovement();
 
 public:

@@ -18,40 +18,40 @@ MLXJFallState::~MLXJFallState()
 {
 }
 
-void MLXJFallState::Enter(MLEntity* pEntity)
+void MLXJFallState::Enter(MLEntity* entity)
 {
 }
 
-void MLXJFallState::Run(MLEntity* pEntity)
+void MLXJFallState::Run(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Can not deal with the null pointer");
+	ML_SAFE_ASSERT(entity != NULL, "Can not deal with the null pointer");
 
-	Fall(pEntity);
+	Fall(entity);
 
-	MLStateMethod::UpdateBoundBox(pEntity);
+	MLStateMethod::UpdateBoundBox(entity);
 
-	MLStateMethod::RenderSprite(pEntity);
+	MLStateMethod::RenderSprite(entity);
 }
 
-void MLXJFallState::Exit(MLEntity* pEntity)
+void MLXJFallState::Exit(MLEntity* entity)
 {
 }
 
-void MLXJFallState::OnCollision(MLEntity* pEntity)
+void MLXJFallState::OnCollision(MLEntity* entity)
 {
-	MLStateMethod::OnCollision(pEntity);
+	MLStateMethod::OnCollision(entity);
 }
 
-void MLXJFallState::Fall(MLEntity* pEntity)
+void MLXJFallState::Fall(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Can not deal with the null pointer");
+	ML_SAFE_ASSERT(entity != NULL, "Can not deal with the null pointer");
 
-	MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+	MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 	ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 
 	VECTOR2 pos = pTransform->GetPos();
 
-	MLComMovement* pMovement = (MLComMovement*)pEntity->GetComponent(ML_COMTYPE_MOVEMENT);
+	MLComMovement* pMovement = (MLComMovement*)entity->GetComponent(ML_COMTYPE_MOVEMENT);
 	ML_SAFE_ASSERT(pMovement != NULL, "There is no movement component");
 
 	VECTOR2 vel = pMovement->GetVel();

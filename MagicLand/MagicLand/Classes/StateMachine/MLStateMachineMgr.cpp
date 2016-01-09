@@ -53,21 +53,21 @@ void MLStateMachineMgr::AddMgrEntry(MLEntitySubType type, MLStateMachine* pState
 	ML_SAFE_GRAB(pStateMachine); // Add the reference count
 }
 
-void MLStateMachineMgr::RunStateMachine(MLEntity* pEntity)
+void MLStateMachineMgr::RunStateMachine(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Entity can not be null");
-	MLSMMgrTableIt it = m_StateMachineMgrTable.find(pEntity->GetSubType());
+	ML_SAFE_ASSERT(entity != NULL, "Entity can not be null");
+	MLSMMgrTableIt it = m_StateMachineMgrTable.find(entity->GetSubType());
 
 	if(it != m_StateMachineMgrTable.end())
 	{
 		MLStateMachine* pStateMachine = it->second;
 		ML_SAFE_ASSERT(pStateMachine != NULL, "Please pass a valid state machine pointer");
-		pStateMachine->Run(pEntity);
+		pStateMachine->Run(entity);
 	}
 	else
 	{
-		if(pEntity->GetSubType() != ML_ETYSUBTYPE_WALL
-			&& pEntity->GetSubType() != ML_ETYSUBTYPE_TERRIAN)
+		if(entity->GetSubType() != ML_ETYSUBTYPE_WALL
+			&& entity->GetSubType() != ML_ETYSUBTYPE_TERRIAN)
 		{
 			ML_SAFE_ASSERT(false, "Can not find the state machine for this type of entity");
 		}

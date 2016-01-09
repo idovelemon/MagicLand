@@ -10,18 +10,18 @@
 
 using namespace MagicLand;
 
-void MLStateMethod::CollisionResponse(MLEntity* pEntity)
+void MLStateMethod::CollisionResponse(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Can not deal with null pointer");
+	ML_SAFE_ASSERT(entity != NULL, "Can not deal with null pointer");
 
-	MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+	MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 	ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 	VECTOR2 pos = pTransform->GetPos();
 
-	MLComBoundBox* pBoundBox = (MLComBoundBox*)pEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
+	MLComBoundBox* pBoundBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
 	ML_SAFE_ASSERT(pBoundBox != NULL, "There is no boundbox component");
 
-	MLComMovement* pMovement = (MLComMovement*)pEntity->GetComponent(ML_COMTYPE_MOVEMENT);
+	MLComMovement* pMovement = (MLComMovement*)entity->GetComponent(ML_COMTYPE_MOVEMENT);
 	ML_SAFE_ASSERT(pMovement != NULL, "There is no movement component");
 
 	if(pBoundBox->IsCollided())
@@ -82,55 +82,55 @@ void MLStateMethod::CollisionResponse(MLEntity* pEntity)
 	}
 }
 
-void MLStateMethod::UpdateBoundBox(MLEntity* pEntity)
+void MLStateMethod::UpdateBoundBox(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Can not pass the null pointer");
+	ML_SAFE_ASSERT(entity != NULL, "Can not pass the null pointer");
 
-	MLComBoundBox* pBoundBox = (MLComBoundBox*)pEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
+	MLComBoundBox* pBoundBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
 	ML_SAFE_ASSERT(pBoundBox != NULL, "There is no boundbox component");
 
-	MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+	MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 	ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 
 	pBoundBox->UpdateBoundBox(pTransform->GetPos());
 }
 
-void MLStateMethod::RenderSprite(MLEntity* pEntity)
+void MLStateMethod::RenderSprite(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Can not pass the null pointer");
+	ML_SAFE_ASSERT(entity != NULL, "Can not pass the null pointer");
 
-	MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+	MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 	ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 
-	MLComDisplay* pDisplay = (MLComDisplay*)pEntity->GetComponent(ML_COMTYPE_DISPLAY);
+	MLComDisplay* pDisplay = (MLComDisplay*)entity->GetComponent(ML_COMTYPE_DISPLAY);
 	ML_SAFE_ASSERT(pDisplay != NULL, "There is no display component");
 
 	VECTOR2 pos = pTransform->GetPos();
 	pDisplay->GetSprite()->setPosition(ccp(pos.x, pos.y));
 }
 
-void MLStateMethod::OnCollision(MLEntity* pEntity)
+void MLStateMethod::OnCollision(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Can not pass the null pointer");
+	ML_SAFE_ASSERT(entity != NULL, "Can not pass the null pointer");
 
-	MLStateMethod::CollisionResponse(pEntity);
+	MLStateMethod::CollisionResponse(entity);
 
-	MLStateMethod::UpdateBoundBox(pEntity);
+	MLStateMethod::UpdateBoundBox(entity);
 
-	MLStateMethod::RenderSprite(pEntity);
+	MLStateMethod::RenderSprite(entity);
 }
 
-void MLStateMethod::Fire(MLEntity* pEntity)
+void MLStateMethod::Fire(MLEntity* entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Can not pass the null pointer");
+	ML_SAFE_ASSERT(entity != NULL, "Can not pass the null pointer");
 
-	MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+	MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 	ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 
-	MLComDir* pDir = (MLComDir*)pEntity->GetComponent(ML_COMTYPE_DIR);
+	MLComDir* pDir = (MLComDir*)entity->GetComponent(ML_COMTYPE_DIR);
 	ML_SAFE_ASSERT(pDir != NULL, "There is no dir component");
 
 	VECTOR2 pos = pTransform->GetPos();
-	MLEntity* magic = MLEntityCreator::CreateFireBall(pos.x, pos.y, pDir->GetDir(), pEntity->GetRoom());
+	MLEntity* magic = MLEntityCreator::CreateFireBall(pos.x, pos.y, pDir->GetDir(), entity->GetRoom());
 	MLEntityMgr::SharedInstance()->AddEntity(magic);
 }

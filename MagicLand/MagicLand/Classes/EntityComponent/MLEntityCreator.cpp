@@ -112,9 +112,11 @@ MLEntity* MLEntityCreator::CreateXJ(int xCoord, int yCoord, MLRoom* room)
 
 	// Create the state component
 	MLComState* state = new MLComState(entity);
-	state->SetState(MLStartState::SharedInstance());
+	MLStartState* startState = MLStartState::SharedInstance();
+	state->SetState(startState);
 	entity->AddComponent(state);
 	ML_SAFE_DROP(state);
+	ML_SAFE_DROP(startState);
 
 	// Create the movement component
 	MLComMovement* movement = new MLComMovement(entity);
@@ -185,9 +187,11 @@ MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLR
 	// Create the state component
 	MLComState* state = new MLComState(entity);
 	ML_SAFE_ASSERT(state != NULL, "Create State component failed");
-	state->SetState(MLStartState::SharedInstance());
+	MLStartState* startState = MLStartState::SharedInstance();
+	state->SetState(startState);
 	entity->AddComponent(state);
 	ML_SAFE_DROP(state);
+	ML_SAFE_DROP(startState);
 
 	// Create the timer component
 	MLComTimer* timer = new MLComTimer(entity);
@@ -228,9 +232,11 @@ MLEntity* MLEntityCreator::CreateOrge(float posx, float posy, MLRoom* room)
 	// Create State component
 	MLComState* state = new MLComState(entity);
 	ML_SAFE_ASSERT(state != NULL, "Failed to create State component");
+	MLStartState* startState = MLStartState::SharedInstance();
 	state->SetState(MLStartState::SharedInstance());
 	entity->AddComponent(state);
 	ML_SAFE_DROP(state);
+	ML_SAFE_DROP(startState);
 
 	// Create Dir component
 	MLComDir* dir = new MLComDir(entity, ML_DIR_RIGHT);

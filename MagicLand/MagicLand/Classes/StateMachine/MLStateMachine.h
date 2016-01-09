@@ -28,9 +28,9 @@ public:
 	//-----------------------------------------------------------
 	// Desc: This method will do the state process of the specific entity.
 	// All the process of this entity will be done in this state machine
-	// Param:[in] pEntity The entity that will run the state machine
+	// Param:[in] entity The entity that will run the state machine
 	//-----------------------------------------------------------
-	virtual void Run(MagicLand::MLEntity* pEntity);
+	virtual void Run(MagicLand::MLEntity* entity);
 
 	//-----------------------------------------------------------
 	// Desc: This method will add the state entry in this state machine.

@@ -12,7 +12,7 @@
 
 namespace MagicLand
 {
-	typedef bool (*MLPCon)(MagicLand::MLEntity* pEntity);
+	typedef bool (*MLPCon)(MagicLand::MLEntity* entity);
 }
 
 #endif

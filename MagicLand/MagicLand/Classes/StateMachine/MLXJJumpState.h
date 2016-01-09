@@ -19,13 +19,13 @@ public:
 	virtual ~MLXJJumpState();
 
 public:
-	virtual void Enter(MagicLand::MLEntity* pEntity);
-	virtual void Run(MagicLand::MLEntity* pEntity);
-	virtual void Exit(MagicLand::MLEntity* pEntity);
-	virtual void OnCollision(MagicLand::MLEntity* pEntity);
+	virtual void Enter(MagicLand::MLEntity* entity);
+	virtual void Run(MagicLand::MLEntity* entity);
+	virtual void Exit(MagicLand::MLEntity* entity);
+	virtual void OnCollision(MagicLand::MLEntity* entity);
 
 protected:
-	void Jump(MagicLand::MLEntity* pEntity);
+	void Jump(MagicLand::MLEntity* entity);
 };
 
 #endif

@@ -3,12 +3,12 @@
 #include "../marco.h"
 using namespace MagicLand;
 
-MLComponent::MLComponent(MLComType type, MLEntity* pEntity)
+MLComponent::MLComponent(MLComType type, MLEntity* entity)
 	:m_Type(type)
-	,m_Entity(pEntity)
+	,m_Entity(entity)
 {
-	ML_SAFE_ASSERT(pEntity != NULL, "Entity can not be null");
-	ML_SAFE_GRAB(pEntity); // Add the reference count
+	ML_SAFE_ASSERT(entity != NULL, "Entity can not be null");
+	ML_SAFE_GRAB(entity); // Add the reference count
 }
 
 MLComponent::~MLComponent()

@@ -25,10 +25,10 @@ public:
 	static MLStartState* SharedInstance();
 
 public:
-	virtual void Enter(MLEntity* pEntity);
-	virtual void Run(MLEntity* pEntity);
-	virtual void Exit(MLEntity* pEntity);
-	virtual void OnCollision(MLEntity* pEntity);
+	virtual void Enter(MLEntity* entity);
+	virtual void Run(MLEntity* entity);
+	virtual void Exit(MLEntity* entity);
+	virtual void OnCollision(MLEntity* entity);
 
 protected:
 	static MLStartState* s_Instance;

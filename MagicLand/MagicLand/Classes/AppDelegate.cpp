@@ -15,6 +15,7 @@
 #include "StateMachine\MLFireBallDestroyState.h"
 #include "StateMachine\MLOrgeWalkState.h"
 #include "StateMachine\MLOrgeWaitState.h"
+#include "StateMachine\MLEndState.h"
 #include "Framerate\MLFrameRateMgr.h"
 #include "Round/MLRound.h"
 #include "marco.h"
@@ -191,8 +192,11 @@ void AppDelegate::CreateXJSM()
 	MLXJFallState* fallState = new MLXJFallState();
 	ML_SAFE_ASSERT(fallState != NULL, "Failed to allocate the memory for fall state");
 
+	MLStartState* startState = MLStartState::SharedInstance();
+	ML_SAFE_ASSERT(startState != NULL, "Failed to allocate the memory for start state");
+
 	// Build the state transform table
-	pHeroXJSM->AddStateEntry(MLStartState::SharedInstance(), &MLComCon::StartOK, fallState);
+	pHeroXJSM->AddStateEntry(startState, &MLComCon::StartOK, fallState);
 	pHeroXJSM->AddStateEntry(fallState, &MLComCon::TouchGround, normalState);
 	pHeroXJSM->AddStateEntry(normalState, &MLComCon::NeedJump, jumpState);
 	pHeroXJSM->AddStateEntry(jumpState, &MLComCon::TouchGround, normalState);
@@ -204,6 +208,7 @@ void AppDelegate::CreateXJSM()
 	ML_SAFE_DROP(fallState);
 	ML_SAFE_DROP(jumpState);
 	ML_SAFE_DROP(normalState);
+	ML_SAFE_DROP(startState);
 }
 
 void AppDelegate::CreateFireBallSM()
@@ -219,13 +224,23 @@ void AppDelegate::CreateFireBallSM()
 	MLFireBallDestroyState* fireBallDestroyState = new MLFireBallDestroyState();
 	ML_SAFE_ASSERT(fireBallDestroyState != NULL, "Allocate the memory failed");
 
-	fireBallSM->AddStateEntry(MLStartState::SharedInstance(), &MLComCon::StartOK, fireBallFlyState);
+	MLStartState* startState = MLStartState::SharedInstance();
+	ML_SAFE_ASSERT(startState != NULL, "Allocate the memory failed");
+
+	MLEndState* endState = MLEndState::SharedInstance();
+	ML_SAFE_ASSERT(endState != NULL, "Allocate the memory failed");
+
+	fireBallSM->AddStateEntry(startState, &MLComCon::StartOK, fireBallFlyState);
 	fireBallSM->AddStateEntry(fireBallFlyState, &MLComCon::FireBallFlyTimeUp, fireBallDestroyState);
+	fireBallSM->AddStateEntry(fireBallFlyState, &MLComCon::FireBallCollidedWithEnemy, fireBallDestroyState);
+	fireBallSM->AddStateEntry(fireBallDestroyState, &MLComCon::NeedEnd, endState);
 
 	MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_FIREBALL, fireBallSM);
 	ML_SAFE_DROP(fireBallSM);
 	ML_SAFE_DROP(fireBallFlyState);
 	ML_SAFE_DROP(fireBallDestroyState);
+	ML_SAFE_DROP(startState);
+	ML_SAFE_DROP(endState);
 }
 
 void AppDelegate::CreateOrgeSM()
@@ -237,9 +252,10 @@ void AppDelegate::CreateOrgeSM()
 	// Create the state
 	MLOrgeWalkState* orgeWalkState = new MLOrgeWalkState();
 	MLOrgeWaitState* orgeWaitState = new MLOrgeWaitState();
+	MLStartState* startState = MLStartState::SharedInstance();
 
 	// Create State Transform Table
-	orgeSM->AddStateEntry(MLStartState::SharedInstance(), &MLComCon::StartOK, orgeWalkState);
+	orgeSM->AddStateEntry(startState, &MLComCon::StartOK, orgeWalkState);
 	orgeSM->AddStateEntry(orgeWalkState, &MLComCon::OrgeWalkTimeUp, orgeWaitState);
 	orgeSM->AddStateEntry(orgeWaitState, &MLComCon::OrgeWaitTimeUp, orgeWalkState);
 
@@ -247,4 +263,5 @@ void AppDelegate::CreateOrgeSM()
 	ML_SAFE_DROP(orgeSM);
 	ML_SAFE_DROP(orgeWalkState);
 	ML_SAFE_DROP(orgeWaitState);
+	ML_SAFE_DROP(startState);
 }

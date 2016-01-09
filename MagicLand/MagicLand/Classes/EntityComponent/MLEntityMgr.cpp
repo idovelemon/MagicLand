@@ -76,10 +76,10 @@ void MLEntityMgr::RunLogic()
 {
 	for(MLEntityTableIt it = m_EntityTable.begin(); it != m_EntityTable.end(); ++it)
 	{
-		MLEntity* pEntity = it->second;
-		ML_SAFE_ASSERT(pEntity != NULL, "There is an error in the manager");
+		MLEntity* entity = it->second;
+		ML_SAFE_ASSERT(entity != NULL, "There is an error in the manager");
 
-		MLStateMachineMgr::SharedInstance()->RunStateMachine(pEntity);
+		MLStateMachineMgr::SharedInstance()->RunStateMachine(entity);
 	}
 }
 
@@ -87,12 +87,12 @@ void MLEntityMgr::DestroyAllDeadEntities()
 {
 	for(MLEntityTableIt it = m_EntityTable.begin(); it != m_EntityTable.end();)
 	{
-		MLEntity* pEntity = it->second;
-		ML_SAFE_ASSERT(pEntity != NULL, "There is an error in the manager");
+		MLEntity* entity = it->second;
+		ML_SAFE_ASSERT(entity != NULL, "There is an error in the manager");
 		
-		if(pEntity->IsEntityDead())
+		if(entity->IsEntityDead())
 		{
-			ML_SAFE_RELEASE_ENTITY(pEntity);
+			ML_SAFE_RELEASE_ENTITY(entity);
 			it = m_EntityTable.erase(it);
 		}
 		else

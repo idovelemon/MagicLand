@@ -1,4 +1,5 @@
 #include "MLFireBallDestroyState.h"
+#include "../EntityComponent/MLAllComs.h"
 #include "../marco.h"
 using namespace MagicLand;
 
@@ -18,7 +19,10 @@ void MLFireBallDestroyState::Run(MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Can not deal with empty entity");
 
-	entity->KillEntity();
+	MLComState* state = (MLComState*)entity->GetComponent(ML_COMTYPE_STATE);
+	ML_SAFE_ASSERT(state != NULL, "Please make sure the State component exist");
+
+	state->EnterEnd();
 }
 
 void MLFireBallDestroyState::Exit(MLEntity* entity)

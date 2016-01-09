@@ -78,13 +78,13 @@ void CollisionDebugLayer::DrawPlayerBoundBox()
 	std::list<MLEntity*> entityList = colTable[ML_ETYMAINTYPE_PLAYER];
 	for(std::list<MLEntity*>::iterator it = entityList.begin(); it != entityList.end(); ++it)
 	{
-		MLEntity* pEntity = *it;
-		ML_SAFE_ASSERT(pEntity != NULL, "There is an error");
+		MLEntity* entity = *it;
+		ML_SAFE_ASSERT(entity != NULL, "There is an error");
 
-		MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+		MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 		ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 
-		MLComBoundBox* pBoundBox = (MLComBoundBox*)pEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
+		MLComBoundBox* pBoundBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
 		ML_SAFE_ASSERT(pBoundBox != NULL, "There is no boundbox component");
 
 		VECTOR2 pos = pTransform->GetPos();
@@ -110,13 +110,13 @@ void CollisionDebugLayer::DrawPlayerMagicBoundBox()
 	std::list<MLEntity*> entityList = colTable[ML_ETYMAINTYPE_PLAYER_MAGIC];
 	for(std::list<MLEntity*>::iterator it = entityList.begin(); it != entityList.end(); ++it)
 	{
-		MLEntity* pEntity = *it;
-		ML_SAFE_ASSERT(pEntity != NULL, "There is an error");
+		MLEntity* entity = *it;
+		ML_SAFE_ASSERT(entity != NULL, "There is an error");
 
-		MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+		MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 		ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 
-		MLComBoundBox* pBoundBox = (MLComBoundBox*)pEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
+		MLComBoundBox* pBoundBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
 		ML_SAFE_ASSERT(pBoundBox != NULL, "There is no boundbox component");
 
 		VECTOR2 pos = pTransform->GetPos();
@@ -142,13 +142,13 @@ void CollisionDebugLayer::DrawEnvBoundBox()
 	std::list<MLEntity*> entityList = colTable[ML_ETYMAINTYPE_ENV];
 	for(std::list<MLEntity*>::iterator it = entityList.begin(); it != entityList.end(); ++it)
 	{
-		MLEntity* pEntity = *it;
-		ML_SAFE_ASSERT(pEntity != NULL, "There is an error");
+		MLEntity* entity = *it;
+		ML_SAFE_ASSERT(entity != NULL, "There is an error");
 
-		MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+		MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 		ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 
-		MLComBoundBox* pBoundBox = (MLComBoundBox*)pEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
+		MLComBoundBox* pBoundBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
 		ML_SAFE_ASSERT(pBoundBox != NULL, "There is no boundbox component");
 
 		VECTOR2 pos = pTransform->GetPos();
@@ -174,13 +174,13 @@ void CollisionDebugLayer::DrawEnemeyBoundBox()
 	std::list<MLEntity*> entityList = colTable[ML_ETYMAINTYPE_ENEMY];
 	for(std::list<MLEntity*>::iterator it = entityList.begin(); it != entityList.end(); ++it)
 	{
-		MLEntity* pEntity = *it;
-		ML_SAFE_ASSERT(pEntity != NULL, "There is an error");
+		MLEntity* entity = *it;
+		ML_SAFE_ASSERT(entity != NULL, "There is an error");
 
-		MLComTransform* pTransform = (MLComTransform*)pEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+		MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 		ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
 
-		MLComBoundBox* pBoundBox = (MLComBoundBox*)pEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
+		MLComBoundBox* pBoundBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
 		ML_SAFE_ASSERT(pBoundBox != NULL, "There is no boundbox component");
 
 		VECTOR2 pos = pTransform->GetPos();
