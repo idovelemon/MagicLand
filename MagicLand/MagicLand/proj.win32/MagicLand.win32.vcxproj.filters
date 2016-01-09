@@ -60,6 +60,15 @@
     <Filter Include="source\Framerate">
       <UniqueIdentifier>{815c04b0-7cbf-451c-8da3-853355520bf7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\StateMachine\State\Orge">
+      <UniqueIdentifier>{2e532877-4d64-48fa-b06e-b5424c8f324b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\EntityComponent\Component\UserCom">
+      <UniqueIdentifier>{9caf097e-24f8-468a-99ef-52a722cdb597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\EntityComponent\Component\CommonCom">
+      <UniqueIdentifier>{4b5cfc26-e404-46c5-a9e6-dfa617aa4ba8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -120,21 +129,6 @@
     <ClInclude Include="..\Classes\EntityComponent\MLEntityMgr.h">
       <Filter>source\EntityComponent\Entity</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLComponent.h">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLComDisplay.h">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLComTransform.h">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLComBoundBox.h">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLComState.h">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\StateMachine\MLState.h">
       <Filter>source\StateMachine\StateMachineFrame</Filter>
     </ClInclude>
@@ -155,9 +149,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\StateMachine\MLXJNormalState.h">
       <Filter>source\StateMachine\State\Hero_Xiaojian</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLComMovement.h">
-      <Filter>source\EntityComponent\Component</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\StateMachine\MLCon.h">
       <Filter>source\StateMachine\StateMachineFrame</Filter>
@@ -180,9 +171,6 @@
     <ClInclude Include="..\Classes\Camera\PlayerCamera\MLPlayerCamera.h">
       <Filter>source\Camera\PlayerCamera</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLComDir.h">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\StateMachine\MLFireBallFlyState.h">
       <Filter>source\StateMachine\State\FireBall</Filter>
     </ClInclude>
@@ -192,17 +180,47 @@
     <ClInclude Include="..\Classes\Round\MLRound.h">
       <Filter>source\Round</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLComTimer.h">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLAllComs.h">
-      <Filter>source\EntityComponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLTimerFlag.h">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\StateMachine\MLFireBallDestroyState.h">
       <Filter>source\StateMachine\State\FireBall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine\MLOrgeWalkState.h">
+      <Filter>source\StateMachine\State\Orge</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLTimerFlag.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLAllComs.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComBoundBox.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComDir.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComDisplay.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComMovement.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComponent.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComState.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComTimer.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComTransform.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComOrgeWalkRange.h">
+      <Filter>source\EntityComponent\Component\UserCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine\MLOrgeWaitState.h">
+      <Filter>source\StateMachine\State\Orge</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -245,21 +263,6 @@
     <ClCompile Include="..\Classes\EntityComponent\MLEntityMgr.cpp">
       <Filter>source\EntityComponent\Entity</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\EntityComponent\MLComponent.cpp">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\EntityComponent\MLComDisplay.cpp">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\EntityComponent\MLComTransform.cpp">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\EntityComponent\MLComBoundBox.cpp">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\EntityComponent\MLComState.cpp">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLStateMachine.cpp">
       <Filter>source\StateMachine\StateMachineFrame</Filter>
     </ClCompile>
@@ -277,9 +280,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLXJNormalState.cpp">
       <Filter>source\StateMachine\State\Hero_Xiaojian</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\EntityComponent\MLComMovement.cpp">
-      <Filter>source\EntityComponent\Component</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLComCon.cpp">
       <Filter>source\StateMachine\Condition</Filter>
@@ -299,9 +299,6 @@
     <ClCompile Include="..\Classes\Camera\PlayerCamera\MLPlayerCamera.cpp">
       <Filter>source\Camera\PlayerCamera</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\EntityComponent\MLComDir.cpp">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLFireBallFlyState.cpp">
       <Filter>source\StateMachine\State\FireBall</Filter>
     </ClCompile>
@@ -311,11 +308,41 @@
     <ClCompile Include="..\Classes\Round\MLRound.cpp">
       <Filter>source\Round</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\EntityComponent\MLComTimer.cpp">
-      <Filter>source\EntityComponent\Component</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLFireBallDestroyState.cpp">
       <Filter>source\StateMachine\State\FireBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine\MLOrgeWalkState.cpp">
+      <Filter>source\StateMachine\State\Orge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComBoundBox.cpp">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComDir.cpp">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComDisplay.cpp">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComMovement.cpp">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComponent.cpp">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComState.cpp">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComTimer.cpp">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComTransform.cpp">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComOrgeWalkRange.cpp">
+      <Filter>source\EntityComponent\Component\UserCom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine\MLOrgeWaitState.cpp">
+      <Filter>source\StateMachine\State\Orge</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

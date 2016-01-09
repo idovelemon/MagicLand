@@ -41,6 +41,11 @@ public:
 	virtual void gameInit();
 	virtual void gameMainLoop(float delta);
 	virtual void gameFinish();
+
+protected:
+	void CreateXJSM();
+	void CreateFireBallSM();
+	void CreateOrgeSM();
 };
 
 #endif  // __APP_DELEGATE_H__

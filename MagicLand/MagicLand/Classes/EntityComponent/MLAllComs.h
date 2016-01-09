@@ -17,5 +17,6 @@
 #include "MLComDir.h"
 #include "MLComState.h"
 #include "MLComTimer.h"
+#include "MLTimerFlag.h"
 
 #endif

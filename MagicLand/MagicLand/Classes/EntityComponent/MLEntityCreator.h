@@ -34,10 +34,17 @@ protected:
 	static MLETYCreatorEntry s_CreatorTable[];
 
 public:
-	static MLEntity* CreateEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room);
+	static MLEntity* CreateFireBall(float posx, float posy, MagicLand::MLDir dir, MLRoom* room);
+	static MLEntity* CreateOrge(float posx, float posy, MLRoom* room);
+
+	// Created from room map
+public:
+	static MLEntity* CreateEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room);
+	
+protected:
 	static MLEntity* CreateWall(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateXJ(int xCoord, int yCoord, MLRoom* room);
-	static MLEntity* CreateFireBall(float posx, float posy, MagicLand::MLDir dir, MLRoom* room);
+	static MLEntity* CreateOrge(int xCoord, int yCoord, MLRoom* room);
 };
 #endif

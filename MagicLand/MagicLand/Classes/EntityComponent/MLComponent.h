@@ -27,6 +27,9 @@ namespace MagicLand
 		ML_COMTYPE_DIR,			// This enum indicate the direction of the entity
 		ML_COMTYPE_TIMER,		// This enum indicate the timer component
 
+		// User define component
+		ML_COMTYPE_ORGE_WALKRANGE,
+
 		ML_COMTYPE_TOTAL,		// This enum indicate how many component's type in MagicLand
 	};
 };

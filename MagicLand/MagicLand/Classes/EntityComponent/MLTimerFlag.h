@@ -11,4 +11,8 @@
 // For Fireball
 const unsigned int ML_TIMER_FLAG_FIREBALL_FLY = 0;
 
+// For Orge
+const unsigned int ML_TIMER_FLAG_ORGE_WALK = 0;
+const unsigned int ML_TIMER_FLAG_ORGE_WAIT = 1;
+
 #endif

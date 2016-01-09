@@ -146,6 +146,7 @@
     <ClInclude Include="..\Classes\EntityComponent\MLComDir.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComDisplay.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComMovement.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLComOrgeWalkRange.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComponent.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComState.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComTimer.h" />
@@ -166,6 +167,8 @@
     <ClInclude Include="..\Classes\StateMachine\MLEndState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLFireBallDestroyState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLFireBallFlyState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLOrgeWaitState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLOrgeWalkState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLStartState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLStateMachine.h" />
@@ -188,6 +191,7 @@
     <ClCompile Include="..\Classes\EntityComponent\MLComDir.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComDisplay.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComMovement.cpp" />
+    <ClCompile Include="..\Classes\EntityComponent\MLComOrgeWalkRange.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComponent.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComState.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComTimer.cpp" />
@@ -205,6 +209,8 @@
     <ClCompile Include="..\Classes\StateMachine\MLEndState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLFireBallDestroyState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLFireBallFlyState.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLOrgeWaitState.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLOrgeWalkState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLStartState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLStateMachine.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLStateMachineMgr.cpp" />

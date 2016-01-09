@@ -3,6 +3,7 @@
 
 #include <assert.h>
 #include <stdio.h>
+#include <math.h>
 
 #define ML_SAFE_ASSERT(_expression_, _msg_) \
     do\
@@ -43,4 +44,7 @@
 		_entity_->Drop();\
 		_entity_ = NULL;\
 	}
+
+#define ML_FLOAT_EQUAL(_value1_, _value2_) (abs(_value1_ - _value2_) <= 0.0001f)
+
 #endif

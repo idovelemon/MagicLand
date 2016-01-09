@@ -13,6 +13,8 @@
 #include "StateMachine\MLXJFallState.h"
 #include "StateMachine\MLFireBallFlyState.h"
 #include "StateMachine\MLFireBallDestroyState.h"
+#include "StateMachine\MLOrgeWalkState.h"
+#include "StateMachine\MLOrgeWaitState.h"
 #include "Framerate\MLFrameRateMgr.h"
 #include "Round/MLRound.h"
 #include "marco.h"
@@ -142,6 +144,40 @@ void AppDelegate::gameInit()
 	MLRound::SharedInstance();
 
 	// Create State machine here...
+	CreateXJSM();
+	
+	CreateFireBallSM();
+
+	CreateOrgeSM();
+}
+
+void AppDelegate::gameMainLoop(float delta)
+{
+	MLFrameRateMgr::SharedInstance()->AddDelta(delta);
+
+	MLRound::SharedInstance()->Update(delta);
+}
+
+void AppDelegate::gameFinish()
+{
+	// Destroy the State Machine manager here...
+	MLStateMachineMgr::SharedInstance()->Destroy();
+
+	// Destroy the Entity manager here...
+	MLEntityMgr::SharedInstance()->Destroy();
+
+	// Destroy the Round
+	MLRound::Destroy();
+
+	// Destroy the Collision manager here...
+	MLCollisionMgr::SharedInstance()->Destroy();
+
+	// Destroy the cocos2d
+	CCDirector::sharedDirector()->end();
+}
+
+void AppDelegate::CreateXJSM()
+{
 	MLStateMachine* pHeroXJSM = new MLStateMachine;
 	ML_SAFE_ASSERT(pHeroXJSM != NULL, "Failed to allocate the memory for the state machine");
 
@@ -168,7 +204,10 @@ void AppDelegate::gameInit()
 	ML_SAFE_DROP(fallState);
 	ML_SAFE_DROP(jumpState);
 	ML_SAFE_DROP(normalState);
+}
 
+void AppDelegate::CreateFireBallSM()
+{
 	// Create statemachine for FireBall
 	MLStateMachine* fireBallSM = new MLStateMachine();
 	ML_SAFE_ASSERT(fireBallSM != NULL, "Allocate the memory failed");
@@ -181,7 +220,7 @@ void AppDelegate::gameInit()
 	ML_SAFE_ASSERT(fireBallDestroyState != NULL, "Allocate the memory failed");
 
 	fireBallSM->AddStateEntry(MLStartState::SharedInstance(), &MLComCon::StartOK, fireBallFlyState);
-	fireBallSM->AddStateEntry(fireBallFlyState, &MLComCon::FlyTimeUp, fireBallDestroyState);
+	fireBallSM->AddStateEntry(fireBallFlyState, &MLComCon::FireBallFlyTimeUp, fireBallDestroyState);
 
 	MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_FIREBALL, fireBallSM);
 	ML_SAFE_DROP(fireBallSM);
@@ -189,27 +228,23 @@ void AppDelegate::gameInit()
 	ML_SAFE_DROP(fireBallDestroyState);
 }
 
-void AppDelegate::gameMainLoop(float delta)
+void AppDelegate::CreateOrgeSM()
 {
-	MLFrameRateMgr::SharedInstance()->AddDelta(delta);
+	// Create statemachine for Orge
+	MLStateMachine* orgeSM = new MLStateMachine();
+	ML_SAFE_ASSERT(orgeSM != NULL, "Allocate the memory failed");
 
-	MLRound::SharedInstance()->Update(delta);
-}
+	// Create the state
+	MLOrgeWalkState* orgeWalkState = new MLOrgeWalkState();
+	MLOrgeWaitState* orgeWaitState = new MLOrgeWaitState();
 
-void AppDelegate::gameFinish()
-{
-	// Destroy the State Machine manager here...
-	MLStateMachineMgr::SharedInstance()->Destroy();
+	// Create State Transform Table
+	orgeSM->AddStateEntry(MLStartState::SharedInstance(), &MLComCon::StartOK, orgeWalkState);
+	orgeSM->AddStateEntry(orgeWalkState, &MLComCon::OrgeWalkTimeUp, orgeWaitState);
+	orgeSM->AddStateEntry(orgeWaitState, &MLComCon::OrgeWaitTimeUp, orgeWalkState);
 
-	// Destroy the Entity manager here...
-	MLEntityMgr::SharedInstance()->Destroy();
-
-	// Destroy the Round
-	MLRound::Destroy();
-
-	// Destroy the Collision manager here...
-	MLCollisionMgr::SharedInstance()->Destroy();
-
-	// Destroy the cocos2d
-	CCDirector::sharedDirector()->end();
+	MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_ORGE, orgeSM);
+	ML_SAFE_DROP(orgeSM);
+	ML_SAFE_DROP(orgeWalkState);
+	ML_SAFE_DROP(orgeWaitState);
 }

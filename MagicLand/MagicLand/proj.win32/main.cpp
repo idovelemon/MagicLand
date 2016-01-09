@@ -2,7 +2,7 @@
 #include "AppDelegate.h"
 #include "CCEGLView.h"
 
-#if 0
+#if 1
 #include "vld\vld.h"
 #endif
 

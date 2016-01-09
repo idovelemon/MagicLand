@@ -88,7 +88,7 @@ bool MLComCon::NeedFall(MLEntity* entity)
 	return bRet;
 }
 
-bool MLComCon::FlyTimeUp(MLEntity* entity)
+bool MLComCon::FireBallFlyTimeUp(MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Can not deal with empty entity");
 
@@ -99,6 +99,42 @@ bool MLComCon::FlyTimeUp(MLEntity* entity)
 
 	float time = timer->GetTimer(ML_TIMER_FLAG_FIREBALL_FLY);
 	if(time > 2.0f)
+	{
+		bRet = true;
+	}
+
+	return bRet;
+}
+
+bool MLComCon::OrgeWaitTimeUp(MLEntity* entity)
+{
+	ML_SAFE_ASSERT(entity != NULL, "Please make sure the entity is not empty");
+
+	bool bRet = false;
+
+	MLComTimer* timer = (MLComTimer*)entity->GetComponent(ML_COMTYPE_TIMER);
+	ML_SAFE_ASSERT(timer != NULL, "Please make sure the Timer component exist");
+
+	float time = timer->GetTimer(ML_TIMER_FLAG_ORGE_WAIT);
+	if(ML_FLOAT_EQUAL(time, 0.0f))
+	{
+		bRet = true;
+	}
+
+	return bRet;
+}
+
+bool MLComCon::OrgeWalkTimeUp(MLEntity* entity)
+{
+	ML_SAFE_ASSERT(entity != NULL, "Please make sure the entity is not empty");
+
+	bool bRet = false;
+
+	MLComTimer* timer = (MLComTimer*)entity->GetComponent(ML_COMTYPE_TIMER);
+	ML_SAFE_ASSERT(timer != NULL, "Please make sure the Timer component exist");
+
+	float time = timer->GetTimer(ML_TIMER_FLAG_ORGE_WALK);
+	if(ML_FLOAT_EQUAL(time, 0.0f))
 	{
 		bRet = true;
 	}

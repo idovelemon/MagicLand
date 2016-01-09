@@ -23,7 +23,12 @@ public:
 
 	// For FireBall
 public:
-	static bool FlyTimeUp(MagicLand::MLEntity* entity);
+	static bool FireBallFlyTimeUp(MagicLand::MLEntity* entity);
+
+	// For Orge
+public:
+	static bool OrgeWaitTimeUp(MagicLand::MLEntity* entity);
+	static bool OrgeWalkTimeUp(MagicLand::MLEntity* entity);
 };
 
 #endif
