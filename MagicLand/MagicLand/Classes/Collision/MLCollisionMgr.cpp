@@ -97,6 +97,17 @@ std::vector<std::list<MLEntity*>>& MLCollisionMgr::GetColTable()
 	return m_ColMgrTable;
 }
 
+unsigned int MLCollisionMgr::GetCVNum()
+{
+	unsigned int cvNum = 0;
+	for(int i = 0;i < m_ColMgrTable.size(); i++)
+	{
+		cvNum += m_ColMgrTable[i].size();
+	}
+
+	return cvNum;
+}
+
 void MLCollisionMgr::CollisionDetect()
 {
 	// Clear the collided information of last frame

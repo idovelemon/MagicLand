@@ -33,6 +33,7 @@ public:
 	virtual void Update(float delta);
 
 	virtual MLEntity* GetPlayer();
+	virtual unsigned int GetEntityNum();
 
 protected:
 	void RunLogic();

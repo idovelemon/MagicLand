@@ -67,6 +67,11 @@ MLEntity* MLEntityMgr::GetPlayer()
 	return m_Player;
 }
 
+unsigned int MLEntityMgr::GetEntityNum()
+{
+	return m_EntityTable.size();
+}
+
 void MLEntityMgr::RunLogic()
 {
 	for(MLEntityTableIt it = m_EntityTable.begin(); it != m_EntityTable.end(); ++it)

@@ -29,6 +29,7 @@ public:
 	void RemoveColEntry(MagicLand::MLEntity* entity);
 	void Update(float delta);
 	std::vector<std::list<MLEntity*>>& GetColTable();
+	unsigned int GetCVNum(); // CV for Collision Volume
 
 protected:
 	void CollisionDetect();

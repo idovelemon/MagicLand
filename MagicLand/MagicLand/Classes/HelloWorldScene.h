@@ -27,6 +27,8 @@ public:
 protected:
     MagicLand::MLRoom* m_Room;
 	CollisionDebugLayer* m_DebugLayer;
+	cocos2d::CCLabelTTF* m_CollisionNo;
+	cocos2d::CCLabelTTF* m_EntityNo;
 };
 
 #endif  // __HELLOWORLD_SCENE_H__
