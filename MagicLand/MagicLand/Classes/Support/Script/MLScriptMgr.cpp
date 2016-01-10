@@ -31,20 +31,36 @@ void MLScriptMgr::LoadScript(const char* scriptFile)
 	ML_SAFE_ASSERT(!file.fail(), "Error: MLScriptMgr file is null");
 
 	MLKeyValuePair keyValue;
-	char* split = " =";
+	char* split = " =\"\'";
 	char* tip = "#";
 	string line;
 
 	while (!file.eof())
 	{
-		char* buffer = (char*) malloc(sizeof(char) * line.length());
 		getline(file, line);
+		line = line.substr(0, line.find("#"));
+
+		if (line == "")
+		{
+			continue;
+		}
+
+		char* buffer = (char*) malloc(sizeof(char) * line.length());
 		strcpy(buffer, line.data());
+		strtok(buffer, split);
 
-		keyValue.segment = strtok(buffer, split);
-		keyValue.value = atof(strtok(NULL, split));
-
-		m_KeyValueArray.push_back(keyValue);
+		if (strcmp(buffer, "import") == 0
+			|| strcmp(buffer, "include") == 0)
+		{
+			char str[256] = {"Script/"};
+			LoadScript(strcat(str, strtok(NULL, split)));
+		}
+		else
+		{
+			keyValue.segment = buffer;
+			keyValue.value = atof(strtok(NULL, split));
+			m_KeyValueArray.push_back(keyValue);
+		}
 	}
 
 	file.close();
@@ -53,16 +69,28 @@ void MLScriptMgr::LoadScript(const char* scriptFile)
 float MLScriptMgr::GetValue(const char* segment)
 {
 	vector<MLKeyValuePair>::iterator it = m_KeyValueArray.begin();
+	bool flag = false;
 	
 	while (it != m_KeyValueArray.end())
 	{
 		if (strcmp((*it).segment, segment) == 0)
 		{
+			flag = true;
 			break;
 		}
 
 		it++;
 	}
 
+	if (!flag)
+	{
+		ML_SAFE_ASSERT(NULL, "Error: MLScriptMgr find result was not found");
+	}
+
 	return (*it).value;
+}
+
+void MLScriptMgr::Destory()
+{
+	ML_SAFE_DELETE(s_Instance);
 }

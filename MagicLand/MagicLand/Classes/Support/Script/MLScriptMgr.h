@@ -20,6 +20,7 @@ public:
 public:
 	void LoadScript(const char* scriptFile);
 	float GetValue(const char* segment);
+	void Destory();
 
 protected:
 	static MLScriptMgr* s_Instance;
