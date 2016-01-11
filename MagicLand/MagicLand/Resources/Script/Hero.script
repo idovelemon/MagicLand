@@ -1,11 +1,3 @@
-# Game Config
-GameScreenWidth = 800
-GameScreenHeight = 600
-# -
-# -
-# -
-# -
-# -
 # Config for Hero XJ
 HeroXJBoundBoxWidth = 32
 HeroXJBoundBoxHeight = 32

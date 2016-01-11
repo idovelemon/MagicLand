@@ -168,7 +168,9 @@ MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLR
 	ML_SAFE_DROP(transform);
 
 	// Create boundbox component
-	MLComBoundBox* boundBox = new MLComBoundBox(entity, 16.0f, 16.0f, posx, posy);
+	float fireBallBoxWidth = MLScriptMgr::SharedInstance()->GetValue("FireBallBoundBoxWidth");
+	float fireBallBoxHeight = MLScriptMgr::SharedInstance()->GetValue("FireBallBoundBoxHeight");
+	MLComBoundBox* boundBox = new MLComBoundBox(entity, fireBallBoxWidth, fireBallBoxHeight, posx, posy);
 	ML_SAFE_ASSERT(boundBox != NULL, "Create BoundBox component failed");
 	entity->AddComponent(boundBox);
 	ML_SAFE_DROP(boundBox);
@@ -177,13 +179,14 @@ MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLR
 	MLComMovement* movement = new MLComMovement(entity);
 	movement->SetGravity(0.0f);
 	movement->SetMaxFallSpeed(0.0f);
+	float moveSpeed = MLScriptMgr::SharedInstance()->GetValue("FireBallMoveSpeed");
 	if(dir == ML_DIR_LEFT)
 	{
-		movement->SetVel(-10.0f, 0.0f);
+		movement->SetVel(-moveSpeed, 0.0f);
 	}
 	else if(dir == ML_DIR_RIGHT)
 	{
-		movement->SetVel(10.0f, 0.0f);
+		movement->SetVel(moveSpeed, 0.0f);
 	}
 	ML_SAFE_ASSERT(movement != NULL, "Create Movement component failed");
 	entity->AddComponent(movement);
@@ -229,7 +232,9 @@ MLEntity* MLEntityCreator::CreateOrge(float posx, float posy, MLRoom* room)
 	ML_SAFE_DROP(display);
 
 	// Create BoundBox component
-	MLComBoundBox* boundBox = new MLComBoundBox(entity, 32, 32, posx, posy);
+	float orgeBoundBoxWidth = MLScriptMgr::SharedInstance()->GetValue("OrgeBoundBoxWidth");
+	float orgeBoundBoxHeight = MLScriptMgr::SharedInstance()->GetValue("OrgeBoundBoxHeight");
+	MLComBoundBox* boundBox = new MLComBoundBox(entity, orgeBoundBoxWidth, orgeBoundBoxHeight, posx, posy);
 	ML_SAFE_ASSERT(boundBox != NULL, "Failed to create BoundBox component");
 	entity->AddComponent(boundBox);
 	ML_SAFE_DROP(boundBox);
@@ -258,7 +263,8 @@ MLEntity* MLEntityCreator::CreateOrge(float posx, float posy, MLRoom* room)
 	ML_SAFE_DROP(timer);
 
 	// Create OrgeWalkRange component
-	MLComOrgeWalkRange* orgeWalkRange = new MLComOrgeWalkRange(entity, posx, 300.0f);
+	float range = MLScriptMgr::SharedInstance()->GetValue("OrgeMoveRange");
+	MLComOrgeWalkRange* orgeWalkRange = new MLComOrgeWalkRange(entity, posx, range);
 	ML_SAFE_ASSERT(orgeWalkRange != NULL, "Failed to create OrgeWalkRange component");
 	entity->AddComponent(orgeWalkRange);
 	ML_SAFE_DROP(orgeWalkRange);

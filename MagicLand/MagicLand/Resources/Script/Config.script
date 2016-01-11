@@ -1,0 +1,12 @@
+# Game Config
+GameScreenWidth = 800
+GameScreenHeight = 600
+
+# Config for Hero
+import Hero.script
+
+# Config for Hero's magic
+import HeroMagic.script
+
+# Config for Enemy
+import Enemy.script

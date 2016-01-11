@@ -4,6 +4,7 @@
 #include "../EntityComponent/MLComOrgeWalkRange.h"
 #include "../Framerate/MLFrameRateMgr.h"
 #include "MLStateMethod.h"
+#include "../Support/Script/MLScriptMgr.h"
 using namespace MagicLand;
 
 MLOrgeWalkState::MLOrgeWalkState()
@@ -55,8 +56,10 @@ void MLOrgeWalkState::Walk(MLEntity* entity)
 	ML_SAFE_ASSERT(orgeWalkRange != NULL, "Please make sure the OrgeWalkRange component exist");
 
 	// Walk period is up, choose random walk direction again
-	float walkTime = timer->GetTimer(ML_TIMER_FLAG_ORGE_WALK);
-	if(walkTime > 2.0f)
+	float time = timer->GetTimer(ML_TIMER_FLAG_ORGE_WALK);
+	float walkTime = 0.0f;
+	ML_SCRIPT_GETVALUE(walkTime, "OrgeWalkTime");
+	if(time > walkTime)
 	{
 		if(rand() % 2 == 0)
 		{
@@ -71,8 +74,8 @@ void MLOrgeWalkState::Walk(MLEntity* entity)
 	}
 	else
 	{
-		walkTime += MLFrameRateMgr::SharedInstance()->GetFrameDelta();
-		timer->UpdateTimer(ML_TIMER_FLAG_ORGE_WALK, walkTime);
+		time += MLFrameRateMgr::SharedInstance()->GetFrameDelta();
+		timer->UpdateTimer(ML_TIMER_FLAG_ORGE_WALK, time);
 	}
 
 	// Check if walk out the range.If true, turn around.
@@ -89,13 +92,15 @@ void MLOrgeWalkState::Walk(MLEntity* entity)
 	}
 
 	// Walk
+	float walkSpeed = 0.0f;
+	ML_SCRIPT_GETVALUE(walkSpeed, "OrgeWalkSpeed");
 	if(dir->GetDir() == ML_DIR_LEFT)
 	{
-		pos.x -= 1.0f;
+		pos.x -= walkSpeed;
 	}
 	else
 	{
-		pos.x += 1.0f;
+		pos.x += walkSpeed;
 	}
 
 	transform->SetPos(pos.x, pos.y);

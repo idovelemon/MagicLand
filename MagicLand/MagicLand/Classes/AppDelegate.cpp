@@ -140,7 +140,7 @@ int AppDelegate::run()
 void AppDelegate::gameInit()
 {
 	// Create the Script manager
-	MLScriptMgr::SharedInstance()->LoadScript("Config.script");
+	MLScriptMgr::SharedInstance()->LoadScript("Script/Config.script");
 
 	// Create Collision manager here...
 	MLCollisionMgr::SharedInstance();
@@ -181,7 +181,7 @@ void AppDelegate::gameFinish()
 	MLCollisionMgr::SharedInstance()->Destroy();
 
 	// Destroy the Script manager here...
-
+	MLScriptMgr::SharedInstance()->Destory();
 
 	// Destroy the cocos2d
 	CCDirector::sharedDirector()->end();

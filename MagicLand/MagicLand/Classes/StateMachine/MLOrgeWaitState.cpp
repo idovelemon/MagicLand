@@ -2,6 +2,7 @@
 #include "../EntityComponent/MLAllComs.h"
 #include "../marco.h"
 #include "../Framerate/MLFrameRateMgr.h"
+#include "../Support/Script/MLScriptMgr.h"
 using namespace MagicLand;
 
 MLOrgeWaitState::MLOrgeWaitState()
@@ -26,7 +27,9 @@ void MLOrgeWaitState::Run(MLEntity* entity)
 	float time = timer->GetTimer(ML_TIMER_FLAG_ORGE_WAIT);
 	time += MLFrameRateMgr::SharedInstance()->GetFrameDelta();
 
-	if(time >= 1.0f)
+	float waitTime = 0.0f;
+	ML_SCRIPT_GETVALUE(waitTime, "OrgeWaitTime");
+	if(time >= waitTime)
 	{
 		time = 0.0f;
 	}

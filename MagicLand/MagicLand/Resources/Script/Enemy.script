@@ -1,0 +1,7 @@
+# Config for orge
+OrgeBoundBoxWidth = 32
+OrgeBoundBoxHeight = 32
+OrgeMoveRange = 300.0
+OrgeWaitTime = 1.0
+OrgeWalkTime = 2.0
+OrgeWalkSpeed = 1.0

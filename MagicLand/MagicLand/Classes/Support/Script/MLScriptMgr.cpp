@@ -13,7 +13,9 @@ MLScriptMgr::~MLScriptMgr()
 	
 	while (it != m_KeyValueArray.end())
 	{
-		ML_SAFE_DELETE(it++->segment);
+		char* buffer = it->segment;
+		ML_SAFE_DELETE_ARRAY(buffer);
+		++it;
 	}
 
 	m_KeyValueArray.clear();
@@ -52,7 +54,7 @@ void MLScriptMgr::LoadScript(const char* scriptFile)
 			continue;
 		}
 
-		char* buffer = (char*) malloc(sizeof(char) * line.length());
+		char buffer[256];
 		strcpy(buffer, line.data());
 		strtok(buffer, split);
 
@@ -64,7 +66,10 @@ void MLScriptMgr::LoadScript(const char* scriptFile)
 		}
 		else
 		{
-			keyValue.segment = buffer;
+			int length = strlen(buffer);
+			keyValue.segment = new char[length + 1];
+			keyValue.segment[length] = '\0';
+			memcpy(keyValue.segment, buffer, length);
 			keyValue.value = atof(strtok(NULL, split));
 			m_KeyValueArray.push_back(keyValue);
 		}
