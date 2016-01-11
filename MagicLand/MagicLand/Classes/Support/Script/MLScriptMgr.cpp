@@ -13,7 +13,12 @@ MLScriptMgr::~MLScriptMgr()
 	
 	while (it != m_KeyValueArray.end())
 	{
-		ML_SAFE_DELETE(it++->segment);
+		if (it->segment)
+		{
+			free(it->segment);
+		}
+
+		++it;
 	}
 
 	m_KeyValueArray.clear();
