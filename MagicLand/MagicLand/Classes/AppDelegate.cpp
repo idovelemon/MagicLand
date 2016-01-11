@@ -16,6 +16,7 @@
 #include "StateMachine\MLOrgeWalkState.h"
 #include "StateMachine\MLOrgeWaitState.h"
 #include "StateMachine\MLEndState.h"
+#include "StateMachine\MLJumpOrgeSleepState.h"
 #include "Framerate\MLFrameRateMgr.h"
 #include "Round/MLRound.h"
 #include "marco.h"
@@ -157,6 +158,8 @@ void AppDelegate::gameInit()
 	CreateFireBallSM();
 
 	CreateOrgeSM();
+
+	CreateJumpOrgeSM();
 }
 
 void AppDelegate::gameMainLoop(float delta)
@@ -274,4 +277,23 @@ void AppDelegate::CreateOrgeSM()
 	ML_SAFE_DROP(orgeWalkState);
 	ML_SAFE_DROP(orgeWaitState);
 	ML_SAFE_DROP(startState);
+}
+
+void AppDelegate::CreateJumpOrgeSM()
+{
+	// Create statemachine for Jump Orge
+	MLStateMachine* jumpOrgeSM = new MLStateMachine();
+	ML_SAFE_ASSERT(jumpOrgeSM != NULL, "Allocate the memory failed");
+
+	// Create the state
+	MLStartState* startState = MLStartState::SharedInstance();
+	MLJumpOrgeSleepState* sleepState = new MLJumpOrgeSleepState();
+
+	// Create State Transform Table
+	jumpOrgeSM->AddStateEntry(startState, &MLComCon::StartOK, sleepState);
+
+	MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_JUMPORGE, jumpOrgeSM);
+	ML_SAFE_DROP(jumpOrgeSM);
+	ML_SAFE_DROP(startState);
+	ML_SAFE_DROP(sleepState);
 }

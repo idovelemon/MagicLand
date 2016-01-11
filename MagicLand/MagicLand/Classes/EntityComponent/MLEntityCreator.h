@@ -37,6 +37,7 @@ public:
 	static MLEntity* CreateTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room);
 	static MLEntity* CreateFireBall(float posx, float posy, MagicLand::MLDir dir, MLRoom* room);
 	static MLEntity* CreateOrge(float posx, float posy, MLRoom* room);
+	static MLEntity* CreateJumpOrge(float posx, float posy, MLRoom* room);
 
 	// Created from room map
 public:
@@ -46,5 +47,6 @@ protected:
 	static MLEntity* CreateWall(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateXJ(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateOrge(int xCoord, int yCoord, MLRoom* room);
+	static MLEntity* CreateJumpOrge(int xCoord, int yCoord, MLRoom* room);
 };
 #endif

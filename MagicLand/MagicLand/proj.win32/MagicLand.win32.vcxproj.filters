@@ -72,6 +72,9 @@
     <Filter Include="source\Support\Script">
       <UniqueIdentifier>{f82250f8-27a0-4063-ab24-f39a79a48c52}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\StateMachine\State\JumpOrge">
+      <UniqueIdentifier>{08dfc024-2e3d-48d4-ad53-c0d30d848222}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -228,6 +231,9 @@
     <ClInclude Include="..\Classes\Support\Script\MLScriptMgr.h">
       <Filter>source\Support\Script</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeSleepState.h">
+      <Filter>source\StateMachine\State\JumpOrge</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -352,6 +358,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Support\Script\MLScriptMgr.cpp">
       <Filter>source\Support\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeSleepState.cpp">
+      <Filter>source\StateMachine\State\JumpOrge</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

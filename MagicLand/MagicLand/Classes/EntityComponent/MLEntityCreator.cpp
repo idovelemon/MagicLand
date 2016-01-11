@@ -11,6 +11,7 @@ MLETYCreatorEntry MLEntityCreator::s_CreatorTable[] =
 	{ML_ETYSUBTYPE_WALL, &MLEntityCreator::CreateWall},
 	{ML_ETYSUBTYPE_XJ, &MLEntityCreator::CreateXJ},
 	{ML_ETYSUBTYPE_ORGE, &MLEntityCreator::CreateOrge},
+	{ML_ETYSUBTYPE_JUMPORGE, &MLEntityCreator::CreateJumpOrge},
 };
 
 MLEntity* MLEntityCreator::CreateEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room)
@@ -148,6 +149,14 @@ MLEntity* MLEntityCreator::CreateOrge(int xCoord, int yCoord, MLRoom* room)
 	return CreateOrge((float)xCoord, (float)yCoord, room);
 }
 
+MLEntity* MLEntityCreator::CreateJumpOrge(int xCoord, int yCoord, MLRoom* room)
+{
+	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
+	room->TransformMapCoordToWorldCoord(xCoord, yCoord);
+
+	return CreateJumpOrge((float)xCoord, (float)yCoord, room);
+}
+
 MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLRoom* room)
 {
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_PLAYER_MAGIC, ML_ETYSUBTYPE_FIREBALL, room);
@@ -268,6 +277,53 @@ MLEntity* MLEntityCreator::CreateOrge(float posx, float posy, MLRoom* room)
 	ML_SAFE_ASSERT(orgeWalkRange != NULL, "Failed to create OrgeWalkRange component");
 	entity->AddComponent(orgeWalkRange);
 	ML_SAFE_DROP(orgeWalkRange);
+
+	return entity;
+}
+
+MLEntity* MLEntityCreator::CreateJumpOrge(float posx, float posy, MLRoom* room)
+{
+	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
+
+	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENEMY, ML_ETYSUBTYPE_JUMPORGE, room);
+	ML_SAFE_ASSERT(entity != NULL, "Failed to create entity");
+
+	// Create Transform component
+	MLComTransform* transform = new MLComTransform(entity, posx, posy, 1.0f, 1.0f, 0.0f);
+	ML_SAFE_ASSERT(transform != NULL, "Failed to create Transform component");
+	entity->AddComponent(transform);
+	ML_SAFE_DROP(transform);
+
+	// Create Display component
+	MLComDisplay* display = new MLComDisplay(entity, "JumpOrge.png", room->GetGameLayer());
+	ML_SAFE_ASSERT(display != NULL, "Failed to create Display component");
+	display->GetSprite()->setAnchorPoint(ccp(0.5f, 0.5f));
+	display->GetSprite()->setPosition(ccp(posx, posy));
+	entity->AddComponent(display);
+	ML_SAFE_DROP(display);
+
+	// Create BoundBox component
+	float orgeBoundBoxWidth = MLScriptMgr::SharedInstance()->GetValue("JumpOrgeBoundBoxWidth");
+	float orgeBoundBoxHeight = MLScriptMgr::SharedInstance()->GetValue("JumpOrgeBoundBoxHeight");
+	MLComBoundBox* boundBox = new MLComBoundBox(entity, orgeBoundBoxWidth, orgeBoundBoxHeight, posx, posy);
+	ML_SAFE_ASSERT(boundBox != NULL, "Failed to create BoundBox component");
+	entity->AddComponent(boundBox);
+	ML_SAFE_DROP(boundBox);
+
+	// Create State component
+	MLComState* state = new MLComState(entity);
+	ML_SAFE_ASSERT(state != NULL, "Failed to create State component");
+	MLStartState* startState = MLStartState::SharedInstance();
+	state->SetState(MLStartState::SharedInstance());
+	entity->AddComponent(state);
+	ML_SAFE_DROP(state);
+	ML_SAFE_DROP(startState);
+
+	// Create Dir component
+	MLComDir* dir = new MLComDir(entity, ML_DIR_RIGHT);
+	ML_SAFE_ASSERT(dir != NULL, "Failed to create Dir component");
+	entity->AddComponent(dir);
+	ML_SAFE_DROP(dir);
 
 	return entity;
 }

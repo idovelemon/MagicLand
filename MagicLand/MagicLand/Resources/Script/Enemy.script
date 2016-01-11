@@ -5,3 +5,7 @@ OrgeMoveRange = 300.0
 OrgeWaitTime = 1.0
 OrgeWalkTime = 2.0
 OrgeWalkSpeed = 1.0
+
+# Config for Jump Orge
+JumpOrgeBoundBoxWidth = 32
+JumpOrgeBoundBoxHeight = 32

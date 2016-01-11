@@ -46,6 +46,7 @@ protected:
 	void CreateXJSM();
 	void CreateFireBallSM();
 	void CreateOrgeSM();
+	void CreateJumpOrgeSM();
 };
 
 #endif  // __APP_DELEGATE_H__
