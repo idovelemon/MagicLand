@@ -9,7 +9,14 @@ MLScriptMgr::MLScriptMgr()
 
 MLScriptMgr::~MLScriptMgr()
 {
-	ML_SAFE_DELETE(s_Instance);
+	vector<MLKeyValuePair>::iterator it = m_KeyValueArray.begin();
+	
+	while (it != m_KeyValueArray.end())
+	{
+		ML_SAFE_DELETE(it++->segment);
+	}
+
+	m_KeyValueArray.clear();
 }
 
 MLScriptMgr* MLScriptMgr::SharedInstance()
