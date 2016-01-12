@@ -237,6 +237,9 @@
     <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeJumpState.h">
       <Filter>source\StateMachine\State\JumpOrge</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLComUserData.h">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -367,6 +370,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeJumpState.cpp">
       <Filter>source\StateMachine\State\JumpOrge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EntityComponent\MLComUserData.cpp">
+      <Filter>source\EntityComponent\Component\CommonCom</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
