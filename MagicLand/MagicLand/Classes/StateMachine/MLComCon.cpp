@@ -2,6 +2,8 @@
 #include "../marco.h"
 #include "../EntityComponent/MLAllComs.h"
 #include "../EntityComponent/MLTimerFlag.h"
+#include "../EntityComponent/MLEntityMgr.h"
+#include "../Support/Script/MLScriptMgr.h"
 using namespace MagicLand;
 
 bool MLComCon::StartOK(MLEntity* entity)
@@ -170,6 +172,37 @@ bool MLComCon::OrgeWalkTimeUp(MLEntity* entity)
 
 	float time = timer->GetTimer(ML_TIMER_FLAG_ORGE_WALK);
 	if(ML_FLOAT_EQUAL(time, 0.0f))
+	{
+		bRet = true;
+	}
+
+	return bRet;
+}
+
+bool MLComCon::JumpOrgeSeePlayer(MLEntity* entity)
+{
+	ML_SAFE_ASSERT(entity != NULL, "Please make sure the entity is not empty");
+
+	bool bRet = false;
+	MLEntity* player = MLEntityMgr::SharedInstance()->GetPlayer();
+	ML_SAFE_ASSERT(player != NULL, "Please make sure the player is not empty");
+
+	MLComTransform* playerTransform = (MLComTransform*)player->GetComponent(ML_COMTYPE_TRANSFORM);
+	ML_SAFE_ASSERT(playerTransform != NULL, "Please make sure the Transform component is not empty");
+	VECTOR2 playerPos = playerTransform->GetPos();
+
+	MLComTransform* transform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
+	ML_SAFE_ASSERT(transform != NULL, "Please make sure the Transform component is not empty");
+	VECTOR2 pos = transform->GetPos();
+
+	float realLength = 0.0f;
+	Vec2Sub(pos, pos, playerPos);
+	Vec2Length(realLength, pos);
+
+	float distance = 0.0f;
+	ML_SCRIPT_GETVALUE(distance, "JumpOrgeWatchDistance");
+
+	if(realLength < distance)
 	{
 		bRet = true;
 	}

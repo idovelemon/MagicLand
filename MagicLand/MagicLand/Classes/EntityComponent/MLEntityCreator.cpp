@@ -325,5 +325,14 @@ MLEntity* MLEntityCreator::CreateJumpOrge(float posx, float posy, MLRoom* room)
 	entity->AddComponent(dir);
 	ML_SAFE_DROP(dir);
 
+	// Create Movement component
+	MLComMovement* movement = new MLComMovement(entity);
+	ML_SAFE_ASSERT(movement != NULL, "Failed to create Movement component");
+	movement->SetGravity(MLScriptMgr::SharedInstance()->GetValue("JumpOrgeGravity"));
+	movement->SetMaxFallSpeed(MLScriptMgr::SharedInstance()->GetValue("JumpOrgeMaxFallSpeed"));
+	movement->SetVel(0.0f, 0.0f);
+	entity->AddComponent(movement);
+	ML_SAFE_DROP(movement);
+
 	return entity;
 }

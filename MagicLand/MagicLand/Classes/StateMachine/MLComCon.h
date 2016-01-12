@@ -34,6 +34,11 @@ public:
 public:
 	static bool OrgeWaitTimeUp(MagicLand::MLEntity* entity);
 	static bool OrgeWalkTimeUp(MagicLand::MLEntity* entity);
+
+	// For Jump Orge
+public:
+	static bool JumpOrgeSeePlayer(MagicLand::MLEntity* entity);
+
 };
 
 #endif

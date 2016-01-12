@@ -17,6 +17,7 @@
 #include "StateMachine\MLOrgeWaitState.h"
 #include "StateMachine\MLEndState.h"
 #include "StateMachine\MLJumpOrgeSleepState.h"
+#include "StateMachine\MLJumpOrgeJumpState.h"
 #include "Framerate\MLFrameRateMgr.h"
 #include "Round/MLRound.h"
 #include "marco.h"
@@ -288,12 +289,15 @@ void AppDelegate::CreateJumpOrgeSM()
 	// Create the state
 	MLStartState* startState = MLStartState::SharedInstance();
 	MLJumpOrgeSleepState* sleepState = new MLJumpOrgeSleepState();
+	MLJumpOrgeJumpState* jumpState = new MLJumpOrgeJumpState();
 
 	// Create State Transform Table
 	jumpOrgeSM->AddStateEntry(startState, &MLComCon::StartOK, sleepState);
+	jumpOrgeSM->AddStateEntry(sleepState, &MLComCon::JumpOrgeSeePlayer, jumpState);
 
 	MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_JUMPORGE, jumpOrgeSM);
 	ML_SAFE_DROP(jumpOrgeSM);
 	ML_SAFE_DROP(startState);
 	ML_SAFE_DROP(sleepState);
+	ML_SAFE_DROP(jumpState);
 }

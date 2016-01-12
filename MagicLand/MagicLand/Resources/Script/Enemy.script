@@ -9,3 +9,8 @@ OrgeWalkSpeed = 1.0
 # Config for Jump Orge
 JumpOrgeBoundBoxWidth = 32
 JumpOrgeBoundBoxHeight = 32
+JumpOrgeWatchDistance = 100
+JumpOrgeGravity = 1.0
+JumpOrgeMaxFallSpeed = 10.0
+JumpOrgeMoveSpeed = 3.0
+JumpOrgeJumpSpeed = 10.0

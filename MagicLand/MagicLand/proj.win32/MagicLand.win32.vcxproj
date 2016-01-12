@@ -167,6 +167,7 @@
     <ClInclude Include="..\Classes\StateMachine\MLEndState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLFireBallDestroyState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLFireBallFlyState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeJumpState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeSleepState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLOrgeWaitState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLOrgeWalkState.h" />
@@ -211,6 +212,7 @@
     <ClCompile Include="..\Classes\StateMachine\MLEndState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLFireBallDestroyState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLFireBallFlyState.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeJumpState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeSleepState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLOrgeWaitState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLOrgeWalkState.cpp" />

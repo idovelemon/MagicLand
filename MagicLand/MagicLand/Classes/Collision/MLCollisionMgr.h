@@ -37,6 +37,7 @@ protected:
 	void ClearCollisionInfo();
 	void DetectColPlayerWithEnv();
 	void DetectColEnemyWithMagic();
+	void DetectColEnemyWithEnv();
 
 protected:
 	typedef std::list<MLEntity*> MLColMgrList;

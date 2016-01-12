@@ -234,6 +234,9 @@
     <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeSleepState.h">
       <Filter>source\StateMachine\State\JumpOrge</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeJumpState.h">
+      <Filter>source\StateMachine\State\JumpOrge</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -360,6 +363,9 @@
       <Filter>source\Support\Script</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeSleepState.cpp">
+      <Filter>source\StateMachine\State\JumpOrge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeJumpState.cpp">
       <Filter>source\StateMachine\State\JumpOrge</Filter>
     </ClCompile>
   </ItemGroup>
