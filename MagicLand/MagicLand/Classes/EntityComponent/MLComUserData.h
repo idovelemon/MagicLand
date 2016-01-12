@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "MLEntity.h"
+#include "MLComponent.h"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ namespace MagicLand
 };
 
 class MagicLand::MLComUserData
+	: public MagicLand::MLComponent
 {
 public:
 	MLComUserData(MagicLand::MLEntity* entity);

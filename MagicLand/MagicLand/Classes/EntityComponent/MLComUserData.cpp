@@ -3,6 +3,7 @@
 using namespace MagicLand;
 
 MLComUserData::MLComUserData(MagicLand::MLEntity* entity)
+	: MLComponent(ML_COMTYPE_USERDATA, entity)
 {
 }
 

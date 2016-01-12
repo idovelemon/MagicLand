@@ -26,6 +26,7 @@ namespace MagicLand
 		ML_COMTYPE_MOVEMENT,	// This enum indicate the movement of the entity
 		ML_COMTYPE_DIR,			// This enum indicate the direction of the entity
 		ML_COMTYPE_TIMER,		// This enum indicate the timer component
+		ML_COMTYPE_USERDATA,	// This enum indicate the user data component
 
 		// User define component
 		ML_COMTYPE_ORGE_WALKRANGE,
