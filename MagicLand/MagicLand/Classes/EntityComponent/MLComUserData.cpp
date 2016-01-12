@@ -1,4 +1,5 @@
 #include "MLComUserData.h"
+#include "../marco.h"
 
 using namespace MagicLand;
 
@@ -17,6 +18,11 @@ MLComUserData::~MLComUserData()
 		{
 		case USER_DATA_TYPE_INTEGER:
 			break;
+
+		case USER_DATA_TYPE_POINTER:
+			ML_SAFE_DELETE(it->value);
+			break;
+
 		default:
 			break;
 		}
@@ -30,7 +36,7 @@ void MLComUserData::PushValue(UserData userData)
 	m_vUserDatas.push_back(userData);
 }
 
-void* MLComUserData::GetValueByCategory(USER_DATA_CATEGORY category)
+void* MLComUserData::GetValueByCategory(unsigned int category)
 {
 	for (vector<UserData>::iterator it = m_vUserDatas.begin();
 			it != m_vUserDatas.end();

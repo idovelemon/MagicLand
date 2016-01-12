@@ -192,12 +192,6 @@
     <ClInclude Include="..\Classes\StateMachine\MLOrgeWalkState.h">
       <Filter>source\StateMachine\State\Orge</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLTimerFlag.h">
-      <Filter>source\EntityComponent\Component\CommonCom</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLAllComs.h">
-      <Filter>source\EntityComponent\Component\CommonCom</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\EntityComponent\MLComBoundBox.h">
       <Filter>source\EntityComponent\Component\CommonCom</Filter>
     </ClInclude>
@@ -239,6 +233,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\EntityComponent\MLComUserData.h">
       <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLTimerFlag.h">
+      <Filter>source\EntityComponent\Component\UserCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLAllComs.h">
+      <Filter>source\EntityComponent\Component\UserCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EntityComponent\MLUserDataFlag.h">
+      <Filter>source\EntityComponent\Component\UserCom</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeBackState.h">
+      <Filter>source\StateMachine\State\JumpOrge</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -373,6 +379,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\EntityComponent\MLComUserData.cpp">
       <Filter>source\EntityComponent\Component\CommonCom</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeBackState.cpp">
+      <Filter>source\StateMachine\State\JumpOrge</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -334,5 +334,19 @@ MLEntity* MLEntityCreator::CreateJumpOrge(float posx, float posy, MLRoom* room)
 	entity->AddComponent(movement);
 	ML_SAFE_DROP(movement);
 
+	// Create UserData component
+	MLComUserData* userData = new MLComUserData(entity);
+	ML_SAFE_ASSERT(userData != NULL, "Failed to create UserData component");
+	MLComUserData::UserData data;
+	data.category = ML_USERDATA_FLAG_JUMPORGE_INITPOS;
+	data.type = MLComUserData::USER_DATA_TYPE_POINTER;
+	VECTOR2* pPos = new VECTOR2();
+	pPos->x = posx;
+	pPos->y = posy;
+	data.value = pPos;
+	userData->PushValue(data);
+	entity->AddComponent(userData);
+	ML_SAFE_DROP(userData);
+
 	return entity;
 }

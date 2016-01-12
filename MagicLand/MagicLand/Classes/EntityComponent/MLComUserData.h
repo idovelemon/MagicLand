@@ -31,20 +31,14 @@ public:
 	enum USER_DATA_TYPE
 	{
 		USER_DATA_TYPE_INTEGER,
+		USER_DATA_TYPE_POINTER,
 
 		USER_DATA_TYPE_MAX
 	};
 
-	enum USER_DATA_CATEGORY
-	{
-		USER_DATA_CATEGORY_ORIGIN,
-
-		USER_DATA_CATEGORY_MAX
-	};
-
 	struct UserData
 	{
-		USER_DATA_CATEGORY	category;
+		unsigned int	category;
 		USER_DATA_TYPE		type;
 		void*				value;
 	};
@@ -52,7 +46,7 @@ public:
 public:
 	void PushValue(UserData userData);
 
-	void* GetValueByCategory(USER_DATA_CATEGORY category);
+	void* GetValueByCategory(unsigned int category);
 
 protected:
 	vector<UserData> m_vUserDatas;

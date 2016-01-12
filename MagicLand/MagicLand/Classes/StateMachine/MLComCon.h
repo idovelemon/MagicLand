@@ -38,6 +38,7 @@ public:
 	// For Jump Orge
 public:
 	static bool JumpOrgeSeePlayer(MagicLand::MLEntity* entity);
+	static bool JumpOrgeIsBack(MagicLand::MLEntity* entity);
 
 };
 

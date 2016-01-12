@@ -209,3 +209,37 @@ bool MLComCon::JumpOrgeSeePlayer(MLEntity* entity)
 
 	return bRet;
 }
+
+bool MLComCon::JumpOrgeIsBack(MLEntity* entity)
+{
+	ML_SAFE_ASSERT(entity != NULL, "Please make sure the entity is not empty");
+
+	bool bRet = false;
+
+	MLComTransform* transform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
+	ML_SAFE_ASSERT(transform != NULL, "Please make sure the Transform component is not empty");
+
+	MLComUserData* userData = (MLComUserData*)entity->GetComponent(ML_COMTYPE_USERDATA);
+	ML_SAFE_ASSERT(userData != NULL, "Please make sure the UserData component is not empty");
+	VECTOR2* pInitPos = (VECTOR2*)userData->GetValueByCategory(ML_USERDATA_FLAG_JUMPORGE_INITPOS);
+
+	MLComDir* dir = (MLComDir*)entity->GetComponent(ML_COMTYPE_DIR);
+	ML_SAFE_ASSERT(dir != NULL, "Please make sure the Dir component is not empty");
+
+	if(dir->GetDir() == ML_DIR_LEFT)
+	{
+		if(transform->GetPos().x < pInitPos->x)
+		{
+			bRet = true;
+		}
+	}
+	else if(dir->GetDir() == ML_DIR_RIGHT)
+	{
+		if(transform->GetPos().x > pInitPos->x)
+		{
+			bRet = true;
+		}
+	}
+
+	return bRet;
+}

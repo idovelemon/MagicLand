@@ -24,24 +24,30 @@ void MLJumpOrgeJumpState::Enter(MLEntity* entity)
 	MLEntity* player = MLEntityMgr::SharedInstance()->GetPlayer();
 	ML_SAFE_ASSERT(player != NULL, "Please make sure the player is not empty");
 
-	MLComTransform* playerTransform = (MLComTransform*)player->GetComponent(ML_COMTYPE_TRANSFORM);
-	ML_SAFE_ASSERT(playerTransform != NULL, "Please make sure the Transform component is not empty");
-	VECTOR2 playerPos = playerTransform->GetPos();
-
 	MLComTransform* transform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
 	ML_SAFE_ASSERT(transform != NULL, "Please make sure the Transform component is not empty");
 	VECTOR2 pos = transform->GetPos();
 
+	MLComDir* dir = (MLComDir*)entity->GetComponent(ML_COMTYPE_DIR);
+	ML_SAFE_ASSERT(dir != NULL, "Please make sure the Dir component is not empty");
+
+	// Get the player's pos
+	MLComTransform* playerTransform = (MLComTransform*)player->GetComponent(ML_COMTYPE_TRANSFORM);
+	ML_SAFE_ASSERT(playerTransform != NULL, "Please make sure the Transform component is not empty");
+	VECTOR2 playerPos = playerTransform->GetPos();
+
 	float moveSpeed = 0.0f, jumpSpeed = 0.0f;
 	ML_SCRIPT_GETVALUE(moveSpeed, "JumpOrgeMoveSpeed");
 	ML_SCRIPT_GETVALUE(jumpSpeed, "JumpOrgeJumpSpeed");
-	if(playerPos.x < pos.x) // Player is at the right of the JumpOrge
+	if(playerPos.x < pos.x) // Player is at the left of the JumpOrge
 	{
 		movement->SetVel(-moveSpeed, jumpSpeed);
+		dir->SetDir(ML_DIR_LEFT);
 	}
-	else					// Player is at the left of the JumpOrge
+	else					// Player is at the right of the JumpOrge
 	{
 		movement->SetVel(moveSpeed, jumpSpeed);
+		dir->SetDir(ML_DIR_RIGHT);
 	}
 }
 

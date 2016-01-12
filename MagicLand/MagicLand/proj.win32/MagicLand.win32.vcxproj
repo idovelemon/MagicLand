@@ -156,6 +156,7 @@
     <ClInclude Include="..\Classes\EntityComponent\MLEntityCreator.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLEntityMgr.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLTimerFlag.h" />
+    <ClInclude Include="..\Classes\EntityComponent\MLUserDataFlag.h" />
     <ClInclude Include="..\Classes\Framerate\MLFrameRateMgr.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\marco.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="..\Classes\StateMachine\MLEndState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLFireBallDestroyState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLFireBallFlyState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeBackState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeJumpState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeSleepState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLOrgeWaitState.h" />
@@ -214,6 +216,7 @@
     <ClCompile Include="..\Classes\StateMachine\MLEndState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLFireBallDestroyState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLFireBallFlyState.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeBackState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeJumpState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeSleepState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLOrgeWaitState.cpp" />
