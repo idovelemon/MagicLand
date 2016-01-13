@@ -146,7 +146,6 @@
     <ClInclude Include="..\Classes\EntityComponent\MLComDir.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComDisplay.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComMovement.h" />
-    <ClInclude Include="..\Classes\EntityComponent\MLComOrgeWalkRange.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComponent.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComState.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLComTimer.h" />
@@ -197,7 +196,6 @@
     <ClCompile Include="..\Classes\EntityComponent\MLComDir.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComDisplay.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComMovement.cpp" />
-    <ClCompile Include="..\Classes\EntityComponent\MLComOrgeWalkRange.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComponent.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComState.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLComTimer.cpp" />

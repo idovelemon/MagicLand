@@ -1,7 +1,6 @@
 #include "MLOrgeWalkState.h"
 #include "../EntityComponent/MLAllComs.h"
 #include "../marco.h"
-#include "../EntityComponent/MLComOrgeWalkRange.h"
 #include "../Framerate/MLFrameRateMgr.h"
 #include "MLStateMethod.h"
 #include "../Support/Script/MLScriptMgr.h"
@@ -52,8 +51,8 @@ void MLOrgeWalkState::Walk(MLEntity* entity)
 	MLComDir* dir = (MLComDir*)entity->GetComponent(ML_COMTYPE_DIR);
 	ML_SAFE_ASSERT(dir != NULL, "Please make sure the Dir component exist");
 
-	MLComOrgeWalkRange* orgeWalkRange = (MLComOrgeWalkRange*)entity->GetComponent(ML_COMTYPE_ORGE_WALKRANGE);
-	ML_SAFE_ASSERT(orgeWalkRange != NULL, "Please make sure the OrgeWalkRange component exist");
+	MLComUserData* userData = (MLComUserData*)entity->GetComponent(ML_COMTYPE_USERDATA);
+	ML_SAFE_ASSERT(userData != NULL, "Please make sure the UserData component exist");
 
 	// Walk period is up, choose random walk direction again
 	float time = timer->GetTimer(ML_TIMER_FLAG_ORGE_WALK);
@@ -79,7 +78,9 @@ void MLOrgeWalkState::Walk(MLEntity* entity)
 	}
 
 	// Check if walk out the range.If true, turn around.
-	if(abs(pos.x - orgeWalkRange->GetCenterX()) > orgeWalkRange->GetWidth()/2.0f)
+	float centerX = *((float*)userData->GetValueByCategory(ML_USERDATA_FLAG_ORGE_CENTERX));
+	float width = *((float*)userData->GetValueByCategory(ML_USERDATA_FLAG_ORGE_RANGE));
+	if(abs(pos.x - centerX) > width/2.0f)
 	{
 		if(dir->GetDir() == ML_DIR_RIGHT)
 		{

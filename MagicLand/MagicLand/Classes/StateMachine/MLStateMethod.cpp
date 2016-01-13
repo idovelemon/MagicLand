@@ -14,9 +14,9 @@ void MLStateMethod::CollisionResponse(MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Can not deal with null pointer");
 
-	MLComTransform* pTransform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
-	ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
-	VECTOR2 pos = pTransform->GetPos();
+	MLComTransform* transform = (MLComTransform*)entity->GetComponent(ML_COMTYPE_TRANSFORM);
+	ML_SAFE_ASSERT(transform != NULL, "There is no transform component");
+	VECTOR2 pos = transform->GetPos();
 
 	MLComBoundBox* pBoundBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
 	ML_SAFE_ASSERT(pBoundBox != NULL, "There is no boundbox component");
@@ -38,12 +38,12 @@ void MLStateMethod::CollisionResponse(MLEntity* entity)
 				MLComBoundBox* pColBoundBox = (MLComBoundBox*)pColEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
 				ML_SAFE_ASSERT(pColBoundBox != NULL, "There is no boundbox component");
 
-				MLComTransform* pTransform = (MLComTransform*)pColEntity->GetComponent(ML_COMTYPE_TRANSFORM);
-				ML_SAFE_ASSERT(pTransform != NULL, "There is no transform component");
+				MLComTransform* pColTransform = (MLComTransform*)pColEntity->GetComponent(ML_COMTYPE_TRANSFORM);
+				ML_SAFE_ASSERT(pColTransform != NULL, "There is no transform component");
 
 				float colRatio = pColBoundBox->GetBoundBox().getHeight() / pColBoundBox->GetBoundBox().getWidth();
 
-				VECTOR2 colPos = pTransform->GetPos();
+				VECTOR2 colPos = pColTransform->GetPos();
 				VECTOR2 diff;
 				Vec2Sub(diff, pos, colPos);
 				float ratio = abs(diff.y) / abs(diff.x);
@@ -75,10 +75,10 @@ void MLStateMethod::CollisionResponse(MLEntity* entity)
 						pos.y = colPos.y + pColBoundBox->GetBoundBox().getHeight()/2 + pBoundBox->GetBoundBox().getHeight()/2;
 					}
 				}
+
+				transform->SetPos(pos.x, pos.y);
 			}
 		}
-
-		pTransform->SetPos(pos.x, pos.y);
 	}
 }
 

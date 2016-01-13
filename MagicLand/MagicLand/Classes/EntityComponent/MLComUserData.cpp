@@ -17,6 +17,7 @@ MLComUserData::~MLComUserData()
 		switch (it->type)
 		{
 		case USER_DATA_TYPE_INTEGER:
+		case USER_DATA_TYPE_FLOAT:
 			break;
 
 		case USER_DATA_TYPE_POINTER:

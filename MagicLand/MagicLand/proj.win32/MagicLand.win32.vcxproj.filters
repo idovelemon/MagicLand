@@ -216,9 +216,6 @@
     <ClInclude Include="..\Classes\EntityComponent\MLComTransform.h">
       <Filter>source\EntityComponent\Component\CommonCom</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\EntityComponent\MLComOrgeWalkRange.h">
-      <Filter>source\EntityComponent\Component\UserCom</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\StateMachine\MLOrgeWaitState.h">
       <Filter>source\StateMachine\State\Orge</Filter>
     </ClInclude>
@@ -361,9 +358,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\EntityComponent\MLComTransform.cpp">
       <Filter>source\EntityComponent\Component\CommonCom</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\EntityComponent\MLComOrgeWalkRange.cpp">
-      <Filter>source\EntityComponent\Component\UserCom</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLOrgeWaitState.cpp">
       <Filter>source\StateMachine\State\Orge</Filter>

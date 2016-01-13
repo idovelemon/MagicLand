@@ -2,7 +2,6 @@
 #include "../marco.h"
 #include "MLAllComs.h"
 #include "../StateMachine/MLStartState.h"
-#include "MLComOrgeWalkRange.h"
 #include "../Support/Script/MLScriptMgr.h"
 using namespace MagicLand;
 
@@ -271,12 +270,29 @@ MLEntity* MLEntityCreator::CreateOrge(float posx, float posy, MLRoom* room)
 	entity->AddComponent(timer);
 	ML_SAFE_DROP(timer);
 
-	// Create OrgeWalkRange component
+	// Create UserData component
 	float range = MLScriptMgr::SharedInstance()->GetValue("OrgeMoveRange");
-	MLComOrgeWalkRange* orgeWalkRange = new MLComOrgeWalkRange(entity, posx, range);
-	ML_SAFE_ASSERT(orgeWalkRange != NULL, "Failed to create OrgeWalkRange component");
-	entity->AddComponent(orgeWalkRange);
-	ML_SAFE_DROP(orgeWalkRange);
+	MLComUserData* userData = new MLComUserData(entity);
+	ML_SAFE_ASSERT(userData != NULL, "Failed to create UserData component");
+
+	MLComUserData::UserData centerData;
+	centerData.category = ML_USERDATA_FLAG_ORGE_CENTERX;
+	centerData.type = MLComUserData::USER_DATA_TYPE_POINTER;
+	float* pValueCenterX = new float;
+	*pValueCenterX = posx;
+	centerData.value = (void*)pValueCenterX;
+	userData->PushValue(centerData);
+
+	MLComUserData::UserData rangeData;
+	rangeData.category = ML_USERDATA_FLAG_ORGE_RANGE;
+	rangeData.type = MLComUserData::USER_DATA_TYPE_POINTER;
+	float* pValueRange = new float;
+	*pValueRange = range;
+	rangeData.value = pValueRange;
+	userData->PushValue(rangeData);
+
+	entity->AddComponent(userData);
+	ML_SAFE_DROP(userData);
 
 	return entity;
 }

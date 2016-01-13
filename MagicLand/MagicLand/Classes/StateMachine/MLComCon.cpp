@@ -58,20 +58,23 @@ bool MLComCon::TouchGround(MLEntity* entity)
 			MLComBoundBox* pColBoundBox = (MLComBoundBox*)pColEntity->GetComponent(ML_COMTYPE_BOUNDBOX);
 			ML_SAFE_ASSERT(pColBoundBox != NULL, "There is no boundbox component");
 
-			float colRatio = pColBoundBox->GetBoundBox().getHeight() / pColBoundBox->GetBoundBox().getWidth();
-
-			VECTOR2 colPos = pColTransform->GetPos();
-			VECTOR2 diff;
-			Vec2Sub(diff, pos, colPos);
-			float ratio = abs(diff.y) / abs(diff.x);
-
-			if(ratio >= colRatio) // Collided in y-axis
+			if(pColEntity->GetMainType() == ML_ETYMAINTYPE_ENV)
 			{
-				if(diff.y > 0) // Entity is at the top of the collided entity
+				float colRatio = pColBoundBox->GetBoundBox().getHeight() / pColBoundBox->GetBoundBox().getWidth();
+
+				VECTOR2 colPos = pColTransform->GetPos();
+				VECTOR2 diff;
+				Vec2Sub(diff, pos, colPos);
+				float ratio = abs(diff.y) / abs(diff.x);
+
+				if(ratio >= colRatio) // Collided in y-axis
 				{
-					// So touch the ground
-					bRet = true;
-					break;
+					if(diff.y > 0) // Entity is at the top of the collided entity
+					{
+						// So touch the ground
+						bRet = true;
+						break;
+					}
 				}
 			}
 		}

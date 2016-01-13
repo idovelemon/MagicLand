@@ -18,11 +18,11 @@ class MagicLand::MLComCon
 public:
 	static bool StartOK(MagicLand::MLEntity* entity);
 	static bool NeedEnd(MagicLand::MLEntity* entity);
+	static bool TouchGround(MagicLand::MLEntity* entity);
 
 	// For Hero
 public:
 	static bool NeedJump(MagicLand::MLEntity* entity);
-	static bool TouchGround(MagicLand::MLEntity* entity);
 	static bool NeedFall(MagicLand::MLEntity* entity);
 
 	// For FireBall

@@ -29,7 +29,6 @@ namespace MagicLand
 		ML_COMTYPE_USERDATA,	// This enum indicate the user data component
 
 		// User define component
-		ML_COMTYPE_ORGE_WALKRANGE,
 
 		ML_COMTYPE_TOTAL,		// This enum indicate how many component's type in MagicLand
 	};
