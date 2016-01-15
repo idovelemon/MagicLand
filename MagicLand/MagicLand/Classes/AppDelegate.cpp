@@ -19,6 +19,7 @@
 #include "StateMachine\MLJumpOrgeSleepState.h"
 #include "StateMachine\MLJumpOrgeJumpState.h"
 #include "StateMachine\MLJumpOrgeBackState.h"
+#include "StateMachine\MLMovePlatformMoveState.h"
 #include "Framerate\MLFrameRateMgr.h"
 #include "Round/MLRound.h"
 #include "marco.h"
@@ -162,6 +163,8 @@ void AppDelegate::gameInit()
 	CreateOrgeSM();
 
 	CreateJumpOrgeSM();
+
+	CreateMovePlatformSM();
 }
 
 void AppDelegate::gameMainLoop(float delta)
@@ -305,4 +308,23 @@ void AppDelegate::CreateJumpOrgeSM()
 	ML_SAFE_DROP(sleepState);
 	ML_SAFE_DROP(jumpState);
 	ML_SAFE_DROP(backState);
+}
+
+void AppDelegate::CreateMovePlatformSM()
+{
+	// Create statemachine for MovePlatform
+	MLStateMachine* movePlatformSM = new MLStateMachine();
+	ML_SAFE_ASSERT(movePlatformSM != NULL, "Failed to create State machine");
+
+	// Create the State
+	MLStartState* startState = MLStartState::SharedInstance();
+	MLMovePlatformMoveState* moveState = new MLMovePlatformMoveState();
+
+	// Create the State Transform Table
+	movePlatformSM->AddStateEntry(startState, &MLComCon::StartOK, moveState);
+
+	MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_MOVEPLATFORM, movePlatformSM);
+	ML_SAFE_DROP(movePlatformSM);
+	ML_SAFE_DROP(startState);
+	ML_SAFE_DROP(moveState);
 }

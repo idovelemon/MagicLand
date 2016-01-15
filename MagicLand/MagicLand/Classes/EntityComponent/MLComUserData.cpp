@@ -32,8 +32,12 @@ MLComUserData::~MLComUserData()
 	m_vUserDatas.clear();
 }
 
-void MLComUserData::PushValue(UserData userData)
+void MLComUserData::PushValue(unsigned int category, USER_DATA_TYPE type, void* value)
 {
+	UserData userData;
+	userData.category = category;
+	userData.type = type;
+	userData.value = value;
 	m_vUserDatas.push_back(userData);
 }
 

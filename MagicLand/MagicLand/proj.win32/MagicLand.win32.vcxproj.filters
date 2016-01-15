@@ -75,6 +75,9 @@
     <Filter Include="source\StateMachine\State\JumpOrge">
       <UniqueIdentifier>{08dfc024-2e3d-48d4-ad53-c0d30d848222}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\StateMachine\State\MovePlatform">
+      <UniqueIdentifier>{419a37b8-99b0-450f-978f-8858652cca09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -243,6 +246,9 @@
     <ClInclude Include="..\Classes\StateMachine\MLJumpOrgeBackState.h">
       <Filter>source\StateMachine\State\JumpOrge</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine\MLMovePlatformMoveState.h">
+      <Filter>source\StateMachine\State\MovePlatform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -376,6 +382,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLJumpOrgeBackState.cpp">
       <Filter>source\StateMachine\State\JumpOrge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine\MLMovePlatformMoveState.cpp">
+      <Filter>source\StateMachine\State\MovePlatform</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

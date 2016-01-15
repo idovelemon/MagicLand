@@ -11,6 +11,7 @@ MLETYCreatorEntry MLEntityCreator::s_CreatorTable[] =
 	{ML_ETYSUBTYPE_XJ, &MLEntityCreator::CreateXJ},
 	{ML_ETYSUBTYPE_ORGE, &MLEntityCreator::CreateOrge},
 	{ML_ETYSUBTYPE_JUMPORGE, &MLEntityCreator::CreateJumpOrge},
+	{ML_ETYSUBTYPE_MOVEPLATFORM, &MLEntityCreator::CreateMovePlatform},
 };
 
 MLEntity* MLEntityCreator::CreateEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room)
@@ -156,6 +157,14 @@ MLEntity* MLEntityCreator::CreateJumpOrge(int xCoord, int yCoord, MLRoom* room)
 	return CreateJumpOrge((float)xCoord, (float)yCoord, room);
 }
 
+MLEntity* MLEntityCreator::CreateMovePlatform(int xCoord, int yCoord, MLRoom* room)
+{
+	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
+	room->TransformMapCoordToWorldCoord(xCoord, yCoord);
+
+	return CreateMovePlatform((float)xCoord, (float)yCoord, room);
+}
+
 MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLRoom* room)
 {
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_PLAYER_MAGIC, ML_ETYSUBTYPE_FIREBALL, room);
@@ -275,21 +284,13 @@ MLEntity* MLEntityCreator::CreateOrge(float posx, float posy, MLRoom* room)
 	MLComUserData* userData = new MLComUserData(entity);
 	ML_SAFE_ASSERT(userData != NULL, "Failed to create UserData component");
 
-	MLComUserData::UserData centerData;
-	centerData.category = ML_USERDATA_FLAG_ORGE_CENTERX;
-	centerData.type = MLComUserData::USER_DATA_TYPE_POINTER;
 	float* pValueCenterX = new float;
 	*pValueCenterX = posx;
-	centerData.value = (void*)pValueCenterX;
-	userData->PushValue(centerData);
+	userData->PushValue(ML_USERDATA_FLAG_ORGE_CENTERX, MLComUserData::USER_DATA_TYPE_POINTER, pValueCenterX);
 
-	MLComUserData::UserData rangeData;
-	rangeData.category = ML_USERDATA_FLAG_ORGE_RANGE;
-	rangeData.type = MLComUserData::USER_DATA_TYPE_POINTER;
 	float* pValueRange = new float;
 	*pValueRange = range;
-	rangeData.value = pValueRange;
-	userData->PushValue(rangeData);
+	userData->PushValue(ML_USERDATA_FLAG_ORGE_RANGE, MLComUserData::USER_DATA_TYPE_POINTER, pValueRange);
 
 	entity->AddComponent(userData);
 	ML_SAFE_DROP(userData);
@@ -353,16 +354,87 @@ MLEntity* MLEntityCreator::CreateJumpOrge(float posx, float posy, MLRoom* room)
 	// Create UserData component
 	MLComUserData* userData = new MLComUserData(entity);
 	ML_SAFE_ASSERT(userData != NULL, "Failed to create UserData component");
-	MLComUserData::UserData data;
-	data.category = ML_USERDATA_FLAG_JUMPORGE_INITPOS;
-	data.type = MLComUserData::USER_DATA_TYPE_POINTER;
 	VECTOR2* pPos = new VECTOR2();
 	pPos->x = posx;
 	pPos->y = posy;
-	data.value = pPos;
-	userData->PushValue(data);
+	userData->PushValue(ML_USERDATA_FLAG_JUMPORGE_INITPOS, MLComUserData::USER_DATA_TYPE_POINTER, pPos);
 	entity->AddComponent(userData);
 	ML_SAFE_DROP(userData);
+
+	return entity;
+}
+
+MLEntity* MLEntityCreator::CreateMovePlatform(float posx, float posy, MLRoom* room)
+{
+	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
+
+	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENV, ML_ETYSUBTYPE_MOVEPLATFORM, room);
+	ML_SAFE_ASSERT(entity != NULL, "Failed to create entity");
+
+	// Create Transform component
+	MLComTransform* transform = new MLComTransform(entity, posx, posy, 1.0f, 1.0f, 0.0f);
+	ML_SAFE_ASSERT(transform != NULL, "Failed to create Transform component");
+	entity->AddComponent(transform);
+	ML_SAFE_DROP(transform);
+
+	// Create Display component
+	MLComDisplay* display = new MLComDisplay(entity, "MovePlatform.png", room->GetGameLayer());
+	ML_SAFE_ASSERT(display != NULL, "Failed to create Display component");
+	display->GetSprite()->setAnchorPoint(ccp(0.5f, 0.5f));
+	display->GetSprite()->setPosition(ccp(posx, posy));
+	entity->AddComponent(display);
+	ML_SAFE_DROP(display);
+
+	// Create Movement component
+	MLComMovement* movement = new MLComMovement(entity);
+	ML_SAFE_ASSERT(movement != NULL, "Failed to create Movement component");
+	movement->SetGravity(0.0f);
+	movement->SetMaxFallSpeed(0.0f);
+	float moveSpeed = MLScriptMgr::SharedInstance()->GetValue("MovePlatformMoveSpeed");
+	movement->SetVel(moveSpeed, 0.0f); // Default to move right
+	entity->AddComponent(movement);
+	ML_SAFE_DROP(movement);
+
+	// Create Dir component
+	MLComDir* dir = new MLComDir(entity, ML_DIR_RIGHT);
+	ML_SAFE_ASSERT(dir != NULL, "Failed to create Dir component");
+	entity->AddComponent(dir);
+	ML_SAFE_DROP(dir);
+
+	// Create BoundBox component
+	float boundWidth = MLScriptMgr::SharedInstance()->GetValue("MovePlatformBoundBoxWidth");
+	float boundHeight = MLScriptMgr::SharedInstance()->GetValue("MovePlatformBoundBoxHeight");
+	MLComBoundBox* boundBox = new MLComBoundBox(entity, boundWidth, boundHeight, posx, posy);
+	ML_SAFE_ASSERT(boundBox != NULL, "Failed to create BoundBox component");
+	entity->AddComponent(boundBox);
+	ML_SAFE_DROP(boundBox);
+
+	// Create UserData component
+	MLComUserData* userData = new MLComUserData(entity);
+	ML_SAFE_ASSERT(userData != NULL, "Failed to create UserData component");
+	float* pInitPosX = new float;
+	*pInitPosX = posx;
+	userData->PushValue(ML_USERDATA_FLAG_MOVEPLATFORM_INITPOS, MLComUserData::USER_DATA_TYPE_POINTER, pInitPosX);
+
+	float* pWidth = new float;
+	*pWidth = MLScriptMgr::SharedInstance()->GetValue("MovePlatformMoveWidth");
+	userData->PushValue(ML_USERDATA_FLAG_MOVEPLATFORM_WIDTH, MLComUserData::USER_DATA_TYPE_POINTER, pWidth);
+
+	float* pDiff = new float;
+	*pDiff = 0;
+	userData->PushValue(ML_USERDATA_FLAG_MOVEPLATFORM_DIFF, MLComUserData::USER_DATA_TYPE_POINTER, pDiff);
+
+	entity->AddComponent(userData);
+	ML_SAFE_DROP(userData);
+
+	// Create State component
+	MLComState* state = new MLComState(entity);
+	ML_SAFE_ASSERT(state != NULL, "Failed to create State component");
+	MLStartState* startState = MLStartState::SharedInstance();
+	state->SetState(startState);
+	ML_SAFE_DROP(startState);
+	entity->AddComponent(state);
+	ML_SAFE_DROP(state);
 
 	return entity;
 }

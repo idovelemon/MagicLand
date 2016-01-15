@@ -47,6 +47,7 @@ protected:
 	void CreateFireBallSM();
 	void CreateOrgeSM();
 	void CreateJumpOrgeSM();
+	void CreateMovePlatformSM();
 };
 
 #endif  // __APP_DELEGATE_H__

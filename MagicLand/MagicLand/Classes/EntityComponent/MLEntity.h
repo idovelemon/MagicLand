@@ -39,6 +39,7 @@ namespace MagicLand
 		ML_ETYSUBTYPE_XJ,		// This indicate the hero xj in the game
 		ML_ETYSUBTYPE_ORGE,		// This indicate the enemy orge in the game
 		ML_ETYSUBTYPE_JUMPORGE, // This indicate the jump orge in the game
+		ML_ETYSUBTYPE_MOVEPLATFORM,
 
 		ML_ETYSUBTYPE_TERRIAN,	// This indicate the terrian boundbox in the game
 		ML_ETYSUBTYPE_FIREBALL, // This indicate the fire ball in the game

@@ -14,3 +14,9 @@ JumpOrgeGravity = 1.0
 JumpOrgeMaxFallSpeed = 10.0
 JumpOrgeMoveSpeed = 3.0
 JumpOrgeJumpSpeed = 10.0
+
+# Config for Move Platform
+MovePlatformBoundBoxWidth = 96
+MovePlatformBoundBoxHeight = 32
+MovePlatformMoveSpeed = 3.0
+MovePlatformMoveWidth = 200

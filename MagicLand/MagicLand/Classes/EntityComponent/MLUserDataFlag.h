@@ -15,4 +15,9 @@ const unsigned int ML_USERDATA_FLAG_ORGE_RANGE = 1;
 // For JumpOrge
 const unsigned int ML_USERDATA_FLAG_JUMPORGE_INITPOS = 0;
 
+// For MovePlatform
+const unsigned int ML_USERDATA_FLAG_MOVEPLATFORM_INITPOS = 0;
+const unsigned int ML_USERDATA_FLAG_MOVEPLATFORM_WIDTH = 2;
+const unsigned int ML_USERDATA_FLAG_MOVEPLATFORM_DIFF = 1;
+
 #endif

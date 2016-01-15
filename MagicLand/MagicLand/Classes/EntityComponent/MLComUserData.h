@@ -37,6 +37,7 @@ public:
 		USER_DATA_TYPE_MAX
 	};
 
+private:
 	struct UserData
 	{
 		unsigned int	category;
@@ -45,7 +46,7 @@ public:
 	};
 
 public:
-	void PushValue(UserData userData);
+	void PushValue(unsigned int category, USER_DATA_TYPE type, void* value);
 
 	void* GetValueByCategory(unsigned int category);
 
