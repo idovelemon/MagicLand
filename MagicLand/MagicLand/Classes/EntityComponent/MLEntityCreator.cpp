@@ -12,6 +12,7 @@ MLETYCreatorEntry MLEntityCreator::s_CreatorTable[] =
 	{ML_ETYSUBTYPE_ORGE, &MLEntityCreator::CreateOrge},
 	{ML_ETYSUBTYPE_JUMPORGE, &MLEntityCreator::CreateJumpOrge},
 	{ML_ETYSUBTYPE_MOVEPLATFORM, &MLEntityCreator::CreateMovePlatform},
+	{ML_ETYSUBTYPE_THROWORGE, &MLEntityCreator::CreateThrowOrge},
 };
 
 MLEntity* MLEntityCreator::CreateEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room)
@@ -163,6 +164,14 @@ MLEntity* MLEntityCreator::CreateMovePlatform(int xCoord, int yCoord, MLRoom* ro
 	room->TransformMapCoordToWorldCoord(xCoord, yCoord);
 
 	return CreateMovePlatform((float)xCoord, (float)yCoord, room);
+}
+
+MLEntity* MLEntityCreator::CreateThrowOrge(int xCoord, int yCoord, MLRoom* room)
+{
+	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
+	room->TransformMapCoordToWorldCoord(xCoord, yCoord);
+
+	return CreateThrowOrge((float)xCoord, (float)yCoord, room);
 }
 
 MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLRoom* room)
@@ -435,6 +444,110 @@ MLEntity* MLEntityCreator::CreateMovePlatform(float posx, float posy, MLRoom* ro
 	ML_SAFE_DROP(startState);
 	entity->AddComponent(state);
 	ML_SAFE_DROP(state);
+
+	return entity;
+}
+
+MLEntity* MLEntityCreator::CreateThrowOrge(float posx, float posy, MLRoom* room)
+{
+	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
+	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENEMY, ML_ETYSUBTYPE_THROWORGE, room);
+	ML_SAFE_ASSERT(entity != NULL, "Failed to create Entity");
+
+	// Create Display component
+	MLComDisplay* display = new MLComDisplay(entity, "ThrowOrge.png", room->GetGameLayer());
+	ML_SAFE_ASSERT(display != NULL, "Failed to create Display component");
+	display->GetSprite()->setAnchorPoint(ccp(0.5f, 0.5f));
+	display->GetSprite()->setPosition(ccp(posx, posy));
+	entity->AddComponent(display);
+	ML_SAFE_DROP(display);
+
+	// Create Transform component
+	MLComTransform* transform = new MLComTransform(entity, posx, posy, 1.0f, 1.0f, 0.0f);
+	ML_SAFE_ASSERT(transform != NULL, "Failed to create Transform component");
+	entity->AddComponent(transform);
+	ML_SAFE_DROP(transform);
+
+	// Create BoundBox component
+	float boxWidth = MLScriptMgr::SharedInstance()->GetValue("ThrowOrgeBoundBoxWidth");
+	float boxHeight = MLScriptMgr::SharedInstance()->GetValue("ThrowOrgeBoundBoxHeight");
+	MLComBoundBox* boundBox = new MLComBoundBox(entity, boxWidth, boxHeight, posx, posy);
+	ML_SAFE_ASSERT(boundBox != NULL, "Failed to create BoundBox component");
+	entity->AddComponent(boundBox);
+	ML_SAFE_DROP(boundBox);
+
+	// Create UserData component
+	MLComUserData* userData = new MLComUserData(entity);
+	ML_SAFE_ASSERT(userData != NULL, "Failed to create UserData component");
+	float* pThrowDelta = new float;
+	*pThrowDelta = MLScriptMgr::SharedInstance()->GetValue("ThrowOrgeThrowDelta");
+	userData->PushValue(ML_USERDATA_FLAG_THROWORGE_THROWDELTA, MLComUserData::USER_DATA_TYPE_POINTER, pThrowDelta);
+	entity->AddComponent(userData);
+	ML_SAFE_DROP(userData);
+
+	// Create State component
+	MLComState* state = new MLComState(entity);
+	ML_SAFE_ASSERT(state != NULL, "Failed to create State component");
+	MLStartState* startState = MLStartState::SharedInstance();
+	state->SetState(startState);
+	entity->AddComponent(state);
+	ML_SAFE_DROP(state);
+	ML_SAFE_DROP(startState);
+
+	// Create Timer component
+	MLComTimer* timer = new MLComTimer(entity);
+	ML_SAFE_ASSERT(timer != NULL, "Failed to create Timer component");
+	timer->AddTimer(ML_TIMER_FLAG_THROWORGE_THROW);
+	entity->AddComponent(timer);
+	ML_SAFE_DROP(timer);
+
+	return entity;
+}
+
+MLEntity* MLEntityCreator::CreateBoomBall(float posx, float posy, MLRoom* room)
+{
+	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENEMYMAGIC, ML_ETYSUBTYPE_BOOMBALL, room);
+	ML_SAFE_ASSERT(entity != NULL, "Failed to create Entity");
+
+	// Create Display component
+	MLComDisplay* display = new MLComDisplay(entity, "BoomBall.png", room->GetGameLayer());
+	ML_SAFE_ASSERT(display != NULL, "Failed to create Display component");
+	display->GetSprite()->setAnchorPoint(ccp(0.5f, 0.5f));
+	display->GetSprite()->setPosition(ccp(posx, posy));
+	entity->AddComponent(display);
+	ML_SAFE_DROP(display);
+
+	// Create Transform component
+	MLComTransform* transform = new MLComTransform(entity, posx, posy, 1.0f, 1.0f, 0.0f);
+	ML_SAFE_ASSERT(transform != NULL, "Failed to create Transform component");
+	entity->AddComponent(transform);
+	ML_SAFE_DROP(transform);
+
+	// Create Movement component
+	MLComMovement* movement = new MLComMovement(entity);
+	ML_SAFE_ASSERT(movement != NULL, "Failed to create Movement component");
+	movement->SetGravity(MLScriptMgr::SharedInstance()->GetValue("BoomBallGravity"));
+	movement->SetMaxFallSpeed(MLScriptMgr::SharedInstance()->GetValue("BoomBallMaxFallSpeed"));
+	movement->SetVel(0.0f, 0.0f);
+	entity->AddComponent(movement);
+	ML_SAFE_DROP(movement);
+
+	// Create BoundBox component
+	float boxWidth = MLScriptMgr::SharedInstance()->GetValue("BoomBallBoundBoxWidth");
+	float boxHeight = MLScriptMgr::SharedInstance()->GetValue("BoomBallBoundBoxHeight");
+	MLComBoundBox* boundBox = new MLComBoundBox(entity, boxWidth, boxHeight, posx, posy);
+	ML_SAFE_ASSERT(boundBox != NULL, "Failed to create BoundBox component");
+	entity->AddComponent(boundBox);
+	ML_SAFE_DROP(boundBox);
+
+	// Create State component
+	MLComState* state = new MLComState(entity);
+	ML_SAFE_ASSERT(state != NULL, "Failed to create State component");
+	MLStartState* startState = MLStartState::SharedInstance();
+	state->SetState(startState);
+	entity->AddComponent(state);
+	ML_SAFE_DROP(state);
+	ML_SAFE_DROP(startState);
 
 	return entity;
 }

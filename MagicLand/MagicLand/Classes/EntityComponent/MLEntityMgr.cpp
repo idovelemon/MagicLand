@@ -43,6 +43,7 @@ void MLEntityMgr::AddEntity(MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Can not add empty entity");
 	m_EntityTable.insert(std::pair<unsigned int, MLEntity*>(entity->GetID(), entity));
+	ML_SAFE_GRAB(entity);
 
 	// Cache Player's entity
 	if(ML_ETYMAINTYPE_PLAYER == entity->GetMainType())

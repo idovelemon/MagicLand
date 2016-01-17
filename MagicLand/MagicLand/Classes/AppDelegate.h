@@ -48,6 +48,8 @@ protected:
 	void CreateOrgeSM();
 	void CreateJumpOrgeSM();
 	void CreateMovePlatformSM();
+	void CreateThrowOrgeSM();
+	void CreateBoomBallSM();
 };
 
 #endif  // __APP_DELEGATE_H__

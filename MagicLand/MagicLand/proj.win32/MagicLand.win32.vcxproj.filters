@@ -78,6 +78,12 @@
     <Filter Include="source\StateMachine\State\MovePlatform">
       <UniqueIdentifier>{419a37b8-99b0-450f-978f-8858652cca09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\StateMachine\State\ThrowOrge">
+      <UniqueIdentifier>{aacb3994-0754-4c43-a228-935e9f61f861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\StateMachine\State\BoomBall">
+      <UniqueIdentifier>{9a337f8e-40f0-492e-b336-119545e60a16}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -249,6 +255,12 @@
     <ClInclude Include="..\Classes\StateMachine\MLMovePlatformMoveState.h">
       <Filter>source\StateMachine\State\MovePlatform</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine\MLThrowOrgeThrowState.h">
+      <Filter>source\StateMachine\State\ThrowOrge</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine\MLBoomBallFlyState.h">
+      <Filter>source\StateMachine\State\BoomBall</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -385,6 +397,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLMovePlatformMoveState.cpp">
       <Filter>source\StateMachine\State\MovePlatform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine\MLThrowOrgeThrowState.cpp">
+      <Filter>source\StateMachine\State\ThrowOrge</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine\MLBoomBallFlyState.cpp">
+      <Filter>source\StateMachine\State\BoomBall</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

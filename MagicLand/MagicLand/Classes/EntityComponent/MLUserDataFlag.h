@@ -20,4 +20,7 @@ const unsigned int ML_USERDATA_FLAG_MOVEPLATFORM_INITPOS = 0;
 const unsigned int ML_USERDATA_FLAG_MOVEPLATFORM_WIDTH = 2;
 const unsigned int ML_USERDATA_FLAG_MOVEPLATFORM_DIFF = 1;
 
+// For ThrowOrge
+const unsigned int ML_USERDATA_FLAG_THROWORGE_THROWDELTA = 0;
+
 #endif

@@ -107,6 +107,9 @@ void MLStateMethod::RenderSprite(MLEntity* entity)
 
 	VECTOR2 pos = pTransform->GetPos();
 	pDisplay->GetSprite()->setPosition(ccp(pos.x, pos.y));
+
+	float rot = pTransform->GetRot();
+	pDisplay->GetSprite()->setRotation(rot);
 }
 
 void MLStateMethod::OnCollision(MLEntity* entity)
@@ -133,4 +136,5 @@ void MLStateMethod::Fire(MLEntity* entity)
 	VECTOR2 pos = pTransform->GetPos();
 	MLEntity* magic = MLEntityCreator::CreateFireBall(pos.x, pos.y, pDir->GetDir(), entity->GetRoom());
 	MLEntityMgr::SharedInstance()->AddEntity(magic);
+	ML_SAFE_DROP(magic);
 }

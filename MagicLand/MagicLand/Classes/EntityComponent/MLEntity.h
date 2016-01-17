@@ -27,6 +27,7 @@ namespace MagicLand
 		ML_ETYMAINTYPE_PLAYER,	// This indicate the player main type.All entity in this kind will belong to player
 		ML_ETYMAINTYPE_PLAYER_MAGIC, // This indicate the magic of the player
 		ML_ETYMAINTYPE_ENEMY,	// This indicate the enemy main type.
+		ML_ETYMAINTYPE_ENEMYMAGIC, // This indicate the enemy's magic type
 
 		ML_ETYMAINTYPE_TOTAL,	// This indicate how many entity main type in magicland
 	};
@@ -40,9 +41,11 @@ namespace MagicLand
 		ML_ETYSUBTYPE_ORGE,		// This indicate the enemy orge in the game
 		ML_ETYSUBTYPE_JUMPORGE, // This indicate the jump orge in the game
 		ML_ETYSUBTYPE_MOVEPLATFORM,
+		ML_ETYSUBTYPE_THROWORGE,
 
 		ML_ETYSUBTYPE_TERRIAN,	// This indicate the terrian boundbox in the game
 		ML_ETYSUBTYPE_FIREBALL, // This indicate the fire ball in the game
+		ML_ETYSUBTYPE_BOOMBALL, 
 
 		ML_ETYSUBTYPE_TOTAL,	// This indicate how many entity type in magicland
 	};

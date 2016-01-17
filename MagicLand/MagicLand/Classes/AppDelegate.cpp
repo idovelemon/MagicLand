@@ -20,6 +20,8 @@
 #include "StateMachine\MLJumpOrgeJumpState.h"
 #include "StateMachine\MLJumpOrgeBackState.h"
 #include "StateMachine\MLMovePlatformMoveState.h"
+#include "StateMachine\MLThrowOrgeThrowState.h"
+#include "StateMachine\MLBoomBallFlyState.h"
 #include "Framerate\MLFrameRateMgr.h"
 #include "Round/MLRound.h"
 #include "marco.h"
@@ -165,6 +167,10 @@ void AppDelegate::gameInit()
 	CreateJumpOrgeSM();
 
 	CreateMovePlatformSM();
+
+	CreateThrowOrgeSM();
+
+	CreateBoomBallSM();
 }
 
 void AppDelegate::gameMainLoop(float delta)
@@ -327,4 +333,43 @@ void AppDelegate::CreateMovePlatformSM()
 	ML_SAFE_DROP(movePlatformSM);
 	ML_SAFE_DROP(startState);
 	ML_SAFE_DROP(moveState);
+}
+
+void AppDelegate::CreateThrowOrgeSM()
+{
+	// Create State machine for ThrowOrge
+	MLStateMachine* throwOrgeSM = new MLStateMachine();
+	ML_SAFE_ASSERT(throwOrgeSM != NULL, "Failed to create State machine");
+
+	// Create State
+	MLStartState* startState = MLStartState::SharedInstance();
+	MLThrowOrgeThrowState* throwState = new MLThrowOrgeThrowState();
+
+	// Create the State Transform Table
+	throwOrgeSM->AddStateEntry(startState, &MLComCon::StartOK, throwState);
+
+	MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_THROWORGE, throwOrgeSM);
+	ML_SAFE_DROP(throwOrgeSM);
+	ML_SAFE_DROP(startState);
+	ML_SAFE_DROP(throwState);
+}
+
+void AppDelegate::CreateBoomBallSM()
+{
+	MLStateMachine* boomBallSM = new MLStateMachine();
+
+	// Create State
+	MLStartState* startState = MLStartState::SharedInstance();
+	MLBoomBallFlyState* flyState = new MLBoomBallFlyState();
+	MLEndState* endState = MLEndState::SharedInstance();
+
+	// Create State Transform Table
+	boomBallSM->AddStateEntry(startState, &MLComCon::StartOK, flyState);
+	boomBallSM->AddStateEntry(flyState, &MLComCon::TouchGround, endState);
+
+	MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_BOOMBALL, boomBallSM);
+	ML_SAFE_DROP(boomBallSM);
+	ML_SAFE_DROP(startState);
+	ML_SAFE_DROP(flyState);
+	ML_SAFE_DROP(endState);
 }

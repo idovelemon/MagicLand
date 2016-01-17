@@ -163,6 +163,7 @@
     <ClInclude Include="..\Classes\Round\MLRoom.h" />
     <ClInclude Include="..\Classes\Round\MLRoomCreator.h" />
     <ClInclude Include="..\Classes\Round\MLRound.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLBoomBallFlyState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLComCon.h" />
     <ClInclude Include="..\Classes\StateMachine\MLCon.h" />
     <ClInclude Include="..\Classes\StateMachine\MLEndState.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="..\Classes\StateMachine\MLStateMachine.h" />
     <ClInclude Include="..\Classes\StateMachine\MLStateMachineMgr.h" />
     <ClInclude Include="..\Classes\StateMachine\MLStateMethod.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLThrowOrgeThrowState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLXJFallState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLXJJumpState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLXJNormalState.h" />
@@ -211,6 +213,7 @@
     <ClCompile Include="..\Classes\Round\MLRoom.cpp" />
     <ClCompile Include="..\Classes\Round\MLRoomCreator.cpp" />
     <ClCompile Include="..\Classes\Round\MLRound.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLBoomBallFlyState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLComCon.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLEndState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLFireBallDestroyState.cpp" />
@@ -225,6 +228,7 @@
     <ClCompile Include="..\Classes\StateMachine\MLStateMachine.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLStateMachineMgr.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLStateMethod.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLThrowOrgeThrowState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLXJFallState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLXJJumpState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLXJNormalState.cpp" />

@@ -135,6 +135,7 @@ void MLRoomCreator::CreateEntities(MLRoom* room)
 				MLEntity* entity = MLEntityCreator::CreateEntity(type, x, y, room);
 				ML_SAFE_ASSERT(entity != NULL, "Failed to create entity");
 				MLEntityMgr::SharedInstance()->AddEntity(entity);
+				ML_SAFE_DROP(entity);
 			}
 		}
 	}
@@ -149,6 +150,7 @@ void MLRoomCreator::CreateEntities(MLRoom* room)
 		ML_SAFE_ASSERT(entity != NULL, "Failed to create terrian entity");
 
 		MLEntityMgr::SharedInstance()->AddEntity(entity);
+		ML_SAFE_DROP(entity);
 	}
 }
 

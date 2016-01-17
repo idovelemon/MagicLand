@@ -20,3 +20,17 @@ MovePlatformBoundBoxWidth = 96
 MovePlatformBoundBoxHeight = 32
 MovePlatformMoveSpeed = 3.0
 MovePlatformMoveWidth = 200
+
+# Config for Throw Orge
+ThrowOrgeBoundBoxWidth = 32
+ThrowOrgeBoundBoxHeight = 32
+ThrowOrgeThrowDelta = 3.0 # Second
+
+# Config for Boom Ball
+BoomBallGravity = 1.0
+BoomBallMaxFallSpeed = 10.0
+BoomBallBoundBoxWidth = 32
+BoomBallBoundBoxHeight = 32
+BoomBallFlyVelX = -7
+BoomBallFlyVelY = 15
+BoomBallRotateSpeed = -3.0

@@ -39,6 +39,8 @@ public:
 	static MLEntity* CreateOrge(float posx, float posy, MLRoom* room);
 	static MLEntity* CreateJumpOrge(float posx, float posy, MLRoom* room);
 	static MLEntity* CreateMovePlatform(float posx, float posy, MLRoom* room);
+	static MLEntity* CreateThrowOrge(float posx, float posy, MLRoom* room);
+	static MLEntity* CreateBoomBall(float posx, float posy, MLRoom* room);
 
 	// Created from room map
 public:
@@ -50,5 +52,6 @@ protected:
 	static MLEntity* CreateOrge(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateJumpOrge(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateMovePlatform(int xCoord, int yCoord, MLRoom* room);
+	static MLEntity* CreateThrowOrge(int xCoord, int yCoord, MLRoom* room);
 };
 #endif

@@ -121,6 +121,9 @@ void MLCollisionMgr::CollisionDetect()
 
 	// Detect the collision between enemy and environment
 	DetectColEnemyWithEnv();
+
+	// Detect the collision between enemy's magic and env
+	DetectColEnemyMagicWithEnv();
 }
 
 void MLCollisionMgr::CollisionResponse()
@@ -242,6 +245,35 @@ void MLCollisionMgr::DetectColEnemyWithEnv()
 				// Pass the collision information
 				envBox->AddEntity(pEnemy);
 				enemyBox->AddEntity(pEnv);
+			}
+		}
+	}
+}
+
+void MLCollisionMgr::DetectColEnemyMagicWithEnv()
+{
+	for(MLColMgrListIt itEnemyMagic = m_ColMgrTable[ML_ETYMAINTYPE_ENEMYMAGIC].begin(); itEnemyMagic != m_ColMgrTable[ML_ETYMAINTYPE_ENEMYMAGIC].end(); ++itEnemyMagic)
+	{
+		MLEntity* pEnemyMagic = *itEnemyMagic;
+		ML_SAFE_ASSERT(pEnemyMagic != NULL, "There is an error");
+
+		MLComBoundBox* enemyMagicBox = (MLComBoundBox*)pEnemyMagic->GetComponent(ML_COMTYPE_BOUNDBOX);
+		ML_SAFE_ASSERT(enemyMagicBox != NULL, "The entity don't have the entity");
+
+		for(MLColMgrListIt itEnv = m_ColMgrTable[ML_ETYMAINTYPE_ENV].begin(); itEnv != m_ColMgrTable[ML_ETYMAINTYPE_ENV].end(); ++itEnv)
+		{
+			MLEntity* pEnv = *itEnv;
+			ML_SAFE_ASSERT(pEnv != NULL, "There is an error");
+
+			MLComBoundBox* envBox = (MLComBoundBox*)pEnv->GetComponent(ML_COMTYPE_BOUNDBOX);
+			ML_SAFE_ASSERT(envBox != NULL, "The entity don't have the entity");
+
+			// Check collision with the two bounding box
+			if(envBox->GetBoundBox().intersectWithAABB(enemyMagicBox->GetBoundBox()))
+			{
+				// Pass the collision information
+				envBox->AddEntity(pEnemyMagic);
+				enemyMagicBox->AddEntity(pEnv);
 			}
 		}
 	}

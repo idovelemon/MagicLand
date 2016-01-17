@@ -32,6 +32,7 @@ protected:
 	void DrawPlayerMagicBoundBox();
 	void DrawEnemeyBoundBox();
 	void DrawEnvBoundBox();
+	void DrawEnemyMagicBoundBox();
 };
 
 #endif
