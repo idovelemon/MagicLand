@@ -34,3 +34,15 @@ BoomBallBoundBoxHeight = 32
 BoomBallFlyVelX = -7
 BoomBallFlyVelY = 15
 BoomBallRotateSpeed = -3.0
+BoomBallMaxBrokenStoneNum = 5
+BoomBallMinBrokenStoneNum = 3
+
+# Config for Broken Stone
+BrokenStoneVelXMax = 16
+BrokenStoneVelXMin = 4
+BrokenStoneVelYMax = 16
+BrokenStoneVelYMin = 4
+BrokenStoneGravity = 1.0
+BrokenStoneMaxFallSpeed = 10.0
+BrokenStoneBoundBoxWidth = 16
+BrokenStoneBoundBoxHeight = 16

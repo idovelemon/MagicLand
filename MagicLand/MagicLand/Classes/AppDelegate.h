@@ -50,6 +50,7 @@ protected:
 	void CreateMovePlatformSM();
 	void CreateThrowOrgeSM();
 	void CreateBoomBallSM();
+	void CreateBrokenStoneSM();
 };
 
 #endif  // __APP_DELEGATE_H__

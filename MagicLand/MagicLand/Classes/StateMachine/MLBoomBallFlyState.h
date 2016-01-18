@@ -26,6 +26,7 @@ public:
 
 protected:
 	virtual void Fly(MLEntity* entity);
+	virtual void Boom(MLEntity* entity);
 };
 
 #endif

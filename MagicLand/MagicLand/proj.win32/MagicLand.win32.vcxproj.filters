@@ -84,6 +84,9 @@
     <Filter Include="source\StateMachine\State\BoomBall">
       <UniqueIdentifier>{9a337f8e-40f0-492e-b336-119545e60a16}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\StateMachine\State\BrokenStone">
+      <UniqueIdentifier>{d298e921-f8f3-42fd-8e00-4dd010e9410a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -261,6 +264,9 @@
     <ClInclude Include="..\Classes\StateMachine\MLBoomBallFlyState.h">
       <Filter>source\StateMachine\State\BoomBall</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\StateMachine\MLBrokenStoneFlyState.h">
+      <Filter>source\StateMachine\State\BrokenStone</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -403,6 +409,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLBoomBallFlyState.cpp">
       <Filter>source\StateMachine\State\BoomBall</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StateMachine\MLBrokenStoneFlyState.cpp">
+      <Filter>source\StateMachine\State\BrokenStone</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

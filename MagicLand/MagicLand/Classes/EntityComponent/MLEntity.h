@@ -46,6 +46,7 @@ namespace MagicLand
 		ML_ETYSUBTYPE_TERRIAN,	// This indicate the terrian boundbox in the game
 		ML_ETYSUBTYPE_FIREBALL, // This indicate the fire ball in the game
 		ML_ETYSUBTYPE_BOOMBALL, 
+		ML_ETYSUBTYPE_BROKENSTONE,
 
 		ML_ETYSUBTYPE_TOTAL,	// This indicate how many entity type in magicland
 	};

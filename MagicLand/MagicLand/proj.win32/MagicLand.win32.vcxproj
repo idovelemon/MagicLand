@@ -164,6 +164,7 @@
     <ClInclude Include="..\Classes\Round\MLRoomCreator.h" />
     <ClInclude Include="..\Classes\Round\MLRound.h" />
     <ClInclude Include="..\Classes\StateMachine\MLBoomBallFlyState.h" />
+    <ClInclude Include="..\Classes\StateMachine\MLBrokenStoneFlyState.h" />
     <ClInclude Include="..\Classes\StateMachine\MLComCon.h" />
     <ClInclude Include="..\Classes\StateMachine\MLCon.h" />
     <ClInclude Include="..\Classes\StateMachine\MLEndState.h" />
@@ -214,6 +215,7 @@
     <ClCompile Include="..\Classes\Round\MLRoomCreator.cpp" />
     <ClCompile Include="..\Classes\Round\MLRound.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLBoomBallFlyState.cpp" />
+    <ClCompile Include="..\Classes\StateMachine\MLBrokenStoneFlyState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLComCon.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLEndState.cpp" />
     <ClCompile Include="..\Classes\StateMachine\MLFireBallDestroyState.cpp" />

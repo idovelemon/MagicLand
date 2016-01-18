@@ -41,6 +41,7 @@ public:
 	static MLEntity* CreateMovePlatform(float posx, float posy, MLRoom* room);
 	static MLEntity* CreateThrowOrge(float posx, float posy, MLRoom* room);
 	static MLEntity* CreateBoomBall(float posx, float posy, MLRoom* room);
+	static MLEntity* CreateBrokenStone(float posx, float posy, float velx, float vely, MLRoom* room);
 
 	// Created from room map
 public:

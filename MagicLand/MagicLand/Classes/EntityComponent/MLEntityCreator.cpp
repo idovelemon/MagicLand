@@ -551,3 +551,52 @@ MLEntity* MLEntityCreator::CreateBoomBall(float posx, float posy, MLRoom* room)
 
 	return entity;
 }
+
+MLEntity* MLEntityCreator::CreateBrokenStone(float posx, float posy, float velx, float vely, MLRoom* room)
+{
+	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENEMYMAGIC, ML_ETYSUBTYPE_BROKENSTONE, room);
+	ML_SAFE_ASSERT(entity != NULL, "Failed to create Entity");
+
+	// Create Display component
+	MLComDisplay* display = new MLComDisplay(entity, "BrokenStone.png", room->GetGameLayer());
+	ML_SAFE_ASSERT(display != NULL, "Failed to create Display component");
+	display->GetSprite()->setAnchorPoint(ccp(0.5f, 0.5f));
+	display->GetSprite()->setPosition(ccp(posx, posy));
+	entity->AddComponent(display);
+	ML_SAFE_DROP(display);
+
+	// Create Transform component
+	MLComTransform* transform = new MLComTransform(entity, posx, posy, 1.0f, 1.0f, 0.0f);
+	ML_SAFE_ASSERT(transform != NULL, "Failed to create Transform component");
+	entity->AddComponent(transform);
+	ML_SAFE_DROP(transform);
+
+	// Create Movement component
+	MLComMovement* movement = new MLComMovement(entity);
+	ML_SAFE_ASSERT(movement != NULL, "Failed to create Movement component");
+	movement->SetGravity(MLScriptMgr::SharedInstance()->GetValue("BrokenStoneGravity"));
+	movement->SetMaxFallSpeed(MLScriptMgr::SharedInstance()->GetValue("BrokenStoneMaxFallSpeed"));
+	movement->SetVel(velx, vely);
+	entity->AddComponent(movement);
+	ML_SAFE_DROP(movement);
+
+	// Create BoundBox component
+	MLComBoundBox* boundBox = new MLComBoundBox(entity, 
+		MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
+		MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
+		posx, posy);
+	ML_SAFE_ASSERT(boundBox != NULL, "Failed to create BoundBox component");
+	entity->AddComponent(boundBox);
+	ML_SAFE_DROP(boundBox);
+
+	// Create State component
+	MLComState* state = new MLComState(entity);
+	ML_SAFE_ASSERT(state != NULL, "Failed to create State component");
+	MLStartState* startState = MLStartState::SharedInstance();
+	state->SetState(startState);
+	entity->AddComponent(state);
+	ML_SAFE_DROP(startState);
+	ML_SAFE_DROP(state);
+
+	return entity;
+}

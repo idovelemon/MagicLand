@@ -22,6 +22,7 @@
 #include "StateMachine\MLMovePlatformMoveState.h"
 #include "StateMachine\MLThrowOrgeThrowState.h"
 #include "StateMachine\MLBoomBallFlyState.h"
+#include "StateMachine\MLBrokenStoneFlyState.h"
 #include "Framerate\MLFrameRateMgr.h"
 #include "Round/MLRound.h"
 #include "marco.h"
@@ -171,6 +172,8 @@ void AppDelegate::gameInit()
 	CreateThrowOrgeSM();
 
 	CreateBoomBallSM();
+
+	CreateBrokenStoneSM();
 }
 
 void AppDelegate::gameMainLoop(float delta)
@@ -369,6 +372,26 @@ void AppDelegate::CreateBoomBallSM()
 
 	MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_BOOMBALL, boomBallSM);
 	ML_SAFE_DROP(boomBallSM);
+	ML_SAFE_DROP(startState);
+	ML_SAFE_DROP(flyState);
+	ML_SAFE_DROP(endState);
+}
+
+void AppDelegate::CreateBrokenStoneSM()
+{
+	MLStateMachine* brokenStoneSM = new MLStateMachine;
+	ML_SAFE_ASSERT(brokenStoneSM != NULL, "Failed to create State Machine");
+
+	MLStartState* startState = MLStartState::SharedInstance();
+	MLBrokenStoneFlyState* flyState = new MLBrokenStoneFlyState();
+	MLEndState* endState = MLEndState::SharedInstance();
+
+	brokenStoneSM->AddStateEntry(startState, &MLComCon::StartOK, flyState);
+	brokenStoneSM->AddStateEntry(flyState, &MLComCon::TouchGround, endState);
+
+	MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_BROKENSTONE, brokenStoneSM);
+
+	ML_SAFE_DROP(brokenStoneSM);
 	ML_SAFE_DROP(startState);
 	ML_SAFE_DROP(flyState);
 	ML_SAFE_DROP(endState);
