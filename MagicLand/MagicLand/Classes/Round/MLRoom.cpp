@@ -1,5 +1,6 @@
 #include "MLRoom.h"
 #include "../marco.h"
+#include "../Event/MLEventMgr.h"
 #include "../EntityComponent/MLEntityMgr.h"
 #include "../Collision/MLCollisionMgr.h"
 
@@ -180,6 +181,9 @@ void MLRoom::Update(float delta)
 	ML_SAFE_ASSERT(m_Camera != NULL, "Camera mustn't be null");
 	m_Camera->Update(delta);
 
+	// Update the event system
+	MLEventMgr::SharedInstance()->Update(delta);
+
 	// Update the entity system
 	MLEntityMgr::SharedInstance()->Update(delta);
 
@@ -209,6 +213,7 @@ void MLRoom::Destroy()
 	ML_SAFE_DROP(m_Camera);
 	m_Terrians.clear();
 
+	MLEventMgr::SharedInstance()->Destroy();
 	MLEntityMgr::SharedInstance()->Destroy();
 	MLCollisionMgr::SharedInstance()->Destroy();
 }

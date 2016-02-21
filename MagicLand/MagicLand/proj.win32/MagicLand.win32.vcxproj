@@ -156,6 +156,7 @@
     <ClInclude Include="..\Classes\EntityComponent\MLEntityMgr.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLTimerFlag.h" />
     <ClInclude Include="..\Classes\EntityComponent\MLUserDataFlag.h" />
+    <ClInclude Include="..\Classes\Event\MLEventMgr.h" />
     <ClInclude Include="..\Classes\Framerate\MLFrameRateMgr.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\marco.h" />
@@ -208,6 +209,7 @@
     <ClCompile Include="..\Classes\EntityComponent\MLEntity.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLEntityCreator.cpp" />
     <ClCompile Include="..\Classes\EntityComponent\MLEntityMgr.cpp" />
+    <ClCompile Include="..\Classes\Event\MLEventMgr.cpp" />
     <ClCompile Include="..\Classes\Framerate\MLFrameRateMgr.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\Reference\MLReference.cpp" />

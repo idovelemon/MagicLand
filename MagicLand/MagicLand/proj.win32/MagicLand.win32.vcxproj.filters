@@ -87,6 +87,9 @@
     <Filter Include="source\StateMachine\State\BrokenStone">
       <UniqueIdentifier>{d298e921-f8f3-42fd-8e00-4dd010e9410a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\Event">
+      <UniqueIdentifier>{f7a984b7-3df5-4f6e-b342-5af974ba70c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -267,6 +270,9 @@
     <ClInclude Include="..\Classes\StateMachine\MLBrokenStoneFlyState.h">
       <Filter>source\StateMachine\State\BrokenStone</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Event\MLEventMgr.h">
+      <Filter>source\Event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -412,6 +418,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\StateMachine\MLBrokenStoneFlyState.cpp">
       <Filter>source\StateMachine\State\BrokenStone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Event\MLEventMgr.cpp">
+      <Filter>source\Event</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
