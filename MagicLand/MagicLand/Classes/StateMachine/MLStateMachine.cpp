@@ -20,41 +20,43 @@ MLStateMachine::~MLStateMachine()
 void MLStateMachine::Run(MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Can not deal with the null pointer");
-
-	MLComState*	pStateCom = (MLComState*)entity->GetComponent(ML_COMTYPE_STATE);
-
-	if(pStateCom != NULL) // If the state component exist
+	if(entity != NULL)
 	{
-		MLState* pState = pStateCom->GetState();
-		ML_SAFE_ASSERT(pState != NULL, "");
+		MLComState*	pStateCom = (MLComState*)entity->GetComponent(ML_COMTYPE_STATE);
 
-		// Check if we need to transform to another state
-		for(MLStateEntryArrayIt it = m_StateTable.begin() ;it != m_StateTable.end(); ++it)
+		if(pStateCom != NULL) // If the state component exist
 		{
-			MLStateEntry* pEntry = *it;
-			ML_SAFE_ASSERT(pEntry != NULL, "");
+			MLState* pState = pStateCom->GetState();
+			ML_SAFE_ASSERT(pState != NULL, "");
 
-			if(pEntry->headState == pState)
+			// Check if we need to transform to another state
+			for(MLStateEntryArrayIt it = m_StateTable.begin() ;it != m_StateTable.end(); ++it)
 			{
-				if(pEntry->pConFunc(entity))
+				MLStateEntry* pEntry = *it;
+				ML_SAFE_ASSERT(pEntry != NULL, "");
+
+				if(pEntry->headState == pState)
 				{
-					// Change the state of the entity
-					pState->Exit(entity);
+					if(pEntry->pConFunc(entity))
+					{
+						// Change the state of the entity
+						pState->Exit(entity);
 
-					ML_SAFE_ASSERT(pEntry->tailState != NULL, "");
-					pEntry->tailState->Enter(entity);
+						ML_SAFE_ASSERT(pEntry->tailState != NULL, "");
+						pEntry->tailState->Enter(entity);
 
-					pStateCom->SetState(pEntry->tailState);
+						pStateCom->SetState(pEntry->tailState);
 
-					break;
+						break;
+					}
 				}
 			}
-		}
 
-		// Run the state
-		pState = pStateCom->GetState();
-		ML_SAFE_ASSERT(pState != NULL, "");
-		pState->Run(entity);
+			// Run the state
+			pState = pStateCom->GetState();
+			ML_SAFE_ASSERT(pState != NULL, "");
+			pState->Run(entity);
+		}
 	}
 }
 
@@ -64,15 +66,20 @@ void MLStateMachine::AddStateEntry(MLState* pHeadState, MLPCon pCon, MLState* pT
 	ML_SAFE_ASSERT(pCon != NULL, "Can not deal with null pointer");
 	ML_SAFE_ASSERT(pTailState != NULL, "Can not deal with null pointer");
 	ML_SAFE_ASSERT(pTailState != pHeadState, "Can not be the same state");
-	
-	MLStateEntry* pEntry = new MLStateEntry;
-	ML_SAFE_ASSERT(pEntry != NULL, "Allocate memory failed");
-	pEntry->headState = pHeadState;
-	pEntry->pConFunc = pCon;
-	pEntry->tailState = pTailState;
+	if(pHeadState != NULL && pCon != NULL && pTailState != NULL && pTailState != pHeadState)
+	{
+		MLStateEntry* pEntry = new MLStateEntry;
+		ML_SAFE_ASSERT(pEntry != NULL, "Allocate memory failed");
+		if(pEntry != NULL)
+		{
+			pEntry->headState = pHeadState;
+			pEntry->pConFunc = pCon;
+			pEntry->tailState = pTailState;
 
-	ML_SAFE_GRAB(pHeadState);
-	ML_SAFE_GRAB(pTailState);
+			ML_SAFE_GRAB(pHeadState);
+			ML_SAFE_GRAB(pTailState);
 
-	m_StateTable.push_back(pEntry);
+			m_StateTable.push_back(pEntry);
+		}
+	}
 }

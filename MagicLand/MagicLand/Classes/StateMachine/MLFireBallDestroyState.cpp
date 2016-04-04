@@ -22,7 +22,10 @@ void MLFireBallDestroyState::Run(MLEntity* entity)
 	MLComState* state = (MLComState*)entity->GetComponent(ML_COMTYPE_STATE);
 	ML_SAFE_ASSERT(state != NULL, "Please make sure the State component exist");
 
-	state->EnterEnd();
+	if(entity != NULL && state != NULL)
+	{
+		state->EnterEnd();
+	}
 }
 
 void MLFireBallDestroyState::Exit(MLEntity* entity)

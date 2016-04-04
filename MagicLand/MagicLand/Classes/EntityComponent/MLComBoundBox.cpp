@@ -41,8 +41,11 @@ void MLComBoundBox::AddEntity(MLEntity* colEntity)
 {
 	m_IsCollided = true;
 	ML_SAFE_ASSERT(colEntity != NULL, "Can not deal with the null pointer");
-	ML_SAFE_GRAB(colEntity);
-	m_ColEntities.push_back(colEntity);
+	if(colEntity != NULL)
+	{
+		ML_SAFE_GRAB(colEntity);
+		m_ColEntities.push_back(colEntity);
+	}
 }
 
 bool MLComBoundBox::IsCollided() const

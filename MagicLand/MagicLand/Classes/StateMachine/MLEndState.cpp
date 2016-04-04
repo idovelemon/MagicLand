@@ -34,7 +34,10 @@ void MLEndState::Enter(MLEntity* entity)
 void MLEndState::Run(MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Please make sure the entity is not empty");
-	entity->KillEntity();
+	if(entity != NULL)
+	{
+		entity->KillEntity();
+	}
 }
 
 void MLEndState::Exit(MLEntity* entity)

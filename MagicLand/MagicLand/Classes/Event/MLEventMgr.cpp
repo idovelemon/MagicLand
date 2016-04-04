@@ -91,25 +91,29 @@ void MLEventMgr::RegistRecieveEvent(unsigned int eventType, MLEntity* reciever, 
 {
 	ML_SAFE_ASSERT(MLEVENT_START < eventType && eventType < MLEVENT_TOTAL, "Please make sure the eventType is right");
 	ML_SAFE_ASSERT(reciever != NULL, "Please make sure the sender exsit");
+	if(reciever != NULL)
+	{
+		MLRecieverList::MLRecieverInfo info;
+		info.entity = reciever;
+		info.handle = handle;
+		ML_SAFE_GRAB(reciever);
 
-	MLRecieverList::MLRecieverInfo info;
-	info.entity = reciever;
-	info.handle = handle;
-	ML_SAFE_GRAB(reciever);
-
-	m_RecieverTable[eventType].recieverList.push_back(info);
+		m_RecieverTable[eventType].recieverList.push_back(info);
+	}
 }
 
 void MLEventMgr::UnRegistRecieveEvent(unsigned int eventType, MLEntity* reciever)
 {
 	ML_SAFE_ASSERT(MLEVENT_START < eventType && eventType < MLEVENT_TOTAL, "Please make sure the eventType is right");
 	ML_SAFE_ASSERT(reciever != NULL, "Please make sure the sender exsit");
-	
-	MLRegistInfo info;
-	info.entity = reciever;
-	ML_SAFE_GRAB(reciever);
-	info.eventType = eventType;
-	m_UnRegistRecieveEventList.push_back(info);
+	if(MLEVENT_START < eventType && eventType < MLEVENT_TOTAL && reciever != NULL)
+	{
+		MLRegistInfo info;
+		info.entity = reciever;
+		ML_SAFE_GRAB(reciever);
+		info.eventType = eventType;
+		m_UnRegistRecieveEventList.push_back(info);
+	}
 }
 
 void MLEventMgr::RegistSendEvent(unsigned int eventType, MLEntity* sender)
@@ -117,19 +121,25 @@ void MLEventMgr::RegistSendEvent(unsigned int eventType, MLEntity* sender)
 	ML_SAFE_ASSERT(MLEVENT_START < eventType && eventType < MLEVENT_TOTAL, "Please make sure the eventType is right");
 	ML_SAFE_ASSERT(sender != NULL, "Please make sure the sender exsit");
 	
-	m_SenderTable[eventType].senderList.push_back(sender);
+	if(MLEVENT_START < eventType && eventType < MLEVENT_TOTAL && sender != NULL)
+	{
+		m_SenderTable[eventType].senderList.push_back(sender);
+	}
 }
 
 void MLEventMgr::UnRegistSendEvent(unsigned int eventType, MLEntity* sender)
 {
 	ML_SAFE_ASSERT(MLEVENT_START < eventType && eventType < MLEVENT_TOTAL, "Please make sure the eventType is right");
 	ML_SAFE_ASSERT(sender != NULL, "Please make sure the sender exist");
-
-	MLRegistInfo info;
-	info.entity = sender;
-	ML_SAFE_GRAB(sender);
-	info.eventType = eventType;
-	m_UnRegistSendEventList.push_back(info);
+	
+	if(MLEVENT_START < eventType && eventType < MLEVENT_TOTAL && sender != NULL)
+	{
+		MLRegistInfo info;
+		info.entity = sender;
+		ML_SAFE_GRAB(sender);
+		info.eventType = eventType;
+		m_UnRegistSendEventList.push_back(info);
+	}
 }
 
 void MLEventMgr::Update(float delta)
@@ -177,10 +187,8 @@ void MLEventMgr::Reset()
 		MLRegistInfo registInfo = m_UnRegistSendEventList[i];
 		MLEntity* sender = registInfo.entity;
 		ML_SAFE_ASSERT(sender != NULL, "Please make sure the sender exist");
-		if(sender != NULL)
-		{
-			ML_SAFE_DROP(sender);
-		}
+		
+		ML_SAFE_DROP(sender);
 	}
 	m_UnRegistSendEventList.clear();
 
@@ -190,10 +198,8 @@ void MLEventMgr::Reset()
 		MLRegistInfo registInfo = m_UnRegistRecieveEventList[i];
 		MLEntity* reciever = registInfo.entity;
 		ML_SAFE_ASSERT(reciever != NULL, "Please make sure the sender exist");
-		if(reciever != NULL)
-		{
-			ML_SAFE_DROP(reciever);
-		}
+		
+		ML_SAFE_DROP(reciever);
 	}
 	m_UnRegistRecieveEventList.clear();
 }

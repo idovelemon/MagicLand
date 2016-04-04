@@ -20,21 +20,25 @@ void MLOrgeWaitState::Enter(MLEntity* entity)
 void MLOrgeWaitState::Run(MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Please make sure the entity is not empty");
-
-	MLComTimer* timer = (MLComTimer*)entity->GetComponent(ML_COMTYPE_TIMER);
-	ML_SAFE_ASSERT(timer != NULL, "Please make sure the Timer component exsit");
-
-	float time = timer->GetTimer(ML_TIMER_FLAG_ORGE_WAIT);
-	time += MLFrameRateMgr::SharedInstance()->GetFrameDelta();
-
-	float waitTime = 0.0f;
-	ML_SCRIPT_GETVALUE(waitTime, "OrgeWaitTime");
-	if(time >= waitTime)
+	if(entity != NULL)
 	{
-		time = 0.0f;
-	}
+		MLComTimer* timer = (MLComTimer*)entity->GetComponent(ML_COMTYPE_TIMER);
+		ML_SAFE_ASSERT(timer != NULL, "Please make sure the Timer component exsit");
+		if(timer != NULL)
+		{
+			float time = timer->GetTimer(ML_TIMER_FLAG_ORGE_WAIT);
+			time += MLFrameRateMgr::SharedInstance()->GetFrameDelta();
 
-	timer->UpdateTimer(ML_TIMER_FLAG_ORGE_WAIT, time);
+			float waitTime = 0.0f;
+			ML_SCRIPT_GETVALUE(waitTime, "OrgeWaitTime");
+			if(time >= waitTime)
+			{
+				time = 0.0f;
+			}
+
+			timer->UpdateTimer(ML_TIMER_FLAG_ORGE_WAIT, time);
+		}
+	}
 }
 
 void MLOrgeWaitState::Exit(MLEntity* entity)

@@ -17,11 +17,14 @@ MLComState::~MLComState()
 void MLComState::SetState(MLState* pState)
 {
 	ML_SAFE_ASSERT(pState != NULL, "Can not deal with null pointer");
+	
+	if(pState != NULL)
+	{
+		ML_SAFE_DROP(m_State);
 
-	ML_SAFE_DROP(m_State);
-
-	m_State = pState;
-	ML_SAFE_GRAB(m_State);
+		m_State = pState;
+		ML_SAFE_GRAB(m_State);
+	}
 }
 
 MLState* MLComState::GetState() const

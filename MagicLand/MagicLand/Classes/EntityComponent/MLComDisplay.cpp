@@ -10,13 +10,19 @@ MLComDisplay::MLComDisplay(MLEntity* entity, char* fileName, cocos2d::CCLayer* p
 {
 	ML_SAFE_ASSERT(fileName != NULL, "Please pass a valid file name");
 	ML_SAFE_ASSERT(parentLayer != NULL, "Please pass a valid layer");
-	m_Layer->retain();
+	if(fileName != NULL && parentLayer != NULL)
+	{
+		m_Layer->retain();
 
-	m_Sprite = CCSprite::create(fileName);
-	ML_SAFE_ASSERT(m_Sprite != NULL, "Create sprite failed");
-	m_Sprite->retain();
+		m_Sprite = CCSprite::create(fileName);
+		ML_SAFE_ASSERT(m_Sprite != NULL, "Create sprite failed");
+		if(m_Sprite != NULL)
+		{
+			m_Sprite->retain();
 
-	m_Layer->addChild(m_Sprite, -10);
+			m_Layer->addChild(m_Sprite, -10);
+		}
+	}
 }
 
 MLComDisplay::~MLComDisplay()

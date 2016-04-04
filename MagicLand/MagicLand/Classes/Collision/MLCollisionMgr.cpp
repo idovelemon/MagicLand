@@ -50,37 +50,50 @@ void MLCollisionMgr::Destroy()
 void MLCollisionMgr::AddColEntry(MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Please pass a valid entity pointer");
-	MLEntityMainType mainType = entity->GetMainType();
+	if(entity != NULL)
+	{
+		MLEntityMainType mainType = entity->GetMainType();
 
-	ML_SAFE_ASSERT(mainType <= m_ColMgrTable.size(), "Please make sure the table can hold this type of entity");
-	m_ColMgrTable[mainType].push_back(entity);
+		ML_SAFE_ASSERT(mainType <= m_ColMgrTable.size(), "Please make sure the table can hold this type of entity");
+		if(mainType <= m_ColMgrTable.size())
+		{
+			m_ColMgrTable[mainType].push_back(entity);
+		}
 
-	ML_SAFE_GRAB(entity); // Add the reference count
+		ML_SAFE_GRAB(entity); // Add the reference count
+	}
 }
 
 void MLCollisionMgr::RemoveColEntry(MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Please pass a valid entity pointer");
-	MLEntityMainType mainType = entity->GetMainType();
-
-	ML_SAFE_ASSERT(mainType <= m_ColMgrTable.size(), "Please make sure the table has the collision entry of this type entity");
-
-	bool bFound = false;
-	for(MLColMgrList::iterator it = m_ColMgrTable[mainType].begin(); it != m_ColMgrTable[mainType].end(); ++it)
+	if(entity != NULL)
 	{
-		MLEntity* colEntry = *it;
-		ML_SAFE_ASSERT(colEntry != NULL, "There is an error");
+		MLEntityMainType mainType = entity->GetMainType();
 
-		if(colEntry->GetID() == entity->GetID())
+		ML_SAFE_ASSERT(mainType <= m_ColMgrTable.size(), "Please make sure the table has the collision entry of this type entity");
+		if(mainType <= m_ColMgrTable.size())
 		{
-			ML_SAFE_DROP(entity);
-			m_ColMgrTable[mainType].erase(it);
-			bFound = true;
-			break;
+			bool bFound = false;
+			for(MLColMgrList::iterator it = m_ColMgrTable[mainType].begin(); it != m_ColMgrTable[mainType].end(); ++it)
+			{
+				MLEntity* colEntry = *it;
+				ML_SAFE_ASSERT(colEntry != NULL, "There is an error");
+				if(colEntry != NULL)
+				{
+					if(colEntry->GetID() == entity->GetID())
+					{
+						ML_SAFE_DROP(entity);
+						m_ColMgrTable[mainType].erase(it);
+						bFound = true;
+						break;
+					}
+				}
+			}
+
+			ML_SAFE_ASSERT(bFound == true, "Can not find the collision entry of this entity");
 		}
 	}
-
-	ML_SAFE_ASSERT(bFound == true, "Can not find the collision entry of this entity");
 }
 
 void MLCollisionMgr::Update(float delta)
@@ -134,14 +147,16 @@ void MLCollisionMgr::CollisionResponse()
 		{
 			MLEntity* entity = *it;
 			ML_SAFE_ASSERT(entity != NULL, "There is an error");
-
-			MLComState* pState = (MLComState*)entity->GetComponent(ML_COMTYPE_STATE);
-			
-			// If this entity has state component
-			// That means the entity has the state machine to handle the collision response
-			if(pState != NULL)
+			if(entity != NULL)
 			{
-				pState->GetState()->OnCollision(entity);
+				MLComState* pState = (MLComState*)entity->GetComponent(ML_COMTYPE_STATE);
+			
+				// If this entity has state component
+				// That means the entity has the state machine to handle the collision response
+				if(pState != NULL)
+				{
+					pState->GetState()->OnCollision(entity);
+				}
 			}
 		}
 	}
@@ -155,10 +170,15 @@ void MLCollisionMgr::ClearCollisionInfo()
 		{
 			MLEntity* entity = *it;
 			ML_SAFE_ASSERT(entity != NULL, "There is an error");
-
-			MLComBoundBox* pBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
-			ML_SAFE_ASSERT(pBox != NULL, "There is an error");
-			pBox->Reset();
+			if(entity != NULL)
+			{
+				MLComBoundBox* pBox = (MLComBoundBox*)entity->GetComponent(ML_COMTYPE_BOUNDBOX);
+				ML_SAFE_ASSERT(pBox != NULL, "There is an error");
+				if(pBox != NULL)
+				{
+					pBox->Reset();
+				}
+			}
 		}
 	}
 }
@@ -169,24 +189,32 @@ void MLCollisionMgr::DetectColPlayerWithEnv()
 	{
 		MLEntity* pPlayer = *itPlayer;
 		ML_SAFE_ASSERT(pPlayer != NULL, "There is an error");
-
-		MLComBoundBox* playerBox = (MLComBoundBox*)pPlayer->GetComponent(ML_COMTYPE_BOUNDBOX);
-		ML_SAFE_ASSERT(playerBox != NULL, "The entity don't have the entity");
-
-		for(MLColMgrListIt itEnv = m_ColMgrTable[ML_ETYMAINTYPE_ENV].begin(); itEnv != m_ColMgrTable[ML_ETYMAINTYPE_ENV].end(); ++itEnv)
+		if(pPlayer != NULL)
 		{
-			MLEntity* pEnv = *itEnv;
-			ML_SAFE_ASSERT(pEnv != NULL, "There is an error");
-
-			MLComBoundBox* envBox = (MLComBoundBox*)pEnv->GetComponent(ML_COMTYPE_BOUNDBOX);
-			ML_SAFE_ASSERT(envBox != NULL, "The entity don't have the entity");
-
-			// Check collision with the two bounding box
-			if(envBox->GetBoundBox().intersectWithAABB(playerBox->GetBoundBox()))
+			MLComBoundBox* playerBox = (MLComBoundBox*)pPlayer->GetComponent(ML_COMTYPE_BOUNDBOX);
+			ML_SAFE_ASSERT(playerBox != NULL, "The entity don't have the entity");
+			if(playerBox != NULL)
 			{
-				// Pass the collision information
-				envBox->AddEntity(pPlayer);
-				playerBox->AddEntity(pEnv);
+				for(MLColMgrListIt itEnv = m_ColMgrTable[ML_ETYMAINTYPE_ENV].begin(); itEnv != m_ColMgrTable[ML_ETYMAINTYPE_ENV].end(); ++itEnv)
+				{
+					MLEntity* pEnv = *itEnv;
+					ML_SAFE_ASSERT(pEnv != NULL, "There is an error");
+					if(pEnv != NULL)
+					{
+						MLComBoundBox* envBox = (MLComBoundBox*)pEnv->GetComponent(ML_COMTYPE_BOUNDBOX);
+						ML_SAFE_ASSERT(envBox != NULL, "The entity don't have the entity");
+						if(envBox != NULL)
+						{
+							// Check collision with the two bounding box
+							if(envBox->GetBoundBox().intersectWithAABB(playerBox->GetBoundBox()))
+							{
+								// Pass the collision information
+								envBox->AddEntity(pPlayer);
+								playerBox->AddEntity(pEnv);
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -198,24 +226,31 @@ void MLCollisionMgr::DetectColEnemyWithMagic()
 	{
 		MLEntity* pEnemy = *itEnemy;
 		ML_SAFE_ASSERT(pEnemy != NULL, "There is an error");
-
-		MLComBoundBox* enemyBox = (MLComBoundBox*)pEnemy->GetComponent(ML_COMTYPE_BOUNDBOX);
-		ML_SAFE_ASSERT(enemyBox != NULL, "The entity don't have the entity");
-
-		for(MLColMgrListIt itMagic = m_ColMgrTable[ML_ETYMAINTYPE_PLAYER_MAGIC].begin(); itMagic != m_ColMgrTable[ML_ETYMAINTYPE_PLAYER_MAGIC].end(); ++itMagic)
+		if(pEnemy != NULL)
 		{
-			MLEntity* pMagic = *itMagic;
-			ML_SAFE_ASSERT(pMagic != NULL, "There is an error");
-
-			MLComBoundBox* magicBox = (MLComBoundBox*)pMagic->GetComponent(ML_COMTYPE_BOUNDBOX);
-			ML_SAFE_ASSERT(magicBox != NULL, "The entity don't have the entity");
-
-			// Check collision with the two bounding box
-			if(magicBox->GetBoundBox().intersectWithAABB(enemyBox->GetBoundBox()))
+			MLComBoundBox* enemyBox = (MLComBoundBox*)pEnemy->GetComponent(ML_COMTYPE_BOUNDBOX);
+			ML_SAFE_ASSERT(enemyBox != NULL, "The entity don't have the entity");
+			if(enemyBox != NULL)
 			{
-				// Pass the collision information
-				magicBox->AddEntity(pEnemy);
-				enemyBox->AddEntity(pMagic);
+				for(MLColMgrListIt itMagic = m_ColMgrTable[ML_ETYMAINTYPE_PLAYER_MAGIC].begin(); itMagic != m_ColMgrTable[ML_ETYMAINTYPE_PLAYER_MAGIC].end(); ++itMagic)
+				{
+					MLEntity* pMagic = *itMagic;
+					ML_SAFE_ASSERT(pMagic != NULL, "There is an error");
+					
+					MLComBoundBox* magicBox = (MLComBoundBox*)pMagic->GetComponent(ML_COMTYPE_BOUNDBOX);
+					ML_SAFE_ASSERT(magicBox != NULL, "The entity don't have the entity");
+
+					if(pMagic != NULL && magicBox != NULL)
+					{
+						// Check collision with the two bounding box
+						if(magicBox->GetBoundBox().intersectWithAABB(enemyBox->GetBoundBox()))
+						{
+							// Pass the collision information
+							magicBox->AddEntity(pEnemy);
+							enemyBox->AddEntity(pMagic);
+						}
+					}
+				}
 			}
 		}
 	}
@@ -231,20 +266,26 @@ void MLCollisionMgr::DetectColEnemyWithEnv()
 		MLComBoundBox* enemyBox = (MLComBoundBox*)pEnemy->GetComponent(ML_COMTYPE_BOUNDBOX);
 		ML_SAFE_ASSERT(enemyBox != NULL, "The entity don't have the entity");
 
-		for(MLColMgrListIt itEnv = m_ColMgrTable[ML_ETYMAINTYPE_ENV].begin(); itEnv != m_ColMgrTable[ML_ETYMAINTYPE_ENV].end(); ++itEnv)
+		if(pEnemy != NULL && enemyBox != NULL)
 		{
-			MLEntity* pEnv = *itEnv;
-			ML_SAFE_ASSERT(pEnv != NULL, "There is an error");
-
-			MLComBoundBox* envBox = (MLComBoundBox*)pEnv->GetComponent(ML_COMTYPE_BOUNDBOX);
-			ML_SAFE_ASSERT(envBox != NULL, "The entity don't have the entity");
-
-			// Check collision with the two bounding box
-			if(envBox->GetBoundBox().intersectWithAABB(enemyBox->GetBoundBox()))
+			for(MLColMgrListIt itEnv = m_ColMgrTable[ML_ETYMAINTYPE_ENV].begin(); itEnv != m_ColMgrTable[ML_ETYMAINTYPE_ENV].end(); ++itEnv)
 			{
-				// Pass the collision information
-				envBox->AddEntity(pEnemy);
-				enemyBox->AddEntity(pEnv);
+				MLEntity* pEnv = *itEnv;
+				ML_SAFE_ASSERT(pEnv != NULL, "There is an error");
+
+				MLComBoundBox* envBox = (MLComBoundBox*)pEnv->GetComponent(ML_COMTYPE_BOUNDBOX);
+				ML_SAFE_ASSERT(envBox != NULL, "The entity don't have the entity");
+
+				if(pEnv != NULL && envBox != NULL)
+				{
+					// Check collision with the two bounding box
+					if(envBox->GetBoundBox().intersectWithAABB(enemyBox->GetBoundBox()))
+					{
+						// Pass the collision information
+						envBox->AddEntity(pEnemy);
+						enemyBox->AddEntity(pEnv);
+					}
+				}
 			}
 		}
 	}
@@ -260,20 +301,26 @@ void MLCollisionMgr::DetectColEnemyMagicWithEnv()
 		MLComBoundBox* enemyMagicBox = (MLComBoundBox*)pEnemyMagic->GetComponent(ML_COMTYPE_BOUNDBOX);
 		ML_SAFE_ASSERT(enemyMagicBox != NULL, "The entity don't have the entity");
 
-		for(MLColMgrListIt itEnv = m_ColMgrTable[ML_ETYMAINTYPE_ENV].begin(); itEnv != m_ColMgrTable[ML_ETYMAINTYPE_ENV].end(); ++itEnv)
+		if(pEnemyMagic != NULL && enemyMagicBox != NULL)
 		{
-			MLEntity* pEnv = *itEnv;
-			ML_SAFE_ASSERT(pEnv != NULL, "There is an error");
-
-			MLComBoundBox* envBox = (MLComBoundBox*)pEnv->GetComponent(ML_COMTYPE_BOUNDBOX);
-			ML_SAFE_ASSERT(envBox != NULL, "The entity don't have the entity");
-
-			// Check collision with the two bounding box
-			if(envBox->GetBoundBox().intersectWithAABB(enemyMagicBox->GetBoundBox()))
+			for(MLColMgrListIt itEnv = m_ColMgrTable[ML_ETYMAINTYPE_ENV].begin(); itEnv != m_ColMgrTable[ML_ETYMAINTYPE_ENV].end(); ++itEnv)
 			{
-				// Pass the collision information
-				envBox->AddEntity(pEnemyMagic);
-				enemyMagicBox->AddEntity(pEnv);
+				MLEntity* pEnv = *itEnv;
+				ML_SAFE_ASSERT(pEnv != NULL, "There is an error");
+
+				MLComBoundBox* envBox = (MLComBoundBox*)pEnv->GetComponent(ML_COMTYPE_BOUNDBOX);
+				ML_SAFE_ASSERT(envBox != NULL, "The entity don't have the entity");
+
+				if(pEnv != NULL && envBox != NULL)
+				{
+					// Check collision with the two bounding box
+					if(envBox->GetBoundBox().intersectWithAABB(enemyMagicBox->GetBoundBox()))
+					{
+						// Pass the collision information
+						envBox->AddEntity(pEnemyMagic);
+						enemyMagicBox->AddEntity(pEnv);
+					}
+				}
 			}
 		}
 	}

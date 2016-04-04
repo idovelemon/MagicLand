@@ -43,33 +43,42 @@ void MLStateMachineMgr::AddMgrEntry(MLEntitySubType type, MLStateMachine* pState
 {
 	ML_SAFE_ASSERT(ML_ETYSUBTYPE_NONE < type && type < ML_ETYSUBTYPE_TOTAL, "Please make sure the type exist");
 	ML_SAFE_ASSERT(pStateMachine != NULL, "Please pass a valid state machine pointer");
-
-	if(m_StateMachineMgrTable.find(type) != m_StateMachineMgrTable.end())
+	if(ML_ETYSUBTYPE_NONE < type && type < ML_ETYSUBTYPE_TOTAL && pStateMachine != NULL)
 	{
-		ML_SAFE_ASSERT(false, "Can not add the same type of entity more than once");
-	}
+		if(m_StateMachineMgrTable.find(type) != m_StateMachineMgrTable.end())
+		{
+			ML_SAFE_ASSERT(false, "Can not add the same type of entity more than once");
+			return;
+		}
 
-	m_StateMachineMgrTable.insert(MLSMMgrPair(type, pStateMachine));
-	ML_SAFE_GRAB(pStateMachine); // Add the reference count
+		m_StateMachineMgrTable.insert(MLSMMgrPair(type, pStateMachine));
+		ML_SAFE_GRAB(pStateMachine); // Add the reference count
+	}
 }
 
 void MLStateMachineMgr::RunStateMachine(MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Entity can not be null");
-	MLSMMgrTableIt it = m_StateMachineMgrTable.find(entity->GetSubType());
+	if(entity != NULL)
+	{
+		MLSMMgrTableIt it = m_StateMachineMgrTable.find(entity->GetSubType());
 
-	if(it != m_StateMachineMgrTable.end())
-	{
-		MLStateMachine* pStateMachine = it->second;
-		ML_SAFE_ASSERT(pStateMachine != NULL, "Please pass a valid state machine pointer");
-		pStateMachine->Run(entity);
-	}
-	else
-	{
-		if(entity->GetSubType() != ML_ETYSUBTYPE_WALL
-			&& entity->GetSubType() != ML_ETYSUBTYPE_TERRIAN)
+		if(it != m_StateMachineMgrTable.end())
 		{
-			ML_SAFE_ASSERT(false, "Can not find the state machine for this type of entity");
+			MLStateMachine* pStateMachine = it->second;
+			ML_SAFE_ASSERT(pStateMachine != NULL, "Please pass a valid state machine pointer");
+			if(pStateMachine != NULL)
+			{
+				pStateMachine->Run(entity);
+			}
+		}
+		else
+		{
+			if(entity->GetSubType() != ML_ETYSUBTYPE_WALL
+				&& entity->GetSubType() != ML_ETYSUBTYPE_TERRIAN)
+			{
+				ML_SAFE_ASSERT(false, "Can not find the state machine for this type of entity");
+			}
 		}
 	}
 }
