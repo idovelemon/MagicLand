@@ -1,7 +1,7 @@
 #include "HelloWorldScene.h"
-#include "Round\MLRound.h"
-#include "Collision\MLCollisionMgr.h"
-#include "EntityComponent\MLEntityMgr.h"
+#include "round\ml_Round.h"
+#include "Collision\ml_CollisionMgr.h"
+#include "EntityComponent\ml_EntityMgr.h"
 
 using namespace cocos2d;
 using namespace MagicLand;

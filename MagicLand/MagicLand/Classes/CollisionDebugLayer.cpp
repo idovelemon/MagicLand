@@ -1,10 +1,10 @@
 #include "CollisionDebugLayer.h"
-#include "Collision/MLCollisionMgr.h"
+#include "Collision/ml_CollisionMgr.h"
 #include "marco.h"
-#include "EntityComponent\MLComTransform.h"
-#include "EntityComponent\MLComBoundBox.h"
-#include "EntityComponent\MLEntity.h"
-#include "Framerate\MLFrameRateMgr.h"
+#include "EntityComponent\ml_Com_Transform.h"
+#include "EntityComponent\ml_Com_BoundBox.h"
+#include "EntityComponent\ml_Entity.h"
+#include "Framerate\ml_FrameRateMgr.h"
 
 using namespace MagicLand;
 using namespace cocos2d;
