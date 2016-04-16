@@ -2,6 +2,8 @@
 
 #include "marco.h"
 
+using namespace std;
+
 MLScriptMgr* MLScriptMgr::s_Instance = NULL;
 
 MLScriptMgr::MLScriptMgr()

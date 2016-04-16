@@ -1,6 +1,6 @@
 #include "entitycomponent/ml_com_movement.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLComMovement::MLComMovement(MLEntity* entity)
 	:MLComponent(ML_COMTYPE_MOVEMENT, entity)

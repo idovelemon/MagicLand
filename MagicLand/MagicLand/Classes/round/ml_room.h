@@ -14,15 +14,13 @@
 #include "reference/ml_reference.h"
 #include "support/xjmath/XJMath.h"
 
-using namespace cocos2d;
-
-namespace MagicLand
+namespace magicland
 {
 	class MLRoom;
 	class MLCamera;
 };
 
-class MagicLand::MLRoom:public MLReference
+class magicland::MLRoom:public MLReference
 {
 public:
     MLRoom();
@@ -30,14 +28,14 @@ public:
 
     // setter and getter
 public:
-	void SetScene(CCScene* scene);
-	CCScene* GetScene() const;
+	void SetScene(cocos2d::CCScene* scene);
+	cocos2d::CCScene* GetScene() const;
 
-	void SetBackground(CCSprite* background);
-	CCSprite* GetBackground() const;
+	void SetBackground(cocos2d::CCSprite* background);
+	cocos2d::CCSprite* GetBackground() const;
 
-	void SetGameLayer(CCLayer* layer);
-	CCLayer* GetGameLayer() const;
+	void SetGameLayer(cocos2d::CCLayer* layer);
+	cocos2d::CCLayer* GetGameLayer() const;
 
 	void SetCamera(MLCamera* camera);
 	MLCamera* GetCamera() const;
@@ -79,9 +77,9 @@ public:
 	virtual void Destroy();
 
 protected:
-	CCScene*	m_Scene;        // The scene of this room
-	CCSprite*	m_Background;   // The background sprite
-	CCLayer*	m_GameLayer;	// The game layer which hold all the game's sprite
+	cocos2d::CCScene*	m_Scene;        // The scene of this room
+	cocos2d::CCSprite*	m_Background;   // The background sprite
+	cocos2d::CCLayer*	m_GameLayer;	// The game layer which hold all the game's sprite
 	MLCamera*	m_Camera;       // The camera to look at this room
 	int			m_TileWidth;    // The tile's width
 	int			m_TileHeight;   // The tile's height

@@ -8,39 +8,39 @@
 #ifndef ML_STATEMACHINE_MLCOMCON_H_
 #define ML_STATEMACHINE_MLCOMCON_H_
 
-namespace MagicLand
+namespace magicland
 {
 	class MLComCon;
 	class MLEntity;
 };
 
-class MagicLand::MLComCon
+class magicland::MLComCon
 {
 	// Common
 public:
-	static bool StartOK(MagicLand::MLEntity* entity);
-	static bool NeedEnd(MagicLand::MLEntity* entity);
-	static bool TouchGround(MagicLand::MLEntity* entity);
+	static bool StartOK(magicland::MLEntity* entity);
+	static bool NeedEnd(magicland::MLEntity* entity);
+	static bool TouchGround(magicland::MLEntity* entity);
 
 	// For Hero
 public:
-	static bool NeedJump(MagicLand::MLEntity* entity);
-	static bool NeedFall(MagicLand::MLEntity* entity);
+	static bool NeedJump(magicland::MLEntity* entity);
+	static bool NeedFall(magicland::MLEntity* entity);
 
 	// For FireBall
 public:
-	static bool FireBallFlyTimeUp(MagicLand::MLEntity* entity);
-	static bool FireBallCollidedWithEnemy(MagicLand::MLEntity* entity);
+	static bool FireBallFlyTimeUp(magicland::MLEntity* entity);
+	static bool FireBallCollidedWithEnemy(magicland::MLEntity* entity);
 
 	// For Orge
 public:
-	static bool OrgeWaitTimeUp(MagicLand::MLEntity* entity);
-	static bool OrgeWalkTimeUp(MagicLand::MLEntity* entity);
+	static bool OrgeWaitTimeUp(magicland::MLEntity* entity);
+	static bool OrgeWalkTimeUp(magicland::MLEntity* entity);
 
 	// For Jump Orge
 public:
-	static bool JumpOrgeSeePlayer(MagicLand::MLEntity* entity);
-	static bool JumpOrgeIsBack(MagicLand::MLEntity* entity);
+	static bool JumpOrgeSeePlayer(magicland::MLEntity* entity);
+	static bool JumpOrgeIsBack(magicland::MLEntity* entity);
 
 };
 

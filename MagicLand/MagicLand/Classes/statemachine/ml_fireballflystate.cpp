@@ -6,7 +6,7 @@
 #include "framerate/ml_frameratemgr.h"
 #include "statemachine/ml_statemethod.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLFireBallFlyState::MLFireBallFlyState()
 {

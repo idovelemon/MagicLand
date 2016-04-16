@@ -3,7 +3,7 @@
 // Author: xiaojian
 // Date: 2015/11/29
 // Version: 1.0
-// Brief: This file will define the camera that will be used in MagicLand
+// Brief: This file will define the camera that will be used in magicland
 //------------------------------------------------------------------------
 #ifndef ML_CAMERA_MLCAMERA_H_
 #define ML_CAMERA_MLCAMERA_H_
@@ -12,12 +12,12 @@
 
 #include "reference/ml_reference.h"
 
-namespace MagicLand
+namespace magicland
 {
 	class MLCamera;
 };
 
-class MagicLand::MLCamera:public MLReference
+class magicland::MLCamera:public MLReference
 {
 public:
 	MLCamera();

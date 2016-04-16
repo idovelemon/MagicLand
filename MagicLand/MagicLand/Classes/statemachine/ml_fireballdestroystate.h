@@ -10,19 +10,19 @@
 
 #include "statemachine/ml_state.h"
 
-namespace MagicLand { class MLFireBallDestroyState; };
+namespace magicland { class MLFireBallDestroyState; };
 
-class MagicLand::MLFireBallDestroyState:public MLState
+class magicland::MLFireBallDestroyState:public MLState
 {
 public:
 	MLFireBallDestroyState();
 	virtual ~MLFireBallDestroyState();
 
 public:
-	virtual void Enter(MagicLand::MLEntity* entity);
-	virtual void Run(MagicLand::MLEntity* entity);
-	virtual void Exit(MagicLand::MLEntity* entity);
-	virtual void OnCollision(MagicLand::MLEntity* entity);
+	virtual void Enter(magicland::MLEntity* entity);
+	virtual void Run(magicland::MLEntity* entity);
+	virtual void Exit(magicland::MLEntity* entity);
+	virtual void OnCollision(magicland::MLEntity* entity);
 };
 
 #endif // ML_STATEMACHINE_MLFIREBALLDESTROYSTATE_H_

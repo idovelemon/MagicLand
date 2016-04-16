@@ -4,7 +4,7 @@
 #include "statemachine/ml_statemethod.h"
 #include "entitycomponent/ml_allcoms.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLBrokenStoneFlyState::MLBrokenStoneFlyState()
 {

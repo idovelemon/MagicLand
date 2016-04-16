@@ -2,7 +2,7 @@
 
 #include "marco.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLComTimer::MLComTimer(MLEntity* entity)
 	:MLComponent(ML_COMTYPE_TIMER, entity)

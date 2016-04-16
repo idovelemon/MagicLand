@@ -5,7 +5,7 @@
 #include "framerate/ml_frameratemgr.h"
 #include "support/script/ml_scriptmgr.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLOrgeWaitState::MLOrgeWaitState()
 {

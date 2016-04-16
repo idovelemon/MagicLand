@@ -6,8 +6,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
 class MLScriptMgr
 {
 protected:
@@ -30,7 +28,7 @@ protected:
 		float value;
 	};
 
-	vector<MLKeyValuePair> m_KeyValueArray;
+	std::vector<MLKeyValuePair> m_KeyValueArray;
 };
 
 // (2016 / 01 / 10 xiaojian)
@@ -41,4 +39,3 @@ protected:
 	}
 
 #endif  // ML_SCRIPT_MLSCRIPTMGR_H_
-

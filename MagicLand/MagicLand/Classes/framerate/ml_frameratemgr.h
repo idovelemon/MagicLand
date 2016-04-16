@@ -8,9 +8,9 @@
 #ifndef ML_ENTITYCOMONENT_MLFRAMERATEMGR_H_
 #define ML_ENTITYCOMONENT_MLFRAMERATEMGR_H_
 
-namespace MagicLand { class MLFrameRateMgr; };
+namespace magicland { class MLFrameRateMgr; };
 
-class MagicLand::MLFrameRateMgr
+class magicland::MLFrameRateMgr
 {
 protected:
 	MLFrameRateMgr();

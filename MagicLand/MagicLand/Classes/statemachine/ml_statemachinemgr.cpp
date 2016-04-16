@@ -5,7 +5,7 @@
 #include "marco.h"
 #include "entitycomponent/ml_entity.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLStateMachineMgr* MLStateMachineMgr::s_Instance = NULL;
 

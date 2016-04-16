@@ -3,7 +3,7 @@
 // Author: xiaojian
 // Date: 2015/12/27
 // Version: 1.0
-// Brief: This file will define the Collision system in MagicLand.
+// Brief: This file will define the Collision system in magicland.
 //------------------------------------------------------------------------
 #ifndef ML_COLLISION_MLCOLLISIONMGR_H_
 #define ML_COLLISION_MLCOLLISIONMGR_H_
@@ -11,13 +11,13 @@
 #include <list>
 #include <vector>
 
-namespace MagicLand 
+namespace magicland 
 { 
 	class MLCollisionMgr; 
 	class MLEntity;
 };
 
-class MagicLand::MLCollisionMgr
+class magicland::MLCollisionMgr
 {
 protected:
 	MLCollisionMgr();
@@ -28,8 +28,8 @@ public:
 	static void Destroy();
 
 public:
-	void AddColEntry(MagicLand::MLEntity* entity);
-	void RemoveColEntry(MagicLand::MLEntity* entity);
+	void AddColEntry(magicland::MLEntity* entity);
+	void RemoveColEntry(magicland::MLEntity* entity);
 	void Update(float delta);
 	std::vector<std::list<MLEntity*>>& GetColTable();
 	unsigned int GetCVNum(); // CV for Collision Volume

@@ -42,7 +42,7 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\MagicLand.ico"
+IDR_MAINFRAME           ICON                    "res\\magicland.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -67,12 +67,12 @@ BEGIN
         BLOCK "040904B0"
         BEGIN
             VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "MagicLand Module\0"
+            VALUE "FileDescription", "magicland Module\0"
             VALUE "FileVersion", "1, 0, 0, 1\0"
-            VALUE "InternalName", "MagicLand\0"
+            VALUE "InternalName", "magicland\0"
             VALUE "LegalCopyright", "Copyright \0"
-            VALUE "OriginalFilename", "MagicLand.exe\0"
-            VALUE "ProductName", "MagicLand Module\0"
+            VALUE "OriginalFilename", "magicland.exe\0"
+            VALUE "ProductName", "magicland Module\0"
             VALUE "ProductVersion", "1, 0, 0, 1\0"
         END
     END

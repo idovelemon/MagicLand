@@ -3,7 +3,7 @@
 #include "marco.h"
 #include "entitycomponent/ml_entity.h"
 
-using namespace MagicLand;
+using namespace magicland;
 using namespace cocos2d;
 
 MLComDisplay::MLComDisplay(MLEntity* entity, char* fileName, cocos2d::CCLayer* parentLayer)

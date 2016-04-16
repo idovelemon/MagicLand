@@ -8,8 +8,9 @@
 #include "entitycomponent/ml_entitymgr.h"
 #include "camera/playercamera/ml_player_camera.h"
 
+using namespace cocos2d;
 using namespace std;
-using namespace MagicLand;
+using namespace magicland;
 
 MLRoomCreator::MLRoomCreator(const char* roomDataFileName)
 	:m_RoomDataFileName(NULL)

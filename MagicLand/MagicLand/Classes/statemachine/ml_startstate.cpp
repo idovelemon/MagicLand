@@ -2,7 +2,7 @@
 
 #include "marco.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLStartState* MLStartState::s_Instance = NULL;
 

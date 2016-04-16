@@ -6,7 +6,7 @@
 #include "EntityComponent\ml_Entity.h"
 #include "Framerate\ml_FrameRateMgr.h"
 
-using namespace MagicLand;
+using namespace magicland;
 using namespace cocos2d;
 
 CollisionDebugLayer::CollisionDebugLayer()

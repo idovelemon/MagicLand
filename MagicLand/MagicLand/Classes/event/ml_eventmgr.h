@@ -11,15 +11,15 @@
 #include <list>
 #include <vector>
 
-namespace MagicLand 
+namespace magicland 
 {
 	class MLEventMgr;
 	class MLEntity;
 };
 
-typedef void (*MLEventHandle)(MagicLand::MLEntity* sender, MagicLand::MLEntity* reciever);
+typedef void (*MLEventHandle)(magicland::MLEntity* sender, magicland::MLEntity* reciever);
 
-class MagicLand::MLEventMgr
+class magicland::MLEventMgr
 {
 public:
 	enum
@@ -37,10 +37,10 @@ public:
 	static void Destroy();
 
 public:
-	virtual void RegistRecieveEvent(unsigned int eventType, MagicLand::MLEntity* reciever, MLEventHandle eventHandle);
-	virtual void UnRegistRecieveEvent(unsigned int eventType, MagicLand::MLEntity* reciever);
-	virtual void RegistSendEvent(unsigned int eventType, MagicLand::MLEntity* sender);
-	virtual void UnRegistSendEvent(unsigned int eventType, MagicLand::MLEntity* sender);
+	virtual void RegistRecieveEvent(unsigned int eventType, magicland::MLEntity* reciever, MLEventHandle eventHandle);
+	virtual void UnRegistRecieveEvent(unsigned int eventType, magicland::MLEntity* reciever);
+	virtual void RegistSendEvent(unsigned int eventType, magicland::MLEntity* sender);
+	virtual void UnRegistSendEvent(unsigned int eventType, magicland::MLEntity* sender);
 	virtual void Update(float delta);
 	virtual void Reset();
 
@@ -53,14 +53,14 @@ protected:
 protected:
 	struct MLSenderList
 	{
-		std::list<MagicLand::MLEntity*> senderList;
+		std::list<magicland::MLEntity*> senderList;
 	};
 
 	struct MLRecieverList
 	{
 		struct MLRecieverInfo
 		{
-			MagicLand::MLEntity* entity;
+			magicland::MLEntity* entity;
 			MLEventHandle handle;
 		};
 		std::list<MLRecieverInfo> recieverList;
@@ -69,7 +69,7 @@ protected:
 	struct MLRegistInfo
 	{
 		unsigned int eventType;
-		MagicLand::MLEntity* entity;
+		magicland::MLEntity* entity;
 	};
 
 	std::vector<MLSenderList>	m_SenderTable;

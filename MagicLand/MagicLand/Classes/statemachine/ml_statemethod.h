@@ -11,16 +11,16 @@
 
 #include "entitycomponent/ml_entity.h"
 
-namespace MagicLand { class MLStateMethod; };
+namespace magicland { class MLStateMethod; };
 
-class MagicLand::MLStateMethod
+class magicland::MLStateMethod
 {
 public:
-	static void CollisionResponse(MagicLand::MLEntity* entity);
-	static void UpdateBoundBox(MagicLand::MLEntity* entity);
-	static void RenderSprite(MagicLand::MLEntity* entity);
-	static void OnCollision(MagicLand::MLEntity* entity);
-	static void Fire(MagicLand::MLEntity* entity);
+	static void CollisionResponse(magicland::MLEntity* entity);
+	static void UpdateBoundBox(magicland::MLEntity* entity);
+	static void RenderSprite(magicland::MLEntity* entity);
+	static void OnCollision(magicland::MLEntity* entity);
+	static void Fire(magicland::MLEntity* entity);
 };
 
 #endif // ML_STATEMACHINE_MLSTATEMETHOD_H_

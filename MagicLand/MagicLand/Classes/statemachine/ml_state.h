@@ -13,23 +13,23 @@
 
 #include "reference/ml_reference.h"
 
-namespace MagicLand
+namespace magicland
 {
 	class MLState;
 	class MLEntity;
 };
 
-class MagicLand::MLState:public MagicLand::MLReference
+class magicland::MLState:public magicland::MLReference
 {
 public:
 	MLState(){}
 	virtual ~MLState(){}
 
 public:
-	virtual void Enter(MagicLand::MLEntity* entity) = 0;
-	virtual void Run(MagicLand::MLEntity* entity) = 0;
-	virtual void Exit(MagicLand::MLEntity* entity) = 0;
-	virtual void OnCollision(MagicLand::MLEntity* entity) = 0;
+	virtual void Enter(magicland::MLEntity* entity) = 0;
+	virtual void Run(magicland::MLEntity* entity) = 0;
+	virtual void Exit(magicland::MLEntity* entity) = 0;
+	virtual void OnCollision(magicland::MLEntity* entity) = 0;
 };
 
 #endif // ML_STATEMACHINE_MLSTATE_H_

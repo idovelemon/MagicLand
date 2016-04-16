@@ -1,6 +1,6 @@
 #include "reference/ml_reference.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLReference::MLReference()
     :m_RefCounted(1)

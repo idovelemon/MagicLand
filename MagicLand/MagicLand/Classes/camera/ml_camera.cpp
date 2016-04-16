@@ -3,7 +3,7 @@
 #include "marco.h"
 
 using namespace cocos2d;
-using namespace MagicLand;
+using namespace magicland;
 
 MLCamera::MLCamera()
 {

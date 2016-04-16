@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by MagicLand.RC
+// Used by magicland.RC
 //
 
 #define IDS_PROJNAME                100

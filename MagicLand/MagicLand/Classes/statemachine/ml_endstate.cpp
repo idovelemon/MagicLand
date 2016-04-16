@@ -3,7 +3,7 @@
 #include "marco.h"
 #include "entitycomponent/ml_entity.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLEndState* MLEndState::s_Instance = NULL;
 

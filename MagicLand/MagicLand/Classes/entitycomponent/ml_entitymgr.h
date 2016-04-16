@@ -16,13 +16,13 @@
 #include "round/ml_room.h"
 #include "support/xjmath/XJMath.h"
 
-namespace MagicLand 
+namespace magicland 
 {
 	class MLEntityMgr;
 	class MLEntity;
 };
 
-class MagicLand::MLEntityMgr
+class magicland::MLEntityMgr
 {
 protected:
 	MLEntityMgr();

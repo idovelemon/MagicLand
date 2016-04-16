@@ -10,14 +10,11 @@
 
 #include <cocos2d.h>
 
-#include "../ml_camera.h"
+#include "camera/ml_camera.h"
 
-namespace MagicLand
-{
-	class MLPlayerCamera;
-};
+namespace magicland{
 
-class MagicLand::MLPlayerCamera : public MagicLand::MLCamera
+class MLPlayerCamera : public MLCamera
 {
 public:
 	MLPlayerCamera();
@@ -35,5 +32,7 @@ private:
 public:
 	virtual bool IsDead() const;
 };
+
+}; // namespace magicland
 
 #endif // ML_PLAYERCAMERA_MLPLAYERCAMERA_H_

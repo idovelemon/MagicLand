@@ -10,9 +10,9 @@
 
 #include "statemachine/ml_state.h"
 
-namespace MagicLand { class MLThrowOrgeThrowState; };
+namespace magicland { class MLThrowOrgeThrowState; };
 
-class MagicLand::MLThrowOrgeThrowState:public MagicLand::MLState
+class magicland::MLThrowOrgeThrowState:public magicland::MLState
 {
 public:
 	MLThrowOrgeThrowState();

@@ -15,29 +15,29 @@
 #include "entitycomponent/ml_entity.h"
 #include "support/xjmath/XJMath.h"
 
-namespace MagicLand 
+namespace magicland 
 {
 	class MLEntityCreator;
 	struct MLETYCreatorEntry;
 	class MLRoom;
 };
 
-typedef MagicLand::MLEntity* (*PFUNCEntityCreator)(int xCoord, int yCoord, MagicLand::MLRoom* room);
+typedef magicland::MLEntity* (*PFUNCEntityCreator)(int xCoord, int yCoord, magicland::MLRoom* room);
 
-struct MagicLand::MLETYCreatorEntry
+struct magicland::MLETYCreatorEntry
 {
 	MLEntitySubType type;
 	PFUNCEntityCreator creator;
 };
 
-class MagicLand::MLEntityCreator
+class magicland::MLEntityCreator
 {
 protected:
 	static MLETYCreatorEntry s_CreatorTable[];
 
 public:
 	static MLEntity* CreateTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room);
-	static MLEntity* CreateFireBall(float posx, float posy, MagicLand::MLDir dir, MLRoom* room);
+	static MLEntity* CreateFireBall(float posx, float posy, magicland::MLDir dir, MLRoom* room);
 	static MLEntity* CreateOrge(float posx, float posy, MLRoom* room);
 	static MLEntity* CreateJumpOrge(float posx, float posy, MLRoom* room);
 	static MLEntity* CreateMovePlatform(float posx, float posy, MLRoom* room);

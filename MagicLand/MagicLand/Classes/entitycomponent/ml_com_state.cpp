@@ -2,7 +2,7 @@
 
 #include "marco.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLComState::MLComState(MLEntity* entity)
 	:MLComponent(ML_COMTYPE_STATE, entity)

@@ -1,6 +1,6 @@
 #include "entitycomponent/ml_com_dir.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLComDir::MLComDir(MLEntity* entity, MLDir dir)
 	:MLComponent(ML_COMTYPE_DIR, entity)

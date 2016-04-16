@@ -6,7 +6,7 @@
 #include "entitycomponent/ml_timerflag.h"
 #include "support/script/ml_scriptmgr.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 bool MLComCon::StartOK(MLEntity* entity)
 {

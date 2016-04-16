@@ -12,19 +12,17 @@
 
 #include "entitycomponent/ml_component.h"
 
-using namespace std;
-
-namespace MagicLand
+namespace magicland
 {
 	class MLComUserData;
 	class MLEntity;
 };
 
-class MagicLand::MLComUserData
-	: public MagicLand::MLComponent
+class magicland::MLComUserData
+	: public magicland::MLComponent
 {
 public:
-	MLComUserData(MagicLand::MLEntity* entity);
+	MLComUserData(magicland::MLEntity* entity);
 	virtual ~MLComUserData();
 
 public:
@@ -51,7 +49,7 @@ public:
 	void* GetValueByCategory(unsigned int category);
 
 protected:
-	vector<UserData> m_vUserDatas;
+	std::vector<UserData> m_vUserDatas;
 };
 
 #endif // ML_ENTITYCOMONENT_MLCOMUSERDATA_H_

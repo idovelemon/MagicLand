@@ -4,7 +4,7 @@
 #include "round/ml_room.h"
 #include "round/ml_roomcreator.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLRound* MLRound::s_Instance = NULL;
 

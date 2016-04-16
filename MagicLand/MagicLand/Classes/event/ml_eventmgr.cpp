@@ -3,7 +3,7 @@
 #include "marco.h"
 #include "entitycomponent/ml_entity.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLEventMgr* MLEventMgr::s_Instance = NULL;
 
@@ -217,7 +217,7 @@ void MLEventMgr::HandleEvents()
 			MLRecieverList::MLRecieverInfo recieverInfo = *itReciever;
 			
 			// Handle all events for this reciever
-			std::list<MagicLand::MLEntity*>::iterator itSender = m_SenderTable[eventType].senderList.begin();
+			std::list<magicland::MLEntity*>::iterator itSender = m_SenderTable[eventType].senderList.begin();
 			for(; itSender != m_SenderTable[eventType].senderList.begin(); ++itSender)
 			{
 				MLEntity* sender = *itSender;

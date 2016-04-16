@@ -6,7 +6,8 @@
 #include "support/script/ml_scriptmgr.h"
 #include "round/ml_room.h"
 
-using namespace MagicLand;
+using namespace cocos2d;
+using namespace magicland;
 
 MLETYCreatorEntry MLEntityCreator::s_CreatorTable[] = 
 {

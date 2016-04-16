@@ -3,7 +3,7 @@
 #include "marco.h"
 #include "entitycomponent/ml_allcoms.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLFireBallDestroyState::MLFireBallDestroyState()
 {

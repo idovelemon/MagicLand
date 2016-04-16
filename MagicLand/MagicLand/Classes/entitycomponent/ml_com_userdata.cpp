@@ -3,9 +3,10 @@
 #include "marco.h"
 #include "entitycomponent/ml_entity.h"
 
-using namespace MagicLand;
+using namespace magicland;
+using namespace std;
 
-MLComUserData::MLComUserData(MagicLand::MLEntity* entity)
+MLComUserData::MLComUserData(magicland::MLEntity* entity)
 	: MLComponent(ML_COMTYPE_USERDATA, entity)
 {
 }

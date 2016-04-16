@@ -4,7 +4,7 @@
 #include "collision/ml_collisionmgr.h"
 #include "entitycomponent/ml_entity.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLComBoundBox::MLComBoundBox(MLEntity* entity, float width, float height, float px, float py)
 	:MLComponent(ML_COMTYPE_BOUNDBOX, entity)

@@ -13,9 +13,9 @@
 
 #include "statemachine/ml_state.h"
 
-namespace MagicLand { class MLEndState; };
+namespace magicland { class MLEndState; };
 
-class MagicLand::MLEndState:public MLState
+class magicland::MLEndState:public MLState
 {
 protected:
 	MLEndState();
@@ -25,10 +25,10 @@ public:
 	static MLEndState* SharedInstance();
 
 public:
-	virtual void Enter(MagicLand::MLEntity* entity);
-	virtual void Run(MagicLand::MLEntity* entity);
-	virtual void Exit(MagicLand::MLEntity* entity);
-	virtual void OnCollision(MagicLand::MLEntity* entity);
+	virtual void Enter(magicland::MLEntity* entity);
+	virtual void Run(magicland::MLEntity* entity);
+	virtual void Exit(magicland::MLEntity* entity);
+	virtual void OnCollision(magicland::MLEntity* entity);
 
 protected:
 	static MLEndState* s_Instance;

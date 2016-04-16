@@ -6,7 +6,8 @@
 #include "entitycomponent/ml_entity.h"
 #include "entitycomponent/ml_entitymgr.h"
 
-using namespace MagicLand;
+using namespace cocos2d;
+using namespace magicland;
 
 MLPlayerCamera::MLPlayerCamera()
 {

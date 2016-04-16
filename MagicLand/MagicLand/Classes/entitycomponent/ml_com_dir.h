@@ -10,24 +10,24 @@
 
 #include "entitycomponent/ml_entity.h" // FixMe:Split the game's entity type with the Framework
 
-namespace MagicLand 
+namespace magicland 
 { 
 	class MLComDir;
 	class MLComponent;
 };
 
-class MagicLand::MLComDir:public MLComponent
+class magicland::MLComDir:public MLComponent
 {
 public:
-	MLComDir(MagicLand::MLEntity* entity, MagicLand::MLDir dir);
+	MLComDir(magicland::MLEntity* entity, magicland::MLDir dir);
 	virtual ~MLComDir();
 
 public:
-	void SetDir(MagicLand::MLDir dir);
-	MagicLand::MLDir GetDir();
+	void SetDir(magicland::MLDir dir);
+	magicland::MLDir GetDir();
 
 protected:
-	MagicLand::MLDir m_Dir;
+	magicland::MLDir m_Dir;
 };
 
 #endif // ML_ENTITYCOMPONENT_MLCOMDIR_H_

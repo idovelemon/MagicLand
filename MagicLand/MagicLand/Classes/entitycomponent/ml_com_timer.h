@@ -12,12 +12,12 @@
 
 #include "entitycomponent/ml_component.h"
 
-namespace MagicLand { class MLComTimer; };
+namespace magicland { class MLComTimer; };
 
-class MagicLand::MLComTimer:public MagicLand::MLComponent
+class magicland::MLComTimer:public magicland::MLComponent
 {
 public:
-	MLComTimer(MagicLand::MLEntity* entity);
+	MLComTimer(magicland::MLEntity* entity);
 	virtual ~MLComTimer();
 
 public:

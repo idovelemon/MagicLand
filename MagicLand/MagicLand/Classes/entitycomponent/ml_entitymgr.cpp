@@ -4,7 +4,7 @@
 #include "entitycomponent/ml_entitycreator.h"
 #include "stateMachine/ml_statemachinemgr.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLEntityMgr* MLEntityMgr::s_Instance = NULL;
 

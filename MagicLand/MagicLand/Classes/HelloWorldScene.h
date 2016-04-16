@@ -25,7 +25,7 @@ public:
 	cocos2d::CCLayer* getDebugLayer();
 
 protected:
-    MagicLand::MLRoom* m_Room;
+    magicland::MLRoom* m_Room;
 	CollisionDebugLayer* m_DebugLayer;
 	cocos2d::CCLabelTTF* m_CollisionNo;
 	cocos2d::CCLabelTTF* m_EntityNo;

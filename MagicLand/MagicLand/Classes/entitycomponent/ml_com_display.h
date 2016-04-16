@@ -14,15 +14,15 @@
 
 #include "entitycomponent/ml_component.h"
 
-namespace MagicLand 
+namespace magicland 
 { 
 	class MLComDisplay;
 };
 
-class MagicLand::MLComDisplay:public MLComponent
+class magicland::MLComDisplay:public MLComponent
 {
 public:
-	MLComDisplay(MagicLand::MLEntity* entity, char* fileName, cocos2d::CCLayer* parentLayer);
+	MLComDisplay(magicland::MLEntity* entity, char* fileName, cocos2d::CCLayer* parentLayer);
     virtual ~MLComDisplay();
 
 public:

@@ -6,7 +6,8 @@
 #include "entitycomponent/ml_entitymgr.h"
 #include "event/ml_eventmgr.h"
 
-using namespace MagicLand;
+using namespace cocos2d;
+using namespace magicland;
 
 MLRoom::MLRoom()
 	:m_Scene(NULL)

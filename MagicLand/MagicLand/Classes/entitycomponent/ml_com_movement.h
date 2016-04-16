@@ -12,15 +12,15 @@
 
 #include "support/xjmath/XJMath.h"
 
-namespace MagicLand 
+namespace magicland 
 { 
 	class MLComMovement;
 };
 
-class MagicLand::MLComMovement:public MLComponent
+class magicland::MLComMovement:public MLComponent
 {
 public:
-	MLComMovement(MagicLand::MLEntity* entity);
+	MLComMovement(magicland::MLEntity* entity);
 	virtual ~MLComMovement();
 
 public:

@@ -10,9 +10,9 @@
 
 #include "statemachine/ml_state.h"
 
-namespace MagicLand { class MLBoomBallFlyState; };
+namespace magicland { class MLBoomBallFlyState; };
 
-class MagicLand::MLBoomBallFlyState:public MagicLand::MLState
+class magicland::MLBoomBallFlyState:public magicland::MLState
 {
 public:
 	MLBoomBallFlyState();

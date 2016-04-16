@@ -11,13 +11,13 @@
 
 #include "reference/ml_reference.h"
 
-namespace MagicLand
+namespace magicland
 { 
 	class MLRoomCreator;
 	class MLRoom;
 };
 
-class MagicLand::MLRoomCreator:public MLReference
+class magicland::MLRoomCreator:public MLReference
 {
 public:
 	MLRoomCreator(const char* roomDataFile);

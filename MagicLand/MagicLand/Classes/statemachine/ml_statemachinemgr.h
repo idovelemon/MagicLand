@@ -14,13 +14,13 @@
 
 #include "statemachine/ml_statemachine.h"
 
-namespace MagicLand
+namespace magicland
 {
 	class MLStateMachineMgr;
 	class MLEntity;
 };
 
-class MagicLand::MLStateMachineMgr
+class magicland::MLStateMachineMgr
 {
 protected:
 	MLStateMachineMgr();
@@ -38,19 +38,19 @@ public:
 	// Param:[in] type The type of entity which will run the state machine
 	// Param:[in] pStateMachine The state machine that will run the entity's logic with the specific type
 	//--------------------------------------------------------------------------
-	virtual void AddMgrEntry(MagicLand::MLEntitySubType type, MagicLand::MLStateMachine* pStateMachine);
+	virtual void AddMgrEntry(magicland::MLEntitySubType type, magicland::MLStateMachine* pStateMachine);
 
 	//--------------------------------------------------------------------------
 	// Desc: This method will run the state machine for the specific entity
 	// Param:[in] entity The entity that need to run the state machine.
 	// Warn: You must make sure the state machine with the type of this entity already exist
 	//--------------------------------------------------------------------------
-	virtual void RunStateMachine(MagicLand::MLEntity* entity);
+	virtual void RunStateMachine(magicland::MLEntity* entity);
 
 protected:
-	typedef std::map<MagicLand::MLEntitySubType, MagicLand::MLStateMachine*> MLSMMgrTable;
-	typedef std::map<MagicLand::MLEntitySubType, MagicLand::MLStateMachine*>::iterator MLSMMgrTableIt;
-	typedef std::pair<MagicLand::MLEntitySubType, MagicLand::MLStateMachine*> MLSMMgrPair;
+	typedef std::map<magicland::MLEntitySubType, magicland::MLStateMachine*> MLSMMgrTable;
+	typedef std::map<magicland::MLEntitySubType, magicland::MLStateMachine*>::iterator MLSMMgrTableIt;
+	typedef std::pair<magicland::MLEntitySubType, magicland::MLStateMachine*> MLSMMgrPair;
 
 	MLSMMgrTable	m_StateMachineMgrTable;
 

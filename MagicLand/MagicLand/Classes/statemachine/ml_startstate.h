@@ -13,9 +13,9 @@
 
 #include "statemachine/ml_state.h"
 
-namespace MagicLand { class MLStartState; };
+namespace magicland { class MLStartState; };
 
-class MagicLand::MLStartState:public MLState
+class magicland::MLStartState:public MLState
 {
 protected:
 	MLStartState();

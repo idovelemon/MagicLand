@@ -10,13 +10,13 @@
 
 #include "reference/ml_reference.h"
 
-namespace MagicLand 
+namespace magicland 
 { 
 	class MLRound;
 	class MLRoom;
 };
 
-class MagicLand::MLRound:public MLReference
+class magicland::MLRound:public MLReference
 {
 protected:
 	MLRound();
@@ -28,10 +28,10 @@ public:
 
 public:
 	virtual void Update(float delta);
-	virtual MagicLand::MLRoom* GetCurRoom() const;
+	virtual magicland::MLRoom* GetCurRoom() const;
 
 protected:
-	MagicLand::MLRoom* m_CurRoom;
+	magicland::MLRoom* m_CurRoom;
 	static MLRound* s_Instance;
 };
 

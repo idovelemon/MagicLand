@@ -4,14 +4,14 @@
 // Date: 2015/12/05
 // Version: 1.0
 // Breif: This file will define the component interface that will be used in
-// MagicLand with the Entity-Component architecture
+// magicland with the Entity-Component architecture
 //------------------------------------------------------------------------
 #ifndef ML_ENTITYCOMPONENT_MLCOMPONENT_H_
 #define ML_ENTITYCOMPONENT_MLCOMPONENT_H_
 
 #include "reference/ml_reference.h"
 
-namespace MagicLand
+namespace magicland
 { 
 	class MLComponent;
 	class MLEntity;
@@ -30,14 +30,14 @@ namespace MagicLand
 
 		// User define component
 
-		ML_COMTYPE_TOTAL,		// This enum indicate how many component's type in MagicLand
+		ML_COMTYPE_TOTAL,		// This enum indicate how many component's type in magicland
 	};
 };
 
-class MagicLand::MLComponent:public MLReference
+class magicland::MLComponent:public MLReference
 {
 public:
-	MLComponent(MLComType type, MagicLand::MLEntity* entity);
+	MLComponent(MLComType type, magicland::MLEntity* entity);
     virtual ~MLComponent();
 
 public:
@@ -45,7 +45,7 @@ public:
 
 protected:
     MLComType m_Type;
-	MagicLand::MLEntity* m_Entity;
+	magicland::MLEntity* m_Entity;
 };
 
 #endif // ML_ENTITYCOMPONENT_MLCOMPONENT_H_

@@ -6,7 +6,7 @@
 #include "entitycomponent/ml_entitymgr.h"
 #include "framerate/ml_frameratemgr.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLThrowOrgeThrowState::MLThrowOrgeThrowState()
 {

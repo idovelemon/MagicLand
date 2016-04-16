@@ -3,7 +3,7 @@
 // Author: xiaojian
 // Date: 2016 / 01 / 12
 // Version: 1.0
-// Brief: This file will define the user data flag for MagicLand
+// Brief: This file will define the user data flag for magicland
 //-------------------------------------------------------------------------
 #ifndef ML_ENTITYCOMPONENT_MLUSERDATAFLAG_H_
 #define ML_ENTITYCOMPONENT_MLUSERDATAFLAG_H_

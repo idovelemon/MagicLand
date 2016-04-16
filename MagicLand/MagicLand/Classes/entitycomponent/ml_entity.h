@@ -15,7 +15,7 @@
 #include "entitycomponent/ml_component.h"
 #include "reference/ml_reference.h"
 
-namespace MagicLand 
+namespace magicland 
 {
 	class MLEntity;
 	class MLRoom;
@@ -61,7 +61,7 @@ namespace MagicLand
 	};
 };
 
-class MagicLand::MLEntity:public MLReference
+class magicland::MLEntity:public MLReference
 {
 public:
 	MLEntity(MLEntityMainType main, MLEntitySubType sub, MLRoom* room);

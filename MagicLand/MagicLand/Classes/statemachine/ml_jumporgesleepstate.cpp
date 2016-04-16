@@ -1,6 +1,6 @@
 #include "statemachine/ml_jumporgesleepstate.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLJumpOrgeSleepState::MLJumpOrgeSleepState()
 {

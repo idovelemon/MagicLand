@@ -7,7 +7,7 @@
 #include "entitycomponent/ml_com_movement.h"
 #include "entitycomponent/ml_com_transform.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLXJFallState::MLXJFallState()
 {

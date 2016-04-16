@@ -1,6 +1,6 @@
 #include "framerate/ml_frameratemgr.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLFrameRateMgr* MLFrameRateMgr::s_Instance = 0;
 

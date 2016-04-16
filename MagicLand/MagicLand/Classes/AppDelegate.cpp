@@ -29,7 +29,7 @@
 #include "support\Script\ml_ScriptMgr.h"
 
 USING_NS_CC;
-using namespace MagicLand;
+using namespace magicland;
 
 AppDelegate::AppDelegate()
 {

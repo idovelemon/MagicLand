@@ -10,19 +10,19 @@
 
 #include "statemachine/ml_state.h"
 
-namespace MagicLand { class MLOrgeWaitState; };
+namespace magicland { class MLOrgeWaitState; };
 
-class MagicLand::MLOrgeWaitState:public MagicLand::MLState
+class magicland::MLOrgeWaitState:public magicland::MLState
 {
 public:
 	MLOrgeWaitState();
 	virtual ~MLOrgeWaitState();
 
 public:
-	virtual void Enter(MagicLand::MLEntity* entity);
-	virtual void Run(MagicLand::MLEntity* entity);
-	virtual void Exit(MagicLand::MLEntity* entity);
-	virtual void OnCollision(MagicLand::MLEntity* entity);
+	virtual void Enter(magicland::MLEntity* entity);
+	virtual void Run(magicland::MLEntity* entity);
+	virtual void Exit(magicland::MLEntity* entity);
+	virtual void OnCollision(magicland::MLEntity* entity);
 };
 
 #endif // ML_STATEMACHINE_MLORGEWAITSTATE_H_

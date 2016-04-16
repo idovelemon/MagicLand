@@ -4,7 +4,7 @@
 #include "entitycomponent/ml_com_state.h"
 #include "entitycomponent/ml_entity.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLStateMachine::MLStateMachine()
 {

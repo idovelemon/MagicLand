@@ -10,9 +10,9 @@
 
 #include "entitycomponent/ml_entity.h"
 
-namespace MagicLand
+namespace magicland
 {
-	typedef bool (*MLPCon)(MagicLand::MLEntity* entity);
+	typedef bool (*MLPCon)(magicland::MLEntity* entity);
 }
 
 #endif // ML_STATEMACHINE_MLCON_H_

@@ -9,7 +9,7 @@
 #include "entitycomponent/ml_entitycreator.h"
 #include "entitycomponent/ml_entitymgr.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 void MLStateMethod::CollisionResponse(MLEntity* entity)
 {

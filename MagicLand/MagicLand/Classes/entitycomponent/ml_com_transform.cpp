@@ -1,6 +1,6 @@
 #include "entitycomponent/ml_com_transform.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLComTransform::MLComTransform(MLEntity* entity, float x, float y, float sx, float sy, float r)
 	:MLComponent(ML_COMTYPE_TRANSFORM, entity)

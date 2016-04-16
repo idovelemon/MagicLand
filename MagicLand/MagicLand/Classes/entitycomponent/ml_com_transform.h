@@ -12,12 +12,12 @@
 #include "entitycomponent/ml_component.h"
 #include "support/xjmath/XJMath.h"
 
-namespace MagicLand { class MLComTransform;};
+namespace magicland { class MLComTransform;};
 
-class MagicLand::MLComTransform:public MagicLand::MLComponent
+class magicland::MLComTransform:public magicland::MLComponent
 {
 public:
-	MLComTransform(MagicLand::MLEntity* entity, float x, float y, float sx, float sy, float r);
+	MLComTransform(magicland::MLEntity* entity, float x, float y, float sx, float sy, float r);
 	virtual ~MLComTransform();
 
 public:

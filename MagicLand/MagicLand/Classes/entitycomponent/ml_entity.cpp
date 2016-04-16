@@ -4,7 +4,7 @@
 #include "entitycomponent/ml_component.h"
 #include "round/ml_room.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 unsigned int MLEntity::s_IDGenerator = 0;
 

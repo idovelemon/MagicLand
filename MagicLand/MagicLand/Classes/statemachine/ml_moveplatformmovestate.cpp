@@ -4,7 +4,7 @@
 #include "entitycomponent/ml_allcoms.h"
 #include "statemachine/ml_statemethod.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLMovePlatformMoveState::MLMovePlatformMoveState()
 {

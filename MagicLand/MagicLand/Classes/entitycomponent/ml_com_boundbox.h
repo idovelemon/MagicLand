@@ -14,7 +14,7 @@
 #include "entitycomponent/ml_component.h"
 #include "support/xjmath/XJMath.h"
 
-namespace MagicLand 
+namespace magicland 
 { 
 	class MLComBoundBox;
 	typedef std::vector<MLEntity*> MLColVector;
@@ -22,25 +22,25 @@ namespace MagicLand
 	class MLEntity;
 };
 
-class MagicLand::MLComBoundBox:public MLComponent
+class magicland::MLComBoundBox:public MLComponent
 {
 public:
-	MLComBoundBox(MagicLand::MLEntity* entity, float width, float height, float posx, float posy);
+	MLComBoundBox(magicland::MLEntity* entity, float width, float height, float posx, float posy);
 	virtual ~MLComBoundBox();
 
 public:
 	virtual void	SetBoundBox(AABB aabb);
 	virtual AABB	GetBoundBox() const;
-	virtual void	AddEntity(MagicLand::MLEntity* colEntity);
+	virtual void	AddEntity(magicland::MLEntity* colEntity);
 	virtual bool	IsCollided() const;
-	virtual MagicLand::MLColVector&	GetColEntities();
+	virtual magicland::MLColVector&	GetColEntities();
 	virtual void	UpdateBoundBox(VECTOR2 pos);
 	virtual void	Reset();
 
 protected:
 	AABB					m_Aabb;			// The bounding box of the entity
 	bool					m_IsCollided;	// If the bound box has collided with other bound box
-	MagicLand::MLColVector	m_ColEntities;	// The collided entities
+	magicland::MLColVector	m_ColEntities;	// The collided entities
 };
 
 #endif // ML_ENTITYCOMPONENT_MLCOMBOUNDBOX_H_

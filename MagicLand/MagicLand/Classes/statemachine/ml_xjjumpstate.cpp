@@ -7,7 +7,7 @@
 #include "entitycomponent/ml_com_transform.h"
 #include "statemachine/ml_statemethod.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLXJJumpState::MLXJJumpState()
 {
@@ -55,7 +55,7 @@ void MLXJJumpState::OnCollision(MLEntity* entity)
 	MLStateMethod::OnCollision(entity);
 }
 
-void MLXJJumpState::Jump(MagicLand::MLEntity* entity)
+void MLXJJumpState::Jump(magicland::MLEntity* entity)
 {
 	ML_SAFE_ASSERT(entity != NULL, "Can not deal with null pointer");
 	if(entity != NULL)

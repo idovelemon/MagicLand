@@ -16,13 +16,13 @@
 #include "statemachine/ml_state.h"
 #include "reference/ml_reference.h"
 
-namespace MagicLand
+namespace magicland
 {
 	class MLStateMachine;
 	class MLEntity;
 };
 
-class MagicLand::MLStateMachine:public MagicLand::MLReference
+class magicland::MLStateMachine:public magicland::MLReference
 {
 public:
 	MLStateMachine();
@@ -34,7 +34,7 @@ public:
 	// All the process of this entity will be done in this state machine
 	// Param:[in] entity The entity that will run the state machine
 	//-----------------------------------------------------------
-	virtual void Run(MagicLand::MLEntity* entity);
+	virtual void Run(magicland::MLEntity* entity);
 
 	//-----------------------------------------------------------
 	// Desc: This method will add the state entry in this state machine.
@@ -45,14 +45,14 @@ public:
 	//					the state of the entity will transform to tailState
 	// Param:[in] pTailState The tail state of this entry
 	//-----------------------------------------------------------
-	virtual void AddStateEntry(MagicLand::MLState* pHeadState, MagicLand::MLPCon pCon, MagicLand::MLState* pTailState);
+	virtual void AddStateEntry(magicland::MLState* pHeadState, magicland::MLPCon pCon, magicland::MLState* pTailState);
 
 protected:
 	struct MLStateEntry
 	{
-		MagicLand::MLState*	headState;
-		MagicLand::MLPCon	pConFunc;
-		MagicLand::MLState*	tailState;
+		magicland::MLState*	headState;
+		magicland::MLPCon	pConFunc;
+		magicland::MLState*	tailState;
 
 		MLStateEntry()
 			:headState(NULL)

@@ -3,7 +3,7 @@
 #include "marco.h"
 #include "entitycomponent/ml_entity.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLComponent::MLComponent(MLComType type, MLEntity* entity)
 	:m_Type(type)

@@ -7,7 +7,7 @@
 #include "entitycomponent/ml_entitymgr.h"
 #include "support/script/ml_scriptmgr.h"
 
-using namespace MagicLand;
+using namespace magicland;
 
 MLBoomBallFlyState::MLBoomBallFlyState()
 {

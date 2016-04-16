@@ -10,22 +10,22 @@
 
 #include "statemachine/ml_state.h"
 
-namespace MagicLand { class MLXJJumpState; };
+namespace magicland { class MLXJJumpState; };
 
-class MagicLand::MLXJJumpState:public MLState
+class magicland::MLXJJumpState:public MLState
 {
 public:
 	MLXJJumpState();
 	virtual ~MLXJJumpState();
 
 public:
-	virtual void Enter(MagicLand::MLEntity* entity);
-	virtual void Run(MagicLand::MLEntity* entity);
-	virtual void Exit(MagicLand::MLEntity* entity);
-	virtual void OnCollision(MagicLand::MLEntity* entity);
+	virtual void Enter(magicland::MLEntity* entity);
+	virtual void Run(magicland::MLEntity* entity);
+	virtual void Exit(magicland::MLEntity* entity);
+	virtual void OnCollision(magicland::MLEntity* entity);
 
 protected:
-	void Jump(MagicLand::MLEntity* entity);
+	void Jump(magicland::MLEntity* entity);
 };
 
 #endif // ML_STATEMAHINE_MLXJJUMPSTATE_H_
