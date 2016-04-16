@@ -1,9 +1,9 @@
-#include "ml_statemachinemgr.h"
+#include "statemachine/ml_statemachinemgr.h"
 
 #include <Windows.h>
 
-#include "../marco.h"
-#include "../entitycomponent/ml_entity.h"
+#include "marco.h"
+#include "entitycomponent/ml_entity.h"
 
 using namespace MagicLand;
 

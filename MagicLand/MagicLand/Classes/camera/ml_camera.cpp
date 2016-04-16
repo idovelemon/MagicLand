@@ -1,6 +1,6 @@
-#include "ml_camera.h"
+#include "camera/ml_camera.h"
 
-#include "../marco.h"
+#include "marco.h"
 
 using namespace cocos2d;
 using namespace MagicLand;

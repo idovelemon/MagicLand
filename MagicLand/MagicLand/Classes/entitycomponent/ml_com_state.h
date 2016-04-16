@@ -9,8 +9,8 @@
 #ifndef ML_ENTITYCOMPONENT_MLCOMSTATE_H_
 #define ML_ENTITYCOMPONENT_MLCOMSTATE_H_
 
-#include "ml_component.h"
-#include "../stateMachine/ml_state.h"
+#include "entitycomponent/ml_component.h"
+#include "stateMachine/ml_state.h"
 
 namespace MagicLand { class MLComState; };
 

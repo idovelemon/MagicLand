@@ -1,8 +1,8 @@
-#include"ml_entity.h"
+#include "entitycomponent/ml_entity.h"
 
-#include"../marco.h"
-#include "../entitycomponent/ml_component.h"
-#include "../round/ml_room.h"
+#include "marco.h"
+#include "entitycomponent/ml_component.h"
+#include "round/ml_room.h"
 
 using namespace MagicLand;
 

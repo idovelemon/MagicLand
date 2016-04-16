@@ -13,8 +13,8 @@
 
 #include <cocos2d.h>
 
-#include "../round/ml_room.h"
-#include "../support/xjmath/XJMath.h"
+#include "round/ml_room.h"
+#include "support/xjmath/XJMath.h"
 
 namespace MagicLand 
 {

@@ -1,10 +1,10 @@
-#include "ml_entitycreator.h"
+#include "entitycomponent/ml_entitycreator.h"
 
-#include "../marco.h"
-#include "ml_allcoms.h"
-#include "../stateMachine/ml_startstate.h"
-#include "../support/script/ml_scriptmgr.h"
-#include "../round/ml_room.h"
+#include "marco.h"
+#include "entitycomponent/ml_allcoms.h"
+#include "stateMachine/ml_startstate.h"
+#include "support/script/ml_scriptmgr.h"
+#include "round/ml_room.h"
 
 using namespace MagicLand;
 

@@ -1,4 +1,4 @@
-#include "ml_com_dir.h"
+#include "entitycomponent/ml_com_dir.h"
 
 using namespace MagicLand;
 

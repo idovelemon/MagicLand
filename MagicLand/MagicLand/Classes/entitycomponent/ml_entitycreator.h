@@ -12,8 +12,8 @@
 
 #include <cocos2d.h>
 
-#include "ml_entity.h"
-#include "../support/xjmath/XJMath.h"
+#include "entitycomponent/ml_entity.h"
+#include "support/xjmath/XJMath.h"
 
 namespace MagicLand 
 {

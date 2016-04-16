@@ -1,7 +1,7 @@
-#include "ml_fireballdestroystate.h"
+#include "statemachine/ml_fireballdestroystate.h"
 
-#include "../marco.h"
-#include "../entitycomponent/ml_allcoms.h"
+#include "marco.h"
+#include "entitycomponent/ml_allcoms.h"
 
 using namespace MagicLand;
 

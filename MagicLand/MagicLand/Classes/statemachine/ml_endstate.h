@@ -11,7 +11,7 @@
 #ifndef ML_STATEMACHINE_MLENDSTATE_H_
 #define ML_STATEMACHINE_MLENDSTATE_H_
 
-#include "ml_state.h"
+#include "statemachine/ml_state.h"
 
 namespace MagicLand { class MLEndState; };
 

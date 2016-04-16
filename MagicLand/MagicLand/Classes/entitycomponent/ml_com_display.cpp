@@ -1,7 +1,7 @@
-#include "ml_com_display.h"
+#include "entitycomponent/ml_com_display.h"
 
-#include "../marco.h"
-#include "ml_entity.h"
+#include "marco.h"
+#include "entitycomponent/ml_entity.h"
 
 using namespace MagicLand;
 using namespace cocos2d;

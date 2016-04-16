@@ -12,8 +12,8 @@
 
 #include <map>
 
-#include "ml_component.h"
-#include "../reference/ml_reference.h"
+#include "entitycomponent/ml_component.h"
+#include "reference/ml_reference.h"
 
 namespace MagicLand 
 {

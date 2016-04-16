@@ -1,10 +1,10 @@
-#include "ml_fireballflystate.h"
+#include "statemachine/ml_fireballflystate.h"
 
-#include "../marco.h"
-#include "ml_statemethod.h"
-#include "../entitycomponent/ml_allcoms.h"
-#include "../entitycomponent/ml_timerflag.h"
-#include "../framerate/ml_frameratemgr.h"
+#include "marco.h"
+#include "entitycomponent/ml_allcoms.h"
+#include "entitycomponent/ml_timerflag.h"
+#include "framerate/ml_frameratemgr.h"
+#include "statemachine/ml_statemethod.h"
 
 using namespace MagicLand;
 

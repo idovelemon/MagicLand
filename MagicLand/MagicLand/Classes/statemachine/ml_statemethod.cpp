@@ -1,13 +1,13 @@
-#include "ml_statemethod.h"
+#include "statemachine/ml_statemethod.h"
 
-#include "../marco.h"
-#include "../entitycomponent/ml_com_boundbox.h"
-#include "../entitycomponent/ml_com_dir.h"
-#include "../entitycomponent/ml_com_display.h"
-#include "../entitycomponent/ml_com_movement.h"
-#include "../entitycomponent/ml_com_transform.h"
-#include "../entitycomponent/ml_entitycreator.h"
-#include "../entitycomponent/ml_entitymgr.h"
+#include "marco.h"
+#include "entitycomponent/ml_com_boundbox.h"
+#include "entitycomponent/ml_com_dir.h"
+#include "entitycomponent/ml_com_display.h"
+#include "entitycomponent/ml_com_movement.h"
+#include "entitycomponent/ml_com_transform.h"
+#include "entitycomponent/ml_entitycreator.h"
+#include "entitycomponent/ml_entitymgr.h"
 
 using namespace MagicLand;
 

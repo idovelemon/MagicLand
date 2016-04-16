@@ -9,7 +9,7 @@
 #ifndef ML_ROUND_MLROOMCREATOR_H_
 #define ML_ROUND_MLROOMCREATOR_H_
 
-#include "../reference/ml_reference.h"
+#include "reference/ml_reference.h"
 
 namespace MagicLand
 { 

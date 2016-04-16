@@ -1,8 +1,8 @@
-#include "ml_com_boundbox.h"
+#include "entitycomponent/ml_com_boundbox.h"
 
-#include "../marco.h"
-#include "ml_entity.h"
-#include "../collision/ml_collisionmgr.h"
+#include "marco.h"
+#include "collision/ml_collisionmgr.h"
+#include "entitycomponent/ml_entity.h"
 
 using namespace MagicLand;
 

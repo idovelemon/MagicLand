@@ -8,7 +8,7 @@
 #ifndef ML_ENTITYCOMPONENT_MLCOMDIR_H_
 #define ML_ENTITYCOMPONENT_MLCOMDIR_H_
 
-#include "ml_entity.h" // FixMe:Split the game's entity type with the Framework
+#include "entitycomponent/ml_entity.h" // FixMe:Split the game's entity type with the Framework
 
 namespace MagicLand 
 { 

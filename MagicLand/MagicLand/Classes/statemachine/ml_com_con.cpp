@@ -1,10 +1,10 @@
-#include "ml_com_con.h"
+#include "statemachine/ml_com_con.h"
 
-#include "../marco.h"
-#include "../entitycomponent/ml_allcoms.h"
-#include "../entitycomponent/ml_entitymgr.h"
-#include "../entitycomponent/ml_timerflag.h"
-#include "../Support/Script/ml_scriptmgr.h"
+#include "marco.h"
+#include "entitycomponent/ml_allcoms.h"
+#include "entitycomponent/ml_entitymgr.h"
+#include "entitycomponent/ml_timerflag.h"
+#include "support/script/ml_scriptmgr.h"
 
 using namespace MagicLand;
 

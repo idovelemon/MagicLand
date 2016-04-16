@@ -11,8 +11,8 @@
 
 #include <cocos2d.h>
 
-#include "../reference/ml_reference.h"
-#include "../support/xjmath/XJMath.h"
+#include "reference/ml_reference.h"
+#include "support/xjmath/XJMath.h"
 
 using namespace cocos2d;
 

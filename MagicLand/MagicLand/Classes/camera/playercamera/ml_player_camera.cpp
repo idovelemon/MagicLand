@@ -1,10 +1,10 @@
-#include "ml_player_camera.h"
+#include "camera/playercamera/ml_player_camera.h"
 
-#include "../../marco.h"
-#include "../ml_camera.h"
-#include "../../entitycomponent/ml_com_transform.h"
-#include "../../entitycomponent/ml_entity.h"
-#include "../../entitycomponent/ml_entitymgr.h"
+#include "marco.h"
+#include "camera/ml_camera.h"
+#include "entitycomponent/ml_com_transform.h"
+#include "entitycomponent/ml_entity.h"
+#include "entitycomponent/ml_entitymgr.h"
 
 using namespace MagicLand;
 

@@ -10,7 +10,7 @@
 
 #include <map>
 
-#include "ml_component.h"
+#include "entitycomponent/ml_component.h"
 
 namespace MagicLand { class MLComTimer; };
 

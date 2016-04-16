@@ -1,12 +1,12 @@
-#include "ml_roomcreator.h"
+#include "round/ml_roomcreator.h"
 
 #include <fstream>
 
-#include "../marco.h"
-#include "ml_room.h"
-#include "../entitycomponent/ml_entitycreator.h"
-#include "../entitycomponent/ml_entitymgr.h"
-#include "../camera/playercamera/ml_player_camera.h"
+#include "marco.h"
+#include "round/ml_room.h"
+#include "entitycomponent/ml_entitycreator.h"
+#include "entitycomponent/ml_entitymgr.h"
+#include "camera/playercamera/ml_player_camera.h"
 
 using namespace std;
 using namespace MagicLand;

@@ -1,8 +1,8 @@
-#include "ml_moveplatformmovestate.h"
+#include "statemachine/ml_moveplatformmovestate.h"
 
-#include "../marco.h"
-#include "ml_statemethod.h"
-#include "../entitycomponent/ml_allcoms.h"
+#include "marco.h"
+#include "entitycomponent/ml_allcoms.h"
+#include "statemachine/ml_statemethod.h"
 
 using namespace MagicLand;
 

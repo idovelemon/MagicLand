@@ -5,14 +5,14 @@
 // Version: 1.0
 // Brief: This file will define the condition that will be used in the game
 //--------------------------------------------------------------------------
-#ifndef __MLCON__H_
-#define __MLCON__H_
+#ifndef ML_STATEMACHINE_MLCON_H_
+#define ML_STATEMACHINE_MLCON_H_
 
-#include "../entitycomponent/ml_entity.h"
+#include "entitycomponent/ml_entity.h"
 
 namespace MagicLand
 {
 	typedef bool (*MLPCon)(MagicLand::MLEntity* entity);
 }
 
-#endif // __MLCON__H_
+#endif // ML_STATEMACHINE_MLCON_H_

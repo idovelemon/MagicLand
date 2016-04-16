@@ -1,10 +1,10 @@
-#include "ml_orgewalkstate.h"
+#include "statemachine/ml_orgewalkstate.h"
 
-#include "../marco.h"
-#include "ml_statemethod.h"
-#include "../entitycomponent/ml_allcoms.h"
-#include "../framerate/ml_frameratemgr.h"
-#include "../support/script/ml_scriptmgr.h"
+#include "marco.h"
+#include "entitycomponent/ml_allcoms.h"
+#include "framerate/ml_frameratemgr.h"
+#include "statemachine/ml_statemethod.h"
+#include "support/script/ml_scriptmgr.h"
 
 using namespace MagicLand;
 

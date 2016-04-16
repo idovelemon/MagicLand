@@ -10,7 +10,7 @@
 
 #include <cocos2d.h>
 
-#include "../reference/ml_reference.h"
+#include "reference/ml_reference.h"
 
 namespace MagicLand
 {

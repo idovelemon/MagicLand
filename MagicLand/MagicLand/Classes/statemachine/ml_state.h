@@ -11,7 +11,7 @@
 #ifndef ML_STATEMACHINE_MLSTATE_H_
 #define ML_STATEMACHINE_MLSTATE_H_
 
-#include "../reference/ml_reference.h"
+#include "reference/ml_reference.h"
 
 namespace MagicLand
 {

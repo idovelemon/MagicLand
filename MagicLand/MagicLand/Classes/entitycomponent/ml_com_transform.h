@@ -9,8 +9,8 @@
 #ifndef ML_ENTITYCOMONENT_MLCOMTRANSFORM_H_
 #define ML_ENTITYCOMONENT_MLCOMTRANSFORM_H_
 
-#include "ml_component.h"
-#include "../support/xjmath/XJMath.h"
+#include "entitycomponent/ml_component.h"
+#include "support/xjmath/XJMath.h"
 
 namespace MagicLand { class MLComTransform;};
 

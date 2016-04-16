@@ -11,8 +11,8 @@
 
 #include<vector>
 
-#include "ml_component.h"
-#include "../support/xjmath/XJMath.h"
+#include "entitycomponent/ml_component.h"
+#include "support/xjmath/XJMath.h"
 
 namespace MagicLand 
 { 

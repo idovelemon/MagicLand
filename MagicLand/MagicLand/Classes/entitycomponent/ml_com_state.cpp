@@ -1,6 +1,6 @@
-#include "ml_com_state.h"
+#include "entitycomponent/ml_com_state.h"
 
-#include "../marco.h"
+#include "marco.h"
 
 using namespace MagicLand;
 

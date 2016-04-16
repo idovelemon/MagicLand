@@ -1,10 +1,10 @@
-#include "ml_jumporgejumpstate.h"
+#include "statemachine/ml_jumporgejumpstate.h"
 
-#include "../marco.h"
-#include "ml_statemethod.h"
-#include "../entitycomponent/ml_allcoms.h"
-#include "../entitycomponent/ml_entitymgr.h"
-#include "../support/script/ml_scriptmgr.h"
+#include "marco.h"
+#include "entitycomponent/ml_allcoms.h"
+#include "entitycomponent/ml_entitymgr.h"
+#include "statemachine/ml_statemethod.h"
+#include "support/script/ml_scriptmgr.h"
 
 using namespace MagicLand;
 

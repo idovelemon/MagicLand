@@ -10,7 +10,7 @@
 
 #include <vector>
 
-#include "ml_component.h"
+#include "entitycomponent/ml_component.h"
 
 using namespace std;
 

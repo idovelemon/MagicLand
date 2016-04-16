@@ -9,7 +9,7 @@
 #ifndef ML_STATEMACHINE_MLSTATEMETHOD_H_
 #define ML_STATEMACHINE_MLSTATEMETHOD_H_
 
-#include "../entitycomponent/ml_entity.h"
+#include "entitycomponent/ml_entity.h"
 
 namespace MagicLand { class MLStateMethod; };
 

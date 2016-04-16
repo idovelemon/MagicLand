@@ -1,10 +1,10 @@
-#include "ml_throworgethrowstate.h"
+#include "statemachine/ml_throworgethrowstate.h"
 
-#include "../marco.h"
-#include "../entitycomponent/ml_allcoms.h"
-#include "../entitycomponent/ml_entitycreator.h"
-#include "../entitycomponent/ml_entitymgr.h"
-#include "../framerate/ml_frameratemgr.h"
+#include "marco.h"
+#include "entitycomponent/ml_allcoms.h"
+#include "entitycomponent/ml_entitycreator.h"
+#include "entitycomponent/ml_entitymgr.h"
+#include "framerate/ml_frameratemgr.h"
 
 using namespace MagicLand;
 

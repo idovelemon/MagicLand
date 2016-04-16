@@ -1,8 +1,8 @@
-#include "ml_brokenstoneflystate.h"
+#include "statemachine/ml_brokenstoneflystate.h"
 
-#include "../marco.h"
-#include "ml_statemethod.h"
-#include "../entitycomponent/ml_allcoms.h"
+#include "marco.h"
+#include "statemachine/ml_statemethod.h"
+#include "entitycomponent/ml_allcoms.h"
 
 using namespace MagicLand;
 

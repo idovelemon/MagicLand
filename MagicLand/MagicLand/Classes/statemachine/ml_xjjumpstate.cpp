@@ -1,11 +1,11 @@
-#include "ml_xjjumpstate.h"
+#include "statemachine/ml_xjjumpstate.h"
 
-#include "../marco.h"
-#include "ml_statemethod.h"
-#include "../entitycomponent/ml_com_boundbox.h"
-#include "../entitycomponent/ml_com_display.h"
-#include "../entitycomponent/ml_com_movement.h"
-#include "../entitycomponent/ml_com_transform.h"
+#include "marco.h"
+#include "entitycomponent/ml_com_boundbox.h"
+#include "entitycomponent/ml_com_display.h"
+#include "entitycomponent/ml_com_movement.h"
+#include "entitycomponent/ml_com_transform.h"
+#include "statemachine/ml_statemethod.h"
 
 using namespace MagicLand;
 

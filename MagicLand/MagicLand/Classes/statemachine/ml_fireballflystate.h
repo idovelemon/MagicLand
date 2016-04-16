@@ -8,7 +8,7 @@
 #ifndef ML_STATEMAHINE_MLFIREBALLFLYSTATE_H_
 #define ML_STATEMAHINE_MLFIREBALLFLYSTATE_H_
 
-#include "ml_state.h"
+#include "statemachine/ml_state.h"
 
 namespace MagicLand { class MLFireBallFlyState; };
 

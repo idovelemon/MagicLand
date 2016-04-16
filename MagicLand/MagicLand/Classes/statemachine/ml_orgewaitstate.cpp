@@ -1,9 +1,9 @@
-#include "ml_orgewaitstate.h"
+#include "statemachine/ml_orgewaitstate.h"
 
-#include "../marco.h"
-#include "../entitycomponent/ml_allcoms.h"
-#include "../framerate/ml_frameratemgr.h"
-#include "../support/script/ml_scriptmgr.h"
+#include "marco.h"
+#include "entitycomponent/ml_allcoms.h"
+#include "framerate/ml_frameratemgr.h"
+#include "support/script/ml_scriptmgr.h"
 
 using namespace MagicLand;
 

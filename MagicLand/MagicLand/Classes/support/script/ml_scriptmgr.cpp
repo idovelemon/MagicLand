@@ -1,6 +1,6 @@
-#include "ml_scriptmgr.h"
+#include "support/script/ml_scriptmgr.h"
 
-#include "../../marco.h"
+#include "marco.h"
 
 MLScriptMgr* MLScriptMgr::s_Instance = NULL;
 

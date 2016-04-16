@@ -11,10 +11,10 @@
 
 #include <vector>
 
-#include "../marco.h"
-#include "ml_con.h"
-#include "ml_state.h"
-#include "../reference/ml_reference.h"
+#include "marco.h"
+#include "statemachine/ml_con.h"
+#include "statemachine/ml_state.h"
+#include "reference/ml_reference.h"
 
 namespace MagicLand
 {

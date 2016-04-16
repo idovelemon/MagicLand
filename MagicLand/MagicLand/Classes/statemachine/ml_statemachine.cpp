@@ -1,8 +1,8 @@
-#include "ml_statemachine.h"
+#include "statemachine/ml_statemachine.h"
 
-#include "../marco.h"
-#include "../entitycomponent/ml_com_state.h"
-#include "../entitycomponent/ml_entity.h"
+#include "marco.h"
+#include "entitycomponent/ml_com_state.h"
+#include "entitycomponent/ml_entity.h"
 
 using namespace MagicLand;
 

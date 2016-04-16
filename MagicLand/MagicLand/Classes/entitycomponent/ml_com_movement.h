@@ -8,9 +8,9 @@
 #ifndef ML_ENTITYCOMPONENT_MLCOMMOVEMENT_H_
 #define ML_ENTITYCOMPONENT_MLCOMMOVEMENT_H_
 
-#include "ml_component.h"
+#include "entitycomponent/ml_component.h"
 
-#include "../support/xjmath/XJMath.h"
+#include "support/xjmath/XJMath.h"
 
 namespace MagicLand 
 { 
