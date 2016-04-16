@@ -21,7 +21,7 @@ class magicland::MLCamera:public MLReference
 {
 public:
 	MLCamera();
-    MLCamera(cocos2d::CCLayer* layer);
+    explicit MLCamera(cocos2d::CCLayer* layer);
     virtual ~MLCamera();
 
 public:

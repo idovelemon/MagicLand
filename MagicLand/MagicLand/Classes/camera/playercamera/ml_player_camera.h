@@ -18,7 +18,7 @@ class MLPlayerCamera : public MLCamera
 {
 public:
 	MLPlayerCamera();
-	MLPlayerCamera(cocos2d::CCLayer* layer);
+	explicit MLPlayerCamera(cocos2d::CCLayer* layer);
 	virtual ~MLPlayerCamera();
 
 public:

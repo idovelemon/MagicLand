@@ -20,7 +20,7 @@ namespace magicland
 class magicland::MLRoomCreator:public MLReference
 {
 public:
-	MLRoomCreator(const char* roomDataFile);
+	explicit MLRoomCreator(const char* roomDataFile);
 	virtual ~MLRoomCreator();
 
 public:
