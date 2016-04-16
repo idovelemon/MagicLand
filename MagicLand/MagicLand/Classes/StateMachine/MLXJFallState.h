@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the falling state of the hero xiaojian
 //------------------------------------------------------------------------
-#ifndef __MLXJFALLSTATE__H_
-#define __MLXJFALLSTATE__H_
+#ifndef ML_STATEMACHINE_MLXJFALLSTATE_H_
+#define ML_STATEMACHINE_MLXJFALLSTATE_H_
 
 #include "MLState.h"
 
@@ -28,4 +28,4 @@ protected:
 	void Fall(MagicLand::MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLXJFALLSTATE_H_

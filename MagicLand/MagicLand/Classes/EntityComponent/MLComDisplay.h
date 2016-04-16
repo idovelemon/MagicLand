@@ -7,12 +7,17 @@
 // the communicate with the cocos2d.All the display element will handle
 // in this component
 //------------------------------------------------------------------------
-#ifndef __MLCOMDISPLAY__H_
-#define __MLCOMDISPLAY__H_
+#ifndef ML_ENTITYCOMONENT_MLCOMDISPLAY_H_
+#define ML_ENTITYCOMONENT_MLCOMDISPLAY_H_
+
+#include <cocos2d.h>
 
 #include "MLComponent.h"
-#include <cocos2d.h>
-namespace MagicLand { class MLComDisplay;};
+
+namespace MagicLand 
+{ 
+	class MLComDisplay;
+};
 
 class MagicLand::MLComDisplay:public MLComponent
 {
@@ -28,4 +33,4 @@ public:
 	cocos2d::CCSprite*	m_Sprite;	// This sprite will display the image of the entity
 };
 
-#endif
+#endif // ML_ENTITYCOMONENT_MLCOMDISPLAY_H_

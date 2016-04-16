@@ -1,6 +1,8 @@
 #include "MLComponent.h"
-#include "MLEntity.h"
+
 #include "../marco.h"
+#include "MLEntity.h"
+
 using namespace MagicLand;
 
 MLComponent::MLComponent(MLComType type, MLEntity* entity)

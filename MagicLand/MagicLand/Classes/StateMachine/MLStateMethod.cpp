@@ -1,11 +1,12 @@
 #include "MLStateMethod.h"
+
 #include "../marco.h"
-#include "../EntityComponent/MLEntityCreator.h"
-#include "../EntityComponent/MLComTransform.h"
 #include "../EntityComponent/MLComBoundBox.h"
-#include "../EntityComponent/MLComMovement.h"
-#include "../EntityComponent/MLComDisplay.h"
 #include "../EntityComponent/MLComDir.h"
+#include "../EntityComponent/MLComDisplay.h"
+#include "../EntityComponent/MLComMovement.h"
+#include "../EntityComponent/MLComTransform.h"
+#include "../EntityComponent/MLEntityCreator.h"
 #include "../EntityComponent/MLEntityMgr.h"
 
 using namespace MagicLand;

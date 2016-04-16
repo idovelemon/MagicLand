@@ -1,8 +1,10 @@
 #include "MLOrgeWaitState.h"
-#include "../EntityComponent/MLAllComs.h"
+
 #include "../marco.h"
+#include "../EntityComponent/MLAllComs.h"
 #include "../Framerate/MLFrameRateMgr.h"
 #include "../Support/Script/MLScriptMgr.h"
+
 using namespace MagicLand;
 
 MLOrgeWaitState::MLOrgeWaitState()

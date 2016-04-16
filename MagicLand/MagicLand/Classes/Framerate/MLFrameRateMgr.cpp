@@ -1,4 +1,5 @@
 #include "MLFrameRateMgr.h"
+
 using namespace MagicLand;
 
 MLFrameRateMgr* MLFrameRateMgr::s_Instance = 0;

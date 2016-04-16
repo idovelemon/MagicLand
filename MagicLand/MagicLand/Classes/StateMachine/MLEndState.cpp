@@ -1,5 +1,8 @@
 #include "MLEndState.h"
+
 #include "../marco.h"
+#include "../EntityComponent/MLEntity.h"
+
 using namespace MagicLand;
 
 MLEndState* MLEndState::s_Instance = NULL;

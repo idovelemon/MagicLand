@@ -8,8 +8,8 @@
 // Version: 2.0
 // Brief: Because the end start works for every entity, so make it as a singleton instance
 //------------------------------------------------------------------------
-#ifndef __MLENDSTATE__H_
-#define __MLENDSTATE__H_
+#ifndef ML_STATEMACHINE_MLENDSTATE_H_
+#define ML_STATEMACHINE_MLENDSTATE_H_
 
 #include "MLState.h"
 
@@ -34,4 +34,4 @@ protected:
 	static MLEndState* s_Instance;
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLENDSTATE_H_

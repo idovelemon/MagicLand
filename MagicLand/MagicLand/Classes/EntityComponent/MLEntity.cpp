@@ -1,5 +1,9 @@
 #include"MLEntity.h"
+
 #include"../marco.h"
+#include "../EntityComponent/MLComponent.h"
+#include "../Round/MLRoom.h"
+
 using namespace MagicLand;
 
 unsigned int MLEntity::s_IDGenerator = 0;

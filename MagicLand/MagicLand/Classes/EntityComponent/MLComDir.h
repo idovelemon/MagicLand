@@ -5,13 +5,16 @@
 // Version: 1.0
 // Brief: This file will define the direction component
 //---------------------------------------------------------
-#ifndef __MLCOMDIR__H_
-#define __MLCOMDIR__H_
+#ifndef ML_ENTITYCOMPONENT_MLCOMDIR_H_
+#define ML_ENTITYCOMPONENT_MLCOMDIR_H_
 
-#include "MLComponent.h"
-#include "MLEntity.h"
+#include "MLEntity.h" // FixMe:Split the game's entity type with the Framework
 
-namespace MagicLand { class MLComDir; };
+namespace MagicLand 
+{ 
+	class MLComDir;
+	class MLComponent;
+};
 
 class MagicLand::MLComDir:public MLComponent
 {
@@ -27,4 +30,4 @@ protected:
 	MagicLand::MLDir m_Dir;
 };
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLCOMDIR_H_

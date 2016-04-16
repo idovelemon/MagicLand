@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the Move state of the MovePlatform
 //------------------------------------------------------------------------------
-#ifndef __MLMOVEPLATFORMMOVESTATE__H_
-#define __MLMOVEPLATFORMMOVESTATE__H_
+#ifndef ML_STATEMACHINE_MLMOVEPLATFORMMOVESTATE_H_
+#define ML_STATEMACHINE_MLMOVEPLATFORMMOVESTATE_H_
 
 #include "MLState.h"
 
@@ -28,4 +28,4 @@ protected:
 	virtual void Move(MagicLand::MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLMOVEPLATFORMMOVESTATE_H_

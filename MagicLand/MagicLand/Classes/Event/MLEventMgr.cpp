@@ -1,5 +1,8 @@
 #include "MLEventMgr.h"
+
 #include "../marco.h"
+#include "../EntityComponent/MLEntity.h"
+
 using namespace MagicLand;
 
 MLEventMgr* MLEventMgr::s_Instance = NULL;

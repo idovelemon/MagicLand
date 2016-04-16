@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the throw orge's throw state
 //-----------------------------------------------------------------------------
-#ifndef __MLTHROWORGETHROWSTATE__H_
-#define __MLTHROWORGETHROWSTATE__H_
+#ifndef ML_STATEMACHINE_MLTHROWORGETHROWSTATE_H_
+#define ML_STATEMACHINE_MLTHROWORGETHROWSTATE_H_
 
 #include "MLState.h"
 
@@ -28,4 +28,4 @@ protected:
 	virtual void ThrowBoomBall(MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLTHROWORGETHROWSTATE_H_

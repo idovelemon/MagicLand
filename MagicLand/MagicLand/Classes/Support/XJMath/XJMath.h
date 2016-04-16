@@ -8,7 +8,8 @@
 // update	: 2015 / 2 / 13 -- Add the OBB bounding box
 // update   : 2015 / 12 / 2 -- Add the constructor to VECTOR2
 //------------------------------------------------------------------------------
-#pragma once
+#ifndef __XJMATH__H_
+#define __XJMATH__H_
 
 //
 #define EPSILON 0.0001f
@@ -162,3 +163,4 @@ private:
 //@OBB end
 //********************************************************************************
 
+#endif // __XJMATH__H_

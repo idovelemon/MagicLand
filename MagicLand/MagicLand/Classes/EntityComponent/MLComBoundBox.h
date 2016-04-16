@@ -6,17 +6,20 @@
 // Breif: This file will define the bounding box of the entity.The game
 // will do collision test on this component.
 //------------------------------------------------------------------------
-#ifndef __MLCOMBOUNDBOX__H_
-#define __MLCOMBOUNDBOX__H_
+#ifndef ML_ENTITYCOMPONENT_MLCOMBOUNDBOX_H_
+#define ML_ENTITYCOMPONENT_MLCOMBOUNDBOX_H_
+
+#include<vector>
 
 #include "MLComponent.h"
-#include "MLEntity.h"
 #include "../Support/XJMath/XJMath.h"
 
 namespace MagicLand 
 { 
 	class MLComBoundBox;
 	typedef std::vector<MLEntity*> MLColVector;
+	class MLComponent;
+	class MLEntity;
 };
 
 class MagicLand::MLComBoundBox:public MLComponent
@@ -40,4 +43,4 @@ protected:
 	MagicLand::MLColVector	m_ColEntities;	// The collided entities
 };
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLCOMBOUNDBOX_H_

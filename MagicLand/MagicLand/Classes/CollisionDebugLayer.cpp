@@ -3,9 +3,11 @@
 #include "marco.h"
 #include "EntityComponent\MLComTransform.h"
 #include "EntityComponent\MLComBoundBox.h"
+#include "EntityComponent\MLEntity.h"
 #include "Framerate\MLFrameRateMgr.h"
 
 using namespace MagicLand;
+using namespace cocos2d;
 
 CollisionDebugLayer::CollisionDebugLayer()
 {

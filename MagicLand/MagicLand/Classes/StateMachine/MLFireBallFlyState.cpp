@@ -1,9 +1,11 @@
 #include "MLFireBallFlyState.h"
+
 #include "../marco.h"
 #include "MLStateMethod.h"
 #include "../EntityComponent/MLAllComs.h"
 #include "../EntityComponent/MLTimerFlag.h"
 #include "../Framerate/MLFrameRateMgr.h"
+
 using namespace MagicLand;
 
 MLFireBallFlyState::MLFireBallFlyState()

@@ -8,8 +8,8 @@
 // Version: 2.0
 // Brief: Because the start state work for every entity, so make it as a singleton instance
 //------------------------------------------------------------------------
-#ifndef __MLSTARTSTATE__H_
-#define __MLSTARTSTATE__H_
+#ifndef ML_STATEMACHINE_MLSTARTSTATE_H_
+#define ML_STATEMACHINE_MLSTARTSTATE_H_
 
 #include "MLState.h"
 
@@ -34,4 +34,4 @@ protected:
 	static MLStartState* s_Instance;
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLSTARTSTATE_H_

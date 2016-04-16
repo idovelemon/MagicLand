@@ -5,13 +5,16 @@
 // Version: 1.0
 // Brief: This file will define the round in this game
 //-----------------------------------------------------------------------------
-#ifndef __MLROUND__H_
-#define __MLROUND__H_
+#ifndef ML_ROUND_MLROUND_H_
+#define ML_ROUND_MLROUND_H_
 
-#include "MLRoom.h"
 #include "../Reference/MLReference.h"
 
-namespace MagicLand { class MLRound; };
+namespace MagicLand 
+{ 
+	class MLRound;
+	class MLRoom;
+};
 
 class MagicLand::MLRound:public MLReference
 {
@@ -32,4 +35,4 @@ protected:
 	static MLRound* s_Instance;
 };
 
-#endif
+#endif // ML_ROUND_MLROUND_H_

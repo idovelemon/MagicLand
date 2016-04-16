@@ -5,12 +5,14 @@
 // Version: 1.0
 // Brief: This file will define the condition that can be used for every entity
 //------------------------------------------------------------------------
-#ifndef __MLCOMCON__H_
-#define __MLCOMCON__H_
+#ifndef ML_STATEMACHINE_MLCOMCON_H_
+#define ML_STATEMACHINE_MLCOMCON_H_
 
-#include "MLCon.h"
-
-namespace MagicLand { class MLComCon; };
+namespace MagicLand
+{
+	class MLComCon;
+	class MLEntity;
+};
 
 class MagicLand::MLComCon
 {
@@ -42,4 +44,4 @@ public:
 
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLCOMCON_H_

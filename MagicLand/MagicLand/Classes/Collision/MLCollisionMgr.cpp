@@ -1,7 +1,10 @@
 #include "MLCollisionMgr.h"
+
 #include "../marco.h"
 #include "../EntityComponent/MLComBoundBox.h"
 #include "../EntityComponent/MLComState.h"
+#include "../EntityComponent/MLEntity.h"
+
 using namespace MagicLand;
 
 MLCollisionMgr* MLCollisionMgr::s_Instance = NULL;

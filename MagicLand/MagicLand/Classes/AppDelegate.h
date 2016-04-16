@@ -51,6 +51,7 @@ protected:
 	void CreateThrowOrgeSM();
 	void CreateBoomBallSM();
 	void CreateBrokenStoneSM();
+	void CreateGearCoreSM();
 };
 
 #endif  // __APP_DELEGATE_H__

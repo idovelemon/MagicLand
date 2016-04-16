@@ -5,8 +5,10 @@
 // Version: 1.0
 // Brief: 
 //------------------------------------------------------------------------
-#ifndef __MLPLAYERCAMERA__H_
-#define __MLPLAYERCAMERA__H_
+#ifndef ML_PLAYERCAMERA_MLPLAYERCAMERA_H_
+#define ML_PLAYERCAMERA_MLPLAYERCAMERA_H_
+
+#include <cocos2d.h>
 
 #include "../MLCamera.h"
 
@@ -15,11 +17,11 @@ namespace MagicLand
 	class MLPlayerCamera;
 };
 
-class MagicLand::MLPlayerCamera : public MLCamera
+class MagicLand::MLPlayerCamera : public MagicLand::MLCamera
 {
 public:
 	MLPlayerCamera();
-	MLPlayerCamera(CCLayer* layer);
+	MLPlayerCamera(cocos2d::CCLayer* layer);
 	virtual ~MLPlayerCamera();
 
 public:
@@ -34,4 +36,4 @@ public:
 	virtual bool IsDead() const;
 };
 
-#endif
+#endif // ML_PLAYERCAMERA_MLPLAYERCAMERA_H_

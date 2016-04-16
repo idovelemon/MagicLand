@@ -5,14 +5,16 @@
 // Version: 1.0
 // Brief: This file will define the event manager. It will deal with all the event in this game
 //------------------------------------------------------------------
-#ifndef __MLEVENTMGR__H_
-#define __MLEVENTMGR__H_
+#ifndef ML_ENTITYCOMPONENT_MLEVENTMGR_H_
+#define ML_ENTITYCOMPONENT_MLEVENTMGR_H_
 
-#include "../EntityComponent/MLEntity.h"
+#include <list>
+#include <vector>
 
 namespace MagicLand 
 {
 	class MLEventMgr;
+	class MLEntity;
 };
 
 typedef void (*MLEventHandle)(MagicLand::MLEntity* sender, MagicLand::MLEntity* reciever);
@@ -78,4 +80,4 @@ protected:
 	static MLEventMgr* s_Instance;
 };
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLEVENTMGR_H_

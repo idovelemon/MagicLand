@@ -6,8 +6,8 @@
 // Breif: This file will define the transform of the entity.The transform
 // hold all the position, rotation and the scale of the entity.
 //------------------------------------------------------------------------
-#ifndef __MLCOMTRANSFORM__H_
-#define __MLCOMTRANSFORM__H_
+#ifndef ML_ENTITYCOMONENT_MLCOMTRANSFORM_H_
+#define ML_ENTITYCOMONENT_MLCOMTRANSFORM_H_
 
 #include "MLComponent.h"
 #include "../Support/XJMath/XJMath.h"
@@ -35,4 +35,4 @@ protected:
 	VECTOR2 m_Scale;	// The scale of the entity
 	float	m_Rot;		// The rotation of the entity in degree
 };
-#endif
+#endif // ML_ENTITYCOMONENT_MLCOMTRANSFORM_H_

@@ -1,7 +1,9 @@
 #include "MLMovePlatformMoveState.h"
+
 #include "../marco.h"
-#include "../EntityComponent/MLAllComs.h"
 #include "MLStateMethod.h"
+#include "../EntityComponent/MLAllComs.h"
+
 using namespace MagicLand;
 
 MLMovePlatformMoveState::MLMovePlatformMoveState()

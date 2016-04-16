@@ -1,12 +1,11 @@
 #include "MLXJFallState.h"
-#include "../marco.h"
 
-#include "../EntityComponent/MLComTransform.h"
-#include "../EntityComponent/MLComMovement.h"
+#include "../marco.h"
+#include "MLStateMethod.h"
 #include "../EntityComponent/MLComBoundBox.h"
 #include "../EntityComponent/MLComDisplay.h"
-
-#include "MLStateMethod.h"
+#include "../EntityComponent/MLComMovement.h"
+#include "../EntityComponent/MLComTransform.h"
 
 using namespace MagicLand;
 

@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the Fly state of the Boom ball
 //----------------------------------------------------------------------------
-#ifndef __MLBOOMBALLFLYSTATE__H_
-#define __MLBOOMBALLFLYSTATE__H_
+#ifndef ML_STATEMACHINE_MLBOOMBALLFLYSTATE_H_
+#define ML_STATEMACHINE_MLBOOMBALLFLYSTATE_H_
 
 #include "MLState.h"
 
@@ -29,4 +29,4 @@ protected:
 	virtual void Boom(MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLBOOMBALLFLYSTATE_H_

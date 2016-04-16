@@ -5,13 +5,17 @@
 // Version: 1.0
 // Brief: This file will define the movment component which hold all the movement parameters.
 //------------------------------------------------------------------------
-#ifndef __MLCOMMOVEMENT__H_
-#define __MLCOMMOVEMENT__H_
+#ifndef ML_ENTITYCOMPONENT_MLCOMMOVEMENT_H_
+#define ML_ENTITYCOMPONENT_MLCOMMOVEMENT_H_
 
 #include "MLComponent.h"
+
 #include "../Support/XJMath/XJMath.h"
 
-namespace MagicLand { class MLComMovement; };
+namespace MagicLand 
+{ 
+	class MLComMovement;
+};
 
 class MagicLand::MLComMovement:public MLComponent
 {
@@ -33,4 +37,4 @@ protected:
 	float	m_MaxFallSpeed;
 };
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLCOMMOVEMENT_H_

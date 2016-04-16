@@ -1,4 +1,5 @@
 #include "MLComMovement.h"
+
 using namespace MagicLand;
 
 MLComMovement::MLComMovement(MLEntity* entity)

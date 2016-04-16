@@ -1,4 +1,5 @@
 #include"XJMath.h"
+
 #include<cmath>
 
 //Build

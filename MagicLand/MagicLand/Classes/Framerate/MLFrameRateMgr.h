@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the frame rate manager
 //---------------------------------------------------------------------------
-#ifndef __MLFRAMERATEMGR__H_
-#define __MLFRAMERATEMGR__H_
+#ifndef ML_ENTITYCOMONENT_MLFRAMERATEMGR_H_
+#define ML_ENTITYCOMONENT_MLFRAMERATEMGR_H_
 
 namespace MagicLand { class MLFrameRateMgr; };
 
@@ -32,4 +32,4 @@ protected:
 	float m_TotalTime;
 };
 
-#endif
+#endif // ML_ENTITYCOMONENT_MLFRAMERATEMGR_H_

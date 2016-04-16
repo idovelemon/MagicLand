@@ -1,5 +1,7 @@
 #include "MLComState.h"
+
 #include "../marco.h"
+
 using namespace MagicLand;
 
 MLComState::MLComState(MLEntity* entity)

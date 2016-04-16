@@ -1,6 +1,9 @@
 #include "MLRound.h"
-#include "MLRoomCreator.h"
+
 #include "../marco.h"
+#include "MLRoom.h"
+#include "MLRoomCreator.h"
+
 using namespace MagicLand;
 
 MLRound* MLRound::s_Instance = NULL;

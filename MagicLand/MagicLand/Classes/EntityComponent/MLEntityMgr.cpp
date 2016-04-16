@@ -1,7 +1,9 @@
 #include "MLEntityMgr.h"
+
+#include "../marco.h"
 #include "MLEntityCreator.h"
 #include "../StateMachine/MLStateMachineMgr.h"
-#include "../marco.h"
+
 using namespace MagicLand;
 
 MLEntityMgr* MLEntityMgr::s_Instance = NULL;

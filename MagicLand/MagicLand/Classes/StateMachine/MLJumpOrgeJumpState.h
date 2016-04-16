@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define Jump orge's jump state
 //-----------------------------------------------------------------
-#ifndef __MLJUMPORGEJUMPSTATE__H_
-#define __MLJUMPORGEJUMPSTATE__H_
+#ifndef ML_STATEMACHINE_MLJUMPORGEJUMPSTATE_H_
+#define ML_STATEMACHINE_MLJUMPORGEJUMPSTATE_H_
 
 #include "MLState.h"
 
@@ -28,4 +28,4 @@ protected:
 	virtual void Jump(MagicLand::MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLJUMPORGEJUMPSTATE_H_

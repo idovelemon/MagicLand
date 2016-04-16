@@ -15,4 +15,4 @@ namespace MagicLand
 	typedef bool (*MLPCon)(MagicLand::MLEntity* entity);
 }
 
-#endif
+#endif // __MLCON__H_

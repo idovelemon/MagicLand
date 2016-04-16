@@ -1,9 +1,11 @@
 #include "MLComCon.h"
+
 #include "../marco.h"
 #include "../EntityComponent/MLAllComs.h"
-#include "../EntityComponent/MLTimerFlag.h"
 #include "../EntityComponent/MLEntityMgr.h"
+#include "../EntityComponent/MLTimerFlag.h"
 #include "../Support/Script/MLScriptMgr.h"
+
 using namespace MagicLand;
 
 bool MLComCon::StartOK(MLEntity* entity)

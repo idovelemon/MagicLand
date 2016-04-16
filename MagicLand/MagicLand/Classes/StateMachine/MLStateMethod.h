@@ -6,8 +6,8 @@
 // Brief: This file will define the state helper. There are so many helper method
 // that can be used in many state
 //----------------------------------------------------------------------------
-#ifndef __MLSTATEMETHOD__H_
-#define __MLSTATEMETHOD__H_
+#ifndef ML_STATEMACHINE_MLSTATEMETHOD_H_
+#define ML_STATEMACHINE_MLSTATEMETHOD_H_
 
 #include "../EntityComponent/MLEntity.h"
 
@@ -23,4 +23,4 @@ public:
 	static void Fire(MagicLand::MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLSTATEMETHOD_H_

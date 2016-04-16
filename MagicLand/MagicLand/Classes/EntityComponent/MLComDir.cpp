@@ -1,4 +1,5 @@
 #include "MLComDir.h"
+
 using namespace MagicLand;
 
 MLComDir::MLComDir(MLEntity* entity, MLDir dir)

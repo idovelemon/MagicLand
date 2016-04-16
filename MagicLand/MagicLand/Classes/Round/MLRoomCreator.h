@@ -6,13 +6,16 @@
 // Brief: This file will define the room creator. It will create the room
 // from the round's data.
 //------------------------------------------------------------------------
-#ifndef __MLROOMCREATOR__H_
-#define __MLROOMCREATOR__H_
+#ifndef ML_ROUND_MLROOMCREATOR_H_
+#define ML_ROUND_MLROOMCREATOR_H_
 
 #include "../Reference/MLReference.h"
-#include "MLRoom.h"
 
-namespace MagicLand{ class MLRoomCreator;};
+namespace MagicLand
+{ 
+	class MLRoomCreator;
+	class MLRoom;
+};
 
 class MagicLand::MLRoomCreator:public MLReference
 {
@@ -56,4 +59,4 @@ protected:
 	char* m_RoomDataFileName;   // The room's file's name
 };
 
-#endif
+#endif // ML_ROUND_MLROOMCREATOR_H_

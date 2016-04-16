@@ -1,7 +1,11 @@
 #include "MLPlayerCamera.h"
-#include "../../EntityComponent/MLEntityMgr.h"
-#include "../../EntityComponent/MLComTransform.h"
+
 #include "../../marco.h"
+#include "../MLCamera.h"
+#include "../../EntityComponent/MLComTransform.h"
+#include "../../EntityComponent/MLEntity.h"
+#include "../../EntityComponent/MLEntityMgr.h"
+
 using namespace MagicLand;
 
 MLPlayerCamera::MLPlayerCamera()
@@ -46,41 +50,46 @@ bool MLPlayerCamera::IsDead() const
 
 void MLPlayerCamera::calculateCamrea()
 {
-	MLComTransform* playerTransform = (MLComTransform*)MLEntityMgr::SharedInstance()->GetPlayer()->GetComponent(ML_COMTYPE_TRANSFORM);
-	ML_SAFE_ASSERT(playerTransform != NULL, "please make sure the playerTransform is not null");
-	if(playerTransform != NULL)
+	MLEntity* player = MLEntityMgr::SharedInstance()->GetPlayer();
+	ML_SAFE_ASSERT(player != NULL, "Please make sure the player has been created");
+	if(player != NULL)
 	{
-		int cameraPosX = m_Layer->getPositionX();
-		int cameraPosY = m_Layer->getPositionY();
-		int playerPosX = playerTransform->GetPos().x;
-		int playerPosY = playerTransform->GetPos().y;
+		MLComTransform* playerTransform = (MLComTransform*)player->GetComponent(ML_COMTYPE_TRANSFORM);
+		ML_SAFE_ASSERT(playerTransform != NULL, "please make sure the playerTransform is not null");
+		if(playerTransform != NULL)
+		{
+			int cameraPosX = m_Layer->getPositionX();
+			int cameraPosY = m_Layer->getPositionY();
+			int playerPosX = playerTransform->GetPos().x;
+			int playerPosY = playerTransform->GetPos().y;
 
-		if (playerPosX > 800 - 800 * 0.3 - cameraPosX)
-		{
-			cameraPosX = -(playerPosX - (800 - 800 * 0.3));
-		}
-		else if (playerPosX < 800 * 0.3 - cameraPosX)
-		{
-			cameraPosX -= playerPosX - (800 * 0.3 - cameraPosX);
-		}
+			if (playerPosX > 800 - 800 * 0.3 - cameraPosX)
+			{
+				cameraPosX = -(playerPosX - (800 - 800 * 0.3));
+			}
+			else if (playerPosX < 800 * 0.3 - cameraPosX)
+			{
+				cameraPosX -= playerPosX - (800 * 0.3 - cameraPosX);
+			}
 
-		if (playerPosX < 800 * 0.3)
-		{
-			cameraPosX = 0;
-		}
-		else if (playerPosX > 1600 - 800 * 0.3)
-		{
-			cameraPosX = -800;
-		}
+			if (playerPosX < 800 * 0.3)
+			{
+				cameraPosX = 0;
+			}
+			else if (playerPosX > 1600 - 800 * 0.3)
+			{
+				cameraPosX = -800;
+			}
 
-		CCPoint position;
-		position.x = cameraPosX;
-		position.y = cameraPosY;
+			CCPoint position;
+			position.x = cameraPosX;
+			position.y = cameraPosY;
 
-		ML_SAFE_ASSERT(m_Layer != NULL, "Layer can not be null");
-		if(m_Layer != NULL)
-		{
-			m_Layer->setPosition(position);
+			ML_SAFE_ASSERT(m_Layer != NULL, "Layer can not be null");
+			if(m_Layer != NULL)
+			{
+				m_Layer->setPosition(position);
+			}
 		}
 	}
 }

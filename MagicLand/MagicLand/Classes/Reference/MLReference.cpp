@@ -1,4 +1,5 @@
 #include "MLReference.h"
+
 using namespace MagicLand;
 
 MLReference::MLReference()

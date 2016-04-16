@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define all the timer flag in this game
 //---------------------------------------------------------------------------
-#ifndef __MLTIMERFLAG__H_
-#define __MLTIMERFLAG__H_
+#ifndef ML_ENTITYCOMPONENT_MLTIMERFLAG_H_
+#define ML_ENTITYCOMPONENT_MLTIMERFLAG_H_
 
 // For Fireball
 const unsigned int ML_TIMER_FLAG_FIREBALL_FLY = 0;
@@ -18,4 +18,4 @@ const unsigned int ML_TIMER_FLAG_ORGE_WAIT = 1;
 // For ThrowOrge
 const unsigned int ML_TIMER_FLAG_THROWORGE_THROW = 0;
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLTIMERFLAG_H_ 

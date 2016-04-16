@@ -1,6 +1,9 @@
 #include "MLStateMachineMgr.h"
-#include "../marco.h"
+
 #include <Windows.h>
+
+#include "../marco.h"
+#include "../EntityComponent/MLEntity.h"
 
 using namespace MagicLand;
 

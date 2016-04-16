@@ -5,12 +5,11 @@
 // Version: 1.0
 // Brief:
 //---------------------------------------------------------
-#ifndef __MLCOMUSERDATA_H__
-#define __MLCOMUSERDATA_H__
+#ifndef ML_ENTITYCOMONENT_MLCOMUSERDATA_H_
+#define ML_ENTITYCOMONENT_MLCOMUSERDATA_H_
 
 #include <vector>
 
-#include "MLEntity.h"
 #include "MLComponent.h"
 
 using namespace std;
@@ -18,6 +17,7 @@ using namespace std;
 namespace MagicLand
 {
 	class MLComUserData;
+	class MLEntity;
 };
 
 class MagicLand::MLComUserData
@@ -54,4 +54,4 @@ protected:
 	vector<UserData> m_vUserDatas;
 };
 
-#endif
+#endif // ML_ENTITYCOMONENT_MLCOMUSERDATA_H_

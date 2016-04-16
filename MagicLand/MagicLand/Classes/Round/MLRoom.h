@@ -6,16 +6,21 @@
 // Brief: This file will define the room interface.A round has many rooms.
 //        Player will explore and combat at a room.
 //------------------------------------------------------------------------
-#ifndef __MLROOM__H_
-#define __MLROOM__H_
+#ifndef ML_ROUND_MLROOM_H_
+#define ML_ROUND_MLROOM_H_
 
-#include "cocos2d.h"
+#include <cocos2d.h>
+
 #include "../Reference/MLReference.h"
-#include "../Camera/MLCamera.h"
 #include "../Support/XJMath/XJMath.h"
+
 using namespace cocos2d;
 
-namespace MagicLand{ class MLRoom;};
+namespace MagicLand
+{
+	class MLRoom;
+	class MLCamera;
+};
 
 class MagicLand::MLRoom:public MLReference
 {
@@ -92,4 +97,4 @@ protected:
 
 	std::vector<TerrianBoundBox> m_Terrians; // The vector hold all the terrian's bound box
 };
-#endif
+#endif // ML_ROUND_MLROOM_H_

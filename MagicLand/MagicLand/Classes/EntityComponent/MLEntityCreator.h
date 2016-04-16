@@ -7,17 +7,19 @@
 // all the creator is a static method and all the creator is in a map.
 // If you want to add new entity, you must add a new creator in this map
 //------------------------------------------------------------------------
-#ifndef __MLENTITYCREATOR__H_
-#define __MLENTITYCREATOR__H_
+#ifndef ML_ENTITYCOMPONENT_MLENTITYCREATOR_H_
+#define ML_ENTITYCOMPONENT_MLENTITYCREATOR_H_
+
+#include <cocos2d.h>
 
 #include "MLEntity.h"
-#include "../Round/MLRoom.h"
-#include <cocos2d.h>
+#include "../Support/XJMath/XJMath.h"
 
 namespace MagicLand 
 {
 	class MLEntityCreator;
 	struct MLETYCreatorEntry;
+	class MLRoom;
 };
 
 typedef MagicLand::MLEntity* (*PFUNCEntityCreator)(int xCoord, int yCoord, MagicLand::MLRoom* room);
@@ -42,6 +44,7 @@ public:
 	static MLEntity* CreateThrowOrge(float posx, float posy, MLRoom* room);
 	static MLEntity* CreateBoomBall(float posx, float posy, MLRoom* room);
 	static MLEntity* CreateBrokenStone(float posx, float posy, float velx, float vely, MLRoom* room);
+	static MLEntity* CreateGearCore(float posx, float posy, MLRoom* room);
 
 	// Created from room map
 public:
@@ -54,5 +57,6 @@ protected:
 	static MLEntity* CreateJumpOrge(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateMovePlatform(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateThrowOrge(int xCoord, int yCoord, MLRoom* room);
+	static MLEntity* CreateGearCore(int xCoord, int yCoord, MLRoom* room);
 };
-#endif
+#endif //ML_ENTITYCOMPONENT_MLENTITYCREATOR_H_

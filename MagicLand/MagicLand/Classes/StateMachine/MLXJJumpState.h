@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the Jump state of the Hero_XJ
 //------------------------------------------------------------------------
-#ifndef __MLXJJUMPSTATE__H_
-#define __MLXJJUMPSTATE__H_
+#ifndef ML_STATEMAHINE_MLXJJUMPSTATE_H_
+#define ML_STATEMAHINE_MLXJJUMPSTATE_H_
 
 #include "MLState.h"
 
@@ -28,4 +28,4 @@ protected:
 	void Jump(MagicLand::MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMAHINE_MLXJJUMPSTATE_H_

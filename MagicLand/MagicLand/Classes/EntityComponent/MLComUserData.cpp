@@ -1,5 +1,7 @@
 #include "MLComUserData.h"
+
 #include "../marco.h"
+#include "MLEntity.h"
 
 using namespace MagicLand;
 

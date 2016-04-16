@@ -1,4 +1,5 @@
 #include"XJMath.h"
+
 #include<assert.h>
 
 Projection::Projection(float _min, float _max)

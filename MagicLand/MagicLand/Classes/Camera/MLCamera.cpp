@@ -1,5 +1,8 @@
 #include "MLCamera.h"
+
 #include "../marco.h"
+
+using namespace cocos2d;
 using namespace MagicLand;
 
 MLCamera::MLCamera()

@@ -1,10 +1,10 @@
-#ifndef __MLSCRIPTMGR_H__
-#define __MLSCRIPTMGR_H__
+#ifndef ML_SCRIPT_MLSCRIPTMGR_H_
+#define ML_SCRIPT_MLSCRIPTMGR_H_
 
 #include <iostream>
-#include <vector>
-#include <string>
 #include <fstream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -40,5 +40,5 @@ protected:
 		_store_ = temp;\
 	}
 
-#endif  // __APP_DELEGATE_H__
+#endif  // ML_SCRIPT_MLSCRIPTMGR_H_
 

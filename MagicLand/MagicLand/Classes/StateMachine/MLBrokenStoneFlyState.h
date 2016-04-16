@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the fly state of the broken stone
 //--------------------------------------------------------------
-#ifndef __MLBROKENSTONEFLYSTATE__H_
-#define __MLBROKENSTONEFLYSTATE__H_
+#ifndef ML_STATEMACHINE_MLBROKENSTONEFLYSTATE_H_
+#define ML_STATEMACHINE_MLBROKENSTONEFLYSTATE_H_
 
 #include "MLState.h"
 
@@ -28,4 +28,4 @@ protected:
 	virtual void Fly(MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLBROKENSTONEFLYSTATE_H_

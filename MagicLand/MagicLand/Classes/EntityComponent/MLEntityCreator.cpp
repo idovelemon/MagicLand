@@ -1,8 +1,11 @@
 #include "MLEntityCreator.h"
+
 #include "../marco.h"
 #include "MLAllComs.h"
 #include "../StateMachine/MLStartState.h"
 #include "../Support/Script/MLScriptMgr.h"
+#include "../Round/MLRoom.h"
+
 using namespace MagicLand;
 
 MLETYCreatorEntry MLEntityCreator::s_CreatorTable[] = 
@@ -13,6 +16,7 @@ MLETYCreatorEntry MLEntityCreator::s_CreatorTable[] =
 	{ML_ETYSUBTYPE_JUMPORGE, &MLEntityCreator::CreateJumpOrge},
 	{ML_ETYSUBTYPE_MOVEPLATFORM, &MLEntityCreator::CreateMovePlatform},
 	{ML_ETYSUBTYPE_THROWORGE, &MLEntityCreator::CreateThrowOrge},
+	{ML_ETYSUBTYPE_GEARCORE, &MLEntityCreator::CreateGearCore},
 };
 
 MLEntity* MLEntityCreator::CreateEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room)
@@ -172,6 +176,20 @@ MLEntity* MLEntityCreator::CreateThrowOrge(int xCoord, int yCoord, MLRoom* room)
 	room->TransformMapCoordToWorldCoord(xCoord, yCoord);
 
 	return CreateThrowOrge((float)xCoord, (float)yCoord, room);
+}
+
+MLEntity* MLEntityCreator::CreateGearCore(int xCoord, int yCoord, MLRoom* room)
+{
+	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
+	
+	MLEntity* entity = NULL;
+	if(room != NULL)
+	{
+		room->TransformMapCoordToWorldCoord(xCoord, yCoord);
+		entity = CreateGearCore((float)xCoord, (float)yCoord, room);
+	}
+
+	return entity;
 }
 
 MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLRoom* room)
@@ -597,6 +615,84 @@ MLEntity* MLEntityCreator::CreateBrokenStone(float posx, float posy, float velx,
 	entity->AddComponent(state);
 	ML_SAFE_DROP(startState);
 	ML_SAFE_DROP(state);
+
+	return entity;
+}
+
+MLEntity* MLEntityCreator::CreateGearCore(float posx, float posy, MLRoom* room)
+{
+	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
+	MLEntity* entity = NULL;
+
+	if(room != NULL)
+	{
+		entity = new MLEntity(ML_ETYMAINTYPE_ENEMY, ML_ETYSUBTYPE_GEARCORE, room);
+		ML_SAFE_ASSERT(entity != NULL, "Failed to create entity");
+		if(entity != NULL)
+		{
+			// Create Display component
+			MLComDisplay* display = new MLComDisplay(entity, "Image//Gear//gear_core.png", room->GetGameLayer());
+			ML_SAFE_ASSERT(display != NULL, "Failed to create Display component");
+			if(display != NULL)
+			{
+				CCSprite* sprite = display->GetSprite();
+				ML_SAFE_ASSERT(sprite != NULL, "Sprite can not be empty");
+				if(sprite != NULL)
+				{
+					sprite->setAnchorPoint(ccp(0.5f, 0.5f));
+					sprite->setPosition(ccp(posx, posy));
+				}
+
+				entity->AddComponent(display);
+				ML_SAFE_DROP(display);
+			}
+
+			// Create Transform component
+			MLComTransform* transform = new MLComTransform(entity, posx, posy, 1.0f, 1.0f, 0.0f);
+			ML_SAFE_ASSERT(transform != NULL, "Failed to create Transform component");
+			if(transform != NULL)
+			{
+				entity->AddComponent(transform);
+				ML_SAFE_DROP(transform);
+			}
+
+			// Create Movement component
+			MLComMovement* movement = new MLComMovement(entity);
+			ML_SAFE_ASSERT(movement != NULL, "Failed to create Movement component");
+			if(movement != NULL)
+			{
+				movement->SetGravity(0.0f);
+				movement->SetMaxFallSpeed(0.0f);
+				movement->SetVel(0.0f, 0.0f);
+				entity->AddComponent(movement);
+				ML_SAFE_DROP(movement);
+			}
+
+			// Create BoundBox component
+			MLComBoundBox* boundBox = new MLComBoundBox(entity, 
+				MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
+				MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
+				posx, posy);
+			ML_SAFE_ASSERT(boundBox != NULL, "Failed to create BoundBox component");
+			if(boundBox != NULL)
+			{
+				entity->AddComponent(boundBox);
+				ML_SAFE_DROP(boundBox);
+			}
+
+			// Create State component
+			MLComState* state = new MLComState(entity);
+			ML_SAFE_ASSERT(state != NULL, "Failed to create State component");
+			if(state != NULL)
+			{
+				MLStartState* startState = MLStartState::SharedInstance();
+				state->SetState(startState);
+				entity->AddComponent(state);
+				ML_SAFE_DROP(startState);
+				ML_SAFE_DROP(state);
+			}
+		}
+	}
 
 	return entity;
 }

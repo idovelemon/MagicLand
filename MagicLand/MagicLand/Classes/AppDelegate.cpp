@@ -174,6 +174,8 @@ void AppDelegate::gameInit()
 	CreateBoomBallSM();
 
 	CreateBrokenStoneSM();
+
+	CreateGearCoreSM();
 }
 
 void AppDelegate::gameMainLoop(float delta)
@@ -395,4 +397,21 @@ void AppDelegate::CreateBrokenStoneSM()
 	ML_SAFE_DROP(startState);
 	ML_SAFE_DROP(flyState);
 	ML_SAFE_DROP(endState);
+}
+
+void AppDelegate::CreateGearCoreSM()
+{
+	MLStateMachine* gearCoreSM = new MLStateMachine;
+	ML_SAFE_ASSERT(gearCoreSM != NULL, "Failed to create State Machine");
+	if(gearCoreSM != NULL)
+	{
+		MLStateMachineMgr::SharedInstance()->AddMgrEntry(ML_ETYSUBTYPE_GEARCORE, gearCoreSM);
+
+		//MLStartState* startState = MLStartState::SharedInstance();
+		//MLEndState* endState = MLEndState::SharedInstance();
+
+		ML_SAFE_DROP(gearCoreSM);
+		//ML_SAFE_DROP(startState);
+		//ML_SAFE_DROP(endState);
+	}
 }

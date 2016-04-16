@@ -1,4 +1,5 @@
 #include "MLComTransform.h"
+
 using namespace MagicLand;
 
 MLComTransform::MLComTransform(MLEntity* entity, float x, float y, float sx, float sy, float r)

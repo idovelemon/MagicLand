@@ -1,5 +1,7 @@
 #include "MLStartState.h"
+
 #include "../marco.h"
+
 using namespace MagicLand;
 
 MLStartState* MLStartState::s_Instance = NULL;

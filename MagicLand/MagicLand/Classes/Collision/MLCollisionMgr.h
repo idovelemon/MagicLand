@@ -5,14 +5,17 @@
 // Version: 1.0
 // Brief: This file will define the Collision system in MagicLand.
 //------------------------------------------------------------------------
-#ifndef __MLCOLLISIONMGR__H_
-#define __MLCOLLISIONMGR__H_
+#ifndef ML_COLLISION_MLCOLLISIONMGR_H_
+#define ML_COLLISION_MLCOLLISIONMGR_H_
 
-#include "../EntityComponent/MLEntity.h"
 #include <list>
 #include <vector>
 
-namespace MagicLand { class MLCollisionMgr; };
+namespace MagicLand 
+{ 
+	class MLCollisionMgr; 
+	class MLEntity;
+};
 
 class MagicLand::MLCollisionMgr
 {
@@ -51,4 +54,4 @@ protected:
 	static MLCollisionMgr* s_Instance;
 };
 
-#endif
+#endif // ML_COLLISION_MLCOLLISIONMGR_H_

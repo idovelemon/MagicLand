@@ -6,8 +6,8 @@
 // Breif: This file will define the component interface that will be used in
 // MagicLand with the Entity-Component architecture
 //------------------------------------------------------------------------
-#ifndef __MLCOMPONENT__H_
-#define __MLCOMPONENT__H_
+#ifndef ML_ENTITYCOMPONENT_MLCOMPONENT_H_
+#define ML_ENTITYCOMPONENT_MLCOMPONENT_H_
 
 #include "../Reference/MLReference.h"
 
@@ -48,4 +48,4 @@ protected:
 	MagicLand::MLEntity* m_Entity;
 };
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLCOMPONENT_H_

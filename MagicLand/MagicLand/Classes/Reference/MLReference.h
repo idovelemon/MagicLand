@@ -6,8 +6,8 @@
 // Brief: This file will define the reference counted technology. Every class
 // in MagicLand must inherit this interface to make sure the safe pointer operate.
 //------------------------------------------------------------------------
-#ifndef __MLREFERENCE__H_
-#define __MLREFERENCE__H_
+#ifndef ML_ENTITYCOMPONENT_MLREFERENCE_H_
+#define ML_ENTITYCOMPONENT_MLREFERENCE_H_
 
 namespace MagicLand {class MLReference;};
 
@@ -25,4 +25,4 @@ protected:
     int m_RefCounted;  // The referenced count
 };
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLREFERENCE_H_

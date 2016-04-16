@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the Back state of the jump orge
 //-----------------------------------------------------------------------------------------------
-#ifndef __MLJUMPORGEBACKSTATE__H_
-#define __MLJUMPORGEBACKSTATE__H_
+#ifndef ML_STATEMACHINE_MLJUMPORGEBACKSTATE_H_
+#define ML_STATEMACHINE_MLJUMPORGEBACKSTATE_H_
 
 #include "MLState.h"
 
@@ -28,4 +28,4 @@ protected:
 	virtual void Back(MagicLand::MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLJUMPORGEBACKSTATE_H_

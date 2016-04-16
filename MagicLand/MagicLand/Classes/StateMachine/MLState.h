@@ -12,9 +12,12 @@
 #define __MLSTATE__H_
 
 #include "../Reference/MLReference.h"
-#include "../EntityComponent/MLEntity.h"
 
-namespace MagicLand { class MLState;};
+namespace MagicLand
+{
+	class MLState;
+	class MLEntity;
+};
 
 class MagicLand::MLState:public MagicLand::MLReference
 {
@@ -29,4 +32,4 @@ public:
 	virtual void OnCollision(MagicLand::MLEntity* entity) = 0;
 };
 
-#endif
+#endif // __MLSTATE__H_

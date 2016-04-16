@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the Jump orge's sleep state
 //------------------------------------------------------------
-#ifndef __MLJUMPORGESLEEPSTATE__H_
-#define __MLJUMPORGESLEEPSTATE__H_
+#ifndef ML_STATEMACHINE_MLJUMPORGESLEEPSTATE_H_
+#define ML_STATEMACHINE_MLJUMPORGESLEEPSTATE_H_
 
 #include "MLState.h"
 
@@ -25,4 +25,4 @@ public:
 	virtual void OnCollision(MagicLand::MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLJUMPORGESLEEPSTATE_H_

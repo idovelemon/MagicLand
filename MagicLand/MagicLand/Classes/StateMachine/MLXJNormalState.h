@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the normal state of the hero xiaojian
 //------------------------------------------------------------------------
-#ifndef __MLXJNORMALSTATE__H_
-#define __MLXJNORMALSTATE__H_
+#ifndef ML_STATEMACHINE_MLXJNORMALSTATE_H_
+#define ML_STATEMACHINE_MLXJNORMALSTATE_H_
 
 #include "MLState.h"
 
@@ -29,4 +29,4 @@ protected:
 	void Move(MagicLand::MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLXJNORMALSTATE_H_

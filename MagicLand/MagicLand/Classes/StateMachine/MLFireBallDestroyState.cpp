@@ -1,6 +1,8 @@
 #include "MLFireBallDestroyState.h"
-#include "../EntityComponent/MLAllComs.h"
+
 #include "../marco.h"
+#include "../EntityComponent/MLAllComs.h"
+
 using namespace MagicLand;
 
 MLFireBallDestroyState::MLFireBallDestroyState()

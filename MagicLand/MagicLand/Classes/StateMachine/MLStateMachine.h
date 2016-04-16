@@ -9,14 +9,18 @@
 #ifndef __MLSTATEMACHINE__H_
 #define __MLSTATEMACHINE__H_
 
-#include "../Reference/MLReference.h"
-#include "../EntityComponent/MLEntity.h"
-#include "MLState.h"
-#include "MLCon.h"
-#include "../marco.h"
 #include <vector>
 
-namespace MagicLand { class MLStateMachine;};
+#include "../marco.h"
+#include "MLCon.h"
+#include "MLState.h"
+#include "../Reference/MLReference.h"
+
+namespace MagicLand
+{
+	class MLStateMachine;
+	class MLEntity;
+};
 
 class MagicLand::MLStateMachine:public MagicLand::MLReference
 {
@@ -71,4 +75,4 @@ protected:
 	MLStateEntryArray m_StateTable;
 };
 
-#endif
+#endif // __MLSTATEMACHINE__H_

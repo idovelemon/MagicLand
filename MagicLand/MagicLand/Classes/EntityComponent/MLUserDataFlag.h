@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the user data flag for MagicLand
 //-------------------------------------------------------------------------
-#ifndef __MLUSERDATAFLAG__H_
-#define __MLUSERDATAFLAG__H_
+#ifndef ML_ENTITYCOMPONENT_MLUSERDATAFLAG_H_
+#define ML_ENTITYCOMPONENT_MLUSERDATAFLAG_H_
 
 // For Orge
 const unsigned int ML_USERDATA_FLAG_ORGE_CENTERX = 0;
@@ -23,4 +23,4 @@ const unsigned int ML_USERDATA_FLAG_MOVEPLATFORM_DIFF = 1;
 // For ThrowOrge
 const unsigned int ML_USERDATA_FLAG_THROWORGE_THROWDELTA = 0;
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLUSERDATAFLAG_H_

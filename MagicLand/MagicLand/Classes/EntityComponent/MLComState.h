@@ -6,8 +6,8 @@
 // Brief: This file will define the state comonent of the entity.
 // It hold some information about the state of the entity.
 //------------------------------------------------------------------------
-#ifndef __MLCOMSTATE__H_
-#define __MLCOMSTATE__H_
+#ifndef ML_ENTITYCOMPONENT_MLCOMSTATE_H_
+#define ML_ENTITYCOMPONENT_MLCOMSTATE_H_
 
 #include "MLComponent.h"
 #include "../StateMachine/MLState.h"
@@ -31,4 +31,4 @@ protected:
 	bool m_NeedEnd;
 };
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLCOMSTATE_H_

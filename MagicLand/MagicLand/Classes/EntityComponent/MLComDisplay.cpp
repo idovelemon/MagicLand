@@ -1,5 +1,8 @@
 #include "MLComDisplay.h"
+
 #include "../marco.h"
+#include "MLEntity.h"
+
 using namespace MagicLand;
 using namespace cocos2d;
 

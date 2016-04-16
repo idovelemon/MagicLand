@@ -5,11 +5,12 @@
 // Version: 1.0
 // Brief: This file will define the timer component in this game
 //---------------------------------------------------------------------
-#ifndef __MLCOMTIMER__H_
-#define __MLCOMTIMER__H_
+#ifndef ML_ENTITYCOMPONENT_MLCOMTIMER_H_
+#define ML_ENTITYCOMPONENT_MLCOMTIMER_H_
+
+#include <map>
 
 #include "MLComponent.h"
-#include <map>
 
 namespace MagicLand { class MLComTimer; };
 
@@ -29,4 +30,4 @@ protected:
 	MLTimerMap m_TimerMap;
 };
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLCOMTIMER_H_

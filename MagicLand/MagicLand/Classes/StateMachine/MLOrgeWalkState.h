@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the Orge walk state
 //-------------------------------------------------------------------------------------
-#ifndef __MLORGEWALKSTATE__H_
-#define __MLORGEWALKSTATE__H_
+#ifndef ML_STATEMACHINE_MLORGEWALKSTATE_H_
+#define ML_STATEMACHINE_MLORGEWALKSTATE_H_
 
 #include "MLState.h"
 
@@ -28,4 +28,4 @@ protected:
 	void Walk(MagicLand::MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMACHINE_MLORGEWALKSTATE_H_

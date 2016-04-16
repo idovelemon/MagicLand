@@ -1,9 +1,11 @@
 #include "MLJumpOrgeJumpState.h"
+
 #include "../marco.h"
+#include "MLStateMethod.h"
 #include "../EntityComponent/MLAllComs.h"
 #include "../EntityComponent/MLEntityMgr.h"
 #include "../Support/Script/MLScriptMgr.h"
-#include "MLStateMethod.h"
+
 using namespace MagicLand;
 
 MLJumpOrgeJumpState::MLJumpOrgeJumpState()

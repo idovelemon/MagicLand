@@ -1,5 +1,7 @@
 #include "MLComTimer.h"
+
 #include "../marco.h"
+
 using namespace MagicLand;
 
 MLComTimer::MLComTimer(MLEntity* entity)

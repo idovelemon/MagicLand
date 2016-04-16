@@ -6,16 +6,21 @@
 // Breif: This file will define the entity manager which will hold all the
 // entities in the game.
 //------------------------------------------------------------------------
-#ifndef __MLENTITYMGR__H_
-#define __MLENTITYMGR__H_
+#ifndef ML_ENTITYCOMPONENT_MLENTITYMGR_H_
+#define ML_ENTITYCOMPONENT_MLENTITYMGR_H_
 
 #include <map>
-#include "../Round/MLRoom.h"
-#include "MLEntity.h"
-#include "../Support/XJMath/XJMath.h"
+
 #include <cocos2d.h>
 
-namespace MagicLand {class MLEntityMgr;};
+#include "../Round/MLRoom.h"
+#include "../Support/XJMath/XJMath.h"
+
+namespace MagicLand 
+{
+	class MLEntityMgr;
+	class MLEntity;
+};
 
 class MagicLand::MLEntityMgr
 {
@@ -46,4 +51,4 @@ protected:
 	MLEntity*				m_Player;
 };
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLENTITYMGR_H_

@@ -1,9 +1,11 @@
 #include "MLXJNormalState.h"
+
+#include "../marco.h"
+#include "MLStateMethod.h"
 #include "../EntityComponent/MLAllComs.h"
 #include "../Framerate/MLFrameRateMgr.h"
-#include "MLStateMethod.h"
-#include "../marco.h"
 #include "../Support/Script/MLScriptMgr.h"
+
 using namespace MagicLand;
 
 MLXJNormalState::MLXJNormalState()

@@ -5,8 +5,8 @@
 // Version: 1.0
 // Brief: This file will define the fly state of the fire ball
 //-----------------------------------------------------
-#ifndef __MLFIREBALLFLYSTATE__H_
-#define __MLFIREBALLFLYSTATE__H_
+#ifndef ML_STATEMAHINE_MLFIREBALLFLYSTATE_H_
+#define ML_STATEMAHINE_MLFIREBALLFLYSTATE_H_
 
 #include "MLState.h"
 
@@ -29,4 +29,4 @@ protected:
 	void UpdateFlyTimer(MLEntity* entity);
 };
 
-#endif
+#endif // ML_STATEMAHINE_MLFIREBALLFLYSTATE_H_

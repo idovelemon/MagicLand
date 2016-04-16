@@ -10,11 +10,15 @@
 #ifndef __MLSTATEMACHINEMGR__H_
 #define __MLSTATEMACHINEMGR__H_
 
-#include "../EntityComponent/MLEntity.h"
-#include "MLStateMachine.h"
 #include <map>
 
-namespace MagicLand { class MLStateMachineMgr; };
+#include "MLStateMachine.h"
+
+namespace MagicLand
+{
+	class MLStateMachineMgr;
+	class MLEntity;
+};
 
 class MagicLand::MLStateMachineMgr
 {
@@ -53,4 +57,4 @@ protected:
 	static MLStateMachineMgr* s_Instance;
 };
 
-#endif
+#endif // __MLSTATEMACHINEMGR__H_

@@ -7,19 +7,19 @@
 // game will inherit from this interface.
 // Update: 2015/12/5 - Use Entity-Component architecture to refract the entity
 //------------------------------------------------------------------------
-#ifndef __MLENTITY__H_
-#define __MLENTITY__H_
+#ifndef ML_ENTITYCOMPONENT_MLENTITY_H_
+#define ML_ENTITYCOMPONENT_MLENTITY_H_
 
-#include "../Reference/MLReference.h"
-#include "../EntityComponent/MLComponent.h"
-#include "../Round/MLRoom.h"
-#include "../Support/XJMath/XJMath.h"
 #include <map>
+
+#include "MLComponent.h"
+#include "../Reference/MLReference.h"
 
 namespace MagicLand 
 {
 	class MLEntity;
-	
+	class MLRoom;
+
 	enum MLEntityMainType
 	{
 		ML_ETYMAINTYPE_NONE = -1,	
@@ -42,6 +42,7 @@ namespace MagicLand
 		ML_ETYSUBTYPE_JUMPORGE, // This indicate the jump orge in the game
 		ML_ETYSUBTYPE_MOVEPLATFORM,
 		ML_ETYSUBTYPE_THROWORGE,
+		ML_ETYSUBTYPE_GEARCORE,
 
 		ML_ETYSUBTYPE_TERRIAN,	// This indicate the terrian boundbox in the game
 		ML_ETYSUBTYPE_FIREBALL, // This indicate the fire ball in the game
@@ -132,4 +133,4 @@ protected:
 	static unsigned int s_IDGenerator;			// The static ID generator
 };
 
-#endif
+#endif // ML_ENTITYCOMPONENT_MLENTITY_H_

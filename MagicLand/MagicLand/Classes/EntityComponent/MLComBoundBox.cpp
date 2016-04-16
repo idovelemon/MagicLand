@@ -1,6 +1,9 @@
 #include "MLComBoundBox.h"
-#include "../Collision/MLCollisionMgr.h"
+
 #include "../marco.h"
+#include "MLEntity.h"
+#include "../Collision/MLCollisionMgr.h"
+
 using namespace MagicLand;
 
 MLComBoundBox::MLComBoundBox(MLEntity* entity, float width, float height, float px, float py)
