@@ -11,15 +11,19 @@
 #ifndef ML_STATEMACHINE_MLENDSTATE_H_
 #define ML_STATEMACHINE_MLENDSTATE_H_
 
+#include "marco.h"
 #include "statemachine/ml_state.h"
 
-namespace magicland { class MLEndState; };
-
-class magicland::MLEndState:public MLState
+namespace magicland {
+	 
+class MLEndState:public MLState
 {
 protected:
 	MLEndState();
 	virtual ~MLEndState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLEndState);
 
 public:
 	static MLEndState* SharedInstance();
@@ -33,5 +37,7 @@ public:
 protected:
 	static MLEndState* s_Instance;
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLENDSTATE_H_

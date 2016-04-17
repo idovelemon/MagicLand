@@ -10,15 +10,12 @@
 
 #include <cocos2d.h>
 
+#include "marco.h"
 #include "reference/ml_reference.h"
 
-namespace magicland
-{
-	class MLCamera;
-};
+namespace magicland {
 
-class magicland::MLCamera:public MLReference
-{
+class MLCamera:public MLReference {
 public:
 	MLCamera();
     explicit MLCamera(cocos2d::CCLayer* layer);
@@ -32,9 +29,14 @@ public:
 public:
     virtual bool IsDead() const;
 
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLCamera);
+
 protected:
     cocos2d::CCLayer*	m_Layer;       // The layer that be controled by the camera
     bool				m_IsDead;      // If the camera is dead
 };
+
+}; // namespace magicland
 
 #endif // ML_CAMERA_MLCAMERA_H_

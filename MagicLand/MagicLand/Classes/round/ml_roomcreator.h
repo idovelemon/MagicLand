@@ -9,19 +9,20 @@
 #ifndef ML_ROUND_MLROOMCREATOR_H_
 #define ML_ROUND_MLROOMCREATOR_H_
 
+#include "marco.h"
 #include "reference/ml_reference.h"
 
-namespace magicland
-{ 
-	class MLRoomCreator;
-	class MLRoom;
-};
+namespace magicland {
 
-class magicland::MLRoomCreator:public MLReference
-{
+class MLRoom;
+
+class MLRoomCreator:public MLReference {
 public:
 	explicit MLRoomCreator(const char* roomDataFile);
 	virtual ~MLRoomCreator();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLRoomCreator);
 
 public:
 	//------------------------------------------------------------------------
@@ -58,5 +59,7 @@ protected:
 protected:
 	char* m_RoomDataFileName;   // The room's file's name
 };
+
+}; // namespace magicland
 
 #endif // ML_ROUND_MLROOMCREATOR_H_

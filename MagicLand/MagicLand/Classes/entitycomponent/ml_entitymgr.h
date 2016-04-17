@@ -13,21 +13,22 @@
 
 #include <cocos2d.h>
 
+#include "marco.h"
 #include "round/ml_room.h"
 #include "support/xjmath/XJMath.h"
 
-namespace magicland 
-{
-	class MLEntityMgr;
-	class MLEntity;
-};
+namespace magicland {
 
-class magicland::MLEntityMgr
-{
+class MLEntity;
+
+class MLEntityMgr {
 protected:
 	MLEntityMgr();
 	virtual ~MLEntityMgr();
 	static MLEntityMgr* s_Instance;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLEntityMgr);
 
 public:
 	static MLEntityMgr* SharedInstance();
@@ -50,5 +51,7 @@ protected:
 	MLEntityTable			m_EntityTable;
 	MLEntity*				m_Player;
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMPONENT_MLENTITYMGR_H_

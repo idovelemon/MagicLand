@@ -1,9 +1,9 @@
-#ifndef __MAROC__H_
-#define __MAROC__H_
+#ifndef ML_MAROC_H_
+#define ML_MAROC_H_
 
 #include <assert.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 #define ML_SAFE_ASSERT(_expression_, _msg_) \
     do\
@@ -45,6 +45,10 @@
 		_entity_ = NULL;\
 	}
 
+#define ML_DISALLOW_COPY_AND_ASSIGN(TypeName) \
+	TypeName(const TypeName&); \
+	void operator=(const TypeName&)
+
 #define ML_FLOAT_EQUAL(_value1_, _value2_) (abs(_value1_ - _value2_) <= 0.0001f)
 
-#endif
+#endif // ML_MAROC_H_

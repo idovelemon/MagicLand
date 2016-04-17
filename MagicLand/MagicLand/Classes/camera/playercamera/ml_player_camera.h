@@ -10,12 +10,12 @@
 
 #include <cocos2d.h>
 
+#include "marco.h"
 #include "camera/ml_camera.h"
 
-namespace magicland{
+namespace magicland {
 
-class MLPlayerCamera : public MLCamera
-{
+class MLPlayerCamera : public MLCamera {
 public:
 	MLPlayerCamera();
 	explicit MLPlayerCamera(cocos2d::CCLayer* layer);
@@ -28,6 +28,9 @@ public:
 
 private:
 	void calculateCamrea();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLPlayerCamera);
 
 public:
 	virtual bool IsDead() const;

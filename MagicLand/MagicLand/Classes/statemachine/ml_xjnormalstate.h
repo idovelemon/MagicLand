@@ -8,15 +8,18 @@
 #ifndef ML_STATEMACHINE_MLXJNORMALSTATE_H_
 #define ML_STATEMACHINE_MLXJNORMALSTATE_H_
 
+#include "marco.h"
 #include "statemachine/ml_state.h"
 
-namespace magicland { class MLXJNormalState; };
+namespace magicland {
 
-class magicland::MLXJNormalState:public MLState
-{
+class MLXJNormalState:public MLState {
 public:
 	MLXJNormalState();
 	virtual ~MLXJNormalState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLXJNormalState);
 
 public:
 	virtual void Enter(magicland::MLEntity* entity);
@@ -28,5 +31,7 @@ protected:
 	void HandleInput(magicland::MLEntity* entity);
 	void Move(magicland::MLEntity* entity);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLXJNORMALSTATE_H_

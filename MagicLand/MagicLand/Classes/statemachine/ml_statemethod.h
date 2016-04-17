@@ -9,12 +9,18 @@
 #ifndef ML_STATEMACHINE_MLSTATEMETHOD_H_
 #define ML_STATEMACHINE_MLSTATEMETHOD_H_
 
+#include "marco.h"
 #include "entitycomponent/ml_entity.h"
 
-namespace magicland { class MLStateMethod; };
+namespace magicland {
 
-class magicland::MLStateMethod
-{
+class MLStateMethod {
+
+private:
+	MLStateMethod();
+	virtual ~MLStateMethod();
+	ML_DISALLOW_COPY_AND_ASSIGN(MLStateMethod);
+
 public:
 	static void CollisionResponse(magicland::MLEntity* entity);
 	static void UpdateBoundBox(magicland::MLEntity* entity);
@@ -22,5 +28,7 @@ public:
 	static void OnCollision(magicland::MLEntity* entity);
 	static void Fire(magicland::MLEntity* entity);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLSTATEMETHOD_H_

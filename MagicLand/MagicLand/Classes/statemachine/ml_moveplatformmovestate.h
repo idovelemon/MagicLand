@@ -8,15 +8,18 @@
 #ifndef ML_STATEMACHINE_MLMOVEPLATFORMMOVESTATE_H_
 #define ML_STATEMACHINE_MLMOVEPLATFORMMOVESTATE_H_
 
+#include "marco.h"
 #include "statemachine/ml_state.h"
 
-namespace magicland { class MLMovePlatformMoveState; };
+namespace magicland {
 
-class magicland::MLMovePlatformMoveState:public magicland::MLState
-{
+class MLMovePlatformMoveState:public MLState {
 public:
 	MLMovePlatformMoveState();
 	virtual ~MLMovePlatformMoveState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLMovePlatformMoveState);
 
 public:
 	virtual void Enter(magicland::MLEntity* entity);
@@ -27,5 +30,7 @@ public:
 protected:
 	virtual void Move(magicland::MLEntity* entity);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLMOVEPLATFORMMOVESTATE_H_

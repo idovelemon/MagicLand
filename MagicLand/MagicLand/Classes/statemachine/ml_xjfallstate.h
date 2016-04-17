@@ -8,15 +8,18 @@
 #ifndef ML_STATEMACHINE_MLXJFALLSTATE_H_
 #define ML_STATEMACHINE_MLXJFALLSTATE_H_
 
+#include "marco.h"
 #include "statemachine/ml_state.h"
 
-namespace magicland { class MLXJFallState; };
+namespace magicland {
 
-class magicland::MLXJFallState:public MLState
-{
+class MLXJFallState:public MLState {
 public:
 	MLXJFallState();
 	virtual ~MLXJFallState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLXJFallState);
 
 public:
 	virtual void Enter(magicland::MLEntity* entity);
@@ -27,5 +30,7 @@ public:
 protected:
 	void Fall(magicland::MLEntity* entity);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLXJFALLSTATE_H_

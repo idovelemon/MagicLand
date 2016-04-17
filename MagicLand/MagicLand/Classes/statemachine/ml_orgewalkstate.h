@@ -8,15 +8,19 @@
 #ifndef ML_STATEMACHINE_MLORGEWALKSTATE_H_
 #define ML_STATEMACHINE_MLORGEWALKSTATE_H_
 
+#include "marco.h"
 #include "statemachine/ml_state.h"
 
-namespace magicland { class MLOrgeWalkState; };
+namespace magicland {
 
-class magicland::MLOrgeWalkState:public MLState
+class MLOrgeWalkState:public MLState
 {
 public:
 	MLOrgeWalkState();
 	virtual ~MLOrgeWalkState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLOrgeWalkState);
 
 public:
 	virtual void Enter(magicland::MLEntity* entity);
@@ -27,5 +31,7 @@ public:
 protected:
 	void Walk(magicland::MLEntity* entity);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLORGEWALKSTATE_H_

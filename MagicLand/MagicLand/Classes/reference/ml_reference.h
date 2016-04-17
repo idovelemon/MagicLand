@@ -9,13 +9,17 @@
 #ifndef ML_ENTITYCOMPONENT_MLREFERENCE_H_
 #define ML_ENTITYCOMPONENT_MLREFERENCE_H_
 
-namespace magicland {class MLReference;};
+#include "marco.h"
 
-class magicland::MLReference
-{
+namespace magicland {
+
+class MLReference {
 public:
     MLReference();
     virtual ~MLReference();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLReference);
 
 public:
     virtual void Grab();
@@ -24,5 +28,7 @@ public:
 protected:
     int m_RefCounted;  // The referenced count
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMPONENT_MLREFERENCE_H_

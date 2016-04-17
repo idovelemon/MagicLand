@@ -11,17 +11,20 @@
 #include <list>
 #include <vector>
 
-namespace magicland 
-{ 
-	class MLCollisionMgr; 
-	class MLEntity;
-};
+#include "marco.h"
 
-class magicland::MLCollisionMgr
-{
+namespace magicland { 
+
+class MLEntity;
+
+class MLCollisionMgr {
+
 protected:
 	MLCollisionMgr();
 	virtual ~MLCollisionMgr();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLCollisionMgr);
 
 public:
 	static MLCollisionMgr* SharedInstance();
@@ -53,5 +56,6 @@ protected:
 
 	static MLCollisionMgr* s_Instance;
 };
+}; // namespace magicland
 
 #endif // ML_COLLISION_MLCOLLISIONMGR_H_

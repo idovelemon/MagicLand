@@ -11,18 +11,17 @@
 
 #include<vector>
 
+#include "marco.h"
 #include "entitycomponent/ml_component.h"
 #include "support/xjmath/XJMath.h"
 
-namespace magicland 
-{ 
-	class MLComBoundBox;
-	typedef std::vector<MLEntity*> MLColVector;
-	class MLComponent;
-	class MLEntity;
-};
+namespace magicland {
 
-class magicland::MLComBoundBox:public MLComponent
+typedef std::vector<MLEntity*> MLColVector;
+class MLComponent;
+class MLEntity;
+
+class MLComBoundBox:public MLComponent
 {
 public:
 	MLComBoundBox(magicland::MLEntity* entity, float width, float height, float posx, float posy);
@@ -37,10 +36,15 @@ public:
 	virtual void	UpdateBoundBox(VECTOR2 pos);
 	virtual void	Reset();
 
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComBoundBox);
+
 protected:
 	AABB					m_Aabb;			// The bounding box of the entity
 	bool					m_IsCollided;	// If the bound box has collided with other bound box
 	magicland::MLColVector	m_ColEntities;	// The collided entities
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMPONENT_MLCOMBOUNDBOX_H_

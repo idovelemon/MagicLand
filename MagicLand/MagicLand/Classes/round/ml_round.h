@@ -8,19 +8,21 @@
 #ifndef ML_ROUND_MLROUND_H_
 #define ML_ROUND_MLROUND_H_
 
+#include "marco.h"
 #include "reference/ml_reference.h"
 
-namespace magicland 
-{ 
-	class MLRound;
-	class MLRoom;
-};
+namespace magicland {
 
-class magicland::MLRound:public MLReference
+class MLRoom;
+
+class MLRound:public MLReference
 {
 protected:
 	MLRound();
 	virtual ~MLRound();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLRound);
 
 public:
 	static MLRound* SharedInstance();
@@ -33,6 +35,8 @@ public:
 protected:
 	magicland::MLRoom* m_CurRoom;
 	static MLRound* s_Instance;
+};
+
 };
 
 #endif // ML_ROUND_MLROUND_H_

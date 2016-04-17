@@ -9,16 +9,19 @@
 #ifndef ML_ENTITYCOMPONENT_MLCOMSTATE_H_
 #define ML_ENTITYCOMPONENT_MLCOMSTATE_H_
 
+#include "marco.h"
 #include "entitycomponent/ml_component.h"
 #include "stateMachine/ml_state.h"
 
-namespace magicland { class MLComState; };
+namespace magicland {
 
-class magicland::MLComState:public MLComponent
-{
+class MLComState:public MLComponent {
 public:
 	MLComState(magicland::MLEntity* entity);
 	virtual ~MLComState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComState);
 
 public:
 	virtual void SetState(magicland::MLState* pState);
@@ -30,5 +33,7 @@ protected:
 	magicland::MLState*	m_State;	// The state of the entity
 	bool m_NeedEnd;
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMPONENT_MLCOMSTATE_H_

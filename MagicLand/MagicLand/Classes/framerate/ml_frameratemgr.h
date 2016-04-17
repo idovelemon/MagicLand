@@ -8,13 +8,17 @@
 #ifndef ML_ENTITYCOMONENT_MLFRAMERATEMGR_H_
 #define ML_ENTITYCOMONENT_MLFRAMERATEMGR_H_
 
-namespace magicland { class MLFrameRateMgr; };
+#include "marco.h"
 
-class magicland::MLFrameRateMgr
-{
+namespace magicland {
+	
+class MLFrameRateMgr {
 protected:
 	MLFrameRateMgr();
 	virtual ~MLFrameRateMgr();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLFrameRateMgr);
 
 public:
 	static MLFrameRateMgr* SharedInstance();
@@ -31,5 +35,7 @@ protected:
 	long m_TotalFrames;
 	float m_TotalTime;
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMONENT_MLFRAMERATEMGR_H_

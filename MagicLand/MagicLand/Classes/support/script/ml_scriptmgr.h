@@ -6,11 +6,13 @@
 #include <string>
 #include <vector>
 
-class MLScriptMgr
-{
+#include "marco.h"
+
+class MLScriptMgr {
 protected:
 	MLScriptMgr();
 	virtual ~MLScriptMgr();
+	ML_DISALLOW_COPY_AND_ASSIGN(MLScriptMgr);
 
 public:
 	static MLScriptMgr* SharedInstance();

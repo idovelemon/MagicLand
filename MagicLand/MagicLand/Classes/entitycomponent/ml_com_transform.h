@@ -9,16 +9,20 @@
 #ifndef ML_ENTITYCOMONENT_MLCOMTRANSFORM_H_
 #define ML_ENTITYCOMONENT_MLCOMTRANSFORM_H_
 
+#include "marco.h"
 #include "entitycomponent/ml_component.h"
 #include "support/xjmath/XJMath.h"
 
-namespace magicland { class MLComTransform;};
-
-class magicland::MLComTransform:public magicland::MLComponent
+namespace magicland {
+	
+class MLComTransform:public MLComponent
 {
 public:
 	MLComTransform(magicland::MLEntity* entity, float x, float y, float sx, float sy, float r);
 	virtual ~MLComTransform();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComTransform);
 
 public:
 	virtual void	SetPos(float x, float y);
@@ -35,4 +39,7 @@ protected:
 	VECTOR2 m_Scale;	// The scale of the entity
 	float	m_Rot;		// The rotation of the entity in degree
 };
+
+}; // namespace magicland
+
 #endif // ML_ENTITYCOMONENT_MLCOMTRANSFORM_H_

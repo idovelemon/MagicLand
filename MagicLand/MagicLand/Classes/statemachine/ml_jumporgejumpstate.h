@@ -8,15 +8,18 @@
 #ifndef ML_STATEMACHINE_MLJUMPORGEJUMPSTATE_H_
 #define ML_STATEMACHINE_MLJUMPORGEJUMPSTATE_H_
 
+#include "marco.h"
 #include "statemachine/ml_state.h"
 
-namespace magicland { class MLJumpOrgeJumpState; };
+namespace magicland {
 
-class magicland::MLJumpOrgeJumpState:public MLState
-{
+class MLJumpOrgeJumpState:public MLState {
 public:
 	MLJumpOrgeJumpState();
 	virtual ~MLJumpOrgeJumpState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLJumpOrgeJumpState);
 
 public:
 	virtual void Enter(magicland::MLEntity* entity);
@@ -27,5 +30,7 @@ public:
 protected:
 	virtual void Jump(magicland::MLEntity* entity);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLJUMPORGEJUMPSTATE_H_

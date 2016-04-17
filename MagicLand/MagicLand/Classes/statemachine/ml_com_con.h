@@ -8,14 +8,19 @@
 #ifndef ML_STATEMACHINE_MLCOMCON_H_
 #define ML_STATEMACHINE_MLCOMCON_H_
 
-namespace magicland
-{
-	class MLComCon;
-	class MLEntity;
-};
+#include "marco.h"
 
-class magicland::MLComCon
-{
+namespace magicland {
+
+class MLEntity;
+
+class MLComCon {
+
+private:
+	MLComCon();
+	virtual ~MLComCon();
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComCon);
+
 	// Common
 public:
 	static bool StartOK(magicland::MLEntity* entity);
@@ -41,7 +46,8 @@ public:
 public:
 	static bool JumpOrgeSeePlayer(magicland::MLEntity* entity);
 	static bool JumpOrgeIsBack(magicland::MLEntity* entity);
-
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLCOMCON_H_

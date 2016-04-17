@@ -10,15 +10,18 @@
 
 #include <map>
 
+#include "marco.h"
 #include "entitycomponent/ml_component.h"
 
-namespace magicland { class MLComTimer; };
+namespace magicland {
 
-class magicland::MLComTimer:public magicland::MLComponent
-{
+class MLComTimer:public MLComponent {
 public:
 	MLComTimer(magicland::MLEntity* entity);
 	virtual ~MLComTimer();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComTimer);
 
 public:
 	void AddTimer(unsigned int flag, float initTime = 0.0f);
@@ -29,5 +32,7 @@ protected:
 	typedef std::map<unsigned int, float> MLTimerMap;
 	MLTimerMap m_TimerMap;
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMPONENT_MLCOMTIMER_H_

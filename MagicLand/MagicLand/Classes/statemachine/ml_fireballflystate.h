@@ -8,15 +8,18 @@
 #ifndef ML_STATEMAHINE_MLFIREBALLFLYSTATE_H_
 #define ML_STATEMAHINE_MLFIREBALLFLYSTATE_H_
 
+#include "marco.h"
 #include "statemachine/ml_state.h"
 
-namespace magicland { class MLFireBallFlyState; };
+namespace magicland {
 
-class magicland::MLFireBallFlyState:public MLState
-{
+class MLFireBallFlyState:public MLState {
 public:
 	MLFireBallFlyState();
 	virtual ~MLFireBallFlyState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLFireBallFlyState);
 
 public:
 	virtual void Enter(MLEntity* entity);
@@ -28,5 +31,7 @@ protected:
 	void Fly(MLEntity* entity);
 	void UpdateFlyTimer(MLEntity* entity);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMAHINE_MLFIREBALLFLYSTATE_H_

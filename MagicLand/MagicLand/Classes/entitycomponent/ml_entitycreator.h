@@ -12,28 +12,30 @@
 
 #include <cocos2d.h>
 
+#include "marco.h"
 #include "entitycomponent/ml_entity.h"
 #include "support/xjmath/XJMath.h"
 
-namespace magicland 
-{
-	class MLEntityCreator;
-	struct MLETYCreatorEntry;
-	class MLRoom;
-};
+namespace magicland {
 
-typedef magicland::MLEntity* (*PFUNCEntityCreator)(int xCoord, int yCoord, magicland::MLRoom* room);
+struct MLETYCreatorEntry;
+class MLRoom;
 
-struct magicland::MLETYCreatorEntry
-{
+typedef MLEntity* (*PFUNCEntityCreator)(int xCoord, int yCoord, MLRoom* room);
+
+struct magicland::MLETYCreatorEntry {
 	MLEntitySubType type;
 	PFUNCEntityCreator creator;
 };
 
-class magicland::MLEntityCreator
-{
+class MLEntityCreator {
 protected:
 	static MLETYCreatorEntry s_CreatorTable[];
+
+private:
+	MLEntityCreator();
+	virtual ~MLEntityCreator();
+	ML_DISALLOW_COPY_AND_ASSIGN(MLEntityCreator);
 
 public:
 	static MLEntity* CreateTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room);
@@ -59,4 +61,7 @@ protected:
 	static MLEntity* CreateThrowOrge(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateGearCore(int xCoord, int yCoord, MLRoom* room);
 };
+
+}; // namespace magicland
+
 #endif //ML_ENTITYCOMPONENT_MLENTITYCREATOR_H_

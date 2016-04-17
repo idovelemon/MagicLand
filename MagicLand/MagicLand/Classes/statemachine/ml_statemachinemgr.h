@@ -12,19 +12,20 @@
 
 #include <map>
 
+#include "marco.h"
 #include "statemachine/ml_statemachine.h"
 
-namespace magicland
-{
-	class MLStateMachineMgr;
-	class MLEntity;
-};
+namespace magicland {
 
-class magicland::MLStateMachineMgr
-{
+class MLEntity;
+
+class MLStateMachineMgr {
 protected:
 	MLStateMachineMgr();
 	virtual ~MLStateMachineMgr();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLStateMachineMgr);
 
 public:
 	static MLStateMachineMgr* SharedInstance();
@@ -56,5 +57,7 @@ protected:
 
 	static MLStateMachineMgr* s_Instance;
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLSTATEMACHINEMGR_H_

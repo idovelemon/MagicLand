@@ -10,18 +10,19 @@
 
 #include "entitycomponent/ml_component.h"
 
+#include "marco.h"
 #include "support/xjmath/XJMath.h"
 
-namespace magicland 
-{ 
-	class MLComMovement;
-};
+namespace magicland {
 
-class magicland::MLComMovement:public MLComponent
-{
+class MLComMovement:public MLComponent {
+
 public:
 	MLComMovement(magicland::MLEntity* entity);
 	virtual ~MLComMovement();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComMovement);
 
 public:
 	virtual void SetVel(float x, float y);
@@ -36,5 +37,7 @@ protected:
 	float	m_Gravity;
 	float	m_MaxFallSpeed;
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMPONENT_MLCOMMOVEMENT_H_

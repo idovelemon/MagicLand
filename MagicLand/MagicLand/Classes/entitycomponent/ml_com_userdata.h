@@ -10,20 +10,19 @@
 
 #include <vector>
 
+#include "marco.h"
 #include "entitycomponent/ml_component.h"
 
-namespace magicland
-{
-	class MLComUserData;
-	class MLEntity;
-};
+namespace magicland {
 
-class magicland::MLComUserData
-	: public magicland::MLComponent
+class MLComUserData:public MLComponent
 {
 public:
 	MLComUserData(magicland::MLEntity* entity);
 	virtual ~MLComUserData();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComUserData);
 
 public:
 	enum USER_DATA_TYPE
@@ -51,5 +50,7 @@ public:
 protected:
 	std::vector<UserData> m_vUserDatas;
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMONENT_MLCOMUSERDATA_H_

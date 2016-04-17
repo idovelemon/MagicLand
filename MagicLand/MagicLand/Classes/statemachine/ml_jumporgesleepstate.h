@@ -8,15 +8,18 @@
 #ifndef ML_STATEMACHINE_MLJUMPORGESLEEPSTATE_H_
 #define ML_STATEMACHINE_MLJUMPORGESLEEPSTATE_H_
 
+#include "marco.h"
 #include "statemachine/ml_state.h"
 
-namespace magicland { class MLJumpOrgeSleepState; };
+namespace magicland {
 
-class magicland::MLJumpOrgeSleepState:public magicland::MLState
-{
+class MLJumpOrgeSleepState:public MLState {
 public:
 	MLJumpOrgeSleepState();
 	virtual ~MLJumpOrgeSleepState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLJumpOrgeSleepState);
 
 public:
 	virtual void Enter(magicland::MLEntity* entity);
@@ -24,5 +27,7 @@ public:
 	virtual void Exit(magicland::MLEntity* entity);
 	virtual void OnCollision(magicland::MLEntity* entity);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLJUMPORGESLEEPSTATE_H_

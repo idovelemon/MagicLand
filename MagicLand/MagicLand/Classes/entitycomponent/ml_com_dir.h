@@ -8,19 +8,20 @@
 #ifndef ML_ENTITYCOMPONENT_MLCOMDIR_H_
 #define ML_ENTITYCOMPONENT_MLCOMDIR_H_
 
+#include "marco.h"
 #include "entitycomponent/ml_entity.h" // FixMe:Split the game's entity type with the Framework
 
-namespace magicland 
-{ 
-	class MLComDir;
-	class MLComponent;
-};
+namespace magicland {
 
-class magicland::MLComDir:public MLComponent
-{
+class MLComponent;
+
+class MLComDir:public MLComponent {
 public:
 	MLComDir(magicland::MLEntity* entity, magicland::MLDir dir);
 	virtual ~MLComDir();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComDir);
 
 public:
 	void SetDir(magicland::MLDir dir);
@@ -29,5 +30,7 @@ public:
 protected:
 	magicland::MLDir m_Dir;
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMPONENT_MLCOMDIR_H_

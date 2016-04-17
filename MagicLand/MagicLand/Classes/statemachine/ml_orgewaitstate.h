@@ -8,15 +8,18 @@
 #ifndef ML_STATEMACHINE_MLORGEWAITSTATE_H_
 #define ML_STATEMACHINE_MLORGEWAITSTATE_H_
 
+#include "marco.h"
 #include "statemachine/ml_state.h"
 
-namespace magicland { class MLOrgeWaitState; };
+namespace magicland {
 
-class magicland::MLOrgeWaitState:public magicland::MLState
-{
+class MLOrgeWaitState:public MLState {
 public:
 	MLOrgeWaitState();
 	virtual ~MLOrgeWaitState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLOrgeWaitState);
 
 public:
 	virtual void Enter(magicland::MLEntity* entity);
@@ -24,5 +27,7 @@ public:
 	virtual void Exit(magicland::MLEntity* entity);
 	virtual void OnCollision(magicland::MLEntity* entity);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLORGEWAITSTATE_H_

@@ -8,15 +8,18 @@
 #ifndef ML_STATEMACHINE_MLJUMPORGEBACKSTATE_H_
 #define ML_STATEMACHINE_MLJUMPORGEBACKSTATE_H_
 
+#include "marco.h"
 #include "statemachine/ml_state.h"
 
-namespace magicland { class MLJumpOrgeBackState; };
+namespace magicland {
 
-class magicland::MLJumpOrgeBackState:public magicland::MLState
-{
+class MLJumpOrgeBackState:public MLState {
 public:
 	MLJumpOrgeBackState();
 	virtual ~MLJumpOrgeBackState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLJumpOrgeBackState);
 
 public:
 	virtual void Enter(magicland::MLEntity* entity);
@@ -27,5 +30,7 @@ public:
 protected:
 	virtual void Back(magicland::MLEntity* entity);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLJUMPORGEBACKSTATE_H_

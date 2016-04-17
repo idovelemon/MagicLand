@@ -12,60 +12,61 @@
 
 #include <map>
 
+#include "marco.h"
 #include "entitycomponent/ml_component.h"
 #include "reference/ml_reference.h"
 
-namespace magicland 
+namespace magicland {
+
+class MLRoom;
+
+enum MLEntityMainType
 {
-	class MLEntity;
-	class MLRoom;
+	ML_ETYMAINTYPE_NONE = -1,	
+	ML_ETYMAINTYPE_ENV,		// This indicate the environment main type. This kind of entity can not be destroy by player.
+	ML_ETYMAINTYPE_PLAYER,	// This indicate the player main type.All entity in this kind will belong to player
+	ML_ETYMAINTYPE_PLAYER_MAGIC, // This indicate the magic of the player
+	ML_ETYMAINTYPE_ENEMY,	// This indicate the enemy main type.
+	ML_ETYMAINTYPE_ENEMYMAGIC, // This indicate the enemy's magic type
 
-	enum MLEntityMainType
-	{
-		ML_ETYMAINTYPE_NONE = -1,	
-		ML_ETYMAINTYPE_ENV,		// This indicate the environment main type. This kind of entity can not be destroy by player.
-		ML_ETYMAINTYPE_PLAYER,	// This indicate the player main type.All entity in this kind will belong to player
-		ML_ETYMAINTYPE_PLAYER_MAGIC, // This indicate the magic of the player
-		ML_ETYMAINTYPE_ENEMY,	// This indicate the enemy main type.
-		ML_ETYMAINTYPE_ENEMYMAGIC, // This indicate the enemy's magic type
-
-		ML_ETYMAINTYPE_TOTAL,	// This indicate how many entity main type in magicland
-	};
-
-	enum MLEntitySubType
-	{
-		ML_ETYSUBTYPE_NONE = -1,
-		ML_ETYSUBTYPE_EMPTY,	// This indicate the empty area in the game
-		ML_ETYSUBTYPE_WALL,		// This indicate the wall in the game
-		ML_ETYSUBTYPE_XJ,		// This indicate the hero xj in the game
-		ML_ETYSUBTYPE_ORGE,		// This indicate the enemy orge in the game
-		ML_ETYSUBTYPE_JUMPORGE, // This indicate the jump orge in the game
-		ML_ETYSUBTYPE_MOVEPLATFORM,
-		ML_ETYSUBTYPE_THROWORGE,
-		ML_ETYSUBTYPE_GEARCORE,
-
-		ML_ETYSUBTYPE_TERRIAN,	// This indicate the terrian boundbox in the game
-		ML_ETYSUBTYPE_FIREBALL, // This indicate the fire ball in the game
-		ML_ETYSUBTYPE_BOOMBALL, 
-		ML_ETYSUBTYPE_BROKENSTONE,
-
-		ML_ETYSUBTYPE_TOTAL,	// This indicate how many entity type in magicland
-	};
-
-	enum MLDir
-	{
-		ML_DIR_UP, 
-		ML_DIR_LEFT,
-		ML_DIR_DOWN,
-		ML_DIR_RIGHT
-	};
+	ML_ETYMAINTYPE_TOTAL,	// This indicate how many entity main type in magicland
 };
 
-class magicland::MLEntity:public MLReference
+enum MLEntitySubType
 {
+	ML_ETYSUBTYPE_NONE = -1,
+	ML_ETYSUBTYPE_EMPTY,	// This indicate the empty area in the game
+	ML_ETYSUBTYPE_WALL,		// This indicate the wall in the game
+	ML_ETYSUBTYPE_XJ,		// This indicate the hero xj in the game
+	ML_ETYSUBTYPE_ORGE,		// This indicate the enemy orge in the game
+	ML_ETYSUBTYPE_JUMPORGE, // This indicate the jump orge in the game
+	ML_ETYSUBTYPE_MOVEPLATFORM,
+	ML_ETYSUBTYPE_THROWORGE,
+	ML_ETYSUBTYPE_GEARCORE,
+
+	ML_ETYSUBTYPE_TERRIAN,	// This indicate the terrian boundbox in the game
+	ML_ETYSUBTYPE_FIREBALL, // This indicate the fire ball in the game
+	ML_ETYSUBTYPE_BOOMBALL, 
+	ML_ETYSUBTYPE_BROKENSTONE,
+
+	ML_ETYSUBTYPE_TOTAL,	// This indicate how many entity type in magicland
+};
+
+enum MLDir
+{
+	ML_DIR_UP, 
+	ML_DIR_LEFT,
+	ML_DIR_DOWN,
+	ML_DIR_RIGHT
+};
+
+class MLEntity:public MLReference {
 public:
 	MLEntity(MLEntityMainType main, MLEntitySubType sub, MLRoom* room);
 	virtual ~MLEntity();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLEntity);
 
 public:
 	//---------------------------------------------------------------------
@@ -132,5 +133,7 @@ protected:
 	MLRoom*				m_Room;					// The room that hold the entity
 	static unsigned int s_IDGenerator;			// The static ID generator
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMPONENT_MLENTITY_H_

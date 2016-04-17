@@ -11,26 +11,28 @@
 #include <list>
 #include <vector>
 
-namespace magicland 
-{
-	class MLEventMgr;
-	class MLEntity;
-};
+#include "marco.h"
+
+namespace magicland {
+
+class MLEntity;
 
 typedef void (*MLEventHandle)(magicland::MLEntity* sender, magicland::MLEntity* reciever);
 
-class magicland::MLEventMgr
-{
+class MLEventMgr {
 public:
-	enum
-	{
+	enum {
 		MLEVENT_START = -1,
 
 		MLEVENT_TOTAL,
 	};
+
 protected:
 	MLEventMgr();
 	virtual ~MLEventMgr();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLEventMgr);
 
 public:
 	static MLEventMgr* SharedInstance();
@@ -51,23 +53,19 @@ protected:
 	void UnRegistRecieveEvents();
 
 protected:
-	struct MLSenderList
-	{
+	struct MLSenderList {
 		std::list<magicland::MLEntity*> senderList;
 	};
 
-	struct MLRecieverList
-	{
-		struct MLRecieverInfo
-		{
+	struct MLRecieverList {
+		struct MLRecieverInfo {
 			magicland::MLEntity* entity;
 			MLEventHandle handle;
 		};
 		std::list<MLRecieverInfo> recieverList;
 	};
 
-	struct MLRegistInfo
-	{
+	struct MLRegistInfo {
 		unsigned int eventType;
 		magicland::MLEntity* entity;
 	};
@@ -79,5 +77,7 @@ protected:
 
 	static MLEventMgr* s_Instance;
 };
+
+}; // namespace magicland
 
 #endif // ML_ENTITYCOMPONENT_MLEVENTMGR_H_

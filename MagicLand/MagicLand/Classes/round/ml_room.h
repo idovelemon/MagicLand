@@ -11,20 +11,21 @@
 
 #include <cocos2d.h>
 
+#include "marco.h"
 #include "reference/ml_reference.h"
 #include "support/xjmath/XJMath.h"
 
-namespace magicland
-{
-	class MLRoom;
-	class MLCamera;
-};
+namespace magicland {
 
-class magicland::MLRoom:public MLReference
-{
+class MLCamera;
+
+class MLRoom:public MLReference {
 public:
     MLRoom();
     virtual ~MLRoom();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLRoom);
 
     // setter and getter
 public:
@@ -87,12 +88,14 @@ protected:
 	int			m_RoomWidth;    // The room's width
 	char*		m_RoomMap;      // The room's map
 	
-	struct TerrianBoundBox
-	{
+	struct TerrianBoundBox {
 		VECTOR2 min;
 		VECTOR2 max;
 	};
 
 	std::vector<TerrianBoundBox> m_Terrians; // The vector hold all the terrian's bound box
 };
+
+}; // namespace magicland
+
 #endif // ML_ROUND_MLROOM_H_

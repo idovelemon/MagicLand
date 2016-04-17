@@ -16,17 +16,17 @@
 #include "statemachine/ml_state.h"
 #include "reference/ml_reference.h"
 
-namespace magicland
-{
-	class MLStateMachine;
-	class MLEntity;
-};
+namespace magicland {
 
-class magicland::MLStateMachine:public magicland::MLReference
-{
+class MLEntity;
+
+class MLStateMachine:public MLReference {
 public:
 	MLStateMachine();
 	virtual ~MLStateMachine();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLStateMachine);
 
 public:
 	//-----------------------------------------------------------
@@ -74,5 +74,7 @@ protected:
 
 	MLStateEntryArray m_StateTable;
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLSTATEMACHINE_H_
