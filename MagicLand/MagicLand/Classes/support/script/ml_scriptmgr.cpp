@@ -6,16 +6,13 @@ using namespace std;
 
 MLScriptMgr* MLScriptMgr::s_Instance = NULL;
 
-MLScriptMgr::MLScriptMgr()
-{
+MLScriptMgr::MLScriptMgr() {
 }
 
-MLScriptMgr::~MLScriptMgr()
-{
+MLScriptMgr::~MLScriptMgr() {
 	vector<MLKeyValuePair>::iterator it = m_KeyValueArray.begin();
 	
-	while (it != m_KeyValueArray.end())
-	{
+	while (it != m_KeyValueArray.end()) {
 		char* buffer = it->segment;
 		ML_SAFE_DELETE_ARRAY(buffer);
 		++it;
@@ -24,10 +21,8 @@ MLScriptMgr::~MLScriptMgr()
 	m_KeyValueArray.clear();
 }
 
-MLScriptMgr* MLScriptMgr::SharedInstance()
-{
-	if (s_Instance == NULL)
-	{
+MLScriptMgr* MLScriptMgr::SharedInstance() {
+	if (s_Instance == NULL) {
 		s_Instance = new MLScriptMgr;
 	}
 
@@ -36,8 +31,7 @@ MLScriptMgr* MLScriptMgr::SharedInstance()
 	return s_Instance;
 }
 
-void MLScriptMgr::LoadScript(const char* scriptFile)
-{
+void MLScriptMgr::LoadScript(const char* scriptFile) {
 	ifstream file(scriptFile);
 
 	ML_SAFE_ASSERT(!file.fail(), "Error: MLScriptMgr file is null");
@@ -47,13 +41,11 @@ void MLScriptMgr::LoadScript(const char* scriptFile)
 	char* tip = "#";
 	string line;
 
-	while (!file.eof())
-	{
+	while (!file.eof()) {
 		getline(file, line);
 		line = line.substr(0, line.find("#"));
 
-		if (line == "")
-		{
+		if (line == "") {
 			continue;
 		}
 
@@ -62,13 +54,10 @@ void MLScriptMgr::LoadScript(const char* scriptFile)
 		strtok(buffer, split);
 
 		if (strcmp(buffer, "import") == 0
-			|| strcmp(buffer, "include") == 0)
-		{
+			  || strcmp(buffer, "include") == 0) {
 			char str[256] = {"Script/"};
 			LoadScript(strcat(str, strtok(NULL, split)));
-		}
-		else
-		{
+		} else {
 			int length = strlen(buffer);
 			keyValue.segment = new char[length + 1];
 			keyValue.segment[length] = '\0';
@@ -81,15 +70,12 @@ void MLScriptMgr::LoadScript(const char* scriptFile)
 	file.close();
 }
 
-float MLScriptMgr::GetValue(const char* segment)
-{
+float MLScriptMgr::GetValue(const char* segment) {
 	vector<MLKeyValuePair>::iterator it = m_KeyValueArray.begin();
 	bool flag = false;
 	
-	while (it != m_KeyValueArray.end())
-	{
-		if (strcmp((*it).segment, segment) == 0)
-		{
+	while (it != m_KeyValueArray.end()) {
+		if (strcmp((*it).segment, segment) == 0) {
 			flag = true;
 			break;
 		}
@@ -97,15 +83,13 @@ float MLScriptMgr::GetValue(const char* segment)
 		it++;
 	}
 
-	if (!flag)
-	{
+	if (!flag) {
 		ML_SAFE_ASSERT(NULL, "Error: MLScriptMgr find result was not found");
 	}
 
 	return (*it).value;
 }
 
-void MLScriptMgr::Destory()
-{
+void MLScriptMgr::Destory() {
 	ML_SAFE_DELETE(s_Instance);
 }

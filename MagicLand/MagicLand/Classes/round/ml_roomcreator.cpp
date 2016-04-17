@@ -13,8 +13,7 @@ using namespace std;
 using namespace magicland;
 
 MLRoomCreator::MLRoomCreator(const char* roomDataFileName)
-	:m_RoomDataFileName(NULL)
-{
+	:m_RoomDataFileName(NULL) {
 	ML_SAFE_ASSERT(roomDataFileName != NULL, "Please pass a room data file");
 
 	int length = strlen(roomDataFileName);
@@ -25,13 +24,11 @@ MLRoomCreator::MLRoomCreator(const char* roomDataFileName)
 	m_RoomDataFileName[length] = '\0';
 }
 
-MLRoomCreator::~MLRoomCreator()
-{
+MLRoomCreator::~MLRoomCreator() {
 	ML_SAFE_DELETE_ARRAY(m_RoomDataFileName);
 }
 
-MLRoom* MLRoomCreator::CreateRoom()
-{
+MLRoom* MLRoomCreator::CreateRoom() {
 	MLRoom* room = new MLRoom;
 	ML_SAFE_ASSERT(room != NULL, "failed allocated memory for the room");
 
@@ -50,8 +47,7 @@ MLRoom* MLRoomCreator::CreateRoom()
 	return room;
 }
 
-void MLRoomCreator::ReadRoomFileData(MLRoom* room)
-{
+void MLRoomCreator::ReadRoomFileData(MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "please make sure the room is not null");
 
 	ifstream input;
@@ -77,10 +73,8 @@ void MLRoomCreator::ReadRoomFileData(MLRoom* room)
 	ML_SAFE_ASSERT(map != NULL, "failed allocated memory for the room");
 	memset(map, 0, sizeof(char) * mapWidth * mapHeight);
 
-	for(int y = 0; y < mapHeight; y++)
-	{
-		for(int x = 0; x < mapWidth; x++)
-		{
+	for (int y = 0; y < mapHeight; y++) {
+		for (int x = 0; x < mapWidth; x++) {
 			input >> map[y * mapWidth + x];
 			map[y * mapWidth + x] -= '0';
 		}
@@ -93,8 +87,7 @@ void MLRoomCreator::ReadRoomFileData(MLRoom* room)
 	input >> numTerrians;
 	ML_SAFE_ASSERT(!input.eof(), "please input the right format file");
 
-	for(int i = 0; i < numTerrians; i++)
-	{
+	for (int i = 0; i < numTerrians; i++) {
 		VECTOR2 min, max;
 		input >> min.x >> min.y >> max.x >> max.y;
 		room->AddTerrianBoundBox(min, max);
@@ -103,8 +96,7 @@ void MLRoomCreator::ReadRoomFileData(MLRoom* room)
 	input.close();
 }
 
-void MLRoomCreator::CreateLayer(MLRoom* room)
-{
+void MLRoomCreator::CreateLayer(MLRoom* room) {
 	// Save the running scene
 	room->SetScene(CCDirector::sharedDirector()->getRunningScene());
 
@@ -117,8 +109,7 @@ void MLRoomCreator::CreateLayer(MLRoom* room)
 	gameLayer = NULL;
 }
 
-void MLRoomCreator::CreateEntities(MLRoom* room)
-{
+void MLRoomCreator::CreateEntities(MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "please make sure the room is not null");
 
 	// Create the entity according the room's map
@@ -130,13 +121,10 @@ void MLRoomCreator::CreateEntities(MLRoom* room)
 	int tileWidth = room->GetTileWidth();
 	int tileHeight = room->GetTileHeight();
 
-	for(int y = 0; y < mapHeight; y++)
-	{
-		for(int x = 0; x < mapWidth; x++)
-		{
+	for (int y = 0; y < mapHeight; y++) {
+		for (int x = 0; x < mapWidth; x++) {
 			MLEntitySubType type = (MLEntitySubType)map[y * mapWidth + x];
-			if(type != ML_ETYSUBTYPE_EMPTY)
-			{
+			if (type != ML_ETYSUBTYPE_EMPTY) {
 				MLEntity* entity = MLEntityCreator::CreateEntity(type, x, y, room);
 				ML_SAFE_ASSERT(entity != NULL, "Failed to create entity");
 				MLEntityMgr::SharedInstance()->AddEntity(entity);
@@ -146,8 +134,7 @@ void MLRoomCreator::CreateEntities(MLRoom* room)
 	}
 
 	// Create terrian entity according the terrian vector
-	for(int i = 0; i < room->GetTerrianNum(); i++)
-	{
+	for (int i = 0; i < room->GetTerrianNum(); i++) {
 		VECTOR2 min, max;
 		room->GetTerrianAt(i, min, max);
 
@@ -159,8 +146,7 @@ void MLRoomCreator::CreateEntities(MLRoom* room)
 	}
 }
 
-void MLRoomCreator::CreateCamera(MLRoom* room)
-{
+void MLRoomCreator::CreateCamera(MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "please make sure the room is not null");
 	ML_SAFE_ASSERT(room->GetGameLayer() != NULL, "please make sure the gamer layer is not null");
 

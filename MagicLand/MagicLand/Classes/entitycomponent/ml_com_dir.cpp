@@ -4,20 +4,16 @@ using namespace magicland;
 
 MLComDir::MLComDir(MLEntity* entity, MLDir dir)
 	:MLComponent(ML_COMTYPE_DIR, entity)
-	,m_Dir(dir)
-{
+	,m_Dir(dir) {
 }
 
-MLComDir::~MLComDir()
-{
+MLComDir::~MLComDir() {
 }
 
-void MLComDir::SetDir(MLDir dir)
-{
+void MLComDir::SetDir(MLDir dir) {
 	m_Dir = dir;
 }
 
-MLDir MLComDir::GetDir()
-{
+MLDir MLComDir::GetDir() {
 	return m_Dir;
 }

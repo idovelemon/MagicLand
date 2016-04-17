@@ -11,16 +11,14 @@
 #ifndef ML_STATEMACHINE_MLSTATE_H_
 #define ML_STATEMACHINE_MLSTATE_H_
 
+#include "marco.h"
 #include "reference/ml_reference.h"
 
-namespace magicland
-{
-	class MLState;
-	class MLEntity;
-};
+namespace magicland {
 
-class magicland::MLState:public magicland::MLReference
-{
+class MLEntity;
+
+class MLState:public MLReference {
 public:
 	MLState(){}
 	virtual ~MLState(){}
@@ -30,6 +28,11 @@ public:
 	virtual void Run(magicland::MLEntity* entity) = 0;
 	virtual void Exit(magicland::MLEntity* entity) = 0;
 	virtual void OnCollision(magicland::MLEntity* entity) = 0;
+
+private:
+  ML_DISALLOW_COPY_AND_ASSIGN(MLState);
 };
+
+}; // namespace magicland
 
 #endif // ML_STATEMACHINE_MLSTATE_H_

@@ -3,24 +3,19 @@
 using namespace magicland;
 
 MLReference::MLReference()
-    :m_RefCounted(1)
-{
+    :m_RefCounted(1) {
 }
 
-MLReference::~MLReference()
-{
+MLReference::~MLReference() {
 }
 
-void MLReference::Grab()
-{
+void MLReference::Grab() {
     m_RefCounted++;
 }
 
-void MLReference::Drop()
-{
+void MLReference::Drop() {
     m_RefCounted--;
-    if(m_RefCounted <= 0)
-    {
+    if (m_RefCounted <= 0) {
         delete this;
     }
 }

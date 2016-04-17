@@ -18,12 +18,11 @@
 
 namespace magicland {
 
-struct MLETYCreatorEntry;
 class MLRoom;
 
 typedef MLEntity* (*PFUNCEntityCreator)(int xCoord, int yCoord, MLRoom* room);
 
-struct magicland::MLETYCreatorEntry {
+struct MLETYCreatorEntry {
 	MLEntitySubType type;
 	PFUNCEntityCreator creator;
 };

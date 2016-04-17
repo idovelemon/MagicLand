@@ -24,8 +24,7 @@ public:
 
 protected:
 	static MLScriptMgr* s_Instance;
-	struct MLKeyValuePair
-	{
+	struct MLKeyValuePair {
 		char* segment;
 		float value;
 	};
@@ -34,8 +33,7 @@ protected:
 };
 
 // (2016 / 01 / 10 xiaojian)
-#define ML_SCRIPT_GETVALUE(_store_, _segment_) \
-	{\
+#define ML_SCRIPT_GETVALUE(_store_, _segment_) {\
 		static float temp = MLScriptMgr::SharedInstance()->GetValue(_segment_);\
 		_store_ = temp;\
 	}

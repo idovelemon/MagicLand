@@ -21,8 +21,8 @@ class MLCamera;
 
 class MLRoom:public MLReference {
 public:
-    MLRoom();
-    virtual ~MLRoom();
+  MLRoom();
+  virtual ~MLRoom();
 
 private:
 	ML_DISALLOW_COPY_AND_ASSIGN(MLRoom);

@@ -7,18 +7,14 @@ MLFrameRateMgr* MLFrameRateMgr::s_Instance = 0;
 MLFrameRateMgr::MLFrameRateMgr()
 	:m_FrameDelta(0.0f)
 	,m_TotalFrames(0)
-	,m_TotalTime(0.0f)
-{
+	,m_TotalTime(0.0f) {
 }
 
-MLFrameRateMgr::~MLFrameRateMgr()
-{
+MLFrameRateMgr::~MLFrameRateMgr() {
 }
 
-MLFrameRateMgr* MLFrameRateMgr::SharedInstance()
-{
-	if(s_Instance == 0)
-	{
+MLFrameRateMgr* MLFrameRateMgr::SharedInstance() {
+	if(s_Instance == 0) {
 		static MLFrameRateMgr frameRateMgr;
 		s_Instance = &frameRateMgr;
 	}
@@ -26,24 +22,20 @@ MLFrameRateMgr* MLFrameRateMgr::SharedInstance()
 	return s_Instance;
 }
 
-void MLFrameRateMgr::AddDelta(float delta)
-{
+void MLFrameRateMgr::AddDelta(float delta) {
 	m_FrameDelta = delta;
 	m_TotalFrames++;
 	m_TotalTime += delta;
 }
 
-float MLFrameRateMgr::GetFrameDelta() const
-{
+float MLFrameRateMgr::GetFrameDelta() const {
 	return m_FrameDelta;
 }
 
-long MLFrameRateMgr::GetTotalFrames() const
-{
+long MLFrameRateMgr::GetTotalFrames() const {
 	return m_TotalFrames;
 }
 
-float MLFrameRateMgr::GetTotalTime() const
-{
+float MLFrameRateMgr::GetTotalTime() const {
 	return m_TotalTime;
 }

@@ -36,16 +36,16 @@ enum MLComType
 class MLComponent:public MLReference {
 public:
 	MLComponent(MLComType type, magicland::MLEntity* entity);
-    virtual ~MLComponent();
+  virtual ~MLComponent();
 
 private:
 	ML_DISALLOW_COPY_AND_ASSIGN(MLComponent);
 
 public:
-    virtual MLComType GetType() const;
+  virtual MLComType GetType() const;
 
 protected:
-    MLComType m_Type;
+  MLComType m_Type;
 	magicland::MLEntity* m_Entity;
 };
 

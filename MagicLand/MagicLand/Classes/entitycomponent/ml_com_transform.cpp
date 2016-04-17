@@ -6,42 +6,34 @@ MLComTransform::MLComTransform(MLEntity* entity, float x, float y, float sx, flo
 	:MLComponent(ML_COMTYPE_TRANSFORM, entity)
 	,m_Pos(MAKE_VECTOR2(x,y))
 	,m_Scale(MAKE_VECTOR2(sx,sy))
-	,m_Rot(r)
-{
+	,m_Rot(r) {
 }
 
-MLComTransform::~MLComTransform()
-{
+MLComTransform::~MLComTransform() {
 }
 
-void MLComTransform::SetPos(float x, float y)
-{
+void MLComTransform::SetPos(float x, float y) {
 	m_Pos.x = x;
 	m_Pos.y = y;
 }
 
-VECTOR2 MLComTransform::GetPos() const
-{
+VECTOR2 MLComTransform::GetPos() const {
 	return m_Pos;
 }
 
-void MLComTransform::SetScale(float sx, float sy)
-{
+void MLComTransform::SetScale(float sx, float sy) {
 	m_Scale.x = sx;
 	m_Scale.y = sy;
 }
 
-VECTOR2 MLComTransform::GetScale() const
-{
+VECTOR2 MLComTransform::GetScale() const {
 	return m_Scale;
 }
 
-void MLComTransform::SetRot(float r)
-{
+void MLComTransform::SetRot(float r) {
 	m_Rot = r;
 }
 
-float MLComTransform::GetRot() const
-{
+float MLComTransform::GetRot() const {
 	return m_Rot;
 }

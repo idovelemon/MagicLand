@@ -56,6 +56,7 @@ protected:
 
 	static MLCollisionMgr* s_Instance;
 };
+
 }; // namespace magicland
 
 #endif // ML_COLLISION_MLCOLLISIONMGR_H_

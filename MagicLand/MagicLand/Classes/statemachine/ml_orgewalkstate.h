@@ -13,8 +13,7 @@
 
 namespace magicland {
 
-class MLOrgeWalkState:public MLState
-{
+class MLOrgeWalkState:public MLState {
 public:
 	MLOrgeWalkState();
 	virtual ~MLOrgeWalkState();

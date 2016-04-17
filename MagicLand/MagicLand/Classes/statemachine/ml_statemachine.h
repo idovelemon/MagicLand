@@ -48,8 +48,7 @@ public:
 	virtual void AddStateEntry(magicland::MLState* pHeadState, magicland::MLPCon pCon, magicland::MLState* pTailState);
 
 protected:
-	struct MLStateEntry
-	{
+	struct MLStateEntry {
 		magicland::MLState*	headState;
 		magicland::MLPCon	pConFunc;
 		magicland::MLState*	tailState;
@@ -57,12 +56,10 @@ protected:
 		MLStateEntry()
 			:headState(NULL)
 			,pConFunc(0)
-			,tailState(NULL)
-		{
+			,tailState(NULL) {
 		}
 
-		~MLStateEntry()
-		{
+		~MLStateEntry() {
 			ML_SAFE_DROP(headState);
 			pConFunc = 0;
 			ML_SAFE_DROP(tailState);

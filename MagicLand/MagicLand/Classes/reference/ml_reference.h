@@ -15,18 +15,18 @@ namespace magicland {
 
 class MLReference {
 public:
-    MLReference();
-    virtual ~MLReference();
+  MLReference();
+  virtual ~MLReference();
 
 private:
 	ML_DISALLOW_COPY_AND_ASSIGN(MLReference);
 
 public:
-    virtual void Grab();
-    virtual void Drop();
+  virtual void Grab();
+  virtual void Drop();
 
 protected:
-    int m_RefCounted;  // The referenced count
+  int m_RefCounted;  // The referenced count
 };
 
 }; // namespace magicland

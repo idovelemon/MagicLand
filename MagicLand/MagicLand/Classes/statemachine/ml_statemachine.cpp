@@ -6,42 +6,34 @@
 
 using namespace magicland;
 
-MLStateMachine::MLStateMachine()
-{
+MLStateMachine::MLStateMachine() {
 	m_StateTable.clear();
 }
 
-MLStateMachine::~MLStateMachine()
-{	
-	for(MLStateEntryArrayIt it = m_StateTable.begin() ;it != m_StateTable.end(); ++it)
-	{
+MLStateMachine::~MLStateMachine() {	
+	for (MLStateEntryArrayIt it = m_StateTable.begin() ;it != m_StateTable.end(); ++it) {
 		MLStateEntry* pEntry = *it;
 		ML_SAFE_DELETE(pEntry);
 	}
 }
 
-void MLStateMachine::Run(MLEntity* entity)
-{
+void MLStateMachine::Run(MLEntity* entity) {
 	ML_SAFE_ASSERT(entity != NULL, "Can not deal with the null pointer");
-	if(entity != NULL)
-	{
+	if (entity != NULL) {
 		MLComState*	pStateCom = (MLComState*)entity->GetComponent(ML_COMTYPE_STATE);
-
-		if(pStateCom != NULL) // If the state component exist
-		{
+    
+    // If the state component exist
+		if (pStateCom != NULL){
 			MLState* pState = pStateCom->GetState();
 			ML_SAFE_ASSERT(pState != NULL, "");
 
 			// Check if we need to transform to another state
-			for(MLStateEntryArrayIt it = m_StateTable.begin() ;it != m_StateTable.end(); ++it)
-			{
+			for (MLStateEntryArrayIt it = m_StateTable.begin() ;it != m_StateTable.end(); ++it) {
 				MLStateEntry* pEntry = *it;
 				ML_SAFE_ASSERT(pEntry != NULL, "");
 
-				if(pEntry->headState == pState)
-				{
-					if(pEntry->pConFunc(entity))
-					{
+				if (pEntry->headState == pState) {
+					if (pEntry->pConFunc(entity)) {
 						// Change the state of the entity
 						pState->Exit(entity);
 
@@ -63,18 +55,15 @@ void MLStateMachine::Run(MLEntity* entity)
 	}
 }
 
-void MLStateMachine::AddStateEntry(MLState* pHeadState, MLPCon pCon, MLState* pTailState)
-{
+void MLStateMachine::AddStateEntry(MLState* pHeadState, MLPCon pCon, MLState* pTailState) {
 	ML_SAFE_ASSERT(pHeadState != NULL, "Can not deal with null pointer");
 	ML_SAFE_ASSERT(pCon != NULL, "Can not deal with null pointer");
 	ML_SAFE_ASSERT(pTailState != NULL, "Can not deal with null pointer");
 	ML_SAFE_ASSERT(pTailState != pHeadState, "Can not be the same state");
-	if(pHeadState != NULL && pCon != NULL && pTailState != NULL && pTailState != pHeadState)
-	{
+	if (pHeadState != NULL && pCon != NULL && pTailState != NULL && pTailState != pHeadState) {
 		MLStateEntry* pEntry = new MLStateEntry;
 		ML_SAFE_ASSERT(pEntry != NULL, "Allocate memory failed");
-		if(pEntry != NULL)
-		{
+		if (pEntry != NULL) {
 			pEntry->headState = pHeadState;
 			pEntry->pConFunc = pCon;
 			pEntry->tailState = pTailState;

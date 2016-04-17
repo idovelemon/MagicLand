@@ -9,8 +9,7 @@
 using namespace cocos2d;
 using namespace magicland;
 
-MLETYCreatorEntry MLEntityCreator::s_CreatorTable[] = 
-{
+MLETYCreatorEntry MLEntityCreator::s_CreatorTable[] = {
 	{ML_ETYSUBTYPE_WALL, &MLEntityCreator::CreateWall},
 	{ML_ETYSUBTYPE_XJ, &MLEntityCreator::CreateXJ},
 	{ML_ETYSUBTYPE_ORGE, &MLEntityCreator::CreateOrge},
@@ -20,17 +19,14 @@ MLETYCreatorEntry MLEntityCreator::s_CreatorTable[] =
 	{ML_ETYSUBTYPE_GEARCORE, &MLEntityCreator::CreateGearCore},
 };
 
-MLEntity* MLEntityCreator::CreateEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room) {
 	ML_SAFE_ASSERT(ML_ETYSUBTYPE_NONE < type && type < ML_ETYSUBTYPE_TOTAL, "Please make sure the type is correctly");
 
 	int size = sizeof(s_CreatorTable) / sizeof(MLETYCreatorEntry);
 
 	MLEntity* entity = NULL;
-	for(int i = 0; i < size; i++)
-	{
-		if(type == s_CreatorTable[i].type)
-		{
+	for (int i = 0; i < size; i++) {
+		if (type == s_CreatorTable[i].type) {
 			entity = s_CreatorTable[i].creator(xCoord, yCoord, room);
 			break;
 		}
@@ -41,8 +37,7 @@ MLEntity* MLEntityCreator::CreateEntity(MLEntitySubType type, int xCoord, int yC
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "The pointer to room can not be null");
 
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENV, ML_ETYSUBTYPE_TERRIAN, room);
@@ -79,8 +74,7 @@ MLEntity* MLEntityCreator::CreateTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom*
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateWall(int xCoord, int yCoord, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateWall(int xCoord, int yCoord, MLRoom* room) {
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENV, ML_ETYSUBTYPE_WALL, room);
 	ML_SAFE_ASSERT(entity != NULL, "Failed to allocate memory for entity");
 
@@ -95,8 +89,7 @@ MLEntity* MLEntityCreator::CreateWall(int xCoord, int yCoord, MLRoom* room)
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateXJ(int xCoord, int yCoord, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateXJ(int xCoord, int yCoord, MLRoom* room) {
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_PLAYER, ML_ETYSUBTYPE_XJ, room);
 	ML_SAFE_ASSERT(entity != NULL, "Failed to allocate memory for entity");
 
@@ -147,45 +140,39 @@ MLEntity* MLEntityCreator::CreateXJ(int xCoord, int yCoord, MLRoom* room)
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateOrge(int xCoord, int yCoord, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateOrge(int xCoord, int yCoord, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
 	room->TransformMapCoordToWorldCoord(xCoord, yCoord);
 
 	return CreateOrge((float)xCoord, (float)yCoord, room);
 }
 
-MLEntity* MLEntityCreator::CreateJumpOrge(int xCoord, int yCoord, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateJumpOrge(int xCoord, int yCoord, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
 	room->TransformMapCoordToWorldCoord(xCoord, yCoord);
 
 	return CreateJumpOrge((float)xCoord, (float)yCoord, room);
 }
 
-MLEntity* MLEntityCreator::CreateMovePlatform(int xCoord, int yCoord, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateMovePlatform(int xCoord, int yCoord, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
 	room->TransformMapCoordToWorldCoord(xCoord, yCoord);
 
 	return CreateMovePlatform((float)xCoord, (float)yCoord, room);
 }
 
-MLEntity* MLEntityCreator::CreateThrowOrge(int xCoord, int yCoord, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateThrowOrge(int xCoord, int yCoord, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
 	room->TransformMapCoordToWorldCoord(xCoord, yCoord);
 
 	return CreateThrowOrge((float)xCoord, (float)yCoord, room);
 }
 
-MLEntity* MLEntityCreator::CreateGearCore(int xCoord, int yCoord, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateGearCore(int xCoord, int yCoord, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
 	
 	MLEntity* entity = NULL;
-	if(room != NULL)
-	{
+	if (room != NULL) {
 		room->TransformMapCoordToWorldCoord(xCoord, yCoord);
 		entity = CreateGearCore((float)xCoord, (float)yCoord, room);
 	}
@@ -193,8 +180,7 @@ MLEntity* MLEntityCreator::CreateGearCore(int xCoord, int yCoord, MLRoom* room)
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLRoom* room) {
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_PLAYER_MAGIC, ML_ETYSUBTYPE_FIREBALL, room);
 	ML_SAFE_ASSERT(entity != NULL, "Failed to allocate memory for entity");
 
@@ -225,12 +211,9 @@ MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLR
 	movement->SetGravity(0.0f);
 	movement->SetMaxFallSpeed(0.0f);
 	float moveSpeed = MLScriptMgr::SharedInstance()->GetValue("FireBallMoveSpeed");
-	if(dir == ML_DIR_LEFT)
-	{
+	if (dir == ML_DIR_LEFT) {
 		movement->SetVel(-moveSpeed, 0.0f);
-	}
-	else if(dir == ML_DIR_RIGHT)
-	{
+	} else if(dir == ML_DIR_RIGHT) {
 		movement->SetVel(moveSpeed, 0.0f);
 	}
 	ML_SAFE_ASSERT(movement != NULL, "Create Movement component failed");
@@ -255,8 +238,7 @@ MLEntity* MLEntityCreator::CreateFireBall(float posx, float posy, MLDir dir, MLR
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateOrge(float posx, float posy, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateOrge(float posx, float posy, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
 
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENEMY, ML_ETYSUBTYPE_ORGE, room);
@@ -326,8 +308,7 @@ MLEntity* MLEntityCreator::CreateOrge(float posx, float posy, MLRoom* room)
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateJumpOrge(float posx, float posy, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateJumpOrge(float posx, float posy, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
 
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENEMY, ML_ETYSUBTYPE_JUMPORGE, room);
@@ -392,8 +373,7 @@ MLEntity* MLEntityCreator::CreateJumpOrge(float posx, float posy, MLRoom* room)
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateMovePlatform(float posx, float posy, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateMovePlatform(float posx, float posy, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
 
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENV, ML_ETYSUBTYPE_MOVEPLATFORM, room);
@@ -467,8 +447,7 @@ MLEntity* MLEntityCreator::CreateMovePlatform(float posx, float posy, MLRoom* ro
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateThrowOrge(float posx, float posy, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateThrowOrge(float posx, float posy, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENEMY, ML_ETYSUBTYPE_THROWORGE, room);
 	ML_SAFE_ASSERT(entity != NULL, "Failed to create Entity");
@@ -523,8 +502,7 @@ MLEntity* MLEntityCreator::CreateThrowOrge(float posx, float posy, MLRoom* room)
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateBoomBall(float posx, float posy, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateBoomBall(float posx, float posy, MLRoom* room) {
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENEMYMAGIC, ML_ETYSUBTYPE_BOOMBALL, room);
 	ML_SAFE_ASSERT(entity != NULL, "Failed to create Entity");
 
@@ -571,8 +549,7 @@ MLEntity* MLEntityCreator::CreateBoomBall(float posx, float posy, MLRoom* room)
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateBrokenStone(float posx, float posy, float velx, float vely, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateBrokenStone(float posx, float posy, float velx, float vely, MLRoom* room) {
 	MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_ENEMYMAGIC, ML_ETYSUBTYPE_BROKENSTONE, room);
 	ML_SAFE_ASSERT(entity != NULL, "Failed to create Entity");
 
@@ -600,10 +577,11 @@ MLEntity* MLEntityCreator::CreateBrokenStone(float posx, float posy, float velx,
 	ML_SAFE_DROP(movement);
 
 	// Create BoundBox component
-	MLComBoundBox* boundBox = new MLComBoundBox(entity, 
-		MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
-		MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
-		posx, posy);
+	MLComBoundBox* boundBox = new MLComBoundBox(
+      entity, 
+		  MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
+		  MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
+		  posx, posy);
 	ML_SAFE_ASSERT(boundBox != NULL, "Failed to create BoundBox component");
 	entity->AddComponent(boundBox);
 	ML_SAFE_DROP(boundBox);
@@ -620,26 +598,22 @@ MLEntity* MLEntityCreator::CreateBrokenStone(float posx, float posy, float velx,
 	return entity;
 }
 
-MLEntity* MLEntityCreator::CreateGearCore(float posx, float posy, MLRoom* room)
-{
+MLEntity* MLEntityCreator::CreateGearCore(float posx, float posy, MLRoom* room) {
 	ML_SAFE_ASSERT(room != NULL, "Please make sure the room is not empty");
 	MLEntity* entity = NULL;
 
-	if(room != NULL)
-	{
+	if (room != NULL) {
 		entity = new MLEntity(ML_ETYMAINTYPE_ENEMY, ML_ETYSUBTYPE_GEARCORE, room);
 		ML_SAFE_ASSERT(entity != NULL, "Failed to create entity");
-		if(entity != NULL)
-		{
+		if (entity != NULL) {
+
 			// Create Display component
 			MLComDisplay* display = new MLComDisplay(entity, "Image//Gear//gear_core.png", room->GetGameLayer());
 			ML_SAFE_ASSERT(display != NULL, "Failed to create Display component");
-			if(display != NULL)
-			{
+			if (display != NULL) {
 				CCSprite* sprite = display->GetSprite();
 				ML_SAFE_ASSERT(sprite != NULL, "Sprite can not be empty");
-				if(sprite != NULL)
-				{
+				if (sprite != NULL) {
 					sprite->setAnchorPoint(ccp(0.5f, 0.5f));
 					sprite->setPosition(ccp(posx, posy));
 				}
@@ -651,8 +625,7 @@ MLEntity* MLEntityCreator::CreateGearCore(float posx, float posy, MLRoom* room)
 			// Create Transform component
 			MLComTransform* transform = new MLComTransform(entity, posx, posy, 1.0f, 1.0f, 0.0f);
 			ML_SAFE_ASSERT(transform != NULL, "Failed to create Transform component");
-			if(transform != NULL)
-			{
+			if (transform != NULL) {
 				entity->AddComponent(transform);
 				ML_SAFE_DROP(transform);
 			}
@@ -660,8 +633,7 @@ MLEntity* MLEntityCreator::CreateGearCore(float posx, float posy, MLRoom* room)
 			// Create Movement component
 			MLComMovement* movement = new MLComMovement(entity);
 			ML_SAFE_ASSERT(movement != NULL, "Failed to create Movement component");
-			if(movement != NULL)
-			{
+			if (movement != NULL) {
 				movement->SetGravity(0.0f);
 				movement->SetMaxFallSpeed(0.0f);
 				movement->SetVel(0.0f, 0.0f);
@@ -670,13 +642,13 @@ MLEntity* MLEntityCreator::CreateGearCore(float posx, float posy, MLRoom* room)
 			}
 
 			// Create BoundBox component
-			MLComBoundBox* boundBox = new MLComBoundBox(entity, 
-				MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
-				MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
-				posx, posy);
+			MLComBoundBox* boundBox = new MLComBoundBox(
+          entity, 
+				  MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
+				  MLScriptMgr::SharedInstance()->GetValue("BrokenStoneBoundBoxWidth"),
+				  posx, posy);
 			ML_SAFE_ASSERT(boundBox != NULL, "Failed to create BoundBox component");
-			if(boundBox != NULL)
-			{
+			if (boundBox != NULL) {
 				entity->AddComponent(boundBox);
 				ML_SAFE_DROP(boundBox);
 			}
@@ -684,8 +656,7 @@ MLEntity* MLEntityCreator::CreateGearCore(float posx, float posy, MLRoom* room)
 			// Create State component
 			MLComState* state = new MLComState(entity);
 			ML_SAFE_ASSERT(state != NULL, "Failed to create State component");
-			if(state != NULL)
-			{
+			if (state != NULL) {
 				MLStartState* startState = MLStartState::SharedInstance();
 				state->SetState(startState);
 				entity->AddComponent(state);

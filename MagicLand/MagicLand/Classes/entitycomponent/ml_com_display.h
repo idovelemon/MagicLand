@@ -20,7 +20,7 @@ namespace magicland {
 class MLComDisplay:public MLComponent {
 public:
 	MLComDisplay(magicland::MLEntity* entity, char* fileName, cocos2d::CCLayer* parentLayer);
-    virtual ~MLComDisplay();
+  virtual ~MLComDisplay();
 
 private:
 	ML_DISALLOW_COPY_AND_ASSIGN(MLComDisplay);

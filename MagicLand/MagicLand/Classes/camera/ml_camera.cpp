@@ -5,21 +5,17 @@
 using namespace cocos2d;
 using namespace magicland;
 
-MLCamera::MLCamera()
-{
+MLCamera::MLCamera() {
 }
 
 MLCamera::MLCamera(CCLayer* layer)
-    :m_Layer(layer)
-    ,m_IsDead(false)
-{
+  :m_Layer(layer)
+  ,m_IsDead(false) {
     ML_SAFE_ASSERT(layer != NULL, "Please pass a valid layer pointer");
 }
 
-MLCamera::~MLCamera()
-{
-    if(m_Layer != NULL)
-    {
+MLCamera::~MLCamera() {
+    if (m_Layer != NULL) {
         m_Layer->removeFromParent();
         m_Layer->removeAllChildren();
         m_Layer->release();
@@ -27,12 +23,10 @@ MLCamera::~MLCamera()
     }
 }
 
-void MLCamera::Kill()
-{
+void MLCamera::Kill() {
     m_IsDead = true;
 }
 
-bool MLCamera::IsDead() const
-{
+bool MLCamera::IsDead() const {
     return m_IsDead;
 }
