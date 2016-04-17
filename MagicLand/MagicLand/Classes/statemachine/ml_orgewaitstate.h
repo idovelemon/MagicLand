@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------
-// Declaration: Copyright (c), by xiaojian, 2016. All right reserved.
-// Author: xiaojian
+// Declaration: Copyright (c), by i_dovelemon, 2016. All right reserved.
+// Author: i_dovelemon(1322600812@qq.com)
 // Date: 2016 / 01 / 09
 // Version: 1.0
 // Brief: This file will define orge's wait state

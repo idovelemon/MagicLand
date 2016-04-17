@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------
-// Declaration: Copyright (c), by xiaojian, 2015. All right reserved.
-// Author: xiaojian
+// Declaration: Copyright (c), by i_dovelemon, 2015. All right reserved.
+// Author: i_dovelemon(1322600812@qq.com)
 // Date: 2015/12/21
 // Version: 1.0
 // Brief: This file will define the state which will deal with all the process
