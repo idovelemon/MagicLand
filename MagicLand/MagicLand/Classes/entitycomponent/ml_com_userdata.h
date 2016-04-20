@@ -18,14 +18,7 @@ namespace magicland {
 class MLComUserData:public MLComponent
 {
 public:
-	MLComUserData(magicland::MLEntity* entity);
-	virtual ~MLComUserData();
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLComUserData);
-
-public:
-	enum USER_DATA_TYPE
+  enum USER_DATA_TYPE
 	{
 		USER_DATA_TYPE_INTEGER,
 		USER_DATA_TYPE_FLOAT,
@@ -34,21 +27,24 @@ public:
 		USER_DATA_TYPE_MAX
 	};
 
-private:
-	struct UserData
+	explicit MLComUserData(magicland::MLEntity* entity);
+	virtual ~MLComUserData();
+
+	void PushValue(unsigned int category, USER_DATA_TYPE type, void* value);
+	void* GetValueByCategory(unsigned int category);
+
+protected:
+  struct UserData
 	{
 		unsigned int	category;
 		USER_DATA_TYPE		type;
 		void*				value;
 	};
 
-public:
-	void PushValue(unsigned int category, USER_DATA_TYPE type, void* value);
-
-	void* GetValueByCategory(unsigned int category);
-
-protected:
 	std::vector<UserData> m_vUserDatas;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComUserData);
 };
 
 }; // namespace magicland

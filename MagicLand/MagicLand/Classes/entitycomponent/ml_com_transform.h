@@ -21,10 +21,6 @@ public:
 	MLComTransform(magicland::MLEntity* entity, float x, float y, float sx, float sy, float r);
 	virtual ~MLComTransform();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLComTransform);
-
-public:
 	virtual void	SetPos(float x, float y);
 	virtual VECTOR2	GetPos() const;
 
@@ -38,6 +34,9 @@ protected:
 	VECTOR2 m_Pos;		// The position of the entity
 	VECTOR2 m_Scale;	// The scale of the entity
 	float	m_Rot;		// The rotation of the entity in degree
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComTransform);
 };
 
 }; // namespace magicland

@@ -18,19 +18,10 @@ namespace magicland {
 class MLEntity;
 
 class MLCollisionMgr {
-
-protected:
-	MLCollisionMgr();
-	virtual ~MLCollisionMgr();
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLCollisionMgr);
-
 public:
 	static MLCollisionMgr* SharedInstance();
 	static void Destroy();
 
-public:
 	void AddColEntry(magicland::MLEntity* entity);
 	void RemoveColEntry(magicland::MLEntity* entity);
 	void Update(float delta);
@@ -38,6 +29,9 @@ public:
 	unsigned int GetCVNum(); // CV for Collision Volume
 
 protected:
+  MLCollisionMgr();
+	virtual ~MLCollisionMgr();
+
 	void CollisionDetect();
 	void CollisionResponse();
 	void ClearCollisionInfo();
@@ -46,7 +40,6 @@ protected:
 	void DetectColEnemyWithEnv();
 	void DetectColEnemyMagicWithEnv();
 
-protected:
 	typedef std::list<MLEntity*> MLColMgrList;
 	typedef std::list<MLEntity*>::iterator MLColMgrListIt;
 	typedef std::vector<std::list<MLEntity*>> MLColMgrTable;
@@ -55,6 +48,9 @@ protected:
 	MLColMgrTable m_ColMgrTable;
 
 	static MLCollisionMgr* s_Instance;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLCollisionMgr);
 };
 
 }; // namespace magicland

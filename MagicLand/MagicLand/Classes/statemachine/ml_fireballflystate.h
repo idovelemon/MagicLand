@@ -18,10 +18,6 @@ public:
 	MLFireBallFlyState();
 	virtual ~MLFireBallFlyState();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLFireBallFlyState);
-
-public:
 	virtual void Enter(MLEntity* entity);
 	virtual void Run(MLEntity* entity);
 	virtual void Exit(MLEntity* entity);
@@ -30,6 +26,9 @@ public:
 protected:
 	void Fly(MLEntity* entity);
 	void UpdateFlyTimer(MLEntity* entity);
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLFireBallFlyState);
 };
 
 }; // namespace magicland

@@ -13,27 +13,25 @@
 namespace magicland {
 	
 class MLFrameRateMgr {
-protected:
-	MLFrameRateMgr();
-	virtual ~MLFrameRateMgr();
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLFrameRateMgr);
-
 public:
 	static MLFrameRateMgr* SharedInstance();
 
-public:
 	void AddDelta(float delta);
 	float GetFrameDelta() const;
 	long GetTotalFrames() const;
 	float GetTotalTime() const;
 
 protected:
+	MLFrameRateMgr();
+	virtual ~MLFrameRateMgr();
+
 	static MLFrameRateMgr* s_Instance;
 	float m_FrameDelta;
 	long m_TotalFrames;
 	float m_TotalTime;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLFrameRateMgr);
 };
 
 }; // namespace magicland

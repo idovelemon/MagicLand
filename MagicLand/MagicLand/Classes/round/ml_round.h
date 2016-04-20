@@ -17,24 +17,22 @@ class MLRoom;
 
 class MLRound:public MLReference
 {
-protected:
-	MLRound();
-	virtual ~MLRound();
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLRound);
-
 public:
 	static MLRound* SharedInstance();
 	static void Destroy();
 
-public:
 	virtual void Update(float delta);
 	virtual magicland::MLRoom* GetCurRoom() const;
 
 protected:
+  MLRound();
+	virtual ~MLRound();
+
 	magicland::MLRoom* m_CurRoom;
 	static MLRound* s_Instance;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLRound);
 };
 
 };

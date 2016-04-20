@@ -18,10 +18,6 @@ public:
 	MLMovePlatformMoveState();
 	virtual ~MLMovePlatformMoveState();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLMovePlatformMoveState);
-
-public:
 	virtual void Enter(magicland::MLEntity* entity);
 	virtual void Run(magicland::MLEntity* entity);
 	virtual void Exit(magicland::MLEntity* entity);
@@ -29,6 +25,9 @@ public:
 
 protected:
 	virtual void Move(magicland::MLEntity* entity);
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLMovePlatformMoveState);
 };
 
 }; // namespace magicland

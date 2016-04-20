@@ -20,10 +20,6 @@ public:
 	MLComTimer(magicland::MLEntity* entity);
 	virtual ~MLComTimer();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLComTimer);
-
-public:
 	void AddTimer(unsigned int flag, float initTime = 0.0f);
 	float GetTimer(unsigned int flag);
 	void UpdateTimer(unsigned int flag, float curTime);
@@ -31,6 +27,9 @@ public:
 protected:
 	typedef std::map<unsigned int, float> MLTimerMap;
 	MLTimerMap m_TimerMap;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComTimer);
 };
 
 }; // namespace magicland

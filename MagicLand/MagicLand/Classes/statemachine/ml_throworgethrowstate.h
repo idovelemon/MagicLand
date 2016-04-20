@@ -18,10 +18,6 @@ public:
 	MLThrowOrgeThrowState();
 	virtual ~MLThrowOrgeThrowState();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLThrowOrgeThrowState);
-
-public:
 	virtual void Enter(MLEntity* entity);
 	virtual void Run(MLEntity* entity);
 	virtual void Exit(MLEntity* entity);
@@ -29,6 +25,9 @@ public:
 
 protected:
 	virtual void ThrowBoomBall(MLEntity* entity);
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLThrowOrgeThrowState);
 };
 
 }; // namespace magicland

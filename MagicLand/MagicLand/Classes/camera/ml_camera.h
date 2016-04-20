@@ -21,20 +21,18 @@ public:
   explicit MLCamera(cocos2d::CCLayer* layer);
   virtual ~MLCamera();
 
-public:
   virtual bool Init() = 0;
   virtual void Update(float delta) = 0;
   virtual void Kill();
 
-public:
   virtual bool IsDead() const;
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLCamera);
 
 protected:
   cocos2d::CCLayer*	m_Layer;  // The layer that be controled by the camera
   bool				      m_IsDead; // If the camera is dead
+
+private:
+  ML_DISALLOW_COPY_AND_ASSIGN(MLCamera);
 };
 
 }; // namespace magicland

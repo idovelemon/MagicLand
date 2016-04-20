@@ -20,10 +20,6 @@ public:
 	MLComState(magicland::MLEntity* entity);
 	virtual ~MLComState();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLComState);
-
-public:
 	virtual void SetState(magicland::MLState* pState);
 	virtual magicland::MLState* GetState() const;
 	virtual void EnterEnd();
@@ -32,6 +28,9 @@ public:
 protected:
 	magicland::MLState*	m_State;	// The state of the entity
 	bool m_NeedEnd;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComState);
 };
 
 }; // namespace magicland

@@ -28,14 +28,6 @@ struct MLETYCreatorEntry {
 };
 
 class MLEntityCreator {
-protected:
-	static MLETYCreatorEntry s_CreatorTable[];
-
-private:
-	MLEntityCreator();
-	virtual ~MLEntityCreator();
-	ML_DISALLOW_COPY_AND_ASSIGN(MLEntityCreator);
-
 public:
 	static MLEntity* CreateTerrianEntity(VECTOR2 min, VECTOR2 max, MLRoom* room);
 	static MLEntity* CreateFireBall(float posx, float posy, magicland::MLDir dir, MLRoom* room);
@@ -48,7 +40,6 @@ public:
 	static MLEntity* CreateGearCore(float posx, float posy, MLRoom* room);
 
 	// Created from room map
-public:
 	static MLEntity* CreateEntity(MLEntitySubType type, int xCoord, int yCoord, MLRoom* room);
 	
 protected:
@@ -59,6 +50,14 @@ protected:
 	static MLEntity* CreateMovePlatform(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateThrowOrge(int xCoord, int yCoord, MLRoom* room);
 	static MLEntity* CreateGearCore(int xCoord, int yCoord, MLRoom* room);
+
+  // Member data
+	static MLETYCreatorEntry s_CreatorTable[];
+
+private:
+	MLEntityCreator();
+	virtual ~MLEntityCreator();
+	ML_DISALLOW_COPY_AND_ASSIGN(MLEntityCreator);
 };
 
 }; // namespace magicland

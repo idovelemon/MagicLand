@@ -18,24 +18,22 @@ namespace magicland {
 	 
 class MLEndState:public MLState
 {
-protected:
-	MLEndState();
-	virtual ~MLEndState();
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLEndState);
-
 public:
 	static MLEndState* SharedInstance();
 
-public:
 	virtual void Enter(magicland::MLEntity* entity);
 	virtual void Run(magicland::MLEntity* entity);
 	virtual void Exit(magicland::MLEntity* entity);
 	virtual void OnCollision(magicland::MLEntity* entity);
 
 protected:
+  MLEndState();
+	virtual ~MLEndState();
+
 	static MLEndState* s_Instance;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLEndState);
 };
 
 }; // namespace magicland

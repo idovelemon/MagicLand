@@ -21,10 +21,6 @@ public:
 	explicit MLRoomCreator(const char* roomDataFile);
 	virtual ~MLRoomCreator();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLRoomCreator);
-
-public:
 	//------------------------------------------------------------------------
 	// Description:Create a room according the room data
 	// Ret:If the method success, return the created room; otherwise return null
@@ -56,8 +52,10 @@ protected:
 	//------------------------------------------------------------------------
 	void CreateCamera(MLRoom* room);
 
-protected:
 	char* m_RoomDataFileName;   // The room's file's name
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLRoomCreator);
 };
 
 }; // namespace magicland

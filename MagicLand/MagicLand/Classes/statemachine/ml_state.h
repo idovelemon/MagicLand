@@ -23,7 +23,6 @@ public:
 	MLState(){}
 	virtual ~MLState(){}
 
-public:
 	virtual void Enter(magicland::MLEntity* entity) = 0;
 	virtual void Run(magicland::MLEntity* entity) = 0;
 	virtual void Exit(magicland::MLEntity* entity) = 0;

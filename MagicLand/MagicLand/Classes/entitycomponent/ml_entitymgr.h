@@ -22,19 +22,10 @@ namespace magicland {
 class MLEntity;
 
 class MLEntityMgr {
-protected:
-	MLEntityMgr();
-	virtual ~MLEntityMgr();
-	static MLEntityMgr* s_Instance;
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLEntityMgr);
-
 public:
 	static MLEntityMgr* SharedInstance();
 	static void Destroy();
 
-public:
 	virtual void AddEntity(MLEntity* entity);
 	virtual void Update(float delta);
 
@@ -42,14 +33,20 @@ public:
 	virtual unsigned int GetEntityNum();
 
 protected:
-	void RunLogic();
+	MLEntityMgr();
+	virtual ~MLEntityMgr();
+	static MLEntityMgr* s_Instance;
+
+  void RunLogic();
 	void DestroyAllDeadEntities();
 
-protected:
 	typedef std::map<unsigned int, MLEntity*> MLEntityTable;
 	typedef std::map<unsigned int, MLEntity*>::iterator MLEntityTableIt;
 	MLEntityTable			m_EntityTable;
 	MLEntity*				m_Player;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLEntityMgr);
 };
 
 }; // namespace magicland

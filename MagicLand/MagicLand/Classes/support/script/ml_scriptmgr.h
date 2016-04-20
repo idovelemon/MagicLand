@@ -9,27 +9,27 @@
 #include "marco.h"
 
 class MLScriptMgr {
-protected:
-	MLScriptMgr();
-	virtual ~MLScriptMgr();
-	ML_DISALLOW_COPY_AND_ASSIGN(MLScriptMgr);
-
 public:
 	static MLScriptMgr* SharedInstance();
 
-public:
 	void LoadScript(const char* scriptFile);
 	float GetValue(const char* segment);
 	void Destory();
 
 protected:
-	static MLScriptMgr* s_Instance;
-	struct MLKeyValuePair {
+  struct MLKeyValuePair {
 		char* segment;
 		float value;
 	};
 
+  MLScriptMgr();
+	virtual ~MLScriptMgr();
+
+	static MLScriptMgr* s_Instance;
 	std::vector<MLKeyValuePair> m_KeyValueArray;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLScriptMgr);
 };
 
 // (2016 / 01 / 10 xiaojian)

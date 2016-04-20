@@ -24,11 +24,7 @@ public:
   MLRoom();
   virtual ~MLRoom();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLRoom);
-
-    // setter and getter
-public:
+  // setter and getter
 	void SetScene(cocos2d::CCScene* scene);
 	cocos2d::CCScene* GetScene() const;
 
@@ -72,12 +68,16 @@ public:
 	int GetTerrianNum() const;
 	void GetTerrianAt(int index, VECTOR2& min, VECTOR2& max);
 
-public:
 	virtual bool Init();
 	virtual void Update(float delta);
 	virtual void Destroy();
 
 protected:
+	struct TerrianBoundBox {
+		VECTOR2 min;
+		VECTOR2 max;
+	};
+
 	cocos2d::CCScene*	m_Scene;        // The scene of this room
 	cocos2d::CCSprite*	m_Background;   // The background sprite
 	cocos2d::CCLayer*	m_GameLayer;	// The game layer which hold all the game's sprite
@@ -87,13 +87,11 @@ protected:
 	int			m_RoomHeight;   // The room's height
 	int			m_RoomWidth;    // The room's width
 	char*		m_RoomMap;      // The room's map
-	
-	struct TerrianBoundBox {
-		VECTOR2 min;
-		VECTOR2 max;
-	};
 
 	std::vector<TerrianBoundBox> m_Terrians; // The vector hold all the terrian's bound box
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLRoom);
 };
 
 }; // namespace magicland

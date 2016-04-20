@@ -17,17 +17,9 @@
 namespace magicland {
 
 class MLStartState:public MLState {
-protected:
-	MLStartState();
-	virtual ~MLStartState();
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLStartState);
-
 public:
 	static MLStartState* SharedInstance();
 
-public:
 	virtual void Enter(MLEntity* entity);
 	virtual void Run(MLEntity* entity);
 	virtual void Exit(MLEntity* entity);
@@ -35,6 +27,12 @@ public:
 
 protected:
 	static MLStartState* s_Instance;
+
+	MLStartState();
+	virtual ~MLStartState();
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLStartState);
 };
 
 }; // namespace magicland

@@ -15,18 +15,17 @@
 namespace magicland {
 
 class MLStateMethod {
-
-private:
-	MLStateMethod();
-	virtual ~MLStateMethod();
-	ML_DISALLOW_COPY_AND_ASSIGN(MLStateMethod);
-
 public:
 	static void CollisionResponse(magicland::MLEntity* entity);
 	static void UpdateBoundBox(magicland::MLEntity* entity);
 	static void RenderSprite(magicland::MLEntity* entity);
 	static void OnCollision(magicland::MLEntity* entity);
 	static void Fire(magicland::MLEntity* entity);
+
+private:
+	MLStateMethod();
+	virtual ~MLStateMethod();
+	ML_DISALLOW_COPY_AND_ASSIGN(MLStateMethod);
 };
 
 }; // namespace magicland

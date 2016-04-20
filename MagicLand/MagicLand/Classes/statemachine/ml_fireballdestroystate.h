@@ -19,14 +19,13 @@ public:
 	MLFireBallDestroyState();
 	virtual ~MLFireBallDestroyState();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLFireBallDestroyState);
-
-public:
 	virtual void Enter(magicland::MLEntity* entity);
 	virtual void Run(magicland::MLEntity* entity);
 	virtual void Exit(magicland::MLEntity* entity);
 	virtual void OnCollision(magicland::MLEntity* entity);
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLFireBallDestroyState);
 };
 
 }; // namespace magicland

@@ -18,10 +18,6 @@ public:
 	MLJumpOrgeBackState();
 	virtual ~MLJumpOrgeBackState();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLJumpOrgeBackState);
-
-public:
 	virtual void Enter(magicland::MLEntity* entity);
 	virtual void Run(magicland::MLEntity* entity);
 	virtual void Exit(magicland::MLEntity* entity);
@@ -29,6 +25,9 @@ public:
 	
 protected:
 	virtual void Back(magicland::MLEntity* entity);
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLJumpOrgeBackState);
 };
 
 }; // namespace magicland

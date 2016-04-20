@@ -18,15 +18,14 @@ public:
   MLReference();
   virtual ~MLReference();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLReference);
-
-public:
   virtual void Grab();
   virtual void Drop();
 
 protected:
   int m_RefCounted;  // The referenced count
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLReference);
 };
 
 }; // namespace magicland

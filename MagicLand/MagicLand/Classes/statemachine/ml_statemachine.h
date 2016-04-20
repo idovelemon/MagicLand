@@ -25,10 +25,6 @@ public:
 	MLStateMachine();
 	virtual ~MLStateMachine();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLStateMachine);
-
-public:
 	//-----------------------------------------------------------
 	// Desc: This method will do the state process of the specific entity.
 	// All the process of this entity will be done in this state machine
@@ -70,6 +66,9 @@ protected:
 	typedef std::vector<MLStateEntry*>::iterator MLStateEntryArrayIt;
 
 	MLStateEntryArray m_StateTable;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLStateMachine);
 };
 
 }; // namespace magicland

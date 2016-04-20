@@ -18,10 +18,6 @@ public:
 	MLBoomBallFlyState();
 	virtual ~MLBoomBallFlyState();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLBoomBallFlyState);
-
-public:
 	virtual void Enter(MLEntity* entity);
 	virtual void Run(MLEntity* entity);
 	virtual void Exit(MLEntity* entity);
@@ -30,6 +26,9 @@ public:
 protected:
 	virtual void Fly(MLEntity* entity);
 	virtual void Boom(MLEntity* entity);
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLBoomBallFlyState);
 };
 
 }; // namespace magicland

@@ -65,10 +65,6 @@ public:
 	MLEntity(MLEntityMainType main, MLEntitySubType sub, MLRoom* room);
 	virtual ~MLEntity();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLEntity);
-
-public:
 	//---------------------------------------------------------------------
 	// Desc:This method will add the component into the entity.Entity can only
 	// hold one component of one type.
@@ -132,6 +128,9 @@ protected:
 	MLEntitySubType		m_SubType;				// The entity's sub type include such like wall,ground,tree,spike and so on
 	MLRoom*				m_Room;					// The room that hold the entity
 	static unsigned int s_IDGenerator;			// The static ID generator
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLEntity);
 };
 
 }; // namespace magicland

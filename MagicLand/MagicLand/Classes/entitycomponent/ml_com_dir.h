@@ -20,15 +20,14 @@ public:
 	MLComDir(magicland::MLEntity* entity, magicland::MLDir dir);
 	virtual ~MLComDir();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLComDir);
-
-public:
 	void SetDir(magicland::MLDir dir);
 	magicland::MLDir GetDir();
 
 protected:
 	magicland::MLDir m_Dir;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComDir);
 };
 
 }; // namespace magicland

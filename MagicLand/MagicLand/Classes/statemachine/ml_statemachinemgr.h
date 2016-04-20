@@ -20,18 +20,10 @@ namespace magicland {
 class MLEntity;
 
 class MLStateMachineMgr {
-protected:
-	MLStateMachineMgr();
-	virtual ~MLStateMachineMgr();
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLStateMachineMgr);
-
 public:
 	static MLStateMachineMgr* SharedInstance();
 	static void Destroy();
 
-public:
 	//--------------------------------------------------------------------------
 	// Desc:This method will add the managr node into this manager.All the manage
 	// node together become the manage table of this manager.You must create this
@@ -49,6 +41,9 @@ public:
 	virtual void RunStateMachine(magicland::MLEntity* entity);
 
 protected:
+  MLStateMachineMgr();
+	virtual ~MLStateMachineMgr();
+
 	typedef std::map<magicland::MLEntitySubType, magicland::MLStateMachine*> MLSMMgrTable;
 	typedef std::map<magicland::MLEntitySubType, magicland::MLStateMachine*>::iterator MLSMMgrTableIt;
 	typedef std::pair<magicland::MLEntitySubType, magicland::MLStateMachine*> MLSMMgrPair;
@@ -56,6 +51,9 @@ protected:
 	MLSMMgrTable	m_StateMachineMgrTable;
 
 	static MLStateMachineMgr* s_Instance;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLStateMachineMgr);
 };
 
 }; // namespace magicland

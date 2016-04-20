@@ -16,15 +16,10 @@
 namespace magicland {
 
 class MLComMovement:public MLComponent {
-
 public:
 	MLComMovement(magicland::MLEntity* entity);
 	virtual ~MLComMovement();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLComMovement);
-
-public:
 	virtual void SetVel(float x, float y);
 	virtual VECTOR2 GetVel() const;
 	virtual void SetGravity(float g);
@@ -36,6 +31,9 @@ protected:
 	VECTOR2	m_Vel;	
 	float	m_Gravity;
 	float	m_MaxFallSpeed;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComMovement);
 };
 
 }; // namespace magicland

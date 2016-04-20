@@ -21,19 +21,15 @@ public:
 	explicit MLPlayerCamera(cocos2d::CCLayer* layer);
 	virtual ~MLPlayerCamera();
 
-public:
 	virtual bool Init();
 	virtual void Update(float delta);
 	virtual void Kill();
 
+  virtual bool IsDead() const;
+
 private:
 	void calculateCamrea();
-
-private:
 	ML_DISALLOW_COPY_AND_ASSIGN(MLPlayerCamera);
-
-public:
-	virtual bool IsDead() const;
 };
 
 }; // namespace magicland

@@ -27,18 +27,9 @@ public:
 		MLEVENT_TOTAL,
 	};
 
-protected:
-	MLEventMgr();
-	virtual ~MLEventMgr();
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLEventMgr);
-
-public:
 	static MLEventMgr* SharedInstance();
 	static void Destroy();
 
-public:
 	virtual void RegistRecieveEvent(unsigned int eventType, magicland::MLEntity* reciever, MLEventHandle eventHandle);
 	virtual void UnRegistRecieveEvent(unsigned int eventType, magicland::MLEntity* reciever);
 	virtual void RegistSendEvent(unsigned int eventType, magicland::MLEntity* sender);
@@ -47,13 +38,7 @@ public:
 	virtual void Reset();
 
 protected:
-	void HandleEvents();
-	void UnRegistEvents();
-	void UnRegistSendEvents();
-	void UnRegistRecieveEvents();
-
-protected:
-	struct MLSenderList {
+  struct MLSenderList {
 		std::list<magicland::MLEntity*> senderList;
 	};
 
@@ -70,12 +55,23 @@ protected:
 		magicland::MLEntity* entity;
 	};
 
+  MLEventMgr();
+	virtual ~MLEventMgr();
+
+	void HandleEvents();
+	void UnRegistEvents();
+	void UnRegistSendEvents();
+	void UnRegistRecieveEvents();
+
 	std::vector<MLSenderList>	m_SenderTable;
 	std::vector<MLRecieverList> m_RecieverTable;
 	std::vector<MLRegistInfo>	m_UnRegistSendEventList;
 	std::vector<MLRegistInfo>	m_UnRegistRecieveEventList;
 
 	static MLEventMgr* s_Instance;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLEventMgr);
 };
 
 }; // namespace magicland

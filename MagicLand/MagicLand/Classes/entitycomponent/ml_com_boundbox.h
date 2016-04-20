@@ -27,7 +27,6 @@ public:
 	MLComBoundBox(magicland::MLEntity* entity, float width, float height, float posx, float posy);
 	virtual ~MLComBoundBox();
 
-public:
 	virtual void	SetBoundBox(AABB aabb);
 	virtual AABB	GetBoundBox() const;
 	virtual void	AddEntity(magicland::MLEntity* colEntity);
@@ -36,13 +35,13 @@ public:
 	virtual void	UpdateBoundBox(VECTOR2 pos);
 	virtual void	Reset();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLComBoundBox);
-
 protected:
 	AABB					m_Aabb;			// The bounding box of the entity
 	bool					m_IsCollided;	// If the bound box has collided with other bound box
 	magicland::MLColVector	m_ColEntities;	// The collided entities
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComBoundBox);
 };
 
 }; // namespace magicland

@@ -38,15 +38,14 @@ public:
 	MLComponent(MLComType type, magicland::MLEntity* entity);
   virtual ~MLComponent();
 
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLComponent);
-
-public:
   virtual MLComType GetType() const;
 
 protected:
   MLComType m_Type;
 	magicland::MLEntity* m_Entity;
+
+private:
+	ML_DISALLOW_COPY_AND_ASSIGN(MLComponent);
 };
 
 }; // namespace magicland
