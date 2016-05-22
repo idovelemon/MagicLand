@@ -1,4 +1,0 @@
-# Config for Fire ball magic
-FireBallBoundBoxWidth = 16
-FireBallBoundBoxHeight = 16
-FireBallMoveSpeed = 10

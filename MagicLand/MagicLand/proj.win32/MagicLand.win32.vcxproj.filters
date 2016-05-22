@@ -9,18 +9,6 @@
       <UniqueIdentifier>{41ecfeff-f64b-463f-b2cd-7c1f102ed3f0}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;png;manifest</Extensions>
     </Filter>
-    <Filter Include="source\camera">
-      <UniqueIdentifier>{38524e87-af2e-4fb6-b561-5ade3eeeb674}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\camera\playcamera">
-      <UniqueIdentifier>{e91b2a88-4a34-424c-8fa9-4a2fc354819c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\collision">
-      <UniqueIdentifier>{16a4a5d5-deeb-492b-a3dd-985996810037}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\entitycomponent">
-      <UniqueIdentifier>{89c9cdfe-4aa0-4ab4-a2ae-672ffb09a708}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\event">
       <UniqueIdentifier>{26605fbb-da90-4251-9cca-82547cea76ad}</UniqueIdentifier>
     </Filter>
@@ -30,45 +18,6 @@
     <Filter Include="source\reference">
       <UniqueIdentifier>{e885d9f2-5242-45d5-ab90-1849a69c4003}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\round">
-      <UniqueIdentifier>{f2f31b9c-96d3-4a07-9bf2-a8476168da8e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine">
-      <UniqueIdentifier>{e1ff1178-605e-4884-8907-b7a3ce018bdf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\framework">
-      <UniqueIdentifier>{b8da1697-12fd-498c-bb22-b8f50aeef3bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\state">
-      <UniqueIdentifier>{3c018ffc-9d0c-49e6-9e90-a196f4d5d0ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\state\boomball">
-      <UniqueIdentifier>{8242ec55-b040-4718-8a93-73dda3d614d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\state\brokenstone">
-      <UniqueIdentifier>{390b2e0a-6738-4f43-a947-07b52d08e223}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\condition">
-      <UniqueIdentifier>{a6f2253f-a94e-4584-bba4-490326d3d5a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\state\fireball">
-      <UniqueIdentifier>{1b73d6c7-92be-4cb7-975f-b81d0cbe3566}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\state\jumporge">
-      <UniqueIdentifier>{c91d0a57-f691-4db8-b895-8e1032444568}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\state\moveplatform">
-      <UniqueIdentifier>{ea806c70-bdfd-4b4d-9e48-172815647715}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\state\orge">
-      <UniqueIdentifier>{e45b8481-8336-441e-ab77-0009318cef4f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\state\throworge">
-      <UniqueIdentifier>{eb3ef9d9-c942-4b53-97e9-d8409abb3159}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\statemachine\state\xj">
-      <UniqueIdentifier>{523ea528-edc7-465f-814c-5afc96e2c75f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\support">
       <UniqueIdentifier>{9e59b92b-58fe-4d4a-8a61-f32c07a8191e}</UniqueIdentifier>
     </Filter>
@@ -77,6 +26,21 @@
     </Filter>
     <Filter Include="source\support\xjmath">
       <UniqueIdentifier>{9ddd9e05-e05e-4808-ac71-bb9bef34c932}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\round">
+      <UniqueIdentifier>{a9e26e68-4aa8-4d8d-b454-6e696ab13eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ecs">
+      <UniqueIdentifier>{89c9cdfe-4aa0-4ab4-a2ae-672ffb09a708}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ecs\component">
+      <UniqueIdentifier>{5ae11156-815f-4580-b983-12990a41505a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ecs\system">
+      <UniqueIdentifier>{c24ef867-fcea-4b96-830e-7ae1ca40a35c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ecs\component\weapon">
+      <UniqueIdentifier>{07d9720a-ee57-4a57-8ba9-024220ad9c37}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -114,60 +78,6 @@
     <ClInclude Include="..\Classes\marco.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CollisionDebugLayer.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\camera\ml_camera.h">
-      <Filter>source\camera</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\camera\playercamera\ml_player_camera.h">
-      <Filter>source\camera\playcamera</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\entitycomponent\ml_com_boundbox.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\entitycomponent\ml_com_dir.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\entitycomponent\ml_com_display.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\entitycomponent\ml_com_movement.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\entitycomponent\ml_component.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\entitycomponent\ml_com_state.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\entitycomponent\ml_com_timer.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\entitycomponent\ml_com_transform.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\entitycomponent\ml_com_userdata.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\entitycomponent\ml_entity.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\entitycomponent\ml_entitycreator.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\entitycomponent\ml_entitymgr.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\collision\ml_collisionmgr.h">
-      <Filter>source\collision</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\entitycomponent\ml_timerflag.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\entitycomponent\ml_userdataflag.h">
-      <Filter>source\entitycomponent</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\event\ml_eventmgr.h">
       <Filter>source\event</Filter>
     </ClInclude>
@@ -177,89 +87,68 @@
     <ClInclude Include="..\classes\reference\ml_reference.h">
       <Filter>source\reference</Filter>
     </ClInclude>
-    <ClInclude Include="..\classes\round\ml_room.h">
-      <Filter>source\round</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\round\ml_roomcreator.h">
-      <Filter>source\round</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\round\ml_round.h">
-      <Filter>source\round</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_boomballflystate.h">
-      <Filter>source\statemachine\state\boomball</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_brokenstoneflystate.h">
-      <Filter>source\statemachine\state\brokenstone</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_con.h">
-      <Filter>source\statemachine\framework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_endstate.h">
-      <Filter>source\statemachine\framework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_startstate.h">
-      <Filter>source\statemachine\framework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_state.h">
-      <Filter>source\statemachine\framework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_statemachine.h">
-      <Filter>source\statemachine\framework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_statemachinemgr.h">
-      <Filter>source\statemachine\framework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_fireballdestroystate.h">
-      <Filter>source\statemachine\state\fireball</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_fireballflystate.h">
-      <Filter>source\statemachine\state\fireball</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_jumporgebackstate.h">
-      <Filter>source\statemachine\state\jumporge</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_jumporgejumpstate.h">
-      <Filter>source\statemachine\state\jumporge</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_jumporgesleepstate.h">
-      <Filter>source\statemachine\state\jumporge</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_moveplatformmovestate.h">
-      <Filter>source\statemachine\state\moveplatform</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_xjfallstate.h">
-      <Filter>source\statemachine\state\xj</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_xjjumpstate.h">
-      <Filter>source\statemachine\state\xj</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_xjnormalstate.h">
-      <Filter>source\statemachine\state\xj</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_throworgethrowstate.h">
-      <Filter>source\statemachine\state\throworge</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_orgewaitstate.h">
-      <Filter>source\statemachine\state\orge</Filter>
-    </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_orgewalkstate.h">
-      <Filter>source\statemachine\state\orge</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\statemachine\ml_statemethod.h">
-      <Filter>source\statemachine\state</Filter>
-    </ClInclude>
     <ClInclude Include="..\classes\support\script\ml_scriptmgr.h">
       <Filter>source\support\script</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\support\xjmath\XJMath.h">
       <Filter>source\support\xjmath</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\entitycomponent\ml_allcoms.h">
-      <Filter>source\entitycomponent</Filter>
+    <ClInclude Include="..\Classes\round\ml_round.h">
+      <Filter>source\round</Filter>
     </ClInclude>
-    <ClInclude Include="..\classes\statemachine\ml_com_con.h">
-      <Filter>source\statemachine\condition</Filter>
+    <ClInclude Include="..\Classes\round\ml_roundconfig.h">
+      <Filter>source\round</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\round\ml_entitymgr.h">
+      <Filter>source\round</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_entity.h">
+      <Filter>source\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_allcoms.h">
+      <Filter>source\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_component.h">
+      <Filter>source\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_com_display.h">
+      <Filter>source\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_com_timer.h">
+      <Filter>source\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_com_transform.h">
+      <Filter>source\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_com_userdata.h">
+      <Filter>source\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_timerflag.h">
+      <Filter>source\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_userdataflag.h">
+      <Filter>source\ecs\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_system.h">
+      <Filter>source\ecs\system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_playersys.h">
+      <Filter>source\ecs\system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_com_weapons.h">
+      <Filter>source\ecs\component\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_weapon.h">
+      <Filter>source\ecs\component\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_single_particle.h">
+      <Filter>source\ecs\component\weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_normalflysys.h">
+      <Filter>source\ecs\system</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_com_speed.h">
+      <Filter>source\ecs\component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -272,54 +161,6 @@
     <ClCompile Include="main.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\CollisionDebugLayer.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\camera\ml_camera.cpp">
-      <Filter>source\camera</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\camera\playercamera\ml_player_camera.cpp">
-      <Filter>source\camera\playcamera</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_com_boundbox.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_com_dir.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_com_display.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_com_movement.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_component.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_com_state.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_com_timer.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_com_transform.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_com_userdata.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_entity.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_entitycreator.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\entitycomponent\ml_entitymgr.cpp">
-      <Filter>source\entitycomponent</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\collision\ml_collisionmgr.cpp">
-      <Filter>source\collision</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\event\ml_eventmgr.cpp">
       <Filter>source\event</Filter>
     </ClCompile>
@@ -328,72 +169,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\reference\ml_reference.cpp">
       <Filter>source\reference</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\round\ml_room.cpp">
-      <Filter>source\round</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\round\ml_roomcreator.cpp">
-      <Filter>source\round</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\round\ml_round.cpp">
-      <Filter>source\round</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_boomballflystate.cpp">
-      <Filter>source\statemachine\state\boomball</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_brokenstoneflystate.cpp">
-      <Filter>source\statemachine\state\brokenstone</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_endstate.cpp">
-      <Filter>source\statemachine\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_startstate.cpp">
-      <Filter>source\statemachine\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_statemachine.cpp">
-      <Filter>source\statemachine\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_statemachinemgr.cpp">
-      <Filter>source\statemachine\framework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_fireballdestroystate.cpp">
-      <Filter>source\statemachine\state\fireball</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_fireballflystate.cpp">
-      <Filter>source\statemachine\state\fireball</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_jumporgebackstate.cpp">
-      <Filter>source\statemachine\state\jumporge</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_jumporgejumpstate.cpp">
-      <Filter>source\statemachine\state\jumporge</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_jumporgesleepstate.cpp">
-      <Filter>source\statemachine\state\jumporge</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_moveplatformmovestate.cpp">
-      <Filter>source\statemachine\state\moveplatform</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_xjfallstate.cpp">
-      <Filter>source\statemachine\state\xj</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_xjjumpstate.cpp">
-      <Filter>source\statemachine\state\xj</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_xjnormalstate.cpp">
-      <Filter>source\statemachine\state\xj</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_throworgethrowstate.cpp">
-      <Filter>source\statemachine\state\throworge</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_orgewaitstate.cpp">
-      <Filter>source\statemachine\state\orge</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_orgewalkstate.cpp">
-      <Filter>source\statemachine\state\orge</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_statemethod.cpp">
-      <Filter>source\statemachine\state</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\support\script\ml_scriptmgr.cpp">
       <Filter>source\support\script</Filter>
@@ -407,8 +182,47 @@
     <ClCompile Include="..\Classes\support\xjmath\XJMath_vector.cpp">
       <Filter>source\support\xjmath</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\statemachine\ml_com_con.cpp">
-      <Filter>source\statemachine\condition</Filter>
+    <ClCompile Include="..\Classes\round\ml_round.cpp">
+      <Filter>source\round</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\round\ml_roundconfig.cpp">
+      <Filter>source\round</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_entity.cpp">
+      <Filter>source\ecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\round\ml_entitymgr.cpp">
+      <Filter>source\round</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_com_display.cpp">
+      <Filter>source\ecs\component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_com_timer.cpp">
+      <Filter>source\ecs\component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_com_transform.cpp">
+      <Filter>source\ecs\component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_com_userdata.cpp">
+      <Filter>source\ecs\component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_component.cpp">
+      <Filter>source\ecs\component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_playersys.cpp">
+      <Filter>source\ecs\system</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_com_weapons.cpp">
+      <Filter>source\ecs\component\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_single_particle.cpp">
+      <Filter>source\ecs\component\weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_normalflysys.cpp">
+      <Filter>source\ecs\system</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_com_speed.cpp">
+      <Filter>source\ecs\component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

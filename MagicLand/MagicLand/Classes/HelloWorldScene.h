@@ -2,8 +2,6 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
-#include "CollisionDebugLayer.h"
-#include "round/ml_room.h"
 
 class HelloWorld : public cocos2d::CCLayer
 {
@@ -21,14 +19,6 @@ public:
     CREATE_FUNC(HelloWorld);
 
 	void update(float delta);
-
-	cocos2d::CCLayer* getDebugLayer();
-
-protected:
-    magicland::MLRoom* m_Room;
-	CollisionDebugLayer* m_DebugLayer;
-	cocos2d::CCLabelTTF* m_CollisionNo;
-	cocos2d::CCLabelTTF* m_EntityNo;
 };
 
 #endif  // __HELLOWORLD_SCENE_H__

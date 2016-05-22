@@ -1,7 +1,0 @@
-# Config for Hero XJ
-HeroXJBoundBoxWidth = 32
-HeroXJBoundBoxHeight = 32
-HeroXJGravity = 1.0
-HeroXJMaxFallSpeed = 10.0
-HeroXJMoveSpeed = 3.0
-HeroXJFireDelta = 0.3

@@ -1,40 +1,32 @@
-//-----------------------------------------------------------------------------
+//---------------------------------------------------------------------
 // Declaration: Copyright (c), by i_dovelemon, 2016. All right reserved.
-// Author: i_dovelemon(1322600812@qq.com)
-// Date: 2016 / 01 / 07
+// Author: i_dovelemon[1322600812@qq.com]
+// Date: 2016 / 05 / 22
 // Version: 1.0
-// Brief: This file will define the round in this game
-//-----------------------------------------------------------------------------
-#ifndef ML_ROUND_MLROUND_H_
-#define ML_ROUND_MLROUND_H_
+// Brief: Define one round
+//---------------------------------------------------------------------
+#ifndef ML_ROUND_MLROUNDMGR_H_
+#define ML_ROUND_MLROUNDMGR_H_
 
-#include "marco.h"
-#include "reference/ml_reference.h"
+#include <stdint.h>
 
 namespace magicland {
 
-class MLRoom;
-
-class MLRound:public MLReference
-{
+class MLRoundMgr {
 public:
-	static MLRound* SharedInstance();
-	static void Destroy();
+  static const int32_t kMaxRound = 100;
 
-	virtual void Update(float delta);
-	virtual magicland::MLRoom* GetCurRoom() const;
+public:
+  static int32_t Init();
+  static void Update(float delta);
+  static void Destroy();
 
-protected:
-  MLRound();
-	virtual ~MLRound();
-
-	magicland::MLRoom* m_CurRoom;
-	static MLRound* s_Instance;
-
-private:
-	ML_DISALLOW_COPY_AND_ASSIGN(MLRound);
+  static void StartRound(int32_t round);
+  static void ReStartRound();
+  static void PauseRound();
+  static void ResumeRound();
+  static void StopRound();
 };
 
-};
-
-#endif // ML_ROUND_MLROUND_H_
+}
+#endif // ML_ROUND_MLROUNDMGR_H_

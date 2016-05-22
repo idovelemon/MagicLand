@@ -1,7 +1,7 @@
 #include "event/ml_eventmgr.h"
 
 #include "marco.h"
-#include "entitycomponent/ml_entity.h"
+#include "ecs/ml_entity.h"
 
 using namespace magicland;
 

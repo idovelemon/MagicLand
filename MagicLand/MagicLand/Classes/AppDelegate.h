@@ -2,7 +2,6 @@
 #define __APP_DELEGATE_H__
 
 #include "cocos2d.h"
-#include "round/ml_room.h"
 
 /**
 @brief    The cocos2d Application.
@@ -36,22 +35,6 @@ public:
 
 	// override the run method
 	virtual int run();
-
-	// game method
-	virtual void gameInit();
-	virtual void gameMainLoop(float delta);
-	virtual void gameFinish();
-
-protected:
-	void CreateXJSM();
-	void CreateFireBallSM();
-	void CreateOrgeSM();
-	void CreateJumpOrgeSM();
-	void CreateMovePlatformSM();
-	void CreateThrowOrgeSM();
-	void CreateBoomBallSM();
-	void CreateBrokenStoneSM();
-	void CreateGearCoreSM();
 };
 
 #endif  // __APP_DELEGATE_H__
