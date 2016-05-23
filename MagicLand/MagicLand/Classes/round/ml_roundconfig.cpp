@@ -5,6 +5,7 @@
 #include "marco.h"
 #include "ecs/ml_allcoms.h"
 #include "ecs/ml_entity.h"
+#include "ecs/ml_evilcirclesys.h"
 #include "ecs/ml_playersys.h"
 #include "ecs/ml_single_particle.h"
 #include "ml_entitymgr.h"
@@ -74,8 +75,9 @@ int32_t MLRoundConfigImp::ConfigRound(int32_t round) {
   MLEntity* player = CreatePlayer();
   MLEntityMgr::AddEntity(player);
   ML_SAFE_DROP(player);
-  //MLEntity* monster = CreateMonster();
-  //MLEntityMgr::AddEntity(monster);
+  MLEntity* monster = CreateMonster();
+  MLEntityMgr::AddEntity(monster);
+  ML_SAFE_DROP(monster);
 
   return 0;
 }
@@ -122,7 +124,46 @@ MLEntity* MLRoundConfigImp::CreatePlayer() {
 }
 
 MLEntity* MLRoundConfigImp::CreateMonster() {
-  MLEntity* entity = NULL;
+  MLEntity* entity = new MLEntity(ML_ETYMAINTYPE_MONSTER, ML_ETYSUBTYPE_EVILCIRCLE);
+  ML_SAFE_ASSERT(entity != NULL, "Memory Error");
+  if(entity != NULL) {
+    // Create Transform Component
+    MLComTransform* transform = new MLComTransform(entity, 400.0f, 300.0f, 1.0f, 1.0f, 0.0f, 1.0f);
+    ML_SAFE_ASSERT(transform != NULL, "Memory Error");
+    if(transform != NULL) {
+      entity->AddComponent(transform);
+      ML_SAFE_DROP(transform);
+    }
+
+    // Create Display Component
+    MLComDisplay* display = new MLComDisplay(entity, "Image/EvilCircle/EvilCircle.png"
+      ,reinterpret_cast<cocos2d::CCLayer*>(cocos2d::CCDirector::sharedDirector()->getRunningScene()->getChildByTag(1)));
+    ML_SAFE_ASSERT(display != NULL, "Memory Error");
+    if(display != NULL) {
+      entity->AddComponent(display);
+      display->GetSprite()->setAnchorPoint(ccp(0.5f, 0.5f));
+      display->GetSprite()->setPosition(ccp(400.0f, 300.0f));
+      ML_SAFE_DROP(display);
+    }
+
+    // Create Speed Component
+    MLComSpeed* speed = new MLComSpeed(entity, 0.0f, 0.0f, 5.0f);
+    ML_SAFE_ASSERT(speed != NULL, "Memory Error");
+    if(speed != NULL) {
+      entity->AddComponent(speed);
+      ML_SAFE_DROP(speed);
+    }
+    
+    // Create System
+    MLSystem* system = new MLEvilCircleSys(entity);
+    ML_SAFE_ASSERT(system != NULL, "Memory Error");
+    if(system != NULL) {
+      entity->AttachSystem(system);
+      ML_SAFE_DROP(system);
+    }
+
+  }
+
   return entity;
 }
 

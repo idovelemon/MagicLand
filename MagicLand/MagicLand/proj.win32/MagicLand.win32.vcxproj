@@ -138,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\ecs\ml_com_speed.h" />
+    <ClInclude Include="..\Classes\ecs\ml_evilcirclesys.h" />
     <ClInclude Include="..\Classes\ecs\ml_normalflysys.h" />
     <ClInclude Include="..\Classes\ecs\ml_single_particle.h" />
     <ClInclude Include="..\Classes\ecs\ml_weapon.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="..\Classes\ecs\ml_com_userdata.cpp" />
     <ClCompile Include="..\Classes\ecs\ml_com_weapons.cpp" />
     <ClCompile Include="..\Classes\ecs\ml_entity.cpp" />
+    <ClCompile Include="..\Classes\ecs\ml_evilcirclesys.cpp" />
     <ClCompile Include="..\Classes\ecs\ml_normalflysys.cpp" />
     <ClCompile Include="..\Classes\ecs\ml_playersys.cpp" />
     <ClCompile Include="..\Classes\ecs\ml_single_particle.cpp" />

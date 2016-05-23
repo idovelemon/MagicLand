@@ -150,6 +150,9 @@
     <ClInclude Include="..\Classes\ecs\ml_com_speed.h">
       <Filter>source\ecs\component</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\ecs\ml_evilcirclesys.h">
+      <Filter>source\ecs\system</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -223,6 +226,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ecs\ml_com_speed.cpp">
       <Filter>source\ecs\component</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ecs\ml_evilcirclesys.cpp">
+      <Filter>source\ecs\system</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

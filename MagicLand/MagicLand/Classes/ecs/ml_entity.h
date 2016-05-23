@@ -25,6 +25,7 @@ enum MLEntityMainType
 	ML_ETYMAINTYPE_NONE = -1,	
   ML_ETYMAINTYPE_PLAYER,
   ML_ETYMAINTYPE_PLAYERATTACK,
+  ML_ETYMAINTYPE_MONSTER,
 
 	ML_ETYMAINTYPE_TOTAL,	// This indicate how many entity main type in magicland
 };
@@ -34,6 +35,7 @@ enum MLEntitySubType
 	ML_ETYSUBTYPE_NONE = -1,
   ML_ETYSUBTYPE_PLAYER,
   ML_ETYSUBTYPE_SINGLEPARTICLE,
+  ML_ETYSUBTYPE_EVILCIRCLE,
 
 	ML_ETYSUBTYPE_TOTAL,	// This indicate how many entity type in magicland
 };
