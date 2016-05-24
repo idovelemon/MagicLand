@@ -42,6 +42,9 @@
     <Filter Include="source\ecs\component\weapon">
       <UniqueIdentifier>{07d9720a-ee57-4a57-8ba9-024220ad9c37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\fsm">
+      <UniqueIdentifier>{88b9d32c-aebe-4412-a107-9a6a543e64f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -153,6 +156,18 @@
     <ClInclude Include="..\Classes\ecs\ml_evilcirclesys.h">
       <Filter>source\ecs\system</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\fsm\ml_statemachine.h">
+      <Filter>source\fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fsm\ml_state.h">
+      <Filter>source\fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fsm\ml_statestate.h">
+      <Filter>source\fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fsm\ml_endstate.h">
+      <Filter>source\fsm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -229,6 +244,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\ecs\ml_evilcirclesys.cpp">
       <Filter>source\ecs\system</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fsm\ml_statemachine.cpp">
+      <Filter>source\fsm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

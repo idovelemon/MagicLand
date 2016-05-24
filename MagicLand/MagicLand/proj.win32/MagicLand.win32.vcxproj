@@ -156,6 +156,10 @@
     <ClInclude Include="..\Classes\ecs\ml_com_weapons.h" />
     <ClInclude Include="..\Classes\event\ml_eventmgr.h" />
     <ClInclude Include="..\classes\framerate\ml_frameratemgr.h" />
+    <ClInclude Include="..\Classes\fsm\ml_endstate.h" />
+    <ClInclude Include="..\Classes\fsm\ml_state.h" />
+    <ClInclude Include="..\Classes\fsm\ml_statemachine.h" />
+    <ClInclude Include="..\Classes\fsm\ml_statestate.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\marco.h" />
     <ClInclude Include="..\classes\reference\ml_reference.h" />
@@ -183,6 +187,7 @@
     <ClCompile Include="..\Classes\ecs\ml_single_particle.cpp" />
     <ClCompile Include="..\Classes\event\ml_eventmgr.cpp" />
     <ClCompile Include="..\Classes\framerate\ml_frameratemgr.cpp" />
+    <ClCompile Include="..\Classes\fsm\ml_statemachine.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\reference\ml_reference.cpp" />
     <ClCompile Include="..\Classes\round\ml_entitymgr.cpp" />
