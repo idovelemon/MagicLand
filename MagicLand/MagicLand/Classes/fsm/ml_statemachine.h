@@ -21,7 +21,6 @@ namespace fsm {
 // Declaration
 //------------------------------------------------------------------------
 class MLState;
-typedef bool (*MLCondition)(MLEntity*);
 
 //------------------------------------------------------------------------
 // Class
@@ -35,10 +34,9 @@ public:
   //-----------------------------------------------------------------------
   // Desc: Add the state entry into the state machine
   // Param: start The start state of the entry
-  // Param: con If the condition matched, the state will become the end
   // Param: end The end state of the entry
   //-----------------------------------------------------------------------
-  void AddStateEntry(MLState* start, MLCondition con, MLState* end);
+  void AddStateEntry(MLState* start, MLState* end);
 
   //-----------------------------------------------------------------------
   // Desc: Run the state machine
@@ -50,7 +48,6 @@ public:
 protected:
   struct MLStateEntry {
     MLState* start;
-    MLCondition con;
     MLState* end;
   };
 

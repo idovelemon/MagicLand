@@ -18,7 +18,8 @@ namespace fsm {
 class MLState:public MLReference {
 public:
   MLState(MLEntity* entity)
-    :m_Entity(entity) {
+    :m_Entity(entity)
+    ,m_IsOver(false) {
   }
   
   virtual ~MLState() {
@@ -29,7 +30,12 @@ public:
   virtual void Run(float delta) = 0;
   virtual void Exit(float delta) = 0;
 
+  virtual bool IsOver() const {
+    return m_IsOver;
+  }
+
 protected:
+  bool          m_IsOver;
   MLEntity*     m_Entity;
 };
 

@@ -17,6 +17,7 @@ class MLStartState:public MLState {
 public:
   MLStartState()
   :MLState(NULL) {
+    m_IsOver = true;
   }
 
   virtual ~MLStartState() {

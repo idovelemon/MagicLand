@@ -11,6 +11,10 @@
 
 namespace magicland {
 
+namespace fsm {
+  class MLStateMachine;
+} // namespace fsm
+
 class MLEvilCircleSys:public MLSystem {
 public:
   MLEvilCircleSys(MLEntity* entity);
@@ -18,6 +22,9 @@ public:
 
 public:
   virtual void Run(float delta);
+
+private:
+  fsm::MLStateMachine*   m_StateMachine;
 };
 
 } // namespace magicland

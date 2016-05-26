@@ -45,6 +45,9 @@
     <Filter Include="source\fsm">
       <UniqueIdentifier>{88b9d32c-aebe-4412-a107-9a6a543e64f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\fsm\evilcircle">
+      <UniqueIdentifier>{9144c216-365c-4e18-a1eb-74c3b13e0c57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MagicLand.ico">
@@ -162,11 +165,17 @@
     <ClInclude Include="..\Classes\fsm\ml_state.h">
       <Filter>source\fsm</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\fsm\ml_statestate.h">
-      <Filter>source\fsm</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\fsm\ml_endstate.h">
       <Filter>source\fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fsm\evilcircles\ml_inscenestate.h">
+      <Filter>source\fsm\evilcircle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fsm\ml_startstate.h">
+      <Filter>source\fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fsm\evilcircle\ml_movetocenterstate.h">
+      <Filter>source\fsm\evilcircle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +256,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\fsm\ml_statemachine.cpp">
       <Filter>source\fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fsm\evilcircle\ml_inscenestate.cpp">
+      <Filter>source\fsm\evilcircle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\fsm\evilcircle\ml_movetocenterstate.cpp">
+      <Filter>source\fsm\evilcircle</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

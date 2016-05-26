@@ -2,43 +2,59 @@
 
 #include "ml_allcoms.h"
 #include "ml_entity.h"
+#include "fsm/ml_endstate.h"
+#include "fsm/ml_statemachine.h"
+#include "fsm/ml_startstate.h"
+#include "fsm/evilcircle/ml_inscenestate.h"
+#include "fsm/evilcircle/ml_movetocenterstate.h"
 
 namespace magicland {
 
 MLEvilCircleSys::MLEvilCircleSys(MLEntity* entity)
-:MLSystem(entity) {
+:MLSystem(entity)
+,m_StateMachine(NULL) {
+  m_StateMachine = new fsm::MLStateMachine(entity);
+  ML_SAFE_ASSERT(m_StateMachine != NULL, "Memory Error");
+
+  if(m_StateMachine != NULL) {
+    fsm::MLStartState* start_state = new fsm::MLStartState();
+    ML_SAFE_ASSERT(start_state != NULL, "Memory Error");
+
+    fsm::MLEndState* end_state = new fsm::MLEndState();
+    ML_SAFE_ASSERT(end_state != NULL, "Memory Error");
+
+    if(start_state != NULL && end_state != NULL) {
+      evilcircle::MLInSceneState* in_scene_state = new evilcircle::MLInSceneState(entity);
+      ML_SAFE_ASSERT(in_scene_state != NULL, "Memory Error");
+
+      evilcircle::MLMoveToCenterState* move_to_center_state = new evilcircle::MLMoveToCenterState(entity);
+      ML_SAFE_ASSERT(move_to_center_state != NULL, "Memory Error");
+
+      if(in_scene_state != NULL) {
+        m_StateMachine->AddStateEntry(start_state, in_scene_state);
+        m_StateMachine->AddStateEntry(in_scene_state, move_to_center_state);
+        m_StateMachine->AddStateEntry(move_to_center_state, end_state);
+
+        m_StateMachine->SetCurState(start_state);
+
+        ML_SAFE_DROP(in_scene_state);
+        ML_SAFE_DROP(move_to_center_state);
+      }
+
+      ML_SAFE_DROP(start_state);
+      ML_SAFE_DROP(end_state);
+    }
+  }
 }
 
 MLEvilCircleSys::~MLEvilCircleSys() {
+  ML_SAFE_DROP(m_StateMachine);
 }
 
 void MLEvilCircleSys::Run(float delta) {
-
-  ML_SAFE_ASSERT(m_Entity != NULL, "No Entity Error");
-  if(m_Entity != NULL) {
-    MLComTransform* transform = reinterpret_cast<MLComTransform*>(m_Entity->GetComponent(ML_COMTYPE_TRANSFORM));
-    ML_SAFE_ASSERT(transform != NULL, "No Component Error");
-
-    MLComDisplay* display = reinterpret_cast<MLComDisplay*>(m_Entity->GetComponent(ML_COMTYPE_DISPLAY));
-    ML_SAFE_ASSERT(display != NULL, "No Component Error");
-
-    MLComSpeed* speed = reinterpret_cast<MLComSpeed*>(m_Entity->GetComponent(ML_COMTYPE_SPEED));
-    ML_SAFE_ASSERT(speed != NULL, "No Component Error");
-
-    if(transform != NULL
-      && display != NULL
-      && speed != NULL) {
-        // Rotate
-        VECTOR2 rot = transform->GetRot();
-        float degree = transform->VecToDegree(transform->GetRot());
-        degree += speed->GetRotSpeed();
-        rot.x = cos(degree / 180.0f * 3.14159);
-        rot.y = sin(degree / 180.0f * 3.14159);
-        transform->SetRot(rot.x, rot.y);
-
-        // Draw
-        display->GetSprite()->setRotation(degree);
-    }
+  ML_SAFE_ASSERT(m_StateMachine != NULL, "No StateMachine Error");
+  if(m_StateMachine != NULL) {
+    m_StateMachine->Run(delta);
   }
 }
 
