@@ -171,13 +171,13 @@
     <ClInclude Include="..\Classes\fsm\ml_startstate.h">
       <Filter>source\fsm</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\fsm\evilcircle\ml_movetocenterstate.h">
-      <Filter>source\fsm\evilcircle</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\fsm\evilcircle\ml_closeupstate.h">
       <Filter>source\fsm\evilcircle</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\fsm\evilcircle\ml_inscenestate.h">
+      <Filter>source\fsm\evilcircle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\fsm\evilcircle\ml_waitstate.h">
       <Filter>source\fsm\evilcircle</Filter>
     </ClInclude>
   </ItemGroup>
@@ -263,10 +263,10 @@
     <ClCompile Include="..\Classes\fsm\evilcircle\ml_inscenestate.cpp">
       <Filter>source\fsm\evilcircle</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\fsm\evilcircle\ml_movetocenterstate.cpp">
+    <ClCompile Include="..\Classes\fsm\evilcircle\ml_closeupstate.cpp">
       <Filter>source\fsm\evilcircle</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\fsm\evilcircle\ml_closeupstate.cpp">
+    <ClCompile Include="..\Classes\fsm\evilcircle\ml_waitstate.cpp">
       <Filter>source\fsm\evilcircle</Filter>
     </ClCompile>
   </ItemGroup>

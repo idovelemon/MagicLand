@@ -5,6 +5,10 @@
 #include "ecs/ml_allcoms.h"
 #include "ecs/ml_entity.h"
 
+namespace magicland {
+
+namespace evilcircle {
+
 const float kMaxScale = 2.0f;
 const float kNormalScale = 1.0f;
 const float kTipNameInitX = 800.0f;
@@ -15,12 +19,8 @@ const float kTipDifficultyInitX = 0.0f;
 const float kTipDifficultyInitY = 600.0f - 30.0f;
 const float kTipDifficultySlowX = 600.0f;
 const float kTipDifficultyEndX = 700.0f;
-const float kNormalFlyInSpeed = 10.0f;
-const float kSlowRate = 0.1f;
-
-namespace magicland {
-
-namespace evilcircle {
+const float kNormalFlyInSpeed = 30.0f;
+const float kSlowRate = 0.02f;
 
 MLCloseUpState::MLCloseUpState(MLEntity* entity)
 :MLState(entity)

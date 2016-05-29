@@ -4,8 +4,8 @@
 // Date: 2016 / 05 / 26
 // Brief: Move to the center of the screen
 //------------------------------------------------------------
-#ifndef ML_FSM_EVILCIRCLE_MLMOVETOCENTERSTATE_H_
-#define ML_FSM_EVILCIRCLE_MLMOVETOCENTERSTATE_H_
+#ifndef ML_FSM_EVILCIRCLE_MLWAITSTATE_H_
+#define ML_FSM_EVILCIRCLE_MLWAITSTATE_H_
 
 #include "fsm/ml_state.h"
 
@@ -13,19 +13,22 @@ namespace magicland {
 
 namespace evilcircle {
 
-class MLMoveToCenterState:public fsm::MLState {
+class MLWaitState:public fsm::MLState {
 public:
-  MLMoveToCenterState(MLEntity* entity);
-  virtual ~MLMoveToCenterState();
+  MLWaitState(MLEntity* entity);
+  virtual ~MLWaitState();
 
 public:
   virtual void Enter(float delta);
   virtual void Run(float delta);
   virtual void Exit(float delta);
+
+protected:
+  float       m_WaitTime;
 };
 
 } // namespace evilcircle
 
 } // namespace magicland
 
-#endif // ML_FSM_EVILCIRCLE_MLMOVETOCENTERSTATE_H_
+#endif // ML_FSM_EVILCIRCLE_MLWAITSTATE_H_

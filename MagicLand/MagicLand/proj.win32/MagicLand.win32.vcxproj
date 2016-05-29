@@ -158,7 +158,7 @@
     <ClInclude Include="..\classes\framerate\ml_frameratemgr.h" />
     <ClInclude Include="..\Classes\fsm\evilcircle\ml_closeupstate.h" />
     <ClInclude Include="..\Classes\fsm\evilcircle\ml_inscenestate.h" />
-    <ClInclude Include="..\Classes\fsm\evilcircle\ml_movetocenterstate.h" />
+    <ClInclude Include="..\Classes\fsm\evilcircle\ml_waitstate.h" />
     <ClInclude Include="..\Classes\fsm\ml_endstate.h" />
     <ClInclude Include="..\Classes\fsm\ml_state.h" />
     <ClInclude Include="..\Classes\fsm\ml_statemachine.h" />
@@ -192,7 +192,7 @@
     <ClCompile Include="..\Classes\framerate\ml_frameratemgr.cpp" />
     <ClCompile Include="..\Classes\fsm\evilcircle\ml_closeupstate.cpp" />
     <ClCompile Include="..\Classes\fsm\evilcircle\ml_inscenestate.cpp" />
-    <ClCompile Include="..\Classes\fsm\evilcircle\ml_movetocenterstate.cpp" />
+    <ClCompile Include="..\Classes\fsm\evilcircle\ml_waitstate.cpp" />
     <ClCompile Include="..\Classes\fsm\ml_statemachine.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\reference\ml_reference.cpp" />
