@@ -156,7 +156,8 @@
     <ClInclude Include="..\Classes\ecs\ml_com_weapons.h" />
     <ClInclude Include="..\Classes\event\ml_eventmgr.h" />
     <ClInclude Include="..\classes\framerate\ml_frameratemgr.h" />
-    <ClInclude Include="..\Classes\fsm\evilcircles\ml_inscenestate.h" />
+    <ClInclude Include="..\Classes\fsm\evilcircle\ml_closeupstate.h" />
+    <ClInclude Include="..\Classes\fsm\evilcircle\ml_inscenestate.h" />
     <ClInclude Include="..\Classes\fsm\evilcircle\ml_movetocenterstate.h" />
     <ClInclude Include="..\Classes\fsm\ml_endstate.h" />
     <ClInclude Include="..\Classes\fsm\ml_state.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="..\Classes\ecs\ml_single_particle.cpp" />
     <ClCompile Include="..\Classes\event\ml_eventmgr.cpp" />
     <ClCompile Include="..\Classes\framerate\ml_frameratemgr.cpp" />
+    <ClCompile Include="..\Classes\fsm\evilcircle\ml_closeupstate.cpp" />
     <ClCompile Include="..\Classes\fsm\evilcircle\ml_inscenestate.cpp" />
     <ClCompile Include="..\Classes\fsm\evilcircle\ml_movetocenterstate.cpp" />
     <ClCompile Include="..\Classes\fsm\ml_statemachine.cpp" />

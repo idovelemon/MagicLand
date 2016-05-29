@@ -8,7 +8,8 @@ namespace magicland {
 namespace evilcircle {
 
 MLInSceneState::MLInSceneState(MLEntity* entity)
-  :MLState(entity) {
+:MLState(entity)
+,m_CurVortexAngle(0.0f) {
 }
 
 MLInSceneState::~MLInSceneState() {
@@ -29,20 +30,20 @@ void MLInSceneState::Enter(float delta) {
     if(transform != NULL && speed != NULL && display != NULL) {
       
       // Change the position of the evilcircle, set it at the right-up corner of the scene
-      transform->SetPos(700, 450);
+      transform->SetPos(400, 800);
 
       // Set the scale to 0
-      transform->SetScale(0.0f, 0.0f);
+      transform->SetScale(1.0f, 1.0f);
 
       // Set the scale speed
-      speed->SetScaleSpeed(0.01f);
+      speed->SetScaleSpeed(0.0f);
 
       // Set the rotation speed
       speed->SetRotSpeed(10.0f);
 
       // Update display component
       display->GetSprite()->setPosition(ccp(transform->GetPos().x, transform->GetPos().y));
-      display->GetSprite()->setScale(0.0f);
+      display->GetSprite()->setScale(1.0f);
     }
   }
 }
@@ -61,18 +62,20 @@ void MLInSceneState::Run(float delta) {
 
     if(transform != NULL && speed != NULL && display != NULL) {
 
-      // Zoom in
-      float scale_speed = speed->GetScaleSpeed();
-      VECTOR2 scale = transform->GetScale();
-      scale.x += scale_speed;
-      scale.y += scale_speed;
-      if(scale.x > 1.0f || scale.y > 1.0f) {
-        scale.x = 1.0f;
-        scale.y = 1.0f;
+      // Vortex fly
+      float radius = (360.0f - m_CurVortexAngle) / 360.0f * 500.0f;
+
+      float default_angle = -90.0f;
+      default_angle -= m_CurVortexAngle;
+      VECTOR2 pos;
+      pos.x = radius * cos(default_angle / 180.0f * 3.14159f);
+      pos.y = radius * sin(default_angle / 180.0f * 3.14159f);
+      transform->SetPos(pos.x + 400, pos.y + 300);
+
+      m_CurVortexAngle += 5.0f;
+      if(m_CurVortexAngle >= 360.0f) {
         m_IsOver = true;
       }
-
-      transform->SetScale(scale.x, scale.y);
 
       // Rotate
       VECTOR2 rot = transform->GetRot();
@@ -84,8 +87,6 @@ void MLInSceneState::Run(float delta) {
 
       // Update display component
       display->GetSprite()->setPosition(ccp(transform->GetPos().x, transform->GetPos().y));
-      display->GetSprite()->setScaleX(transform->GetScale().x);
-      display->GetSprite()->setScaleY(transform->GetScale().y);
       display->GetSprite()->setRotation(degree);
     }
   }

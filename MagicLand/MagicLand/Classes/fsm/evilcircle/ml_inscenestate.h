@@ -22,6 +22,9 @@ public:
   virtual void Enter(float delta);
   virtual void Run(float delta);
   virtual void Exit(float delta);
+
+protected:
+  float     m_CurVortexAngle;
 };
 
 } // namespace evilcircle
